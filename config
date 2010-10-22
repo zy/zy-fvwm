@@ -1,0 +1,1345 @@
+# -*- fvwm -*-
+#
+#  ~/.fvwm2rc window manager configuration file 
+#
+#  $Revision: 1.137 $ 
+#  $Date: 2005/10/21 11:57:59 $
+#
+#  Author: Piotr Zielinski (http://www.cl.cam.ac.uk/~pz215/)
+#
+
+# Requirements (debian packages):
+#
+#   * fvwm >= 2.5.11 
+#   * imagemagick        (for thumbnailed icons to work)
+#   * zenity          	 (for the quit confirmation dialog)
+#   * python	      	 (for the scripts)
+#   * python-xdg      	 (for automatic application menu)
+#   * gnome-menu      	 (for automatic application menu)
+#   * hicolor-icon-theme (for menu icons)
+#   * gnome-icon-theme   (for menu icons)
+#   * gnuserv		 (for better emacs integration)
+#   * fvwm-icons
+#
+# Recommended: firefox, rox, emacs, xterm
+#
+# Installation:
+#
+#   * Copy all files to the directory ~/.fvwm
+#     + so that this file should be ~/.fvwm/config
+#
+#   * Bind Super_L to Mod2 _before_ starting fvwm
+#     + execute xmodmap -e 'clear mod2' -e 'add mod2 = Super_L' or
+#     + add to ~/.Xmodmap
+#         clear mod2
+#         add mod2 = Super_L
+#       and execute "xmodmap ~/.Xmodmap"
+#     + to check whether everything is ok execute "xmodmap", 
+#       Super_L should be listed in the mod2 line and _in_no_other_line_
+#
+#   * Put xclock and xload to your .xsession
+#   
+# Optional:
+#
+#   * Make the current directory the title of xterm windows
+#     + add to bashrc: export PROMPT_COMMAND='echo -n -e "\033]2;$PWD\07"'
+#
+#   * Install gnuserv, and add (gnuserv-start) to ~/.emacs
+#
+#   * Add (recentf-mode t) to .emacs
+#     + fvwm will add recently edited directories to its menu
+#
+# Acknowledgments:
+# 
+#   * Tavis Ormandy (thumbnails as icons)
+#   * http://ikaro.homepage.dk/fvwm/ (button/ and decor/ pixmaps)
+#
+#
+
+Style * EwmhIgnoreStrutHints 
+ClickTime 200
+OpaqueMoveSize 100
+EdgeScroll 0 0
+EdgeResistance 10000 400
+EdgeThickness 1
+SnapAttraction 10 SameType Screen
+DesktopSize 2x2
+
+SetEnv ROXID 928372		# rox window id
+
+Test (!EnvIsSet FVWM_TEMP) SetEnv FVWM_TEMP /tmp/fvwm.$[USER]
+Test (!EnvIsSet FVWM_ICONS) SetEnv FVWM_ICONS $[FVWM_USERDIR]/icons
+
+PipeRead "for file in `which x-www-browser mozilla firefox $[FVWM_BROWSER]`;do\
+	  echo SetEnv FVWM_BROWSER $$file ; done"
+
+PipeRead "for file in `which nautilus pcmanfm rox-filer rox $[FVWM_FILEMANAGER]` ; do \
+	  echo SetEnv FVWM_FILEMANAGER $$file ; done"
+
+PipeRead "for file in `which gnome-open rox-filer rox $[FVWM_OPENER]` ; do \
+	  echo SetEnv FVWM_OPENER $$file ; done"
+
+
+ImagePath $[FVWM_USERDIR]
+ImagePath +:/usr/share/pixmaps:/usr/local/share/fvwm/icons:/usr/local/icons:/usr/share/icons:/usr/share/icons/mini:/usr/share/icons/wm-icons:/usr/X11R6/include/X11/pixmaps
+ImagePath +:/usr/share/icons/gnome/24x24;.png
+ImagePath +:/usr/share/icons/gnome/24x24/apps;.png
+ImagePath +:/usr/share/icons/hicolor/24x24/apps;.png
+ImagePath +:/usr/share/icons/hicolor/24x24/stock/generic;.png
+ImagePath +:/usr/share/icons/wm-icons/32x32-kde2;.xpm
+ImagePath +:/usr/share/pixmaps;.png;/usr/share/pixmaps;.xpm
+
+
+AddToFunc RedefineFunc
++ I DestroyFunc $0
++ I AddToFunc $*
+
+RedefineFunc StartFunction
++ I Exec exec mkdir -p $[FVWM_TEMP] $[FVWM_ICONS]
++ I Module FvwmPager
++ I Wait FvwmPager
++ I Module FvwmEvent
++ I Module FvwmCommandS
+# + I Module FvwmButtons BaseButtons
++ I Module FvwmAuto 0 -menterleave OnEnter OnLeave
+#+ I Wait BaseButtons
++ I Module FvwmPager
++ I Wait FvwmPager
++ I All (FvwmPager) Resize 160p 160p
++ I HidePager
++ I ShowNotifications
++ I A
+
+RedefineFunc SessionInitFunction
++ I All (gnome-panel) Move keep w-1p
+
+#
+# ========== STYLES ==========
+#
+
+#---------- Colorsets ----------
+
+CleanupColorsets
+DefaultColorset -1
+ColormapFocus FollowsFocus
+
+Colorset 1 fg grey90, bg rgb:70/70/80 # inactive windows
+Colorset 2 fg black, bg grey75	      # active
+Colorset 3 fg black, bg grey80	      # inactive menu entries
+Colorset 4 fg black, bg grey95	      # active menu entries
+
+Colorset 20 fg white, bg black	      # FvwmPager active
+Colorset 21 fg black, bg white	      # FvwmPager inactive
+Colorset 24 fg white, bg rgb:70/70/80 # FvwmPager ?
+Colorset 23 fg black, bg grey83	      # FvwmPager ?
+
+
+# ---------- Cursors ----------
+
+CursorStyle TOP           132
+CursorStyle RIGHT         132
+CursorStyle BOTTOM        132
+CursorStyle LEFT          132
+CursorStyle TOP_LEFT      132
+CursorStyle TOP_RIGHT     132
+CursorStyle BOTTOM_LEFT   132
+CursorStyle BOTTOM_RIGHT  132
+
+
+# ---------- Menu styles ----------
+
+MenuStyle * Font "xft:Bitstream Vera Sans:size=10"
+MenuStyle * MenuColorset 3, ActiveColorset 4, HilightBack
+MenuStyle * Hilight3DOff, PopupOffset +0 100, BorderWidth 0
+MenuStyle * TitleUnderlines1, SeparatorsLong, TrianglesSolid
+MenuStyle * AutomaticHotKeysOff, TitleWarp
+MenuStyle * VerticalItemSpacing 2 10
+MenuStyle * VerticalTitleSpacing 1 4
+MenuStyle * PopupAsRootMenu, HoldSubmenus, PopupImmediately
+
+
+# ---------- Titles ----------
+
+TitleStyle AllInactive TiledPixmap decor/title-inactive.png  -- Flat 
+TitleStyle AllActive   TiledPixmap decor/title-active.png -- Flat 
+TitleStyle Height 20
+
+# ---------- Buttons ----------
+
+BorderStyle Simple -- HiddenHandles NoInset
+ButtonStyle All Simple -- UseTitleStyle
+ButtonStyle All -- Flat
+
+
+AddButtonStyle 1 \
+	ActiveUp   (Pixmap button/options-activeup.png   -- flat) \
+	ActiveDown (Pixmap button/options-activedown.xpm -- flat) \
+	Inactive   (Pixmap button/1inactive.xpm   -- flat)
+
+AddButtonStyle 2 \
+	ActiveUp   (Pixmap button/close-activeup.png   -- flat) \
+	ActiveDown (Pixmap button/close-activedown.xpm -- flat) \
+	Inactive   (Pixmap button/1inactive.xpm   -- flat)
+
+AddButtonStyle 4 \
+	ActiveUp   (Pixmap button/iconify-activeup.png   -- flat) \
+	ActiveDown (Pixmap button/iconify-activedown.xpm -- flat) \
+	Inactive   (Pixmap button/1inactive.xpm   -- flat)
+
+AddButtonStyle 6 \
+	ActiveUp   (Pixmap button/maximize-activeup.png   -- flat) \
+	ActiveDown (Pixmap button/maximize-activedown.xpm -- flat) \
+	Inactive   (Pixmap button/1inactive.xpm   -- flat)
+
+# ---------- Windows styles ----------
+
+# Look
+
+DefaultFont 	"xft:Bitstream Vera Sans:size=10"
+Style *	 Font 	"xft:Bitstream Vera Sans:size=10:style=Bold"
+
+Style * DecorateTransient
+Style * Button 1, Button 2, Button 4, Button 6
+Style * BorderWidth 1, HandleWidth 1, Handles
+
+# Focus
+
+Style * SloppyFocus, GrabFocusOff
+Style * MWMFunctions, HintOverride, MWMDecor
+Style * RaiseTransient
+Style * GrabFocusTransient
+Style * FPClickRaisesFocused, FPPassRaiseClick,  FPIgnoreRaiseClickMotion
+
+# Placement / Moving / Resizing
+
+# we have 0.01 for both "ontop" and "below" because all non-iconified
+# windows with a different layer than the current (normal) window must
+# be BaseButtons
+
+Style * UsePPosition, UseTransientPPosition
+Style * MinOverlapPercentPlacement
+Style * MinOverlapPlacementPenalties 1 0.7 0.01 0.50 0.5 0.01
+Style * MinOverlapPercentPlacementPenalties 0.012 0.006 0.003 0.001
+Style * ResizeOutLine
+Style * WindowShadeSteps 0
+Style zenity CenterPlacement
+
+# Icons
+
+Style * IconBox 900x500+340--1, IconGrid 120 120, IconFill Left Bottom
+Style * IconSize 110 0 120 200
+Style * IconTitle
+Style *	IconTitleRelief 1, IconBackgroundPadding 0, IconBackgroundRelief 0
+Style * IconTitleColorset 1, HilightIconTitleColorset 2
+Style * Icon window.xpm
+
+# Special windows
+
+Style FvwmButtons NeverFocus, NoTitle, StaysOnBottom, WindowListSkip, \
+      		  FixedPosition, FixedSize, Sticky, Borders
+Style FvwmPager   NoTitle,  Sticky, WindowListSkip, CirculateSkipIcon, \
+      		  CirculateSkip,  StaysOnBottom, !Borders
+Style FvwmNotify  NeverFocus, NoTitle, Sticky, WindowListSkip, State 6
+Style gnome-panel State 6
+
+# ---------- Windows (specific) ----------
+
+# Style "xclock"	  NoTitle, Sticky, CirculateSkip
+# Style "xload"	  NoTitle, Sticky, CirculateSkip
+
+
+		  			
+# dialogs that are really transient but don't claim to be
+
+Style "Prompt"		  GrabFocus, State 6
+Style "Delete"		  GrabFocus, State 6
+Style "Create"		  GrabFocus, State 6
+Style "Rename"		  GrabFocus, State 6
+Style "del.icio.us posts" GrabFocus
+Style "Glade"	   	  State 6
+Style "NoClass"	   	  State 6
+Style "RoxTracker"	  FixedPSize, FixedPPosition, CirculateSkip
+Style "Speedbar*"	  CirculateSkip, CirculateSkipIcon
+Style "*SPEEDBAR"	  CirculateSkip, CirculateSkipIcon
+
+# application-specific
+
+Style "gaim"  	        Sticky
+Style "xmms" 	   	NoTitle, Borders
+Style "xwrits"	   	Sticky
+Style "best"	   	FixedPPosition, FixedPSize
+Style "vncviewer"	NoTitle, !Borders
+Style "Xpdf"		NoPPosition
+
+Style "*Firefox" 	EwmhUseStrutHints
+Style "*Firefox Beta 2" EwmhUseStrutHints
+Style "*Bon Echo*" 	EwmhUseStrutHints
+
+#
+# ========== FUNCTIONS ==========
+#
+
+RedefineFunc Hide
++ I	  Move -10000p -10000p
+
+RedefineFunc GotoAndFollow
++ I	  Raise
++ I  	  ThisWindow (!Sticky) MoveToPage $0 $1
++ I  	  GotoPage $0 $1
+
+RedefineFunc MoveAndFollow
++ I	  Raise
++ I  	  Move $0 $1
++ I  	  WarpToWindow 5 5
+
+RedefineFunc AndWarp
++ I $*
++ I WarpToWindow 5p 5p
+
+RedefineFunc SelectWindowNoWarp
++ I Deiconify
++ I FlipFocus
+
+RedefineFunc WindowListFunc
++ I SelectWindowNoWarp
++ I WarpToWindow 5p 5p
+
+RedefineFunc OpenOrExec
++ I Next ($0, Iconic, CurrentPage) ThisWindow (!"*SPEEDBAR") SelectWindowNoWarp
++ I TestRc (NoMatch) $1 
+
+RedefineFunc ThisOrCurrent
++ I ThisWindow $*
++ I TestRc (!Match) Current $*
+
+RedefineFunc InCurrentDirectory
++ I ThisOrCurrent (Rox|ROX-Filer|Pcmanfm) \
+    Exec eval cd `echo '$[w.name]' | sed -e 's/ (.*) $$//'`; $*
++ I TestRc (!Match) ThisOrCurrent (xterm) ThisWindow ("*/*") \
+    Exec eval cd `echo '$[w.name]' | sed -e 's/.* //'`; $*
++ I TestRc (!Match) \
+    Exec cd `gnuclient -batch -eval "(let ((filename (buffer-file-name))) \
+     (and filename (file-name-directory filename)))"` ; $*
+
+RedefineFunc RecreateMenu
++ I DestroyMenu "$0"
++ I PipeRead "$1"		# recreate data
++ I PipeRead "sed -ne '\\!AddToMenu\\s\\s*$0!,/^\\s*$$/p' $[FVWM_USERDIR]/config" # incorporate it
+
+
+RedefineFunc Recent
++ I $*
++ I RecreateMenu RecentMenu "$./scripts/add-recent-app $./recent.menu Recent '$*' > /dev/null"
+
+
+# ---------- Iconification ----------
+
+RedefineFunc LowerAndDeiconify
++ I	  OnDeiconify3
++ I	  Lower
++ I	  Iconify Off
+
+RedefineFunc AutoDeiconify
++ I	  All (CurrentPage, Iconic, State 5) LowerAndDeiconify
+
+RedefineFunc IconifyPointer
++ I	Current (!Iconic, Layer 4) MyIconify
++ I	Current (!Iconic, Layer 3) MyIconify
+
+RedefineFunc ClosePointer
++ I	Current (Layer 4) Close
++ I	Current (Layer 3) Close
+
+RedefineFunc MyIconify
++ I	  Iconify On
++ I	  State 4 false		
++ I	  Layer 0 2
++ I 	  Any (gnome-panel, Layer 8) All (Iconic) Layer 0 8
++ I	  EnsureFocus
+
+RedefineFunc AutoIconify
++ I	  ThisWindow (opengazer) Break
++ I	  State 5 true		# mark window as autoiconified
++ I 	  MyIconify
+
+RedefineFunc PutOnStandardLayer
++ I 	  Layer 0 4
++ I	  WindowStyle MinOverlapPercentPlacement
+
+RedefineFunc OnDeiconify
++ I 	  ThisWindow (Layer 2) PutOnStandardLayer
++ I 	  ThisWindow (Layer 8) PutOnStandardLayer
++ I	  State 5 false		# no longer autoiconified
+
+RedefineFunc OnDeiconify3
++ I 	  Layer 0 3
++ I	  State 5 false		# no longer autoiconified
+
+RedefineFunc DeiconifyRaw
++ I	  OnDeiconify
++ I	  Iconify Off
++ I	  PlaceAgain
++ I	  RearrangeWindows
+
+RedefineFunc Deiconify
++ I	  ThisWindow (Iconic) DeiconifyRaw
++ I	  Raise
++ I 	  PointerWindow OnEnter
+
+# ---------- Others ----------
+
+RedefineFunc Unsuppress 
++ I RedefineFunc IfNotSuppressed I $$$$*
++ I RedefineFunc IfSuppressed I KeepRc Nop
+
+RedefineFunc Suppress
++ I RedefineFunc IfSuppressed I $$$$*
++ I RedefineFunc IfNotSuppressed I KeepRc Nop
+
+RedefineFunc TestSuppressed
++ I Any (!Iconic) Nop
++ I IfNotSuppressed None (!Iconic) Nop
+
+Unsuppress
+
+RedefineFunc TempSuppress
++ I Suppress
++ I Deschedule 40
++ I NoWindow Schedule $0 40 Unsuppress
+
+# ---------- Maximization
+
+RedefineFunc NoXMoveMaximize1
++ I Maximize $1 $2
++ I Move $0p w0
+
+RedefineFunc NoXMoveMaximize 
++ I NoXMoveMaximize1 $[w.x] $0 $1
+
+RedefineFunc BackToScreen 
++ I Piperead "expr $[w.x] + $[w.width] \\> $[vp.width] > /dev/null && echo 'Move $0p w0' || echo Nop"
+
+RedefineFunc CustomMaximize
++ I 	  ThisWindow ("*Deer Park|*Firefox|*Iceweasel|*Firefox Beta 2|Bon Echo Beta 2|*- Bon Echo*") NoXMoveMaximize 1006p 100
++ I 	  TestRc (NoMatch) NoXMoveMaximize 0 100
++ I	  Schedule 50 ThisWindow (!Raised) Move -0 w0
+
+RedefineFunc CustomUnmaximize
++ I ThisWindow ("emacs") Exec exec gnuclient -batch -f delete-other-windows
++ I Maximize off
+
+RedefineFunc CustomFullMaximize
++ I ThisWindow ("emacs") Exec exec gnuclient -batch -eval "(when (one-window-p) (split-window-horizontally) (display-buffer (other-buffer) t))"
++ I Maximize on $*
+
+RedefineFunc MyMaximize
++ I	  ThisWindow (CurrentPage, !Maximized, !Iconic) All (CurrentPage, Overlapped, Maximized, !Focused, !Iconic) IfNotSuppressed CustomUnmaximize
++ I	  ThisWindow (Maximized) KeepRc IfNotSuppressed CustomUnmaximize
++ I	  TestRc (Match) KeepRc IfNotSuppressed AutoDeiconify
++ I	  TestRc (Match) KeepRc IfSuppressed CustomFullMaximize
++ I	  TestRc (!Match) CustomMaximize
++ I	  TestSuppressed 
++ I	  TestRc (!Match) KeepRc TempSuppress 1000
++ I	  TestRc (Match) KeepRc Unsuppress
++ I	  RearrangeWindows
+
+RedefineFunc VerticalGrow
++ I	    Maximize growonwindowlayer 0 grow
+
+RedefineFunc VerticalMaximize
++ C	    MyMaximize 
++ D	    VerticalGrow
+
+RedefineFunc BothGrow
++ I	    Maximize growonwindowlayer grow grow
+
+RedefineFunc BothMaximize
++ C	    CustomFullMaximize 100 100
++ D	    BothGrow
+
+RedefineFunc HorizontalGrow
++ I	    Maximize growonwindowlayer grow 0
+
+RedefineFunc HorizontalMaximize
++ C	    CustomFullMaximize 100 0
++ D	    HorizontalGrow
+
+# ---------- Standard click handling functions
+
+RedefineFunc LeftClick
++ I	  HidePager
++ I	  RaiseLower 
++ I	  Schedule 20 ThisWindow (Layer 3) PutOnStandardLayer
++ I	  Schedule 20 ThisWindow (Layer 4, Overlapped) All (CurrentPage, Layer 3) PutOnStandardLayer
+# + I	  Any (Layer 8) Raise
+# + I	  TestRc (Match) LowerBar 
++ M 	  Raise
++ M 	  Move
++ M	  RearrangeWindows
++ D	  Raise
++ D	  MyMaximize
+
+RedefineFunc CornerLeftClick
++ I	  HidePager
++ I	  RaiseLower
++ M 	  Raise
++ M 	  Move
++ M	  RearrangeWindows
++ D	  Raise
++ D	  CustomFullMaximize 100 100
++ D	  All (CurrentPage, Layer 4, !Maximized) AutoIconify
++ D	  All (CurrentPage, Layer 3, !Maximized) AutoIconify
+
+RedefineFunc LeftClickRoot
++ I	  HidePager
++ I	  LowerBar
++ M 	  Current (CurrentPage) Raise
++ M 	  Current (CurrentPage) Move
++ M 	  Current (CurrentPage) RearrangeWindows
++ I	  Current (CurrentPage) RaiseLower 	  
+#+ C	  Current (CurrentPage, Iconic) Deiconify
++ D	  Current (CurrentPage) Raise
++ D	  Current (CurrentPage) MyMaximize
+
+RedefineFunc RightClick
++ I	  HidePager
++ M 	  Raise
++ M 	  ThisWindow (!Iconic) Resize
++ M 	  ThisWindow (!Iconic) RearrangeWindows
++ H 	  Raise
++ H 	  ThisWindow (!Iconic) Resize
++ C 	  Menu $* 
+
+RedefineFunc RightClickRoot
++ M 	  Current (CurrentPage, !Iconic) Raise
++ M 	  Current (CurrentPage, !Iconic) Resize
++ M	  RearrangeWindows
++ H 	  Current (CurrentPage, !Iconic) Raise
++ H 	  Current (CurrentPage, !Iconic) Resize
++ H	  RearrangeWindows
++ C 	  WindowId root Menu $* 
+
+RedefineFunc SuperLeftClick
++ I PointerWindow (FvwmPager) FakeClick modifiers -2 press 1 
++ I TestRc (Match) Break
++ I HidePager
++ I PointerWindow (gnome-panel) FakeClick modifiers -2 press 1 
++ I TestRc (Match) Break
++ I LeftClick 
+
+# ---------- Switching between windows ----------
+
+
+RedefineFunc NextWindow
++ I	  HideTrackers
++ I	  Next (CurrentPage, AcceptsFocus) Focus
++ I	  Current (Layer 3) PutOnStandardLayer
++ I 	  Current Raise
++ I 	  Current WarpToWindow 5 5
+
+RedefineFunc PrevWindow
++ I	  HideTrackers
++ I	  Prev (CurrentPage, AcceptsFocus) Focus
++ I	  Current (Layer 3) PutOnStandardLayer
++ I 	  Current Raise
++ I 	  Current WarpToWindow 5 5
+
+
+# ---------- Bar functions
+
+RedefineFunc RaiseBarRaw
++ I	  All (gnome-panel) Layer 0 8
++ I	  All (Iconic) Layer 0 8
++ I 	  BusyTime
+
+
+RedefineFunc RaiseBar
++ I	  RaiseBarRaw
++ I	  All (gnome-panel) State 0 true
+
+RedefineFunc FocusBar
++ I	  All (Iconic) Layer 0 2
++ I	  All ("Top Panel") Focus
++ I	  Deschedule 10
+
+
+RedefineFunc LowerBarRaw
++ I	  All (Iconic) Layer 0 2
++ I	  All (gnome-panel) Layer 0 2
+
+
+RedefineFunc LowerBar
++ I	  LowerBarRaw
++ I	  All (gnome-panel) State 0 false
+
+RedefineFunc RaiseLowerBar 
++ I 	  All (gnome-panel, State 0) LowerBarRaw
++ I	  All (gnome-panel) State 0
++ I 	  All (gnome-panel, State 0) RaiseBarRaw
+
+RedefineFunc SuperPress
++ I	  All State 8 off
++ I	  RearrangeWindows
++ I	  NoWindow Schedule 50 Maintenance
++ I	  RaiseBar
++ I	  ShowPager 50 50
++ I	  All (FvwmPager) Move w-80p w-80p
+#+ I	  Schedule 1000 PointerWindow (FvwmPager) ShowPager w+0 w+200p 
++ I	  SuperTest
+
+RedefineFunc ChangeFocus
++ I	  All (State 8) FlipFocus
++ I	  ThisWindow WindowListFunc
+
+RedefineFunc RestoreFocus I Nop
+
+RedefineFunc SaveFocus 
++ I 	  None (State 8) Current State 8 on
++ I 	  RedefineFunc RestoreFocus I Current ChangeFocus
++ I	  $*
+
+RedefineFunc SuperDepress
++ I	  LowerBar
++ I	  HidePager
++ I	  Deschedule 10   
++ I	  RestoreFocus
++ I 	  RedefineFunc RestoreFocus I Nop
++ I	  All State 8 off
+
+RedefineFunc SuperTest
++ I	  NoWindow FakeKeypress depth 1 press F12
++ I	  Deschedule 10
++ I	  NoWindow Schedule 50 10 SuperTest
+
+RedefineFunc BusyTime
++ I Deschedule 14 # taking snapshots
++ I NoWindow Schedule 10000 14 LongFocused
+
+RedefineFunc LightMaintenance
++ I All (CurrentPage, Raised, !State 1, !Iconic, Layer 4, !XTermAuto, !FvwmNotify) CaptureWindow
+
+# $0 = x, $1 = y $2 = size y
+RedefineFunc HideTrackers
++ I All ("RoxTracker|Speedbar 1*") Layer 0 3
++ I All ("RoxTracker|Speedbar 1*") Lower
++ I All ("RoxTracker|Speedbar 1*") Myiconify
+
+RedefineFunc ShowTracker
++ I Next ($0, CirculateHit, CirculateHitIcon) ShowTrackerReal $1 $2 $3
++ I Raise
++ I All State 9 off		# tracked window
++ I ThisWindow State 9 on
+
+RedefineFunc ShowTrackerReal
++ I OnDeiconify
++ I Iconify Off
++ I Raise
++ I ResizeMove keep $2p $0p $1p
++ I ThisWindow ("SpeedBar*") Resize 280p keep
++ I Layer 0 5
++ I Raise
+
+
+RedefineFunc EdgeMaintenance
+# + I PointerWindow ("Speedbar*") Nop
+# + I TestRc (!Match) Any ("SpeedBar*", CurrentPage, !Iconic) HideSpeedbar
++ I All (!Iconic, !State 6, AcceptsFocus, Layer 2) PutOnStandardLayer
++ I All (!Iconic, !State 6, AcceptsFocus, Layer 8) PutOnStandardLayer
++ I All (Iconic) PlaceAgain Icon
++ I RearrangeWindows
++ I None (CurrentPage, Layer 4, !FvwmNotify, !Iconic) None (CurrentPage, Layer 3, !FvwmNotify, !Iconic) AutoDeiconify
+
+RedefineFunc Maintenance
++ I EdgeMaintenance
+
+RedefineFunc LongFocused
++ I Current (Layer 4) LowerBar
++ I HidePager
+All (CurrentPage, Raised, !Iconic) CaptureWindow
++ I All (!Visible, CurrentPage, !Iconic, !Sticky, !Focused) AutoIconify
++ I RearrangeWindows
++ I BusyTime
+
+RedefineFunc CaptureWindow
++ I Any ("Gtk Gaze Tracker*") Break
++ I ThisWindow State 1 true
++ I Exec nice -19 xwd -silent -id $[w.id] > $[FVWM_TEMP]/icon.tmp.$[w.id].xwd && nice -19 convert -scale 110 -frame 1x1 -mattecolor black -quality 0 xwd:$[FVWM_TEMP]/icon.tmp.$[w.id].xwd png:$[FVWM_TEMP]/icon.tmp.$[w.id].png && FvwmCommand "WindowId $[w.id] WindowStyle IconOverride, Icon $[FVWM_TEMP]/icon.tmp.$[w.id].png, StaysOnBottom"
+
+
+# ---------- focus magic ----------
+
+RedefineFunc EnsureFocus
++ I None (Focused, CurrentPage, !Iconic) Direction FromPointer Center (Layer 4, AcceptsFocus, CurrentPage, !Iconic) FlipFocus
++ I None (Focused, CurrentPage) Next (CurrentPage) FlipFocus
+
+RedefineFunc IconOpenOrMove
++ M 	  Move
++ C	  Deiconify
+
+RedefineFunc IconClick
++ I	  Next (State 4) IfSuppressed RaiseLower
++ C	  IfNotSuppressed Deiconify
++ D	  Next (State 4) Raise
++ D	  Next (State 4) MyMaximize
++ M	  LowerBar
++ M 	  Next (State 4) Raise
++ M	  Next (State 4) Move
+
+
+RedefineFunc LowerIconWindowResize
++ I 	  LowerBar
++ D	  Next (State 4) MyIconify
++ M 	  Next (State 4) Raise
++ M 	  WindowId root WarpToWindow $[pointer.x]p 100 # warp back to the
+						 # edge to start resizing
++ M       Next (State 4) Resize
++ H 	  Next (State 4) Raise	
++ H 	  Next (State 4) Resize
+
+# ---------- event functions 
+
+RedefineFunc OnEnter
++ I ThisWindow (gnome-panel) Deschedule 12
++ I ThisWindow (FvwmPager)   Deschedule 12
++ I ThisWindow (Iconic)	     Deschedule 12
++ I ThisWindow (gnome-panel) RaiseBarRaw
++ I ThisWindow (Iconic)      RaiseBarRaw
++ I ThisWindow (!gnome-panel, !FvwmPager, !Iconic) Schedule 500 12 SuperTest
+# + I Deschedule 21
+# + I ThisWindow (!FvwmPager) NoWindow Schedule 2000 21 PointerWindow (!FvwmPager, Layer 4) HidePager
++ I LightMaintenance
++ I BusyTime
++ I ThisWindow (State 9) Nop
++ I TestRc (!Match) Current (Layer 4, HasPointer) HideTrackers
++ I ThisWindow (!Iconic) All State 4 false
++ I ThisWindow (!Iconic) State 4 true
++ I Deschedule $[w.id]
++ I NoWindow Schedule 200 30 PreSetEdges
+
+RedefineFunc QuarantineWindowAlways
++ I ThisWindow (opengazer) Break
++ I Layer 0 3
++ I WindowStyle MinOverlapPlacement
++ I Raise
+
+RedefineFunc QuarantineWindow 
++ I None (CurrentPage, Layer 3)
++ I TestRc (!Match) KeepRc All (CurrentPage, !Raised, !Focused, Layer 4) OnLeave
++ I TestRc (Match) ThisWindow (CurrentPage, !Maximized, !Raised, !Focused, Layer 4) QuarantineWindowAlways
+# + I ThisWindow (CurrentPage, Maximized, !Raised, !Focused, Layer 4) CustomUnmaximize
+
+RedefineFunc OnLeave
++ I ThisWindow (FvwmPager) NoWindow Schedule 200 21 PointerWindow (!FvwmPager) HidePager
++ I Deschedule $[w.id]
++ I Schedule 60000 $[w.id] QuarantineWindow
+
+RedefineFunc NewPageFunction
++ I All (!Iconic, Layer 4, Sticky, !FvwmNotify) PlaceAgain
++ I All (!Iconic, Layer 3, Sticky, !FvwmNotify) PlaceAgain
++ I RearrangeWindows
++ I EnsureFocus
+
+RedefineFunc AddToList
++ I Exec exec addtobuffer $[HOME]/myfiles/org/$0.org "$1"
++ I AddToListErr
+
+RedefineFunc UserNewWindowFunction
++ I ThisWindow (RoxTracker) Resize 100p keep
++ I ThisWindow ("\*Remember\*") WindowListFunc
++ I ThisWindow ("Opening *") AddToList downloads "$[w.name]"
++ I ThisWindow ("Buddy List") MyIconify
++ I ThisWindow ("*Deer Park") Resize 62 65
++ I ThisWindow (opengazer) Layer 0 6
++ I ThisWindow ("Reminder") SwallowWindow
++ I ThisWindow ("*Firefox|*Iceweasel") ThisWindow (!"*Downloads") Resize 800p 800p
+#+ I ThisWindow ("*Firefox Beta 2") ThisWindow (!"*Downloads") Resize 60 70
++ I ThisWindow ("*- Bon Echo*") ThisWindow (!"*Downloads") Resize 60 70
++ I ThisWindow ("Bon Echo Beta 2") ThisWindow (!"*Downloads") Resize 60 70
++ I ThisWindow (gnome-panel) Move keep w-1p
+
+RedefineFunc NewWindowFunction
++ I ThisWindow (!FvwmNotify,!Transient) RedefineFunc MaybeQuit I Nop
++ I UserNewWindowFunction
++ I ThisWindow (FvwmNotify) AddNotification 
++ I None (Focused, CurrentPage, !Iconic) WindowId $0 FlipFocus
+
+RedefineFunc OnDestroyWindow
++ I AutoDeiconify
++ I MaybeQuit
+
+RedefineFunc OnRaiseWindow
++ I ThisWindow (Focused, Layer 3) PutOnStandardLayer
+
+RedefineFunc OnTitleChange
++ I ThisWindow ("NOTIFY*", Iconic) Exec exec $./utils/notify "Window: $[w.name]" orange "WindowId $[w.id] SelectWindowNoWarp"
+# + I ThisWindow (Emacs, !Overlapped) ThisWindow (!"Speedbar*") \
+#     Exec exec $[FVWM_USERDIR]/scripts/rox-tracker $[ROXID] \
+#     `gnuclient -batch -eval "(let ((filename (buffer-file-name))) \
+#       (and filename (file-name-directory filename)))"`
++ I ThisWindow (xterm, !Overlapped) \
+    Exec exec $[FVWM_USERDIR]/scripts/rox-tracker $[ROXID] $[w.name]
+# + I ThisWindow (RoxTracker) \
+#     Exec exec echo $[w.name] | sed 's/ (.*//' > $[HOME]/trackdir
+
+# ---------- autopositioning ----------
+
+RedefineFunc RearrangeWindows
++ I None (CurrentPage, !Iconic, Transient) \
+    None (CurrentPage, !Iconic, State 6) \
+    Current (Raised, !State 6, !Iconic) RearrangeWindowsAlways
+
+RedefineFunc RearrangeWindowsAlways
+# + I All (!State 6, Maximized, CurrentPage, Overlapped, !Iconic, !Focused, !Transient, Layer 4) PlaceAgain
+# + I All (!State 6, !Maximized, CurrentPage, Overlapped, !Iconic, !Focused, Layer 4,  !Transient) PlaceAgain
++ I All (CurrentPage, !State 6, !Transient, !Visible, !Iconic, Layer 4) PlaceAgain
+
+# + I All (!State 6, Maximized, CurrentPage, !Raised, !Iconic, !Focused, !Transient, Layer 3) PlaceAgain
+# + I All (!State 6, !Maximized, CurrentPage, !Raised, !Iconic, !Focused, Layer 3,  !Transient) PlaceAgain
++ I All (CurrentPage, !State 6, !Transient, !Visible, !Iconic, Layer 3) PlaceAgain
+
+#+ I NoWindow Schedule 1000 All (!Visible, CurrentPage, !Iconic, !Sticky, !Focused) AutoIconify
+
+
+RedefineFunc PlaceAgainAll
++ I All (Visible, CurrentPage, !Iconic, !gnome-panel, Layer 4, !FvwmNotify) PlaceAgain
++ I All (Visible, CurrentPage, !Iconic, !gnome-panel, Layer 3, !FvwmNotify) PlaceAgain
+
+RedefineFunc MoveToPageAndPlaceAgain
++ I MoveToPage $*
++ I EnsureFocus
++ C Raise			# (C)lick prevents the pager from
+				# receiving the key depress event and
+				# going to that page
+
+# ---------- application specific ----------
+
+
+RedefineFunc RemoteShell
++ I Exec exec xterm -ai -geometry 80x30  -bg rgb:e8/e8/e8 -T "$*" -e ssh -X $*
+
+RedefineFunc OpenFvwmConsole
++ I OpenOrExec FvwmConsole "Module FvwmConsole -terminal xterm -g 80x20 -fg black -bg white"
+
+RedefineFunc OpenBrowser
++ I OpenOrExec "Firefox-bin" \
+    "Exec $[FVWM_BROWSER] -remote 'openURL(about:blank, new-window)' || \
+          exec $[FVWM_BROWSER]"
+
+RedefineFunc XTermFunction
++ I InCurrentDirectory exec xterm -geometry 80x30
+
+RedefineFunc OpenFile
++ I InCurrentDirectory if [ -d $* ] ; \
+      then exec $[FVWM_FILEMANAGER] $* ; \
+      else exec $[FVWM_OPENER] $* ; fi
+
+
+# ------------------ edge commands: schedule 30 - nop, 31 - normal
+
+RedefineFunc ShowSpeedbarTracker 
+#+ I WindowId $[TRACKEDID] (!Focused) 
++ I ThisWindow (!State 9) Exec gnuclient -batch -f local-speedbar-reattach-to-current-frame
++ I ShowTracker "*SPEEDBAR|Speedbar*" $0$[w.width] $[w.y] $[cw.height]
+
+RedefineFunc ShowRoxTracker 
++ I Exec exec $[FVWM_USERDIR]/scripts/rox-tracker $[ROXID] $[w.name]
++ I ShowTracker "RoxTracker"  $0$[w.width] $[w.y] $[cw.height]
+
+# RedefineFunc ShowEmacsRoxTracker 
+# + I Exec exec $[FVWM_USERDIR]/scripts/rox-tracker $[ROXID] \
+#    `gnuclient -batch -eval "(let ((filename (buffer-file-name))) \
+#       (and filename (file-name-directory filename)))"`
+# + I ShowTracker "RoxTracker"  $0$[w.width] $[w.y] $[cw.height]
+
+
+RedefineFunc EdgeFunctionLeft
++ I EdgeFunction $*
++ I Current (Emacs, !Overlapped) ThisWindow (!"Speedbar*") ShowSpeedbarTracker
+#+ I None ("*SPEEDBAR|Speedbar*", CirculateHit) Current (Emacs, !Overlapped) ShowEmacsRoxTracker
++ I Current (xterm, !Overlapped) ShowRoxTracker 
+
+RedefineFunc EdgeFunctionRight
++ I EdgeFunction $*
++ I Current (Emacs, !Overlapped) ThisWindow (!"Speedbar*") ShowSpeedbarTracker -
++ I None ("*SPEEDBAR|Speedbar*", CurrentPage, CirculateHit) Current (Emacs, !Overlapped) ShowEmacsRoxTracker -
++ I Current (xterm, !Overlapped) ShowRoxTracker -
+
+
+RedefineFunc EdgeFunction
++ I Deschedule 30
++ I Deschedule 31
++ I NoWindow Schedule 200 30 PreSetEdges
++ I EdgeClear
++ I EdgeMaintenance
++ I RearrangeWindows
++ I $*
+
+RedefineFunc SetEdges
++ I Deschedule 30
++ I Deschedule 31
++ I EdgeCommand South EdgeFunction EdgeBar	
++ I EdgeCommand North EdgeFunction ShowPager m-80p m40p
++ I EdgeCommand West EdgeFunctionLeft ShowPager m40p m-80p
++ I EdgeCommand East EdgeFunctionRight ShowPager m-200p m-80p
+
+SetEdges
+
+RedefineFunc EdgeClear
++ I EdgeCommand South 
++ I EdgeCommand North 
++ I EdgeCommand West 
++ I EdgeCommand East 
+
+RedefineFunc PreSetEdges
++ I Deschedule 30
++ I Deschedule 31
+# + I PointerWindow (Iconic) NoWindow Schedule 200 30 PreSetEdges
+# + I TestRc (Match) Break
++ I EdgeCommand South EdgeFunction Nop
++ I EdgeCommand North EdgeFunction Nop
++ I EdgeCommand West EdgeFunctionLeft Nop
++ I EdgeCommand East EdgeFunctionRight Nop
++ I NoWindow Schedule 200 31 SetEdges
+
+RedefineFunc EdgeBar
++ I Deschedule 12
++ I PointerWindow OnEnter	
++ I TempSuppress 200
++ I RaiseBarRaw			
+
+
+# ---------- pager ----------
+
+RedefineFunc HidePager
++ I All (FvwmPager) Hide
++ I All (FvwmPager) Layer 0 2
+
+
+RedefineFunc SchedulePager
++ I Deschedule 21
++ I NoWindow Schedule 2000 21 PointerWindow (!FvwmPager) HidePager
+
+
+RedefineFunc RaisePager
++ I All (FvwmPager) Layer 0 8
++ I SchedulePager
++ I BusyTime
+
+
+RedefineFunc ShowPager
++ I All (FvwmPager) Move $0 $1
++ I RaisePager
+
+
+RedefineFunc HideShowPager
++ I HidePager
++ I ShowPager $0 $1
+
+# ---------- notificiations (rewrite to use layers 3 and 5) ----------
+
+RedefineFunc LeftClickNotification
++ I 	  Any (FvwmNotify, Overlapped) All (FvwmNotify) Raise
++ I	  TestRc (NoMatch) HideNotifications
+
+RedefineFunc NotificationDown
++ I Move keep w+102p
++ I Direction North (FvwmNotify) NotificationDown
+
+RedefineFunc RemoveNotification
++ I NotificationDown
++ I Close
+
+RedefineFunc AddNotification
++ I Beep
++ I All (FvwmNotify) Move keep w-102p
++ I Move -0 -0
++ I Raise
+
+RedefineFunc ActivateNotification
++ I All (FvwmNotify, !Overlapped) State 31 true
++ I $[w.name]
++ I All (FvwmNotify, State 31) Raise
++ I All (FvwmNotify) State 31 false
+
+RedefineFunc ActivateAndRemoveNotification
++ I ActivateNotification
++ I RemoveNotification
+
+RedefineFunc ShowNotifications
++ I All (FvwmNotify) Raise
++ I All (FvwmNotify, !Visible) AddNotification
+
+
+RedefineFunc HideNotifications
+#+ I All (FvwmNotify) Layer 0 4
++ I All (FvwmNotify) Lower
+
+RedefineFunc SwallowWindow
++ I Lower
++ I Exec exec $./utils/notify "Swallowed: $[w.name]" orange "WindowId $[w.id] SelectWindowNoWarp"
+
+# ---------- quit (rewrite) ----------
+
+RedefineFunc ConditionalQuitNow
++ I None (Iconic) None (Layer 4, !FvwmNotify) None (Iconic) None (Layer 3, !FvwmNotify) Quit
+
+RedefineFunc MaybeQuit I Nop
+
+RedefineFunc ConditionalQuit
++ I All (Iconic) Close
++ I All (Layer 4) Close
++ I All (Layer 3) Close
++ I RedefineFunc MaybeQuit I ConditionalQuitNow
++ I MaybeQuit
+
+
+# + I NoWindow Schedule 500 ConditionalQuitNow
+# + I NoWindow Schedule 1000 ConditionalQuitNow
+# + I NoWindow Schedule 2000 ConditionalQuitNow
+
+
+#change it to include raising invisible windows
+
+#
+# ========== BINDINGS ==========
+#
+
+# ---------- Mouse ----------
+
+# root
+
+Mouse (FvwmNotify) 	1	W	N	ActivateAndRemoveNotification
+Mouse (FvwmNotify) 	1	TSF	N	LeftClickNotification
+Mouse (FvwmNotify) 	1	W	2	LeftClickNotification
+Mouse (FvwmNotify) 	2	W	N	ActivateNotification
+Mouse (FvwmPager) 	2	W	N	PipeRead "echo Current MoveToPageAndPlaceAgain $(expr $[pointer.wx] \\* 2 / $[w.width]) $(expr $[pointer.wy] \\* 2 / $[w.height])"
+
+Mouse (FvwmNotify)	3	W	N	RemoveNotification
+Mouse (FvwmPager)	3	W	N	HidePager
+# Mouse (gnome-panel)	3	TSF	N	Menu RootMenu
+# Mouse (gnome-panel)	3	W	N	LowerBar
+
+
+# window handling
+Mouse 1		R	A	LeftClickRoot
+Mouse 1		TS	A	LeftClick
+Mouse 1		F	A	CornerLeftClick
+Mouse 1		W	2	SuperLeftClick
+Mouse 1		I	A	IconClick
+Mouse 1		I	2	IconOpenOrMove
+
+Mouse 2		RF    	A       PlaceAgainAll
+Mouse 2		TS	A	PlaceAgain
+Mouse 2		W	2	PlaceAgain
+
+Mouse 3		TS	A	RightClick RootMenu IconifyPointer
+Mouse 3         F       A       RightClick RootMenu ClosePointer
+Mouse 3         R       A       RightClickRoot RootMenu IconifyPointer
+Mouse 3		W	2	RightClick RootMenu IconifyPointer
+Mouse 3		I	A	LowerIconWindowResize
+
+Mouse 4		RTSF	N	Scroll 0 -100
+Mouse 5		RTSF	N	Scroll 0 +100
+Mouse 4		A	2	Scroll 0 -100 
+Mouse 5		A	2	Scroll 0 +100
+
+# maximize button (rewrite)
+Mouse 1		4    	A     	VerticalMaximize
+Mouse 2		4    	A     	HorizontalMaximize
+Mouse 3		4    	A     	BothMaximize
+
+Mouse 1		W	2S	VerticalMaximize
+Mouse 2		W	2S	HorizontalMaximize
+Mouse 3		W	2S	BothMaximize
+
+# other buttons
+Mouse 1		6    	A     	MyIconify
+Mouse 1         2       A       Delete
+Mouse 1		1    	A      	Menu WindowMenu
+
+
+# ---------- keyboard ----------
+
+Key Tab A M -
+
+# Super + arrow keys switch pages
+
+Key Left	A	2	Scroll -100 0
+Key Right	A	2	Scroll +100 0
+Key Up		A	2	Scroll 0 -100
+Key Down	A	2	Scroll 0 +100
+
+Key Left	A	2S	MoveAndFollow  0 w0
+Key Right	A	2S	MoveAndFollow -0 w0 
+Key Up		A	2S	MoveAndFollow w0  0
+Key Down	A	2S	MoveAndFollow w0 -0
+
+Key KP_Home  	A 	2  	MoveAndFollow   0     0
+Key KP_End   	A 	2  	MoveAndFollow   0    -0
+Key KP_Prior 	A 	2  	MoveAndFollow  -0     0
+Key KP_Next  	A 	2	MoveAndFollow  -0    -0
+Key KP_Up	A 	2  	MoveAndFollow  w0     0
+Key KP_Down	A 	2  	MoveAndFollow  w0    -0
+Key KP_Right	A 	2  	MoveAndFollow  -0    w0
+Key KP_Left	A 	2	MoveAndFollow   0    w0
+
+
+# Super + Control + arrow keys move the window to another page
+
+Key Left	A	2C	PointerWindow (AcceptsFocus) GotoAndFollow -1p 0p
+Key Right	A	2C	PointerWindow (AcceptsFocus) GotoAndFollow +1p 0p 
+Key Up		A	2C	PointerWindow (AcceptsFocus) GotoAndFollow 0p -1p
+Key Down	A	2C	PointerWindow (AcceptsFocus) GotoAndFollow 0p +1p
+
+# left hand binding (edit-mode and typing-mode)
+Key Super_L	A	A	SuperPress
+Key 1		WFST	2	PlaceAgain
+Key grave	A	2	Current RaiseLower
+Key Escape	A	2	Popup RootMenu
+Key Tab 	A 	2 	WindowList (CurrentPage) Root c c CurrentAtEnd, IconifiedAtEnd, SelectOnRelease Super_L
+
+Key space	A	2	RaiseLower
+Key L		A	2	FocusBar
+Key Control_R	A	2	FocusBar
+
+# rewrite maximization ...
+
+Key End		A	2	MyMaximize
+Key Delete	A	2	CustomFullMaximize 100 100
+Key Next	A	2	CustomFullMaximize 100 0
+Key End		A	2S	VerticalGrow
+Key Delete	A	2S	BothGrow
+Key Next	A	2S	HorizontalGrow
+Key Return	A	2	MyIconify
+
+
+# Lock after Ctrl+Alt+Del
+
+Key Delete 	A 	CM	Exec exec xlock -mode random
+
+
+# Fake keys to handle Super press / release (do not remove)
+
+Key F12		A	2	Nop
+Key F12		A	2C	Nop
+Key F12		A	2M	Nop
+Key F12		A	2S	Nop
+Key F12		A	N	SuperDepress
+Key F12		A	C	SuperDepress
+Key F12		A	M	SuperDepress
+
+# Applications
+
+Key m		A	2	Menu KeybRootMenu
+Key w		A	2	Menu WindowMenu
+
+Read $[FVWM_USERDIR]/qwerty.fvwm
+
+#
+# ========== MENUS ==========
+#
+
+# ---------- Root Menu ----------
+
+DestroyMenu RootMenu
+AddToMenu RootMenu
++ DynamicPopupAction HidePager
++ "Root Menu%gnome-status%"		Popup RecentMenu
++ ""		       			 Nop
++ "&Terminal%gnome-terminal%"		XTermFunction
++ "&Emacs%text-editor%"			OpenOrExec emacs "InCurrentDirectory exec $./utils/emacs-window-dir"
++ "&Web Browser%icons/24x24-firefox.png%"		OpenBrowser
++ "&File Manager%gdm%"	\
+	OpenOrExec $[FVWM_FILEMANAGER] "InCurrentDirectory exec $[FVWM_FILEMANAGER] ."
++ "Beagle &Search%image-viewer%"     			Exec exec beagle-search
++ ""		       			Nop
++ "Open File%gnome-searchtool%"		OpenFile `xclip -o`
++ "Fvwm&Console%gnome-terminal%"	OpenFvwmConsole
++ "&Windows%gnome-window-manager%"	Popup WindowMenu
++ ""					Nop
++ "Re&start FVWM%actions/stock_refresh%"	Restart 
++ "Quit%gnome-logout%"			Exec zenity --question --title=Quit? "--text=Do you really want to quit?" && exec FvwmCommand ConditionalQuit
+
+# ---------- Keyboard Root Menu (after pressing Super-M) ----------
+
+DestroyMenu KeybRootMenu
+AddToMenu KeybRootMenu
++ DynamicPopupAction			HidePager
++ "Keyboard Root Menu%gnome-status%"	Title
++ "x&term%gnome-terminal%"		XTermFunction
++ "&Emacs%text-editor%"			InCurrentDirectory exec $./utils/emacs-window-dir
++ "&File Manager%gdm%"		\
+  	 OpenOrExec rox "InCurrentDirectory exec [FVWM_FILEMANAGER]"
++ "&Web Browser%24x24-firefox.png"		OpenBrowser
++ "Beagle &Search%image-viewer%"     			Exec exec beagle-search
++ ""					Nop
++ "&Reflect X"				AndWarp All (CurrentPage, Layer 4) Move -$[w.x]p keep
+
+# ---------- Recently visited directories Menu ----------
+
+DestroyMenu RecentDirMenu
+AddToMenu RecentDirMenu
++ "Recent Dirs%gnome-status%" Popup /Applications
++ "" Nop
+PipeRead "$[FVWM_USERDIR]/scripts/build-recentdir-menu --separator --exec 'OpenFile \"%s/\"' gnome-favorites gnome-globe gnome-monitor shares evolution-mail gnome-eyes"
+
+# ---------- Recently used applications Menu ----------
+
+DestroyMenu RecentMenu
+AddToMenu RecentMenu 
++ DynamicPopupAction RecreateMenu RecentMenu true
++ "Recent Applications%gnome-status%" Popup RecentDirMenu
++ "" Nop
+PipeRead "head -n 8 $[FVWM_USERDIR]/recent.menu"
+ + ""					Nop
+ + "Remind in 5 min%gnome-panel-clock%"			Exec exec $[FVWM_USERDIR]/utils/remindin 5m "5 minutes" 
+ + "Remind in 10 min%gnome-panel-clock%"			Exec exec $[FVWM_USERDIR]/utils/remindin 10m "10 minutes" 
+ + "Remind in 15 min%gnome-panel-clock%"			Exec exec $[FVWM_USERDIR]/utils/remindin 15m "15 minutes" 
+ + "Remind in 30 min%gnome-panel-clock%"			Exec exec $[FVWM_USERDIR]/utils/remindin 30m "30 minutes" 
+ + "Remind in 60 min%gnome-panel-clock%"			Exec exec $[FVWM_USERDIR]/utils/remindin 60m "60 minutes" 
+ + "" Nop
+# ---------- Applications Menu ----------
+
+RedefineFunc UpdateMenu 
++ I AddToMenu $0 "Update in progress ...%gnome-status%" Beep
++ I Exec $1; FvwmCommand "RecreateMenu $0 true"
+
+DestroyMenu /Applications
+AddToMenu /Applications
++ "Applications%gnome-status%"       Popup RemoteMenu
++ ""		       			 Nop
++ "Preferences%gnome-settings%" 	 Popup "Preferences"
++ "Administration%gnome-settings%" 	 Popup "Administration"
+Read $./app.menu
+AddToMenu /Applications
++ "" Nop
++ "Update%stock_refresh%" UpdateMenu /Applications "$[FVWM_USERDIR]/scripts/build-xdg-menu --force --exec 'Recent InCurrentDirectory exec' > $[FVWM_USERDIR]/app.menu"
+
+# ---------- Remote connections Menu ----------
+
+DestroyMenu RemoteMenu
+AddToMenu RemoteMenu
++ "Remote hosts%gnome-status%"	Title			
+PipeRead "$[FVWM_USERDIR]/scripts/build-remote-menu gnome-terminal gnome-netstatus-rx | tee $./remote.menu"
++ "" Nop
++ "something.example.org%gnome-terminal%" Recent RemoteShell something.example.org
++ "other.example.com%gnome-terminal%" Recent RemoteShell other.example.com
+
+# ---------- Window Menu ----------
+
+DestroyMenu WindowMenu
+AddToMenu WindowMenu
++ "Window Menu%gnome-status%"		Title
++ "Fvwm&Console%mini.xterm.xpm%"	OpenFvwmConsole
++ "Reflect X"				All (CurrentPage, Layer 4) Move -$[w.x]p keep
++ "Re&display All%mini.ray.xpm%"	Refresh
++ "Move to screen"			All MoveToScreen
++ ""					Nop
++ "I&dentify%mini.question.xpm%"	Module FvwmIdent
++ "Switch Root"				SwitchDecor
++ "&Standard Layer%mini.gball.xpm%"	PutOnStandardLayer
++ "&Capture Icon%mini.gball.xpm%"	CaptureWindow		
++ "&Iconify%mini.gball.xpm%"		MyIconify
++ ""					Nop
++ "&Move%mini.move.xpm%"	        Function LeftClick
++ "&Resize%mini.resize.xpm%"		Function RightClick
++ "R&aise%mini.raise.xpm%"		Raise
++ "&Lower%mini.lower.xpm%"		Lower
++ "Stick%mini.hammer.xpm%"		Stick
++ "Shade%mini.shade1.xpm%"		WindowShade
++ "Ma&ximize%mini.maximize-vert.xpm"	Popup MaximizeMenu
++ "Tab%mini.windowshade.xpm%"		Function SelectTabber
++ ""					Nop
++ "Kill%mini.bomb.xpm%"			Destroy
++ "&Close%mini.cross.xpm%"		Delete
++ "Re&start%mini.turn.xpm%"		Restart 
+
+
+DestroyMenu MaximizeMenu
+AddToMenu MaximizeMenu
++ "Vertically"				Maximize 0 100
++ "Horizontally"			Maximize 100 0
++ "Full screen"				Maximize 100 100
++ ""					Nop
++ "Vertically (non-obstructive)"	VerticalGrow
++ "Horizontally (non-obstructive)"	HorizontalGrow
++ "Full (non-obstructive)"		BothGrow
+
+
+
+#
+# ========== MODULES ==========
+#
+
+# ---------- FvwmIdent ----------
+
+DestroyModuleConfig FvwmIdent: *
+
+# ---------- FvwmPager ----------
+
+DestroyModuleConfig FvwmPager: *
+*FvwmPager: Colorset * 20
+*FvwmPager: HilightColorset * 21
+*FvwmPager: WindowColorsets 24 23
+*FvwmPager: BalloonColorset * 24
+*FvwmPager: Font none
+*FvwmPager: SmallFont 5x8
+*FvwmPager: Balloons All
+*FvwmPager: BalloonYOffset +2
+*FvwmPager: BalloonBorderWidth 2
+*FvwmPager: UseSkipList
+*FvwmPager: MoveThreshold 3
+*FvwmPager: WindowLabelFormat "%i"
+*FvwmPager: WindowBorderWidth 1
+*FvwmPager: MiniIcons
+*FvwmPager: NoShapeLabels
+*FvwmPager: NoSeparators
+*FvwmPager: Geometry 80x80+180-0
+*FvwmPager: Rows 1
+*FvwmPager: Columns 1
+
+
+# ---------- BaseButtons ----------
+
+DestroyModuleConfig BaseButtons: *
+*BaseButtons: Back black
+*BaseButtons: Frame 0
+*BaseButtons: Padding 0 0
+*BaseButtons: Rows 2
+*BaseButtons: Columns 3
+*BaseButtons: BoxSize smart
+*BaseButtons: ButtonGeometry 90x90+2-2
+*BaseButtons: (1x1+0-0, Swallow (UseOld, NoClose) xload Nop)
+*BaseButtons: (1x1+0+0, Swallow (UseOld, NoClose) xclock Nop)
+*BaseButtons: (2x2+1+0, Swallow (UseOld, NoClose) FvwmPager Nop)
+
+
+# ---------- FvwmWinList module ----------
+
+DestroyModuleConfig FvwmWinList
+*FvwmWinList: Back #c0c0c0
+*FvwmWinList: Fore Black
+*FvwmWinList: Font -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmWinList: Action Click1 Iconify -1,Focus
+*FvwmWinList: Action Click2 MyIconify
+*FvwmWinList: Action Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinList: UseSkipList
+*FvwmWinList: Geometry +0-1
+*FvwmWinList: ShowCurrentDesk
+
+DestroyModuleConfig FvwmProxy
+*FvwmProxy: Action Click1 RaiseLower
+*FvwmProxy: Font xft:Verdana:pixelsize=12
+
+DestroyModuleConfig FvwmEvent
+*FvwmEvent: Cmd Function
+*FvwmEvent: PassId Function
+*FvwmEvent: new_page NewPageFunction
+*FvwmEvent: add_window NewWindowFunction
+*FvwmEvent: deiconify OnDeiconify
+*FvwmEvent: window_name OnTitleChange
+*FvwmEvent: icon_name OnTitleChange
+*FvwmEvent: raise_window OnRaiseWindow
+*FvwmEvent: destroy_window OnDestroyWindow
+
+Read $./user.fvwm

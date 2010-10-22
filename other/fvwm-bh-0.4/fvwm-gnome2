@@ -1,0 +1,96 @@
+#! /bin/sh
+
+# Very hasty and simple script to generate some apps setting and menus
+# for fvwm from the gnome directory /usr/share/applications. Outputs
+# menu items to .fvwm/$1/menu_gnome2 and apps setting to stdout. Needs
+# bells, whistles, options, flannel, improvements, documentation, kde.
+# Nah.
+
+SYSTEMNAME="$1"
+cd /usr/share/applications
+MENUFILE="$HOME/.fvwm/$SYSTEMNAME/menu_gnome2"
+export MENUFILE
+for FILE in *.desktop; do
+	FILENAME=`basename "$FILE" .desktop` awk -F= '
+/^Name=/ { name=$2 }
+/^Name/ { if (!altname) { altname=$2 } }
+/^Categories=/ { categories=$2 }
+/^Icon=/ { icon=$2 }
+/^Exec=/ { run=$2; gsub(" *%.","",run) } # %U is the argument? %F for gnumeric?
+
+END {
+	filename = ENVIRON["FILENAME"]
+	if (!name) { name = altname}
+	if (!name) { name = filename}
+	if (!run) { run = filename }
+	if (!icon) { icon = "gnome-unknown.png" }
+	if (index(icon,".") == 0) {
+		icon = icon ".png"
+	}
+	if (!categories) { categories = "Misc;" }
+	printf("%s:%s:%s:%s:%s\n", categories, name, filename, icon, run)
+}' "$FILE"
+done | sed -e "s/^GNOME;//"|sed -e "s/^Application;//"| sort | awk -F: '
+BEGIN {
+	menu=""
+	menufile = ENVIRON["MENUFILE"]
+	print "DestroyMenu Gnome2Menu" > menufile
+	print "AddToMenu Gnome2Menu \"Gnome-2 Menu%gnome-unknown.png%\" Title" > menufile
+}
+
+function build_menu(cat,name,filename,icon,run) {
+	num=split(cat,list,";")
+	
+	menu_name=""
+	parent_menu="Gnome2Menu"
+	for (i=1; i<num; i++) {
+		if (menu_name) {
+			menu_name=menu_name "-" list[i]
+		} else {
+		  	menu_name = list[i]
+		}
+		if (!exists[menu_name]) {
+			exists[menu_name]="y"
+			printf("AddToMenu %s \"%s%%GETMINI(gnome-unknown.png,%s)%%\" Popup %s\n", parent_menu, list[i], list[i], menu_name) > menufile
+			printf("DestroyMenu %s\n", menu_name) > menufile
+			printf("AddToMenu %s \"%s\" Title\n", menu_name, menu_name) > menufile
+		}
+		parent_menu = menu_name
+	}
+	printf("AddToMenu %s \"%s (%s)%%GETMINI(%s,%s)%%\" Exec exec %s\n", menu_name, name, filename, icon, name, run) > menufile
+}
+
+function output_apps_info(categories,name,filename,icon,run) {
+	split(run,p," ")
+	cmd = p[1]
+	gsub("\"","",cmd)
+	macro=filename
+	gsub("[^a-zA-Z_0-9]","",macro)
+	macro=toupper(macro)
+	b="basename " cmd
+	b | getline program
+	menu_label = name
+	
+	printf("m4_ifdef({%s},{m4_errprint(fvwm-gnome2: WARNING: {%s} is already defined - overriding with /usr/share/applications/%s.desktop\n)})\n", macro, macro, filename) #| "tee /dev/stderr"
+	printf("DEFINE_IF_RUNABLE(%s,{%s})\n", cmd, macro) #| "tee /dev/stderr"
+	printf("m4_ifdef({%s},{\n", macro) #| "tee /dev/stderr"
+	printf("m4_define({%s_run},{Exec exec %s})\n", macro, run) #| "tee /dev/stderr"
+	printf("m4_define({%s_icon},{%s})\n",macro,icon) #| "tee /dev/stderr"
+	printf("m4_define({%s_mini},{GETMINI(%s,%s)})\n",macro,icon,program) #| "tee /dev/stderr"
+	printf("m4_define({%s_panel_label},{%s})\n",macro,program) #| "tee /dev/stderr"
+	printf("m4_define({%s_menu_label},{%s (%s)})\n",macro,menu_label,program) #| "tee /dev/stderr"
+	printf("m4_define({%s_style_name},{%s})\n",macro,program) #| "tee /dev/stderr"
+	printf("},{m4_errprint({WARNING: %s is not runable but /usr/share/applications/%s.desktop exists\n})})\n",cmd,filename) #| "tee /dev/stderr"
+}
+
+{
+	categories=$1
+	name=$2
+	filename=$3
+	icon=$4
+	run=$5
+	menufile = ENVIRON["MENUFILE"]
+	build_menu(categories,name,filename,icon,run)
+	output_apps_info(categories,name,filename,icon,run)
+
+}'

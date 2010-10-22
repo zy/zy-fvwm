@@ -1,0 +1,4 @@
+#!/usr/bin/wish -f
+puts [selection get]
+exit
+

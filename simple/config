@@ -1,0 +1,165 @@
+#  -*- fvwm -*-
+#---------------------------------------------------------------------
+#-  File          : ~/.fvwm/windowdecors/simple/config
+#-  Contents      : fvwm window decoration description
+#-  Author        : Uwe Pross                                         
+#---------------------------------------------------------------------
+
+SetEnv COLOR   LightYellow
+SetEnv HICOLOR DodgerBlue
+SetEnv FG_COLOR   Black
+SetEnv FG_HICOLOR White
+# SetEnv HICOLOR firebrick
+SetEnv MaxDeskNumber 1
+ImagePath +:$[HOME]/.fvwm/windowdecors/simple/images
+
+#---------------------------------------------------------------------
+AddToDecor SimpleDecor
++ TitleStyle                   VGradient 128 $[HICOLOR]3 $[HICOLOR]4 -- Flat
++ TitleStyle  ActiveUp         VGradient 128 $[HICOLOR]3 $[HICOLOR]4 -- Flat
++ TitleStyle  ActiveDown       VGradient 128 $[HICOLOR]4 $[HICOLOR]3 -- Flat
++ TitleStyle  Inactive         VGradient 128 $[COLOR]3 $[COLOR]4 -- Flat
++ TitleStyle  ToggledInactive  VGradient 128 $[COLOR]3 $[COLOR]4 -- Flat
++ ButtonStyle 1 MiniIcon -- Flat UseTitleStyle
++ ButtonStyle 4 Vector  5 40x40@3 60x40@3 60x60@3 40x60@3 40x40@3 -- Flat UseTitleStyle
++ ButtonStyle 2 Vector  7 25x25@3 25x75@3 75x75@3 75x25@3 25x25@3 25x30@3 75x30@3 -- Flat UseTitleStyle
++ ButtonStyle 2 ToggledInactive Vector 10 15x35@3 15x85@3 65x85@3 65x35@3 15x35@3 35x35@3 35x15@3 85x15@3 85x65@3 65x65@3 -- Flat UseTitleStyle
++ ButtonStyle 2 ToggledActiveUp Vector 10 15x35@3 15x85@3 65x85@3 65x35@3 15x35@3 35x35@3 35x15@3 85x15@3 85x65@3 65x65@3 -- Flat UseTitleStyle
++ ButtonStyle 1 - MwmDecorMenu
++ ButtonStyle 2 - !MwmDecorMax
++ ButtonStyle 2 - MwmDecorMax
++ ButtonStyle 2 - !MwmDecorMin
++ TitleStyle LeftJustified Height 16
++ BorderStyle Active Colorset 
++ BorderStyle Inactive Solid $[HICOLOR]3 -- HiddenHandles NoInset 
++ BorderStyle Active   Solid $[COLOR]3 -- HiddenHandles NoInset 
+
+Style SimpleStyle \
+    UseDecor SimpleDecor, \
+    NoButton 3, \
+    NoButton 5, \
+    NoButton 8, \
+    NoButton 6, \
+    NoButton 0, \
+    Colorset, BorderColorset, \
+    HilightColorset, HilightBorderColorset, \
+    BorderWidth 4, HandleWidth 4, \
+    Font -*-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*, \
+    ForeColor $[FG_COLOR], BackColor $[COLOR]3, HilightFore $[FG_HICOLOR], HilightBack $[HICOLOR]3, \
+    MiniIcon terminal.xpm
+
+#-------------------------------------------------------------------------------
+#- menus
+#-------------------------------------------------------------------------------
+DestroyMenu MoveWindowToPageMenu
+AddToMenu MoveWindowToPageMenu "Move window to another page"    Title
++ "Desk left %mini.left2.xpm%"                 MoveToDesk  0 -1 0 $[MaxDeskNumber]
++ "Desk right%mini.right2.xpm%"                MoveToDesk  0 +1 0 $[MaxDeskNumber]
++ ""  Nop
++ "Page up%mini.raise2.xpm%"                   MoveToPage +0p -1p
++ "Page left%mini.left2.xpm%"                  MoveToPage -1p  0p
++ "Page right%mini.right2.xpm%"                MoveToPage +1p  0p
++ "Page down%mini.lower2.xpm%"                 MoveToPage +0p +1p
++ ""  Nop
++ "Page  1 (left top)    %window-move.xpm%"    MoveToDeskAndPageFunc 0 0
++ "Page  2               %window-move.xpm%"    MoveToDeskAndPageFunc 0 1
++ "Page  3 (left middle) %window-move.xpm%"    MoveToDeskAndPageFunc 0 2
++ "Page  4               %window-move.xpm%"    MoveToDeskAndPageFunc 0 3
++ "Page  5 (left bottom) %window-move.xpm%"    MoveToDeskAndPageFunc 0 4
++ "Page  6 (right top)   %window-move.xpm%"    MoveToDeskAndPageFunc 1 0
++ "Page  7               %window-move.xpm%"    MoveToDeskAndPageFunc 1 1
++ "Page  8 (right middle)%window-move.xpm%"    MoveToDeskAndPageFunc 1 2
++ "Page  9               %window-move.xpm%"    MoveToDeskAndPageFunc 1 3
++ "Page 10 (right bottom)%window-move.xpm%"    MoveToDeskAndPageFunc 1 4
+
+DestroyMenu MaximizeMenu
+AddToMenu MaximizeMenu "Maximize" Title
++ "Maximize%window-maximize.xpm%"              Maximize 100 100
++ "Maximize vertical%mini.maximize-vert.xpm%"     Maximize 0 100
++ "Maximize horizontal%mini.maximize-horiz.xpm%"   Maximize 100 0
++ "" Nop
++ "Grow%window-maximize.xpm%"                  Maximize True grow grow
++ "Grow vertical%mini.maximize-vert.xpm%"         Maximize True 0 grow
++ "Grow horizontal%mini.maximize-horiz.xpm%"       Maximize True grow 0
++ "" Nop
++ "Iconify%window-iconify.xpm%" Iconify
+
+DestroyMenu IconifyMenu
+AddToMenu IconifyMenu "Iconify" Title
++ "Iconify%window-iconify.xpm%" Iconify
++ "" Nop
++ "Stick all icons%mini.stick1.xpm%"   All (Currentpage, Iconic, CirculateHit) Stick on
++ "Stick all windows%mini.stick1.xpm%" All (Currentpage, !Iconic, CirculateHit) Stick on
++ "" Nop
++ "Unstick all icons%mini.stick.xpm%"   All (Currentpage, Iconic, CirculateHit) Stick off
++ "Unstick all windows%mini.stick.xpm%" All (Currentpage, !Iconic, CirculateHit) Stick off
+
+DestroyMenu WindowOptionsMenu
+AddToMenu WindowOptionsMenu "Window menu" Title
++ "&Maximize/Normal%window-maximize.xpm%"      Maximize 100 100
++ "(Un)S&tick      %window-stick.xpm%"         Stick
++ "&Shade          %window-shade.xpm%"         WindowShade
++ "&Iconify        %window-iconify.xpm%"       Iconify
++ "Mo&ve           %window-move.xpm%"          Move
++ "Resi&ze         %window-resize.xpm%"        Resize
++ "Raise           %window-raise.xpm%"         Raise
++ "Lower           %window-lower.xpm%"         Lower
++ ""  Nop
++ "Ident           %window-identify.xpm%"      Module FvwmIdent
++ ""  Nop
++ "Stays on Top    %window-raise.xpm%"         Layer 0 5
++ "Stays on Bottom %window-lower.xpm%"         Layer 0 3
++ "Raise on Click  %windows.xpm%"              Layer 0 4
++ ""  Nop
++ "&Close          %window-delete.xpm%"        Delete
++ "&Kill           %window-destroy.xpm%"       Destroy
+
+#-------------------------------------------------------------------------------
+#- functions
+#-------------------------------------------------------------------------------
+DestroyFunc ResizeOrRaiseOrLowerFunc
+AddToFunc ResizeOrRaiseOrLowerFunc C Raise
++ M Resize
++ D Lower
+
+DestroyFunc MoveOrRaiseOrLowerFunc
+AddToFunc MoveOrRaiseOrLowerFunc
++ I Raise
+# + I Current (!Raised) Raise
+# + C TestRc (NoMatch) Lower
++ M Move
++ D Maximize 100 100
+
+SetEnv APP_NAME XTerm
+SetEnv APP_NAME *
+Style $[APP_NAME] UseStyle SimpleStyle
+
+#-------------------------------------------------------------------------------
+#- mouse defs
+#-------------------------------------------------------------------------------
+## window frame and side
+Mouse ($[APP_NAME]) 1 F A Function ResizeOrRaiseOrLowerFunc
+Mouse ($[APP_NAME]) 2 F A Menu WindowOptionsMenu Nop
+Mouse ($[APP_NAME]) 3 F A RaiseLower
+
+Mouse ($[APP_NAME]) 1 S A Function ResizeOrRaiseOrLowerFunc
+Mouse ($[APP_NAME]) 2 S A Menu WindowOptionsMenu Nop
+Mouse ($[APP_NAME]) 3 S A RaiseLower
+
+## title bar + 2 decoration buttons
+Mouse ($[APP_NAME]) 1 T A Function MoveOrRaiseOrLowerFunc
+Mouse ($[APP_NAME]) 2 T A WindowShade
+Mouse ($[APP_NAME]) 3 T A RaiseLower
+
+## window title buttons
+Mouse ($[APP_NAME]) 1 1 A Menu WindowOptionsMenu Delete
+Mouse ($[APP_NAME]) 2 1 A Stick
+Mouse ($[APP_NAME]) 3 1 A Menu MoveWindowToPageMenu
+
+Mouse ($[APP_NAME]) 1 4 A Iconify on
+Mouse ($[APP_NAME]) 2 4 A All (CurrentPage,!Fvwm*B*) Iconify on
+Mouse ($[APP_NAME]) 3 4 A Menu IconifyMenu Iconify
+
+Mouse ($[APP_NAME]) 1 2 A Maximize 100 100
+Mouse ($[APP_NAME]) 2 2 A Maximize True grow grow
+Mouse ($[APP_NAME]) 3 2 A Menu MaximizeMenu

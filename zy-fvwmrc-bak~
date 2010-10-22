@@ -1,0 +1,1079 @@
+#  -*- fvwm -*-
+# Time-stamp: <zy-fvwmrc-bak, 03-20-2008 21:02 Ziyu Zhang >
+
+###########
+#  ____________________________
+# (   _________________________)
+#  ) (__  _  _  _    _  
+# (   __)( \/ )( \/\/ )/\/\
+#  ) (    \  /  \    //    \
+# (___)    \/    \/\/(_/\/\_) 2.5
+#
+# My personal fvwm2rc file
+#
+#######################
+
+#  Ziyu                        /\|||||/\   Zhang
+#  Email: emacs.zy@gmail.com    ( o o )    GPG-ID: 47E322CE
+# ---------------------------ooO--(_)--Ooo----------------------
+
+#  Read $zy/linux/fvwm/zy.fvwm2rc
+
+# ================ImagePath================
+
+# ImagePath +:/usr/share/icons:/usr/share/pixmaps:/usr/share/icons/hicolor/48x48/apps:/usr/local/share/fvwm/icons $HOME
+
+# ImagePath +:$zy/linux/fvwm/icons/:$zy/linux/fvwm/wallpaper/:$zy/linux/fvwm/banner:
+ImagePath   $zy/configure/linux/fvwm/icons:
+ImagePath   $zy/html/images:+
+ImagePath   $zy/configure/linux/fvwm/wallpaper:+
+ImagePath   $zy/configure/linux/fvwm/banner:+
+# /usr/share/pixmaps/mozilla-thunderbird.png
+
+ # ImagePath /usr/share/icons/Bluecurve:+
+# ImagePath /usr/share/icons/Bluecurve/16x16/apps:+
+# ImagePath /usr/share/icons/Bluecurve/32x32/app:+
+# ImagePath /usr/share/icons/crystalsvg/48x48/apps/:+
+
+
+
+# SetEnv fvwm_video_path $[HOME]/media/video
+# SetEnv fvwm_video_exec mplayer
+
+# SetEnv fvwm_audio_path $[HOME]/media/audio
+# SetEnv fvwm_audio_exec beep-media-player --play
+
+# SetEnv fvwm_image_path $[HOME]/media/images
+# SetEnv fvwm_image_exec xv
+
+# SetEnv fvwm_wallpaper $zy/linux/fvwm/wallpaper/zy-blue.png
+
+
+SetEnv fvwm_icon_size 48
+
+#####
+# Mouse and Focus Behavior
+###########
+# ClickTime 350
+ClickTime 1750
+MoveThreshold 3
+
+# IgnoreModifiers L25
+
+ColormapFocus FollowsMouse
+
+# DefaultFont "-macromedia-domestic manners-medium-r-normal--10-*-*-*-*-*-iso10646-*"
+# X's font rendering without anti-aliasing looks least bad with the following:
+# WindowFont -adobe-times-bold-r-*-*-18-*-*-*-*-*-*-*
+# IconFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+
+# =================Style=========================
+Style *          UseDecor MyDecor
+Style *           Font -adobe-times-bold-r-*-*-14*-*-*-*-*-*-*
+Style *           NoIcon 
+Style *           HilightFore black, HilightBack palevioletred
+# Style *         HilightFore black, HilightBack gainsboro
+Style *           BorderWidth 2, HandleWidth 2, DepressableBorder
+Style *           MWMFunctions, MWMDecor, HintOverride
+Style *           DecorateTransient, NoPPosition
+Style *           FocusFollowsMouse 
+#                 SloppyFocus,MouseFocusClickRaises
+# The default colors for window titles and frames might as well be documented:
+Style * Color white/dimgrey
+
+Style *           WindowShadeShrinks, WindowShadeSteps 100
+
+#================ Styles for various Fvwm modules=================
+Style "Fvwm*"       Layer 5,  NoTitle,  Sticky, WindowListSkip
+Style "Fvwm*"       BorderWidth 2, CirculateSkipIcon, CirculateSkip
+
+Style "FvwmConsole" SloppyFocus
+
+#============= Styles for  programs=======================
+# Style XTerm Icon , SloppyFocus, NoTitle
+# Style Emacs 
+# Style XOsview Icon xosview.xpm, ClickToFocus
+# Style Gimp Icon gimp.xpm, StaysOnTop
+# Style XEyes NoTitle, StaysOnTop, Sticky, WindowListSkip
+# Style Xmag Icon xmag.xpm
+# Style Metafont StaysOnTop
+
+Style "emacs"        SloppyFocus
+Style "Mosaic"       NoPPosition
+Style "xterm"        SloppyFocus
+Style "rxvt"          SloppyFocus
+Style "gv"	     ClickToFocus
+# Style "firefox"	    RandomPlacement, SloppyFocus
+Style "NoResource"   NoTitle BorderWidth 0, HandleWidth 0
+Style "xdaliclock"   NoTitle, NoHandles, Sticky, WindowListSkip, ClickToFocus, Layer 6   
+Style "asclock"      NoTitle, NoHandles, Sticky, WindowListSkip, ClickToFocus, Layer 6
+Style "MPlayer"      NoTitle, Layer 7
+Style "RealPlayer"   Layer 7 realplay16.png
+Style "XSIM"	     Layer 7, NoTitle, HandleWidth 1, Sticky, WindowListSkip
+Style "Firefox"      Icon firefox16.xpm,SloppyFocus
+# Style "Emacs"	     Icon Emacs.png 
+Style "gv"	     Icon gv.xpm
+Style "Xdvi help"    NoTitle
+Style "AcroRead"     VariablePosition, VariableUSPosition  Icon emacs16.png 
+Style * RaiseTransient LowerTransient StackTransientParent
+#Style * NoActiveIconOverride
+
+Style "xbiff"       NoTitle, Sticky, WindowListSkip, ClickToFocus
+Style "xcalc"       Icon xcalc.xpm, NoButton 2,RandomPlacement,ClickToFocus
+Style "xmh"         Icon mail1.xpm, NoIconTitle,StickyIcon
+Style "xmh"	    RandomPlacement, NoButton 2
+Style "xman"	    Icon xman.xpm, RandomPlacement, ClickToFocus
+Style "xmag"	    RandomPlacement, ClickToFocus
+
+Style "xload" StaysOnBottom, Sticky, NoTitle, WindowListSkip, NeverFocus
+
+
+Colorset 7 fg black, bg white, sh white, RootTransparent Buffer, Tint #f6f6f6 20
+
+
+####################
+# Window Decor
+#####################
+DestroyDecor MyDecor
+AddToDecor   MyDecor
++ TitleStyle  Height 20 Inactive (HGradient 128  2 grey85 50 grey70 50 grey50) -- Flat
++ TitleStyle ActiveUp    (HGradient 128 2 LightSkyBlue 20  grey70 LightSkyBlue3  10)-- Flat
++ TitleStyle ActiveDown  (HGradient 128 2 black 50 rgb:80/80/80 50 black -- Sunk)
+# + TitleStyle InActive ( Colorset 7 -- Flat ) Active ( Colorset 7 -- Flat )
+# + ButtonStyle All InActive ( Colorset 7 -- Flat )
+# + ButtonStyle All Active ( Colorset 7 -- Flat )
++ BorderStyle Active Solid black -- NoInset HiddenHandles
++ BorderStyle Inactive Solid black -- NoInset HiddenHandles
+
++ BorderStyle Simple --  Flat
+
+# + ButtonStyle All ActiveDown VGradient 8 palevioletred black # All -- UseTitleStyle
+# # +--------------------------------------------------------------------------+
+# # | 1 3 5 7 9			   Title			 0 8 6 4 2 |
+# # |--------------------------------------------------------------------------|
+# boutton 1: Close
++ ButtonStyle 1 16 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1  -- Flat
+# boutton 3 : Iconify
++ ButtonStyle 3 Vector 7  65x15@0 25x55@1 45x55@0 35x85@1 75x45@0 55x45@1 65x15@0 -- Flat
+# boutton 5:  Maximize
++ ButtonStyle 5 19 56x54@0 50x54@0 50x60@0 59x60@0 59x54@0 56x54@0 83x30@0 68x30@1 83x15@0 59x15@1 50x36@1 62x36@0 56x54@1 64x46@0 78x46@0 78x77@0 25x77@0 25x46@0 50x46@0 -- Flat
+
+# 4 stacked rectangular panels like stills of a window being minimized
++ ButtonStyle 7 19 95x20@0 95x60@0 75x60@0 75x40@0 75x70@0 55x70@0 55x60@0 55x85@0 15x85@0 15x60@1 55x60@1 30x60@1 30x40@1 75x40@1 45x40@1 45x20@1 95x20@1 -- Flat
+
+
+#+ AddButtonStyle  1 InActive MiniIcon -- Flat
+# + AddButtonStyle  2 Active Vector 4 40x40@2 60x60@2 60x40@4 40x60@2 -- Flat
+# + AddButtonStyle  2 Inactive Vector 4 40x40@3 60x60@3 60x40@4 40x60@3 -- Flat
+# + AddButtonStyle  2 AllUp Vector 4 40x45@1 60x65@1 60x45@4 40x65@1 -- Flat
+# + AddButtonStyle  4 Active Vector 7 40x40@2 40x60@2 60x60@2 60x40@2 40x40@2 40x45@2 60x45@2 -- Flat
+# + AddButtonStyle  4 Inactive Vector 7 40x40@3 40x60@3 60x60@3 60x40@3 40x40@3 40x45@3 60x45@3 -- Flat
+# + AddButtonStyle  4 AllUp Vector 4 40x65@1 60x65@1 45x50@4 55x50@1 -- Flat
+# + AddButtonStyle  6 Active Vector 5 40x60@2 60x60@2 60x55@2 40x55@2 40x60@2 -- Flat
+# + AddButtonStyle  6 Inactive Vector 5 40x60@3 60x60@3 60x55@3 40x55@3 40x60@3 -- Flat
+# + AddButtonStyle  6 AllUp Vector 2 40x65@1 60x65@1 -- Flat
+
+
+# ==============Cursor============================
+CursorStyle ROOT 58
+CursorStyle TITLE left_ptr #b24d7a black
+# CursorStyle TITLE 62
+CursorStyle STROKE 86
+
+
+######################## FvwmBanner ############################
+# *FvwmBanner: Pixmap snoopy.xpm
+#linux_logo.gif  Scenery.jpg    rock-climbing.jpg  bigJohnbigD.jpg 
+*FvwmBanner: Timeout 2          
+
+# ========================Menu============================
+# ============
+# MenuStyle
+# ============
+MenuStyle * MWM
+MenuStyle * PopupDelayed, PopupDelay 160, Animation, TitleWarp
+MenuStyle * Foreground black, Background gray40
+MenuStyle * ActiveFore blue
+# MenuStyle * Font  -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
+MenuStyle * Font -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+MenuStyle * MenuFace VGradient 45 gray90 gray80  
+#MenuStyle * MenuFace TiledPixmap weird10dark.xpm
+
+
+DestroyMenu zyPopMenu
+AddToMenu zyPopMenu	"zyRoot Menu"	Title
++			"&xterm%1.gif%"	Exec exec xterm
++			"&Rxvt%mini.monitor.xpm%"	Exec exec rxvt
++			""		Nop
++			"&Emacs%emacs16.png%"	        Exec exec emacs
++			"&Firefiox%firefox16.xpm%"	Exec exec firefox
++			"&Realplay%realplay16.png%"	Exec exec realplay
++			"&Acrobat%AdobeReader16.png%"   Exec exec acroread
++			""		Nop
++                       "Restart Fvwm2"     Restart fvwm2     
++                       "Restart Fvwm2"     Exec "xmag" xmag
++			""		Nop
+
++                       "Re&fresh Screen"   Refresh
++                       "Re&capture Screen" Recapture
+
+        
+DestroyMenu GotoDeskMenu
+AddToMenu GotoDeskMenu	"GotoDesk" Title
++			"Desk 1 1 "	Desk 1 1 
++			"Desk 1 0 "	Desk 1 0
++                       ""              Nop
++			"Desk 0 1 "	Desk 0 1 
++			"Desk 0 0 "	Desk 0 0 
+
+######################## Menus ###################
+
+#####
+# fvwm Window Operation Menu
+###########
+DestroyMenu FvwmWindowOpsMenu
+AddToMenu   FvwmWindowOpsMenu   "Window Operations" Title
++  "Move%menu/window-move.xpm%"  Move
++  "Resize%menu/window-resize.xpm%"  Resize
++  "(De)Iconify%menu/window-iconify.xpm%"  Iconify
++  "(Un)Maximize%menu/window-maximize.xpm%"  Maximize
++  "(Un)Shade%menu/window-shade.xpm%"  WindowShade
++  "(Un)Stick%menu/window-stick.xpm%"  Stick
++              ""                 Nop
++  "StaysOnTop%menu/window-raise.xpm%"  Pick (CirculateHit) Layer 0 6
++  "Layer +1%menu/window-raise.xpm%"  Pick (CirculateHit) Layer +1
++  "StaysPut%menu/window.xpm%"  Pick (CirculateHit) Layer 0 4
++  "Layer -1%menu/window-lower.xpm%"  Pick (CirculateHit) Layer -1
++  "StaysOnBottom%menu/window-lower.xpm%"  Pick (CirculateHit) Layer 0 2
++                      "" Nop
++  "%menu/window.xpm%Window Screenshot"  Pick (CirculateHit) FvwmWindowScreenshot
++  "%menu/display.xpm%Screenshot" FvwmDesktopScreenshot 5
++    "" Nop
++ "Identify%menu/window-identify.xpm%"  Module FvwmIdent
++ "Delete%menu/window-delete.xpm%"  Delete
++ "Destroy%menu/window-destroy.xpm%"  Destroy
++ "Close%menu/window-close.xpm%"  Close
++ "" Nop
+
+
+
+AddToMenu TaskBar-Window-Ops   Window Operations" Title
++                       "Move"          Move-or-Raise
++                       "Resize"        Resize-or-Raise
+
++                       "WindowShade"       WindowShade
++                       "Lower"         Lower
++                       "Raise"         Raise
++                       "(Un)Stick"     Stick
++                       ""              Nop
++                       "(Un)Maximize"  Maximize 100 -20p
++                       ""              Nop
++                       "Delete"        Delete
++                       "Raise/Lower"   RaiseLower
++                       "Destroy"       Destroy
++                       ""              Nop
++                       "Iconify"       Iconify
++                       "Close"         Close
+
+
+AddToMenu FvwmSetup	"Fvwm Setup" Title
++			"Change Scrolling"	Popup FvwmScroll
+
+AddToMenu FvwmScroll	"Change Scroll Behavior" Title
++			"OFF"   EdgeScroll 0 0
++			"ON"    EdgeScroll 100 100
++			"Horizontal Only"       EdgeScroll 100 0
++			"Vertical Only"         EdgeScroll 0 100
++			"Partial"               EdgeScroll 50 50
+
+AddToMenu FvwmModules	"Fvwm Modules" Title
++                       "Pager"         Module  FvwmPager 0 0
++                       "Button-Bar"    Module  FvwmButtons
++                       "WinList"       Module  FvwmWinList
++                       "Identify"      Module  FvwmIdent
++			""		Nop
++                       "Clean-Up"      Module  FvwmClean
++                       "SaveDesktop"   Module  FvwmSave
++                       "Debug"         Module  FvwmDebug
++                       "Background"    Module  FvwmBacker
++                       "IconBox"       Module  FvwmIconBox
++                       "Banner"        Module  FvwmBanner
++                       "Talk"          Module  FvwmTalk
++                       "Prompt"        Module  FvwmPrompt "hello" raise
+
+        
+AddToMenu Module-Popup Modules Title            
++ Audio        Module FvwmAudio
++ Auto         Module FvwmAuto 200
++ Buttons      Module FvwmButtons
++ Console      Module FvwmConsole
++ Ident        Module FvwmIdent
++ Banner       Module FvwmBanner
++ Pager        Module FvwmPager 0 1
+
+DestroyMenu NetworkMenu
+AddToMenu NetworkMenu "Network" Title
++			"mutt" Exec exec mutt
++			"Thunderbird%email.png" Exec exec thunderbird 
++			"Bittorrent%kppp.png%" Exec exec bittorrent 
++			"Gaim%gaim.png%" Exec exec gaim
++			"xchat%xchat-16.png%" Exec exec xchat
+
+DestroyMenu MultimediaMenu
+AddToMenu MultimediaMenu "Multimedia" Title
++                       "&Graphics"                    Popup   MenuGraphics
++                       "&Video"                       Popup   MenuVideo
++                       "&Audio"                       Popup   MenuAudio
+
++			"&VIM%gvim.png%"               Exec exec gvim
++			"&Acrobat%AdobeReader16.png%"  Exec exec acroread
++			"&gv%mini.gv.xpm"              Exec exec gv
++			"stardict%kdict.png%"          Exec exec stardict 
++			"gnome-dictionary%dictionary-16.png%"  Exec exec gnome-dictionary 
++			"Evince%evince-16.png%"        Exec exec evince 
++			""		Nop
++			"gimp%icon-gimp.png%" Exec exec gimp
++			""		Nop
++			"ooffice"		Exec exec ooffice
++			""		Nop
++			"x&mms%xmms16.png"              Exec exec xmms
++			"&Realplay%realplay16.png%"	Exec exec realplay
++			"Totem%totem.png%"              Exec exec totem 
++			"Thumbnail%thumbnail.png%"      Exec exec thumbnail 
+
+
+
+
+DestroyMenu SystemMenu
+AddToMenu SystemMenu "System" Title
++                       "Synaptic"       Exec exec synaptic
++                       "gconf-editor"       Exec exec gconf-editor
++                       "Emacs-snapshot"       Exec exec emacs-snapshot
++                       "gparted"       Exec exec gparted
++			"sysv-rc-conf" Exec exec sysv-rc-conf
++			"system-config-network" Exec exec /usr/sbin/system-config-network
+# +                       "Volume"                        Exec exec gnome-volume-control
+
+        
+DestroyMenu  ResearchMenu
+AddToMenu    ResearchMenu "Research" Title
++	 		  "SciLab%scilab.png%" Exec exec scilab 
++			  "Matlab%%" Exec exec Matlab 
++	 		  "Mathematics%edu_mathematics.png%" Exec exec mathematics 
+
+
+DestroyMenu  UtilitiesMenu
+AddToMenu    UtilitiesMenu  "Utilities" Title
++		            "Top"		Exec exec xterm -T Top -n Top -e top
++		            "Xcalc%xcalc16.png%"	Exec exec xcalc
++		            "gnome-dictionary%kdict.png%" Exec exec gnome-dictionary 
++		            ""		Nop
++                           "Stardict"       Exec exec stardict
++		            "Xman"		Exec exec xman
++		            "Xmag"		Exec exec xmag
++                           "Reset X defaults" Exec xrdb -load $HOME/.Xdefaults 
++  		            "screenshot" 	Exec import -window root shot.png
+
+DestroyMenu  GameMenu
+AddToMenu    GameMenu  "Game" Title
++		            "glGo"	Exec exec glGo
+
+
+
+DestroyMenu FvwmMenu
+AddToMenu   FvwmMenu    "Fvwm" Title 
++                       "&Lock%lock.png%"               Exec exec xscreensaver-command -lock
++                       "Re&capture Screen"             Recapture
++                       "Re&fresh Screen"               Refresh
++                       "Screen Shot"               Exec exec import -window root shot.png
++                       "Preferences"           Popup MenuFvwmConfig
++			""		        Nop
++			"Fvwm Setup"	        Popup FvwmSetup
++ 			"Fvwm Modules"          Popup FvwmModules
++                       "toggle FvwmConsole"    Function ToggleFvwmConsole
+
++			""		        Nop
++	                "Quit Fvwm%exit.png%"            Quit	
++                       "Restart Fvwm%gnome-logout.png%"         Restart fvwm2     
++			""		        Nop
++                       "reboot"               Exec exec reboot 
++                       "Shutdown%gnome-shutdown.png%"              Exec exec shutdown -h 0
+# +                       "Gnome Menu" SendToModule FvwmGtk  gnome-all
+
+DestroyMenu MenuProductivity
+AddToMenu MenuProductivity
++   "gedit"			    Exec exec gedit
++   "gnumeric"			    Exec exec gnumeric
++   "abiword"			    Exec exec abiword-2.0
++   "calcoo"			    Exec exec calcoo
++   "anjuta"			    Exec exec anjuta
++   "glade-2"			    Exec exec glade-2
++   ""				    Nop
+# +   "xemacs"			    Exec exec xemacs
++   "gnucash"			    Exec exec gnucash
+# +   "bluefish"			    Exec exec bluefish
++   "texmacs"			    Exec exec texmacs
++   "siag"			    Exec exec siag
++   "xpdf"			    Exec exec xpdf
++   "openoffice"		    Exec exec oowriter
++   "acroread"			    Exec exec /opt/Acrobat5/acroread
++   "eTktab"			    Exec exec /home/xiphux/eTktab-2.5/eTktab
++   "gvim"			    Exec exec gvim
++   "lyx"			    Exec exec lyx
++   "gmp"			    Exec exec gmp
++   "jedit"			    Exec exec jedit
++   "wxglade"			    Exec exec wxglade
++   "gnuplot"			    Exec exec gnuplot
++   "boa-constructor"		    Exec exec boa-constructor
++   "spe"			    Exec exec spe
+
+DestroyMenu MenuVideo
+AddToMenu MenuVideo
++   "mplayer"			    Exec exec mplayer
++   "ogle"			    Exec exec ogle
++   "" 				    Nop
++   "xine"			    Exec exec xine
++   "sinek"			    Exec exec sinek
++   "realplayer8"		    Exec exec /opt/RealPlayer8/realplay
++   "realone"			    Exec exec /home/xiphux/RealPlayer9/realplay
++   "drip"			    Exec exec drip
++   "dvdrip"			    Exec exec dvdrip
++   "cinelerra"			    Exec exec cinelerra
++   "xmovie"			    Exec exec xmovie
++   "helix-player"		    Exec exec hxplay
+
+DestroyMenu MenuAudio
+AddToMenu MenuAudio
++   "rhythmbox (isochronous)"	    Exec exec schedtool -I -e rhythmbox
++   "rhythmbox"			    Exec exec rhythmbox
++   "wxMusik"			    Exec exec wxMusik
++   "beep-media-player"		    Exec exec beep-media-player
++   "easytag"			    Exec exec easytag
++   ""				    Nop
++   "musik"			    Exec exec Musik
++   "xmms"			    Exec exec xmms
++   "madman"			    Exec exec madman
++   "alsamixer"			    Exec exec xterm -e alsamixer
++   "alsamixergui"		    Exec exec alsamixergui
++   "gamix"			    Exec exec gamix
++   "grip"			    Exec exec grip
++   "reborn"			    Exec exec reborn
++   "alsaplayer"		    Exec exec alsaplayer
++   "ripperX"			    Exec exec ripperX
++   "zinf"			    Exec exec zinf
++   "rezound"			    Exec exec rezound
++   "aumix"			    Exec exec aumix
++   "galan"			    Exec exec galan
++   "hydrogen"			    Exec exec hydrogen
++   "protux"			    Exec exec protux
++   "spiralsynthmodular"	    Exec exec spiralsynthmodular
++   "trommler"			    Exec exec trommler
++   "beast"			    Exec exec beast
++   "sweep"			    Exec exec sweep
+
+DestroyMenu MenuGraphics
+AddToMenu MenuGraphics
++   "gqview"			    Exec exec gqview
++   "gimp"			    Exec exec gimp
++   ""				    Nop
++   "blender"			    Exec exec blender
++   "electric eyes"		    Exec exec ee
++   "gPov"			    Exec exec gPov
++   "giram"			    Exec exec giram
++   "celestia"			    Exec exec celestia
++   "peflp"			    Exec exec /home/xiphux/peflp/peflp
++   "sodipodi"			    Exec exec sodipodi
+
+DestroyMenu MenuUtilities
+AddToMenu MenuUtilities
++   "emelfm"			    Exec exec emelfm
++   "vmware"			    Exec exec vmware
++   "gkrellm"			    Exec exec gkrellm2 -w
++   "gkrellm - centraldogma"	    Exec exec gkrellm2 -f -s 192.168.0.119 -P 19150 -w
++   "gkrellm - nerv"		    Exec exec gkrellm2 -f -s 192.168.0.1 -P 19150 -w
++   ""				    Nop
++   "idesk"			    Exec exec idesk
++   "gentoo"			    Exec exec gentoo
++   "ghex"			    Exec exec ghex
++   "portagemaster"		    Exec exec portagemaster
++   "nautilus"			    Exec exec nautilus
++   "worker"			    Exec exec worker
++   "velocity"			    Exec exec velocity
++   "seahorse"			    Exec exec seahorse
++   "nedit"			    Exec exec nedit
++   "gtkdiskfree"		    Exec exec gtkdiskfree
++   "rox"			    Exec exec rox
++   "gcombust"			    Exec exec gcombust
++   "xcdroast"			    Exec exec xcdroast
++   "simplecdrx"		    Exec exec simplecdrx
++   "coaster"			    Exec exec coaster
++   "cdw"			    Exec exec cdw -g
++   "usbview"			    Exec exec usbview
++   "gtop"			    Exec exec gtop
++   "xkeycaps"			    Exec exec xkeycaps
++   "procman"			    Exec exec procman
++   "nvtv"			    Exec exec nvtv
++   "xnc"			    Exec exec xnc
++   "ufed"			    Exec exec xterm -e ufed
++   "switch2"			    Exec exec switch2
+
+#####
+# Functions to allow a process list popup menu.
+# Processes are listed by pid, and each has its
+# own popup with the process state, parent, nice,
+# and various killing/nicing options.
+# Adapted from an example found on the Gentoo forums.
+# Calls two external scripts: fvwm-process-menu and
+# get-proc-info.
+#
+# -xiphux
+#################
+DestroyMenu MenuProcess
+AddToMenu MenuProcess Processes title
++ DynamicPopupAction Function GetProcessList
+
+AddToFunc GetProcessList
++ I DestroyMenu recreate MenuProcess
++ I AddToMenu MenuProcess Processes title
++ I PipeRead 'echo "`$HOME/scripts/fvwm-process-menu`"'
+
+DestroyFunc GetProcInfo
+AddToFunc GetProcInfo
++ I DestroyMenu recreate $0
++ I AddToMenu $0
++ I Piperead 'echo "`$HOME/scripts/get-proc-info $0`"'
+
+DestroyMenu RootMenu
+AddToMenu   RootMenu	"Root Menu"	Title
++			"&xterm%icon-monitor.png%"	Exec exec xterm
++			"&aterm%openterm.png%"	        Exec exec aterm
++			"&Rxvt%xconsole.png%"	        Exec exec rxvt
++			""		Nop
++                       "&Research"                   Popup   ResearchMenu
+# +                       "&Programs"                     Popup ProgramsMenu
++                       "&Network"                      Popup   NetworkMenu
++                       "&"                     Popup 
++                       "&Game"                   Popup   GameMenu
++                       "&Multimedia"                   Popup   MultimediaMenu
++                       "&"                     Popup 
++                       "&System"                       Popup SystemMenu
++                       "&Utilities"                    Popup UtilitiesMenu
++			""		Nop
++                       "&Productivity"                 Popup MenuProductivity
++			""		Nop
++			"&Acrobat%AdobeReader16.png%"   Exec exec acroread
+# +			"&Firefiox%firefox16.xpm%"	Exec exec firefox
+# +			"&Emacs%emacs16.png%"	        Exec exec emacs
++			""		Nop
++                       "Volume"       Exec exec alsamixergui
++			"GotoDeskMenu"		        Popup GotoDeskMenu
++			"Fvwm"		                Popup FvwmMenu
+
+DestroyMenu FvwmMenu
+AddToMenu   FvwmMenu    "Fvwm" Title 
++       "&Lock%lock.png%"               Exec exec xscreensaver-command -lock
++       "Re&capture Screen"             Recapture
++       "Re&fresh Screen"               Refresh
++       "Screen Shot"               Exec exec import -window root shot.png
++       "Preferences"           Popup MenuFvwmConfig
++	""		        Nop
++       "Fvwm Setup"	        Popup FvwmSetup
++ 	"Fvwm Modules"          Popup FvwmModules
++       "toggle FvwmConsole"    Function ToggleFvwmConsole
+
++		""		        Nop
++       "Quit Fvwm%exit.png%"            Quit	
++       "Restart Fvwm%gnome-logout.png%"         Restart fvwm2     
++		""		        Nop
++       "reboot"               Exec exec reboot 
++       "Shutdown%gnome-shutdown.png%"              Exec exec shutdown -h 0
+# +                       "Gnome Menu" SendToModule FvwmGtk  gnome-all
+
+
+
+############
+# Bindings #
+############
+#
+#####
+#
+# Key Keyname Context Modifiers Function
+# Mouse Button Context Modifiers Function
+# Button #
+# 1 --- click the left mouse button
+# 2 --- click the middle mouse button
+# 3 --- click the right mouse button
+# 4 --- scroll up
+# 5 --- scroll down
+# Context #
+# R - the root window  I - Icon  F - frame corners  S - frame sides,
+# T - title bar  W - application window  0-9 - buttons
+#  ___________________________________
+# |                                   |
+# |   R                       R       |
+# |                                   |
+# |     F___________________ F        |
+# |     |13579 T  T  T 08642|         |
+# |     |-------------------|         |
+# |    S|                   |S        |
+# |     |   W          W    |         |
+# |    S|                   |S        |
+# |     |                   |         |
+# | R   |                   |   R     |
+# |     |                   |         |
+# |    S|                   |S        |
+# |     |   W          W    |         |
+# |    S|                   |S        |
+# |     |                   |         |
+# |    F|___________________|F        |
+# |   R       S       S        R      |
+# |               R                   |
+# |___________________________________|
+# Modifiers #
+# C - Ctrl  M - Meta(Alt)  S - Shift  A - Any  3 Super   4 Hyper N - None
+#
+##########
+# =====================Key=================================
+#Key  Keyname    Context  Modifiers   Function
+
+# Key  Tab          A       M          WindowList Root c c DeskSort, SelectOnRelease Meta_L
+
+Key   Tab         A       M             WindowList Root c c NoDeskSort, SelectOnRelease Meta_L
+
+# Key  Left         A       M          PrevWindow 
+# Key  Right        A       M          NextWindow 
+
+# Key  Left         A       S          Scroll -100 +0
+# Key  Right        A       S          Scroll +100 +0
+
+
+# Key  KP_Left      A       3           Scroll -100 +0
+# Key  KP_Right     A       3          Scroll +100 +0
+# Key  KP_Up        A       3           Scroll +0 +100             
+# Key  KP_Down      A       3           Scroll +0 -100
+# Key  KP_Up        A       3           GotoDesk -1
+# Key  KP_Down      A       3           GotoDesk 1
+
+Key  Print        A       N           Restart fvwm2     
+Key  Scroll_Lock  A       N           Exec exec ifup   ppp0        
+# Key  Pause        A       N           Exec exec ifdown ppp0     
+Key  Pause        A       N           Exec sh   /media/hda4/zy/configure/linux/bin/kill-firefox.sh
+
+Key  Print        A       4 Exec exec import -window root $zy/linux/screenshot/`date +%Y%j%H%M`.png
+# Key     Print           W 4 Exec exec import -window $[w.id] $zy/linux/screenshot/`date +%Y%j%H%M`.png
+
+Key  KP_Plus         A               3               Exec exec amixer sset PCM 1-
+Key  KP_Minus        A               3               Exec exec amixer sset PCM 1+
+Key  KP_Enter        A               3               Exec exec amixer sset PCM toggle
+
+# =====================Mouse=================================
+
+#     Button	Context Modifier Function
+
+#Mouse on  Root
+Mouse   1       R       N        StrokeFunc DrawMotion 
+Mouse   3       R       N        WindowList
+
+#Mouse on  Window
+# +--------------------------------------------------------------------------+
+# # | 1 3 5 7 9			   Title			 0 8 6 4 2 |
+# # |--------------------------------------------------------------------------|
+
+Mouse   1       1       A        Close
+Mouse   1       3       A        Iconify
+Mouse   1       5       A        Maximize 100 -20p
+
+# Mouse   1       T       A        Move-or-Raise
+
+Mouse   1       6       A       Menu FvwmWindowOpsMenu
+Mouse   1	4       A       Iconify
+Mouse   1       2       A       Maximize  100 -20p
+ 
+
+Mouse   1       W       4       Maximize 100 -30p
+Mouse   3       W	4	Iconify
+
+
+########################## Window-Identifier ###############################
+# Just choose colors and a fonts
+# *FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+# *FvwmIdentFont  -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+##########################FvwmWinList##################################
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+# *FvwmWinListFont  -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
+*FvwmWinListFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module "FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+                                      
+	
+# =============Function=====================
+
+## Mouse
+## I = Immediate 
+## M = On Mouse Motion
+## C = On Click
+## D = On Double Click
+## H = On Button Held Down 
+
+AddToFunc ToggleFvwmConsole
++ I ToggleWindow FvwmConsole "Module FvwmConsole"
+
+AddToFunc ToggleWindow
++ I None ($$0, CirculateHit) $$1
++ I TestRc (Match) Break
++ I Next (currentpage, visible, !iconic, $$0, CirculateHit) Close
++ I TestRc (Match) Break
++ I Next ($$0, CirculateHit) Function MakeVisible
+
+
+AddToFunc DeiconifyRaiseAndFocus
++ I Iconify off
++ I Raise 
++ I Focus
+
+AddToFunc Move-or-Raise		I Raise
++				M Move
++  				D Lower
+
+AddToFunc Maximize-Func		M Maximize	 0   100
++				C Maximize	 0   80
++				D Maximize	 100 -40p
+
+AddToFunc Move-or-Iconify	I Raise
++				M Move
++				D Iconify
+
+DestroyFunc  NextWindow
+AddToFunc    NextWindow
++ I Next (!Desktop*, CurrentPage,  AcceptsFocus) FlipFocus NoWarp
++ I Current Raise
+
+DestroyFunc  PrevWindow
+AddToFunc    PrevWindow
++ I NoWindow Prev (!Desktop*, CurrentPage,  AcceptsFocus) FlipFocus NoWarp
++ I Current Raise
+
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I Iconify off
++ I Focus 
++ I Raise
++ I WindowShade false
++ I Current (!"DropTerm*") Function RecenterWindow
+
+# This function warps to the window, attempts to scroll the window 
+# to the center of the viewport, and moves the cursor to the center of the  Window
+AddToFunc RecenterWindow
++ I WarpToWindow 50 50
++ I PipeRead 'echo Scroll `echo $[pointer.x] - $[vp.width]/2 | bc`p 0p'
++ I PipeRead 'echo CursorMove `echo - $[pointer.x] + $[w.width]/2 + $[w.x] | bc`p 0p'
+
+
+######################## ShowDesktopFunction ############################
+DestroyFunc     ShowDesktopFunction
+AddToFunc       ShowDesktopFunction
++ I All (CurrentPage,!Iconic,!FvwmTaskBar, !FvwmButtons !FvwmPager) Iconify
+# + I All (CurrentPage,!FvwmTaskBar, !FvwmButtons !FvwmPager) Lower
+
+######################## StartFunction ############################
+DestroyFunc     StartFunction
+AddToFunc       StartFunction
++ I Module      FvwmBacker
++ I Module      FvwmBanner   
++ I Module      FvwmButtons
+# automatically raise focused windows.
++ I Module      FvwmAuto 300 Raise Nop
+# + I Module      FvwmAuto 300
++ I Module      FvwmPager 0 1
++ I Module      FvwmTaskBar
++ I Exec exec   xmodmap ~/.xmodmaprc
+
+
+######################## InitFunction ############################
+DestroyFunc     InitFunction
+AddToFunc       InitFunction
+
+
++ I     Desk 0 0
++ I     Exec exec emacs 
+# -geometry  80x61+0+0
+# + I     Wait emacs
+# + I     Exec exec rxvt -geometry 80x50-3-0 -fg white -bg black -sr
+# + I     Wait rxvt
+# + I     Exec exec firefox  
+# + I     Wait firefox 
+
+# + I     Desk 1 0
+# + I     Exec exec firefox 
+# + I     Wait firefox 
+
+######################## ExitFunction ############################
+DestroyFunc     ExitFunction
+AddToFunc       ExitFunction
++ I All (xscreensaver) Close
+# + I All (emacs) Close
++ I All (firefiox) Close
+
+
+# AddToFunc InitFunction I Echo initializing...
+
+
+# =================FvwmBacker=====================
+DesroyModuleConfig FvwmBacker*
+
+*FvwmBacker: Command (Desk 0, Page 0 0) -solid RoyalBlue4
+*FvwmBacker: Command (Desk 0, Page 1 0) -solid DeepSkyBlue4
+# *FvwmBacker: Command (Desk 1, Page 0 0) -solid grey15
+# *FvwmBacker: Command (Desk 1, Page 1 0) -solid DarkSlateGray
+
+# *FvwmBacker: Command (Desk 0) Exec xpmroot $zy/linux/fvwm/wallpaper/ShiptonSpire.xpm
+# *FvwmBacker: Command (Desk 1) Exec xpmroot $zy/linux/fvwm/wallpaper/zy-blue.xpm
+
+
+
+ ################## FvwmButtons ##############################
+Style FvwmButtons ClickToFocus, NoTitle, StaysOnBottom, NoHandles,  !Iconifiable, Sticky, WindowListSkip
+
+# KillModule FvwmButtons
+# DestroyModuleConfig FvwmButtons: *
+
+*FvwmButtons: Fore      Black
+*FvwmButtons: Back      rgb:90/80/90
+*FvwmButtons: Geometry  124x66-100+0
+*FvwmButtons: Rows      1
+*FvwmButtons: Columns   2
+# *FvwmButtons: BoxSize   fixed
+*FvwmButtons: BoxSize smart
+# *FvwmButtons: Padding     1 1
+*FvwmButtons: Padding 1 1
+
+*FvwmButtons: Font -*-helvetica-medium-r-*-*-12-*
+
+*FvwmButtons(1x1, Swallow(UseOld,Respawn) ASClock "Exec exec asclock -geometry -3000-3000 &" )
+*FvwmButtons(1x1, Swallow(UseOld,NoKill) "xload15" `Exec xload\
+          -title xload15 -nolabel -bg rgb:90/80/90 -update 5 &`)
+
+
+################## Virtual Desktops ################################
+DeskTopSize 2x1                 # # define page 
+EdgeScroll 100 100
+EdgeResistance 250 100
+DesktopName 0 Work
+DesktopName 1 Play
+################## FvwmPager ################################
+Style FvwmPager ClickToFocus, NoTitle, StaysOnBottom, NoHandles,  !Iconifiable, Sticky, WindowListSkip
+
+# *PagerPanel:    Geometry 200x80+0-20
+# define desk
+Module FvwmPager 0 1            # 
+*FvwmPager:    Geometry 200x60+0-30
+
+*FvwmPager:     Rows 1
+*FvwmPager:     Columns 2
+
+*FvwmPager:     Back  grey
+*FvwmPager:     Fore  black     
+*FvwmPager:     Hilight WhiteSmoke
+*FvwmPager:     DeskHilight 
+
+#                               fore            back            hiFore          hiBack
+*FvwmPager:     WindowColors    SlateBlue       LightGray       DodgerBlue      WhiteSmoke
+
+*FvwmPager:     Font  -adobe-helvetica--bold-r-*-*-12-*-*-*-*-*-*-* 
+#  -*-simsun-medium-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPager:     SmallFont -adobe-helvetica--bold-r-*-*-12-*-*-*-*-*-*-* 
+
+*FvwmPager:     Balloons            All
+*FvwmPager:     BalloonBack         yellow
+*FvwmPager:     BalloonFore         Black
+*FvwmPager:     BalloonFont         -*-simsun-medium-r-*-*-12-*-*-*-*-*-*-*
+*FvwmPager:     BalloonYOffset      +2
+*FvwmPager:     BalloonBorderWidth  1
+*FvwmPager:     BalloonBorderColor  Black
+
+
+# =================FvwmTaskBar=====================#
+
+Style FvwmTaskBar HandleWidth 0, BorderWidth 0,  Height 16 !Iconifiable
+
+# *FvwmTaskBar: Geometry +20-20 
+
+*FvwmTaskBar: Back LightSkyBlue3
+*FvwmTaskBar: Fore black
+*FvwmTaskBar: FocusFore blue
+*FvwmTaskBar: 3DFvwm
+
+*FvwmTaskBar: Font    -adobe-helvetica-medium-r-*-*-14-*-*-*-*-*-*-*
+*FvwmTaskBar: SelFont -adobe-helvetica-bold-r-*-*-14-*-*-*-*-*-*-*
+*FvwmTaskBar: StatusFont fixed
+
+*FvwmTaskBar: IconBack darkgreen
+*FvwmTaskBar: IconFore white
+ 
+*FvwmTaskBar: Action Click1 DeiconifyRaiseAndFocus
+*FvwmTaskBar: Action Click2 Iconify 
+# *FvwmTaskBar: Action Click3 Menu FvwmWindowOpsMenu
+*FvwmTaskBar: Action Click3 Menu TaskBar-Window-Ops
+
+*FvwmTaskBar: UseSkipList
+*FvwmTaskBar: AutoStick
+*FvwmTaskBar: DeskOnly
+
+# *FvwmTaskBar: MailCommand Exec exec rxvt -e mutt
+
+*FvwmTaskBar: StartButtonRightMargin 6
+*FvwmTaskBar: StartName 
+*FvwmTaskBar: StartMenu RootMenu
+*FvwmTaskBar: StartIcon tux32.png
+
+*FvwmTaskBar: PageOnly
+
+*FvwmTaskBar: ShowTips
+*FvwmTaskBar: TipsBack bisque
+*FvwmTaskBar: TipsFore black
+
+*FvwmTaskBar: ClockFormat
+*FvwmTaskBar: ClockFormat %R 
+# %m/%d 
+# *FvwmTaskBar: ClockFormat %I:%M %p
+*FvwmTaskBar: BellVolume 20
+*FvwmTaskBar: ButtonWidth 180
+*FvwmTaskBar: WindowButtonsRightMargin 124
+
+# Show Desktop
+*FvwmTaskBar: Button NoTitle,   Icon  mac.png,   Action (Mouse 1)  Function ShowDesktopFunction
+
+# all (CurrentPage,!Iconic,!FvwmTaskBar) iconify
+
+# *FvwmTaskBar: Button NoTitle,   Icon xconsole.png,     Action  (Mouse 1) Exec exec rxvt -geometry 80x30+200-40  -fg black -bg SeaGreen2
+*FvwmTaskBar: Button NoTitle,   Icon rxvt-20.png,     Action  (Mouse 1) Exec exec rxvt -geometry 80x30+200-40  -fg black -bg SeaGreen2
+*FvwmTaskBar: Button NoTitle,   Icon firefox16.xpm,    Action  (Mouse 1) Exec exec firefox -geometry 1000x800+0+0
+# -height 100 -20p 
+
+# *FvwmTaskBar: Button NoTitle,   Icon emacs_16.png,      Action  (Mouse 1) Exec exec emacs -geometry 108x45+0+0 & 
+*FvwmTaskBar: Button NoTitle,   Icon emacs-20.png,      Action  (Mouse 1) Exec exec emacs -geometry 108x45+0+0 & 
+#  --batch /mnt/f/zy/linux/fvwm/.fvwm2rc
+#  -l hack-c
+*FvwmTaskBar: Button NoTitle,   Icon  email.png, Action (Mouse 1) Exec exec mozilla-thunderbird 
+# *FvwmTaskBar: Button NoTitle , Icon xmms16.png, Action (Mouse 1) Exec exec xmms
+# *FvwmTaskBar: Button (Swallow (NoClose, UseOld) "bubblemon"   'Exec bubblemon -d -g +10000+10000')
+
+
+# *FvwmTaskBar: Button FvwmButtonsBack , 
+
+# *FvwmTaskBar: Button Title hello, Icon mini.x.xpm, Action (Mouse 1) Module FvwmConsole
+
+# *FvwmTaskBar: HighlightFocus
+# *FvwmTaskBar: AutoHide 6
+
+
+
+# ==============Stroke==============
+
+####
+# Mouse Gestures.
+#
+# Syntax reminder:
+#
+#   1   2   3
+#
+#   4   5   6
+#
+#   7   8   9
+
+# # #Drag mouse on the root window
+ Mouse 1 R N StrokeFunc DrawMotion 
+
+Stroke 2147895  0       A       A       Restart
+Stroke 2147898  0       A       A       Restart
+
+Stroke N7412369 0       A       N       Exec exec emacs
+Stroke N5698423 0       A       N       Exec exec emacs
+Stroke N5698523 0       A       N       Exec exec emacs
+Stroke N568423  0       A       N       Exec exec emacs
+Stroke N56842   0       A       N       Exec exec emacs
+Stroke N1478963 0       A       N       Exec exec firefox
+Stroke N153     0       A       N       Exec exec firefox
+Stroke N148963  0       A       N       Exec exec firefox
+Stroke N7896321 0       A       N       Exec exec stardict
+
+Stroke 159      0       A       A       Exec exec xmms -t
+Stroke 951      0       A       A       Exec exec xmms -s
+Stroke 15987    0       A       A       Exec exec xmms -f
+Stroke 35789    0       A       A       Exec exec xmms -r
+#strokes	
+#window list without drag
+Stroke 0 0 R N WindowList
+
+#button 3 guesture with Ctrl starts programs in any context
+#"r" like guestures starts rxvt
+Stroke N5456      0     A       N       Exec exec xkill
+Stroke N65456     0     A       N       Exec exec xkill
+
+Stroke N7414789   0     A       N       Exec exec rxvt
+Stroke N7414759   0     A       N       Exec exec rxvt
+Stroke N74147589  0     A       N       Exec exec rxvt
+Stroke N7414756   0     A       N       Exec exec rxvt
+Stroke N74156 	  0     A       N       Exec exec rxvt
+Stroke N74159 	  0     A       N       Exec exec rxvt
+
+Stroke N7536951   0     A       N       Exec exec xterm
+Stroke N9514753   0     A       N       Exec exec xterm
+Stroke N7412369   0     A       N       Exec exec gvim
+
+Stroke N7896321   0     A       N       Exec exec stardict
+Stroke N9874123   0     A       N       Exec exec drscheme
+Stroke N258       0     A       N       Exec exec vmware
+
+#grow horizontal and vertically
+Stroke N258       0 TSF2 N Maximize True 0 growup
+Stroke N852 0 TSF2 N Maximize True 0 growdown
+Stroke N456 0 TSF2 N Maximize True growright 0
+Stroke N654 0 TSF2 N Maximize True growleft 0
+
+#grow bidirectional
+Stroke N25852 	0 TSF3 N Maximize True 0 grow
+Stroke N5852 	0 TSF3 N Maximize True 0 grow 
+Stroke N85258 	0 TSF3 N Maximize True 0 grow 
+Stroke N5258 	0 TSF3 N Maximize True 0 grow 
+Stroke N65456 	0 TSF3 N Maximize True grow 0
+Stroke N5456 	0 TSF3 N Maximize True grow 0
+Stroke N45654 	0 TSF3 N Maximize True grow 0
+Stroke N5654 	0 TSF3 N Maximize True grow 0
+
+#grow diagonally
+Stroke N159 	0 TSF3 N Maximize True growright growup
+Stroke N951 	0 TSF3 N Maximize True growleft growdown
+Stroke N753 	0 TSF3 N Maximize True growright growdown
+Stroke N357 	0 TSF3 N Maximize True growleft growup
+Stroke N5159 	0 TSF3 N Maximize True grow grow
+Stroke N5951 	0 TSF3 N Maximize True grow grow
+Stroke N5753 	0 TSF3 N Maximize True grow grow
+Stroke N5357 	0 TSF3 N Maximize True grow grow
+
+#reverse to unmaximized
+Stroke N74123 0 TSF3 N Maximize False
+
+#window functions
+Stroke 0 	0 TSF	N RaiseLower
+Stroke 0 	0 2   	N Maximize-Func
+Stroke 0 	0 A	N Lower
+Stroke N852 	0 A     N Iconify
+
+# #Drag mouse with Ctrl key
+# Mouse 3 A C StrokeFunc DrawMotion
+
+# #Drag mouse on the border
+# Mouse 3 TSF N StrokeFunc DrawMotion
+
+# #Drag mouse 1 on the maxmize button
+ Mouse 1 3 N StrokeFunc DrawMotion 
+

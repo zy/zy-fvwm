@@ -1,0 +1,638 @@
+# Time-stamp: <zy-menus-all.fvwm2rc, 11-13-2009 19:36 Ziyu Zhang >
+
+# DestroyMenu Debian
+# AddToMenu "/Debian" "DebianMenu" Title
+## add the system menu automatically
+# Read /etc/X11/fvwm/menudefs.hook
+
+# Popup /Debian
+# Read /etc/X11/fvwm/menudefs.hook Quiet
+# Read menudefs.hook Quiet
+
+# PipeRead `fvwm-menu-desktop --type fvwm --dir /var/lib/gnome/Debian --name fvwm-gnome-debian-menu'
+# /etc/menu-methods
+
+# Read /etc/X11/fvwm/menudefs.hook Quiet
+# Read menudefs.hook Quiet
+
+# DestroyFunc UpdateDebianMenu
+# AddToFunc UpdateDebianMenu
+# + I Exec exec test -f $[fvwm_home]/DebianMenu \
+# && /bin/rm -f $[fvwm_home]/DebianMenu
+# + I PipeRead 'update-menus --menumethod $[FVWM_SCRIPTDIR]/fvwm.menu-method >/dev/null'
+# + I Read DebianMenu
+
+# UpdateDebianMenu
+
+# DestroyFunc BuildDebianMenu
+# AddToFunc BuildDebianMenu
+# + I Exec exec if [ -f "$[fvwm_home]/DebianMenu" ] then rm $[fvwm_home]/DebianMenu fi
+# + I PipeRead 'update-menus --menumethod $[fvwm_scrpt]/fvwm_menu; \
+# cat $[fvwm_home]/DebianMenu'
+
+# ============================Gnome Menus=====================================
+# Module FvwmGtk
+# *FvwmGtk: Destroy gnome-all
+# *FvwmGtk: Menu gnome-all
+# *FvwmGtk: Title "Gnome Menus"
+# *FvwmGtk: Separator
+# *FvwmGtk: Destroy gnome-sys
+# *FvwmGtk: Submenu "System" gnome-sys
+# *FvwmGtk: Destroy gnome-user
+# *FvwmGtk: Submenu "User" gnome-user
+# *FvwmGtk: Destroy gnome-redhat
+# *FvwmGtk: Submenu "RedHat" gnome-redhat
+
+# PipeRead 'fvwm-menu-desktop --type gtk --enable-mini-icons --icon-folder :re --icon-app :re --icon-title :re --icon-toptitle :re'
+
+# PipeRead 'fvwm-menu-desktop --type gtk --desktop gnome-user --enable-mini-icons'
+
+# PipeRead 'fvwm-menu-desktop --type gtk --desktop gnome-redhat --enable-mini-icons'
+
+## To obtain the menu above with Alt-button1 on the root window
+# Mouse 1 R M SendToModule FvwmGtk gnome-all
+
+# PipeRead '$[fvwm_home]/scripts/fvwm-gnome2.sh'
+
+# ==================================Menus======================================
+
+MenuStyle * Hilight3DThickness 2
+MenuStyle * BorderWidth 3
+
+# ============
+# MenuStyle
+# ============
+MenuStyle * MWM
+MenuStyle * PopupDelayed, PopupDelay 160, Animation, TitleWarp
+MenuStyle * Foreground black, Background gray40
+MenuStyle * ActiveFore blue
+# MenuStyle * Font -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
+MenuStyle * Font -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+MenuStyle * MenuFace VGradient 45 gray90 gray80
+#MenuStyle * MenuFace TiledPixmap weird10dark.xpm
+
+# ==============
+# Network
+# ==============
+
+DestroyMenu NetworkMenu
+AddToMenu NetworkMenu "Network" Title
++ "Opera%opera.xpm%" Exec exec opera
++ "Firefox%mozicon-3.xpm%" Exec exec firefox
++ "konqueror%gnome-globe.png%" Exec exec konqueror -geometry=1020x710+0+0 &
++ "epiphany%google-earth.png%" Exec exec epiphany-browser &
+
++ "" Nop
++ "mutt%mutt.xpm%" Exec exec rxvt -geometry=80x30+100-40 -e mutt
++ "Thunderbird%email.png%" Exec exec thunderbird
++ "liferea%liferea.png%" Exec exec liferea
+
++ "" Nop
++ "secpanel%secpanel.xpm%" Exec exec secpanel
++ "gwget%gwget.png%" Exec exec gwget
++ "gnome-btdownload%kppp.png%" Exec exec gnome-btdownload
+# + "Bittorrent%kppp.png%" Exec exec bittorrent
+# + "Gaim%gaim.png%" Exec exec gaim
++ "pidgin%pidgin.xpm%" Exec exec pidgin
++ "qq%qq.png%" Exec exec qq
++ "skype%skype.png%" Exec exec skype
++ "xchat%xchat.png%" Exec exec xchat
+
+# Peer-to-Peer file distribution tool
++ "azureus%azureus.png%" Exec exec azureus
++ "amule%amule.xpm%" Exec exec amule
++ "bittorrent%bittorrent.png%" Exec exec gnome-btdownload
++ "" Nop
++ "ethereal%ethereal.png%" Exec exec ethereal
++ "" Nop
+# GnomeMeeting
++ "ekiga%ekiga.png%" Exec exec ekiga
++ "" Nop
++ "network-admin%network-config.png%" Exec exec network-admin
+# View information about your network
+
++ "Network Tools%gnome-nettool.png%" Exec exec gnome-nettool
+
+# ==============
+# Document
+# ==============
+
+DestroyMenu DocumentMenu
+AddToMenu DocumentMenu "Document" Title
++ "gedit%gtk-edit.png%" Exec exec gedit
++ "scribus%document-new.png%" Exec exec scribus
+
++ "" Nop
++ "texmacs%TeXmacs.xpm%" Exec exec texmacs %f
++ "texmaker%texmaker.xpm%" Exec exec texmaker
+
++ "kile%kile.xpm%" Exec exec kile
++ "lyx%lyx.png%" Exec exec lyx
++ "" Nop
++ "gv%ghostview.png%" Exec exec gv
+
++ "evince%evince.png%" Exec exec evince
++ "acroread%acroread.png%" Exec exec acroread -geometry 1020x710+0+0
++ "xpdf%xpdf.xpm%" Exec exec xpdf
++ "kpdf%kpdf.xpm%" Exec exec kpdf
++ "acroread%acroread.png%" Exec exec acroread -geometry 1024x768+0-30
+
++ "" Nop
+
++ "ooffice%ooo-writer.png%" Exec exec ooffice -geometry 800x700+0+0
+# + "ooffice%ooo-writer.png%" Exec exec ooffice -geometry 800x700+0-40
++ "xchm%xchm.xpm%" Exec exec xchm
++ "" Nop
++ "stardict%stardict.png%" Exec exec stardict
++ "gnome-dictionary%dictionary.png%" Exec exec gnome-dictionary
++ "gdict%gdict.xpm%" Exec exec gdict
+
++ "" Nop
++ "VIM%gvim.png%" Exec exec gvim
++ "emacs22%emacs.png%" Exec exec emacs22
++ "emacs-snapshot%emacs-gtk.png%" Exec exec emacs-snapshot
++ "emacs22-gtk%emacs-gtk.png%" Exec exec emacs22-gtk
++ "" Nop
+
+# ==============
+# Research
+# ==============
+
+DestroyMenu ResearchMenu
+AddToMenu ResearchMenu "Research" Title
++ "SciLab%scilab.xpm%" Exec exec scilab
+# + "matlab%matlab.xpm%" Exec exec matlab
+# + "matlab%matlab.xpm%" Exec exec sh /usr/local/matlab7/bin/matlab
+
+# + "matlab%matlab.xpm%" Exec exec /usr/local/matlab7/bin/matlab
+
++ "Math%ooo-math.png%" Popup math-menu
++ "mathematics%mathematics.png%" Exec exec mathematics kdotedit %F
++ "maxima%maxima.xpm%" Exec exec maxima
++ "matlab%matlab.xpm%" Piperead '/usr/local/matlab7/bin/matlab '
++ "octave%octave.xpm%" Exec exec octave
++ "xmaxima%xmaxima.png%" Exec exec xmaxima
++ "EE%as.png%" Popup ee-menu
++ "BioChemistry%as.png%" Popup biochemistry-menu
++ "Astronomy%as.png%" Popup astronomy-menu
+
+DestroyMenu math-menu
+AddToMenu math-menu "Math" Title
++ "SciLab%scilab.xpm%" Exec exec scilab
++ "matlab%matlab.xpm%" Exec exec matlab
++ "octave%octave.xpm%" Exec exec octave
++ "mathematics%mathematics.png%" Exec exec mathematics kdotedit %F
++ "maxima%maxima.xpm%" Exec exec maxima
++ "xmaxima%xmaxima.png%" Exec exec xmaxima
++ "" Nop
+# freefem A language for the Finite Element Method
++ "freefem%freefem.png%" Exec exec freefem
++ "freefem%freefem.png%" Exec exec freefem-3d
+
++ "plplot%plplot.png%" Exec exec plplot
++ "xgraph%xgraph.png%" Exec exec xgraph
++ "gnuplot%gnuplot.png%" Exec exec gnuplot-nox
++ "gnuplot%gnuplot.png%" Exec exec gnuplot-x11
++ "axiom%axiom.png%" Exec exec axiom
++ "xmaxima%xmaxima.png%" Exec exec xmaxima
+# peak fitting and data analysis
++ "fityk%fityk.xpm%" Exec exec fityk
+# Computational group theory software
++ "magnus%magnus.xpm%" Exec exec magnus
+# Regina is a topological calculator with a bent towards normal surface theory
++ "Regina%regina.xpm%" Exec exec regina-kde
+# A program for creating and studying hyperbolic 3-manifolds
++ "snappea%snappea.xpm%" Exec exec snappea
++ "ifrit%ifrit.xpm%" Exec exec /usr/bin/ifrit # IFRIT 3D Data Visualization
+
+DestroyMenu ee-menu
+AddToMenu ee-menu "EE" Title
+# tkgate Circuit Simulator
++ "tkgate%tkgate.xpm%" Exec exec tkgate
+# A Universal Circuit Simulator
++ "qucs%qucs.xpm%" Exec exec qucs %U
++ "" Nop
+
+DestroyMenu biochemistry-menu
+AddToMenu biochemistry-menu "BioChemistry" Title
++ "kalzium%kalzium.png%" Exec exec kalzium -caption "%c" %i %m # periodic table of the elements
++ "xmakemol%xmakemol.xpm%" Exec exec xmakemol # XMakemol Molecule Viewer
++ "gdis%gdis.xpm%" Exec exec gdis # GDIS Molecule Modeller
++ "xdrawchem%xdc.xpm%" Exec exec xdrawchem # xdrawchem Chemistry Editor
++ "rasmol%rasmol.xpm%" Exec exec rasmol # RasMol Molecular Graphics Visualization
++ "" Nop
++ "fastDNAml%fastDNAml.xpm%" Exec exec fastDNAml # fastDNAml
+# graphical multiple sequence alignment editor
++ "seaview%seaview.xpm%" Exec exec seaview
++ "garlic%garlic.xpm%" Exec exec garlic # Garlic Protein Visualization
+
+DestroyMenu astronomy-menu
+AddToMenu astronomy-menu "Astronomy" Title
++ "celestia%celestia.png%" Exec exec celestia
++ "stars%stars.xpm%" Exec exec stars # Stars Sky Chart
++ "kstars%kstars.xpm%" Exec exec kstars -caption "%c" %i %m
++ "stellarium%stellarium.xpm%" Exec exec stellarium
+
+# ==============
+# Programing
+# ==============
+
+DestroyMenu ProgramingMenu
+AddToMenu ProgramingMenu "Programing" Title
++ "tomboy%tomboy.xpm%" Exec exec tomboy
++ "netbeans%netbeans.png%" Exec exec netbeans
++ "eclipse%eclipse.png%" Exec exec eclipse
++ "kdevelop%kdevelop.png%" Exec exec kdevelop
++ "ddd" Exec exec ddd
++ "anjuta%anjuta.png%" Exec exec anjuta
++ "Java%java.xpm%" Exec exec /usr/lib/jvm/java-6-sun-1.6.0.03/bin/jconsole
+
+# View traces produced during the execution of multi-threaded programs
++ "Paje%Paje.xpm%" Exec exec Paje
+
+# /usr/lib/jvm/java-6-sun-1.6.0.03/bin/javaws -viewer
+
++ "" Nop
++ "python2.5%python2.5.xpm%" Exec exec /usr/bin/python2.5
++ "" Nop
++ "dotedit%dot.png%" Exec exec dotedit %F
+
+# ==============
+# Game
+# ==============
+DestroyMenu GameMenu
+AddToMenu GameMenu "Game" Title
+# + "digger%digger.xpm%" Exec exec digger
++ "digger%bg.png%" Exec exec digger
++ "TomGo" Exec exec wine /media/sda1/program files/Tom对弈/LiveBaduk.exe
++ "qgo%qgo.xpm%" Exec exec qgo
++ "glGo" Exec exec glGo
++ "cgoban" Exec exec cgoban
++ "pybridge" Exec exec pybridge
++ "galaxium%galaxium.xpm%" Exec exec galaxium
++ "nexuiz%nexuiz.xpm%" Exec exec nexuiz
++ "alien-arena%alien-arena.xpm%" Exec exec alien-arena
++ "" Nop
+# comprising of numerous activities for children
++ "gcompris%gcompris.xpm%" Exec exec gcompris -a --nolockcheck
+
+# ==============
+# Multimedia
+# ==============
+
+DestroyMenu MultimediaMenu
+AddToMenu MultimediaMenu "Multimedia" Title
++ "Audio%emblem-sound.png%" Popup MenuAudio
++ "Sound%sound.png% " Popup MenuSound
++ "CD%gtk-cdrom.png%" Popup MenuCD
++ "Video%QuickTimePlayer.png%" Popup MenuVideo
++ "Image%InDesign.png%" Popup MenuImage
++ "Graphics%penceil.png%" Popup MenuGraphics
++ "" Nop
+
++ "f-spot%f-spot.png%" Exec exec f-spot
++ "xsane%xsane.png%" Exec exec xsane
++ "xorsa%xorsa.xpm%" Exec exec xorsa
++ "" Nop
+
+DestroyMenu MenuAudio
+AddToMenu MenuAudio
++ "gstreamer-propertie%gstreamer-properties.png%" Exec exec gstreamer-propertie
++ "" Nop
++ "rhythmbox%rhythmbox.png%" Exec exec rhythmbox
+# + "rhythmbox%iTunes.png%" Exec exec rhythmbox
++ "agave%agave.png%" Exec exec agave
+
++ "amaarok%amarok.png%" Exec exec amarok
++ "Realplay%realplay.png%" Exec exec realplay
++ "audacious%audacious.xpm%" Exec exec audacious
++ "gtkpod%Apple-shuffle.png%" Exec exec gtkpod
+# + "gtkpod%apple.png%" Exec exec gtkpod
++ "madman%madman.xpm%" Exec exec madman
++ "beep-media-player" Exec exec beep-media-player
++ "zinf%zinf.xpm%" Exec exec zinf
++ "alsaplayer" Exec exec alsaplayer
++ "xmms%xmms.png%" Exec exec xmms
+# + "xmms%xmms.png%" Exec exec exec xmms -geometry 275x116+645+0
++ "" Nop
+# utility for viewing, editing and writing tags of your MP3,
++ "easytag" Exec exec easytag
+
+# audio editor and live playback tool
++ "sweep" Exec exec sweep
+# graphical audio file editor
++ "rezound" Exec exec rezound
+# Graphical Audio Language
++ "galan" Exec exec galan
+
++ "" Nop
+
+# MIDI
+# professional yet simple and intuitive pattern-based drum programming
++ "hydrogen" Exec exec hydrogen
+# object orientated modular softsynth / sequencer / sampler
++ "spiralsynthmodular%MIDI.png%" Exec exec spiralsynthmodular
+# BEAST/BSE Front-end to the Bedevilled Sound Engine.
++ "beast" Exec exec beast
+
+DestroyMenu MenuCD
+AddToMenu MenuCD
++ "gnome-cd%gnome-cd.png%" Exec exec gnome-cd
++ "gnomebaker%gnomebaker.png%" Exec exec gnomebaker
++ "k3b%k3b.png%" Exec exec k3bk3b
+
+# Serpentine Audio CD Creator
++ "serpentine%gnome-cd.xpm%" Exec exec serpentine -o %U
++ "xcdroast%xcdroast.xpm%" Exec exec xcdroast%xcdroast
++ "ripperX%ripperx.xpm%" Exec exec ripperX
++ "grip%grip.png%" Exec exec grip
+
+DestroyMenu MenuSound
+AddToMenu MenuSound
++ "alsamixer" Exec exec xterm -e alsamixer
++ "alsamixergui%alsamixergui.xpm%" Exec exec alsamixergui
++ "gamix" Exec exec gamix
++ "aumix" Exec exec aumix
++ "" Nop
+# /usr/share/icons/hicolor/48x48/apps/ gnome-reclevel.png%
+# /usr/share/icons/gnome/48x48/apps/ gnome-grecord.png%
+
++ "paprefs%audio-input-microphone.png%" Exec exec gnome-sound-recorder
+# Monitor the recording input volume
++ "vumeter%gnome-reclevel.png%" Exec exec vumeter -r
++ "" Nop
+# PulseAudio Volume Control
++ "pavucontrol%audio-volume-high.svg" Exec exec pavucontrol
+# PulseAudio Manager
++ "paman%paman.xpm%" Exec exec paman
+# PulseAudio Preferences
++ "paprefs%paprefs.xpm%" Exec exec paprefs
+# PulseAudio Volume Meter
++ "pavumeter%pavumeter.xpm%" Exec exec pavumetre
+# PulseAudio Device Chooser
++ "padevchooser%padevchooser.png%" Exec exec padevchooser
+
+# /usr/share/icons/gnome/24x24/stock/media/ stock_line_in.png%
+# /usr/share/icons/gnome/scalable/status/ audio-volume-high.svg
+
+DestroyMenu MenuVideo
+AddToMenu MenuVideo
+
++ "Totem%totem.png%" Exec exec totem
++ "gmplayer%mplayer.xpm%" Exec exec gmplayer
++ "gmplayer%mplayer.png%" Exec exec gmplayer
+
++ "kino%kino.png%" Exec exec kino
+
+# A DVD player f
++ "ogle%audio-x-vorbis+ogg.png%" Exec exec ogle
++ "" Nop
++ "xine%media.png%" Exec exec xine
++ "sinek" Exec exec sinek
++ "drip" Exec exec drip
++ "dvdrip" Exec exec dvdrip
++ "cinelerra" Exec exec cinelerra
++ "xmovie" Exec exec xmovie
++ "blender%blender.png%" Exec exec blender
++ "Realplay%realplay.png%" Exec exec realplay
++ "helix-player" Exec exec hxplay
+
+DestroyMenu MenuImage
+AddToMenu MenuImage
++ "gimp%gimp.xpm%" Exec exec gimp
++ "gimp%Photoshop.png%" Exec exec gimp
++ "Thumbnail%thumbnail.png%" Exec exec thumbnail
++ "xpaint%xpaint.xpm%" Exec exec xpaint
++ "gqview" Exec exec gqview
++ "" Nop
+
+DestroyMenu MenuGraphics
+AddToMenu MenuGraphics
++ "xfig% xfig.xpm%" Exec exec xfig
++ "gnuplot% gnuplot.xpm%" Exec exec gnuplot
+# Generate publication quality graphs
++ "rlplot%rlplot.xpm%" Exec exec rlplot
+
++ "" Nop
+
++ "inkscape%inkscape.png%" Exec exec inkscape
++ "fontforge%fontforge.xpm%" Exec exec /usr/bin/fontforge
++ "electric eyes" Exec exec ee
+
+# ==============
+# System
+# ==============
+DestroyMenu SystemMenu
+AddToMenu SystemMenu "System" Title
+# + "hardinfo%hardinfo.xpm%" Exec exec hardinfo -geometry 1020x710+0+0 &
++ "sysv-rc-conf" Exec exec rxvt -e sysv-rc-conf
++ "alacarte" Exec exec alacarte
++ "gconf-editor%gconf-editor.png%" Exec exec gconf-editor
++ "" Nop
++ "Terminal%gnome-terminal.png%" Popup TerminalMenu
++ "" Nop
++ "Browse C:\ Drive%wine.png%" Exec exec xdg-open ~/.wine/drive_c
++ "Configure Wine%wine.png%" Exec exec winecfg
++ "Uninstall Wine Software%wine.png%" Exec exec uninstaller
++ "gnome-control-center" Exec exec gnome-control-center &
++ "conky" Exec exec conky &
+
++ "Device" Popup MenuDevice
++ "apt-get%Bullets.png%" Popup Menu-Apt
++ "" Nop
+
++ "" Nop
++ "qtparted%gparted.png%" Exec exec qtparted
+# + "bum%bum.xpm%" Exec exec bum
+# + "Services%qw.xpm%" Exec exec gksu services-admin
+# + "sysv-rc-conf" Exec exec sysv-rc-conf
+# + "" Nop
+# + "gnome-appearance-properties" Exec exec gnome-appearance-properties
+
+# + "gnome-display-properties" Exec exec gnome-display-properties
+# + "Login Window" Exec exec gksu /usr/sbin/gdmsetup
+
+# + "scim-setup" Exec exec scim-setup
+
+# + "Language Support" Exec exec gksu /usr/bin/gnome-language-selector
+# + "Users and Groups" Exec exec gksu users-admin
++ "" Nop
+# Configure which services will be run when the system starts
+# + "Sessions" Exec exec gnome-session-properties
+
+# + "Volume" Exec exec gnome-volume-control
+
+DestroyMenu Menu Menu-Apt
+AddToMenu Menu-Apt "apt" Title
++ "synaptic%synaptic.png%" Exec exec synaptic
++ "Software Sources%software-properties.png%" Exec exec gksu --desktop /usr/share/applications/software-properties.desktop /usr/bin/software-properties-gtk
++ "Update Manager%up2date.png%" Exec exec /usr/bin/update-manager
++ "dselect%dselect.xpm%" Exec exec rxvt -e dselect
++ "aptitude%aptitude.xpm%" Exec exec rxvt -e aptitude
+
+DestroyMenu Menu MenuDevice
+AddToMenu MenuDevice "Device" Title
++ "hardinfo%hardinfo.xpm%" Exec exec hardinfo
++ "hal-device-manager" Exec exec hal-device-manager
++ "Ubuntu Device Database" Exec exec hwdb-gui
++ "gnome-cups-manager" Exec exec gnome-cups-manager
++ "system-config-printer" Exec exec system-config-printer
++ "Check for new restricted drivers" Exec exec gksu -D /usr/share/applications/restricted-manager.desktop /usr/bin/restricted-manager
++ "HP1000%hp-logo.xpm%" Exec exec cat $zy/linux/device/printer/sihp1000.img > /dev/hplj1000
+
+DestroyMenu TerminalMenu
+AddToMenu TerminalMenu
++ "xterm%xterm.xpm%" Exec exec xterm
++ "aterm%openterm.png%" Exec exec aterm
+# + "Rxvt%xconsole.png%" Exec exec rxvt
++ "Rxvt%urxvt.xpm%" Exec exec rxvt
++ "gnome-terminal%gnome-terminal.png%" Exec exec gnome-terminal -geometry 80x30+100-40
+
+# Root Terminal
++ "konsole%konsole.png%" Exec exec konsole
++ "Top%gnome-cpu.png%" Exec exec xterm -T Top -n Top -e top
++ "" Nop
+# Terminal Program - Super User Mode
++ "konsole-su%konsole.png%" Exec exec konsole --type su
++ "Root Terminal%gksu-root-terminal.png%" Exec exec gksu /usr/bin/x-terminal-emulator
+
+# ==============
+# Fvwm
+# ==============
+
+DestroyMenu pop-menu
+AddToMenu pop-menu "zyRoot Menu" Title
++ "xterm%xterm.xpm%" Exec exec xterm
++ "Rxvt%urxvt.xpm%" Exec exec rxvt
++ "" Nop
++ "emacs%emacs.png%" Exec exec emacs
++ "firefiox%firefox.xpm%" Exec exec firefox
++ "realplay%realplay.png%" Exec exec realplay
++ "acroread%acroread.png%" Exec exec acroread
++ "" Nop
++ "Restart Fvwm2" Restart fvwm2
++ "Restart Fvwm2" Exec exec "xmag" xmag
++ "" Nop
+
++ "Refresh Screen" Refresh
++ "Recapture Screen" Recapture
+
+DestroyMenu GotoDeskMenu
+AddToMenu GotoDeskMenu "GotoDesk" Title
+# + "Desk 1 1 " Desk 1 1
++ "Desk 1 0 " Desk 1 0
++ "" Nop
+# + "Desk 0 1 " Desk 0 1
++ "Desk 0 0 " Desk 0 0
+
+# =================================
+# TaskBar Window Operation Menu
+# =================================
+AddToMenu TaskBar-Window-Ops Window Operations" Title
++ "Move" Move-or-Raise
++ "Resize" Resize-or-Raise
++ "WindowShade" WindowShade
++ "Lower" Lower
++ "Raise" Raise
++ "(Un)Stick" Stick
++ "" Nop
++ "(Un)Maximize" Maximize 100 -24p
++ "" Nop
++ "Delete" Delete
++ "Raise/Lower" RaiseLower
++ "Destroy" Destroy
++ "" Nop
++ "Iconify" Iconify
++ "Close" Close
+
+# ==============
+# Process
+# ==============
+# Functions to allow a process list popup menu. Processes are listed by pid, and each has its own popup
+# with the process state, parent, nice, and various killing/nicing options. Adapted from an example found on
+# the Gentoo forums. Calls two external scripts: fvwm-process-menu and get-proc-info.
+# -xiphux
+
+DestroyMenu MenuProcess
+AddToMenu MenuProcess Processes title
++ DynamicPopupAction Function GetProcessList
+
+AddToFunc GetProcessList
++ I DestroyMenu recreate MenuProcess
++ I AddToMenu MenuProcess Processes title
++ I PipeRead 'echo "'/media/sda3/zy/linux/bin/fvwm-process-menu `"'
+# + I PipeRead 'echo "' $zy/linux/bin/fvwm-process-menu.sh `"'
+# + I PipeRead 'echo "`$HOME/scripts/fvwm-process-menu`"'
+
+DestroyFunc GetProcInfo
+AddToFunc GetProcInfo
++ I DestroyMenu recreate $0
++ I AddToMenu $0
++ I Piperead 'echo "`$zy/linux/bin/get-proc-info $0`"'
+# + I Piperead 'echo "`$HOME/scripts/get-proc-info $0`"'
+
+# + "Gnome Menu" SendToModule FvwmGtk gnome-all
+DestroyMenu accessory-menu
+AddToMenu accessory-menu
++ "Xcalc%xcalc.png%" Exec exec xcalc
++ "gcalctool%gcalctool.xpm%" Exec exec gcalctool
++ "kfontview" Exec exec kfontview %i %u
+
+# AddToMenu ListFiles ListFiles Title
+# Piperead `for file in ~/*.html; do echo "+ $f Exec exec emacsclient $file"; done`
+
+# DestroyMenu MenuwelcomeFvwmRoot
+# AddToMenu MenuFvwmRoot
+# + 'Shell' InvokeAterm
+
+# ==============
+# RootMenu cannot below case!
+# ==============
+DestroyMenu RootMenu
+AddToMenu RootMenu 'Welcome' Title
+# AddToMenu RootMenu "Root Menu" Title
+# + "Game%gun.png%" Popup GameMenu
+# + "Accesary%file-roller.png%" Popup accessory-menu
+
+# + "Network%connect_established.png%" Popup NetworkMenu
+
+# + "" Popup
+# + "Multimedia%emblem-multimedia.png%" Popup MultimediaMenu
+
+# + "Document%addressbook.png%" Popup DocumentMenu
+# + "Research%coral-star.png%" Popup ResearchMenu
+
+# + "Programing%text-x-c.png%" Popup ProgramingMenu
+
++ "" Popup
+
+# + "Process" Popup MenuProcess
+# + "ListFiles" Popup ListFiles
+
+# + "System%Apple-imac-dark.png%" Popup SystemMenu
+# + "System%gnome-globe.png%" Popup SystemMenu
+# + "Control Center%configure.png%" Exec exec gnome-control-center
+# + "Favorites%gnome-favorites.png%" Popup favorites-menu
+# + "Favorites%emblem-special.png%" Popup favorites-menu
+
++ "" Nop
+
+# + "Volume%multimedia-volume-control.png%" Exec exec alsamixergui
+
+# + "alsamixer" Exec exec alsamixer
+# + "GotoDeskMenu" Popup GotoDeskMenu
+# + "" Nop
+
+# + "GotoDesk%gnome-workspace.png%" Popup GotoDeskMenu
++ "Fvwm%X11.png%" Popup FvwmMenu
+# Use the auto-generated menu
+# + "Gnome Menu" Popup Gnome2Menu
+# Reread the menus - will regenerate the auto-generated menu
+# + "Refresh Menus" Read $[fvwm_home]/zy-fvwm-menus
+# + "Debian" Popup "/Debian"
+
+# + "Debian" Popup /Debian
+
+# + "Test" Test (EnvMatch zy_hostname "desktop") GotoDesk -1
+# + "Test" Test ($[zy_hostname]=="desktop") Exec exec kile !!!!!
+

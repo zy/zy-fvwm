@@ -1,0 +1,26 @@
+Key h		A	2	Scroll -100 0
+Key n		A	2	Scroll +100 0
+Key c		A	2	Scroll 0 -100
+Key t		A	2	Scroll 0 +100
+
+Key h		A	2S	MoveAndFollow  0 w0
+Key n		A	2S	MoveAndFollow -0 w0 
+Key c		A	2S	MoveAndFollow w0  0
+Key t		A	2S	MoveAndFollow w0 -0
+
+Key h		A	2C	PointerWindow (AcceptsFocus) GotoAndFollow -1p 0p
+Key n		A	2C	PointerWindow (AcceptsFocus) GotoAndFollow +1p 0p 
+Key c		A	2C	PointerWindow (AcceptsFocus) GotoAndFollow 0p -1p
+Key t		A	2C	PointerWindow (AcceptsFocus) GotoAndFollow 0p +1p
+
+Key g		A	2	AndWarp MyMaximize
+Key g		A	2S	AndWarp VerticalGrow
+Key g		A	2C	AndWarp BothGrow
+
+Key r		A	2	AndWarp PlaceAgain
+Key r		A	2S	AndWarp PlaceAgainAll
+Key r		A	2C	AndWarp PlaceAgainAll
+
+Key s		A	2	SaveFocus PrevWindow
+Key z		A	2	MyIconify
+Key b		A	2	MyIconify

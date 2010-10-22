@@ -1,0 +1,72 @@
+# Time-stamp: <zy-keys-mouse-a751.fvwm2rc, 09-18-2009 08:50 Ziyu Zhang >
+
+# =====================Key-Binding=================================
+#Key Keyname Context Modifiers Function
+
+# Key Tab A M WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd
+
+# ==============
+# Print
+# ==============
+# Key Print A N Function toggle-emacs-hot_program
+Key Print A N Function FuncFocusNextWindow
+# Key Print A N Function toggle-emacs-fvwm_pdf_viewer
+# Key Print A N Function toggle-emacs-acroread
+Key Print A M Function toggle-desk
+Key Print A 3 Restart fvwm2
+Key Print A C ThisWindow (!FvwmTaskBar, !FvwmButtons !FvwmPager) Maximize 100 -30p
+
+Style fvwm-run-dialog FPGrabFocus, FPReleaseFocus
+Key Print A 4 Exec exec sh $zy/linux/x/fvwm/run-dialog.sh
+
+# ==============
+# Scroll_Lock
+# ==============
+# Key Scroll_Lock A N Function FuncFocusNextWindow
+# Key Scroll_Lock A 3 Restart fvwm2
+# Key Scroll_Lock A 4 Function toggle-FvwmConsole
+
+# ==============
+# Pause
+# ==============
+# Key Pause A N ThisWindow (!FvwmTaskBar, !FvwmButtons !FvwmPager) Maximize 100 -30p
+Key Pause A N ThisWindow (!Iconic,!FvwmTaskBar, !FvwmButtons !FvwmPager !emacs) Close
+# Key Pause A 3 ThisWindow (!Iconic,!FvwmTaskBar, !FvwmButtons !FvwmPager !emacs) Close
+Key Pause A 3 ThisWindow (!Iconic,!FvwmTaskBar, !FvwmButtons, !FvwmPager, !emacs) Destroy
+Key Pause A C PipeRead "pgrep -u $(whoami) firefox | xargs kill -9 "
+Key Pause A 4 PipeRead "shutdown -h 0 "
+
+# Key Print A 3 Test (!EnvIsSet fvwm_host) Exec exec firefox
+# I Exec exec echo "fvwm-root --retain-pixmap $[fvwm_img]/wallpaper/$0" > $[fvwm_home]/cfg/background.cfg
+
+# ==============
+# Volume
+# ==============
+
+Key Up A 4 Piperead "amixer -c 0 -- sset Master playback 2dB+"
+Key Down A 4 Piperead "amixer -c 0 -- sset Master playback 2dB-"
+
+# ==================================Mouse======================================
+# Button Context Modifier Function
+
+#Mouse on Root
+Mouse 1 R N StrokeFunc DrawMotion
+Mouse 3 R N WindowList
+
+#Mouse on Window
+# +--------------------------------------------------------------------------+
+# | 1 3 5 7 9 Title 0 8 6 4 2 |
+# |--------------------------------------------------------------------------|
+
+Mouse 1 1 A Maximize 100 -30p
+Mouse 1 3 A Lower
+Mouse 1 5 A Close
+
+# Mouse 1 T A Move-or-Raise
+# Mouse 3 T A Menu FvwmWindowOpsMenu
+Mouse 3 T A Menu TaskBar-Window-Ops
+
+Mouse 1 6 A Destroy
+Mouse 1 4 A Iconify
+Mouse 1 2 A Maximize 100 -30p
+

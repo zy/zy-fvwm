@@ -1,0 +1,13 @@
+#!/bin/bash
+# $Id: netscape-window,v 1.6 2005/10/20 12:33:43 pz215 Exp $
+
+BROWSER=${BROWSER:-firefox}
+
+if $BROWSER -remote 'openURL(about:blank, new-window)' ;
+then
+ exit 0
+else
+ exec $BROWSER
+fi
+
+

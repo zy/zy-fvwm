@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# $1 windowid, $2 directory
+
+# echo $1 $2 >> ~/dirs.log
+
+test -d "$2" &&
+exec rox --RPC << EOF
+<?xml version="1.0"?>
+<env:Envelope xmlns:env="http://www.w3.org/2001/12/soap-envelope">
+ <env:Body xmlns="http://rox.sourceforge.net/SOAP/ROX-Filer">
+  <OpenDir>
+   <Filename>$2</Filename>
+   <ID>$1</ID>
+   <Class>RoxTracker</Class>
+   <Style>Small</Style>
+  </OpenDir>
+ </env:Body>
+</env:Envelope>
+EOF
+

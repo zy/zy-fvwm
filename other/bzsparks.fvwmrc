@@ -1,0 +1,930 @@
+#  -*- fvwm -*-
+###################################################################
+###
+### modified by bzsparks
+### created by Syzygy (desintegr@free.fr)
+### Fvwm Configuration File
+### Highly based on Ikaro and Taviso Fvwm Configuration
+###
+### Thu June 2 20:40:47 CEST 2004
+### Version 0.5
+###
+### Fvwm 2.5.10-r3 Gentoo
+### Gentoo Fvwm is highly patched !
+### WARNING : some function are broken with a non-patched Fvwm (ie : Translucent)
+###
+###################################################################
+###
+### Licence : 
+### This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike License.
+### To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/1.0/
+### or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+###
+###################################################################
+
+
+
+
+###################################################################
+### Environnement Settings
+###################################################################
+
+#### Set image path
+ImagePath ${HOME}/.fvwm/images:+
+SetEnv fvwm_image_path $[HOME]/
+
+#### Set font
+SetEnv FVWM_FONT "Shadow=1:xft:Dungeon-10"
+
+#### Set the wallpaper and wallpapers directory
+#### Use fbsetbg (from Fluxbox)
+SetEnv fvwm_root "fbsetbg -f "
+SetEnv fvwm_wallpaper_dir $[HOME]/documents/wallpapers/
+SetEnv fvwm_wallpaper $[fvwm_wallpaper_dir]/lady.png
+
+#### Set the audio/mp3 directory
+SetEnv fvwm_audio_path /mnt/media/music/ 
+SetEnv fvwm_audio_exec "xmms --play"
+
+#### Set the video directory
+SetEnv fvwm_video_path /mnt/media/movies/
+SetEnv fvwm_video_exec "gmplayer"
+
+#### Set scripts path
+SetEnv fvwm_script_path $[FVWM_USERDIR]/scripts/
+
+#### Set playlits path
+SetEnv fvwm_playlist_path $[FVWM_USERDIR]/playlist
+
+##################################################################
+
+
+
+#### Start Function
+#### Launch needed Fvwm Modules
+AddToFunc StartFunction
++ I Exec exec $[fvwm_root] $[fvwm_wallpaper]
++ I Test (Restart) All (Iconic) Test (f $[FVWM_USERDIR]/icon.tmp.$[w.id].png) WindowStyle IconOverride, Icon $[FVWM_USERDIR]/icon.tmp.$[w.id].png
++ I Exec exec $[fvwm_script_path]/xmodmap.sh
++ I Module FvwmCommandS
++ I Module FvwmProxy
++ I Module FvwmPager
++ I Module FvwmButtons -g 513x57+180-0 FvwmDock 
++ I Module FvwmAnimate
+
+#### Load Startup programs
+#+ I Test (Init) Exec exec pypanel
++ I Test (Init) Exec exec gkrellm2
++ I Test (Init) Exec exec gaim
++ I Test (Init) Exec exec gnome-theme-manager
++ I Test (Init) Exec sleep 2 && exec erss -c /usr/share/erss/config/yahoonews.cfg
++ I Test (init) Exec sleep 2 && exec erss -c /usr/share/erss/config/slashdot.cfg
+
+#### Exit Function
+AddToFunc ExitFunction
++ I Test (!ToRestart) Exec exec rm -f $[HOME]/.fvwm/icon.tmp.*
+
+##################################################################
+
+
+
+
+###################################################################
+### General Settings
+###################################################################
+
+#### Set the Desktop Size
+DeskTopSize 3x2
+
+IgnoreModifiers L25
+SnapAttraction 5
+EdgeScroll 0 0
+EdgeResistance 1000 20
+EdgeThickness 1
+ClickTime 150
+MoveThreshold 3
+OpaqueMoveSize unlimited
+HideGeometryWindow Always
+BugOpts FlickeringMoveWorkaround Off
+SnapGrid 1 1
+
+ColormapFocus FollowsFocus
+
+Style * Colorset 3, HilightColorset 4
+Style * Font "Shadow=1 1 SE:xft:sans:bold:pixelsize=10:minspace=True"
+
+Style * SmartPlacement, WindowShadeSteps 0, ResizeOutLine
+Style * DecorateTransient, NoPPosition
+Style * IconBox 15 15 -1 1, SloppyFocus, MouseFocusClickRaises
+Style * SmartPlacement, WindowShadeSteps 20, ResizeOpaque
+Style * NoIcon, NoIconTitle
+
+Style * BorderWidth 1, HandleWidth 1
+
+###################################################################
+
+
+
+
+###################################################################
+### Colorsets
+###################################################################
+
+#### Menu Colorset
+Colorset 0 fg #ffffff, fgsh #000000, bg #f6f6f6, sh #6e90b3, hi #91b6db, Translucent #061326 65
+#light_blue Colorset 0 fg #ffffff, fgsh #000000, bg #f6f6f6, sh #6e90b3, hi #91b6db, Translucent #283e5e 65
+Colorset 1 fg #000000, fgsh #b5b7b8, bg #ffffff, hi #ffffff, sh #9a9a9a, Translucent #dce0e7 50
+
+#### General Colorset
+Colorset 3 fg #f6f6f6, bg #000000, fgsh #000000, NoShape, RootTransparent, Tint #283e5e 70, IconAlpha 60
+Colorset 4 fg #ffffff, bg #000000, fgsh #000000, Noshape, RootTransparent, Tint #101f36 70, IconAlpha 100
+
+Colorset 5 fg #ffffff, bg #000000
+
+Colorset 6  fg #ffffff, bg #000000, RootTransparent
+
+#### Dock Colorset
+#Colorset 30 fg #ffffff, bg #ffffff, hi #dde5ec, sh #a6bbce, RootTransparent , Tint #101F36 65
+Colorset 30 fg #ffffff, bg #ffffff, hi #dde5ec, sh #a6bbce, RootTransparent , Tint #061326 65
+
+#### Pager Colorset
+Colorset 60 fg white, bg black, RootTransparent, Tint black 20
+Colorset 61 fg white, bg black, Noshape, RootTransparent, Tint #101f36 70
+Colorset 62 fg white, bg black, RootTransparent, Tint #466696 50
+Colorset 63 fg white, bg black, Noshape, RootTransparent, Tint #101f36 50
+
+###################################################################
+
+
+
+
+###################################################################
+### CursorStyle
+###################################################################
+
+#### Change style to left_ptr and fleur (missing cursors in my theme)
+CursorStyle root left_ptr
+CursorStyle default left_ptr 
+CursorStyle position left_ptr
+CursorStyle sys left_ptr 
+CursorStyle menu left_ptr
+CursorStyle title left_ptr
+CursorStyle resize fleur
+CursorStyle stroke cross
+CursorStyle select draped_box
+
+###################################################################
+
+
+
+###################################################################
+## Titlebar Decoration
+###################################################################
+
+DestroyFunc Move-or-Raise
+AddToFunc Move-or-Raise
++ I Raise
++ M Move
++ D WindowShade Toggle
+
+DestroyFunc Move-or-Iconify
+AddToFunc Move-or-Iconify
++ I Raise
++ M Move
++ D Iconify
+
+DestroyFunc Resize-or-Raise
+AddToFunc Resize-or-Raise
++ I Raise
++ M Resize
++ D Lower
+
+DestroyFunc ShadeResize
+AddToFunc ShadeResize
++ C WindowShade toggle
++ M Resize
+
+# bindings
+Mouse	1	W	M	Move
+Mouse	3	W	M	Resize-or-Raise
+
+Mouse	1	T	A	Move-or-Raise
+Mouse	1	I	A	Move-or-Iconify
+Mouse	2	T	A	ShadeResize
+Mouse	3	TSIF	A	RaiseLower
+
+# decor
+DestroyDecor fvwm-decor
+AddToDecor fvwm-decor
+
++ TitleStyle ActiveUp Colorset 3
++ TitleStyle ActiveDown Colorset 3
++ TitleStyle InActive Colorset 4
++ TitleStyle LeftJustified
++ TitleStyle -- flat
++ TitleStyle Height 20
+
++ BorderStyle -- HiddenHandles
++ BorderStyle -- Flat
+
+Style * TitleAtTop
+Style * Colorset 3 
+Style * HilightColorset 3 
+
+Style * HandleWidth 1
+Style * BorderWidth 1
+
+Style * Font $[FVWM_FONT]
+
+# buttons
++ ButtonStyle 1 InActive Pixmap icons/Menu.png
++ ButtonStyle 1 ActiveUp Pixmap icons/Menu.png
++ ButtonStyle 1 ActiveDown Pixmap  icons/Menu.png
+
++ ButtonStyle 2 InActive Pixmap icons/Delete.png
++ ButtonStyle 2 ActiveUp Pixmap icons/Delete.png
++ ButtonStyle 2 ActiveDown Pixmap icons/Delete.png
+
++ ButtonStyle 3 MiniIcon
+
++ ButtonStyle 4 InActive Pixmap icons/Re-up.png
++ ButtonStyle 4 ActiveUp Pixmap icons/Re-up.png
++ ButtonStyle 4 ActiveDown Pixmap icons/Re-up.png
+
++ ButtonStyle 6 InActive Pixmap icons/DropBoxDealie.png
++ ButtonStyle 6 ActiveUp Pixmap icons/DropBoxDealie.png
++ ButtonStyle 6 ActiveDown Pixmap icons/DropBoxDealie.png
+
++ ButtonStyle All -- UseTiTleStyle
++ ButtonStyle All -- flat
+
+# button bindings
+Mouse	0	1	A	Popup window-menu-control Button1 0 100
+
+Mouse	0	2	A	Close
+
+Mouse	1	3	A	Nop
+
+Mouse	1	4	A	Maximize
+Mouse	2	4	A	Maximize grow grow
+
+Mouse	0	6	A	Iconify
+
+# button menus
+DestroyMenu window-menu-move
+AddToMenu window-menu-move
++   %mini/window-move.xpm%"Move to Top     "    Pick AnimatedMove keep 0p
++   %mini/window-move.xpm%"Move to Left    "    Pick AnimatedMove 0p keep
++   %mini/window-move.xpm%"Move to Right   "    Pick PipeRead \
+        "echo AnimatedMove `expr $[vp.width] - $[w.width]`p keep"
++   %mini/window-move.xpm%"Move to Bottom  "    Pick PipeRead \
+        "echo AnimatedMove keep `expr $[vp.height] - $[w.height]`p"
++   ""                                          Nop
++   %mini/window-move.xpm%"Center Window   "    Pick PipeRead \
+    "echo AnimatedMove `expr \\( $[vp.width] - $[w.width] \\) / 2`p \
+    `expr \\( $[vp.height] - $[w.height] \\) / 2`p"
++   ""                                          Nop
++   %mini/window-move.xpm%"Interactive Move"    Pick Move
+
+DestroyMenu window-menu-control
+AddToMenu window-menu-control
++   %mini/window-resize.xpm%"Resize     "   Resize
++   %mini/window-iconify.xpm%"Iconify   "   Iconify
++   %mini/window-maximize.xpm%"Maxmimise"   Maximize
++   %mini/window-move.xpm%"Move         "   Popup window-menu-move
++   %mini/window-shade.xpm%"Shade       "   WindowShade Toggle
++   ""                                      Nop
++   %mini/window-stick.xpm%"Stick       "   Stick
++   %mini/window-raise.xpm%"Raise       "   Raise
++   %mini/window-lower.xpm%"Lower       "   Lower
++   %mini/refresh.xpm%"Refresh          "   RefreshWindow
++   ""                                      Nop
++   %mini/window-identify.xpm%"Identify "   Pick Module FvwmIdent
++   ""                                      Nop
++   %mini/window-close.xpm%"Close       "   Close
++   %mini/window-destroy.xpm%"Destroy   "   Destroy
+
+# apply style
+Style * UseDecor fvwm-decor
+
+
+### MOUSE GESTURES
+
+# Syntax reminder:
+#
+#   1   2   3
+#
+#   4   5   6
+#
+#   7   8   9
+#
+# Stroke Sequence Button Context Modifiers Function
+
+# directions
+Stroke	456	0	A	A	GotoPage +1p 0p
+Stroke	654	0	A	A	GotoPage -1p 0p
+Stroke	852	0	A	A	GotoPage 0p -1p
+Stroke	258	0	A	A	GotoPage 0p +1p
+
+# apps
+Stroke	12369	0	A	A	Exec exec firefox
+Stroke	45654	0	A	A	Exec exec aterm
+Stroke	85258	0	A	A	Exec exec rox
+Stroke	32147	0	A	A	Exec exec gvim
+
+# close window
+Stroke	14789	0	A	A	Pick Close
+
+###################################################################
+
+
+###################################################################
+### Styles
+###################################################################
+
+#### Fvwm Modules Styles
+Style FvwmPager    NoTitle,  Sticky, WindowListSkip, CirculateSkipIcon, CirculateSkip
+Style FvwmPager    StaysOnBottom, NoHandles, BorderWidth 0
+Style FvwmDock     Sticky, NoTitle, NoHandles, Borderwidth 1
+Style FvwmDock     WindowListSkip, StaysOnBottom
+
+#### Applications Styles
+#Style GameConsole NoTitle, Sticky, WindowListSkip, CirculateSkipIcon, CirculateSkip
+#Style GameConsole StaysOnTop, NoHandles, BorderWidth 0, WindowShadeSteps 150
+
+Style gnome-panel       NoTitle
+Style gnome-panel       NoHandles
+Style gnome-panel       NoIcon
+Style erss*             Borderwidth 0 
+Style erss*             WindowListSkip
+Style erss*             CirculateSkip
+Style erss*             NoTitle
+Style erss*             StaysOnBottom
+Style erss*             NoHandles
+Style erss*             FixedPosition
+Style erss*             FixedSize
+Style erss*             Sticky
+Style erss*             NeverFocus
+Style erss*             NoIcon
+Style pypanel*             Borderwidth 0 
+Style pypanel*             WindowListSkip
+Style pypanel*             CirculateSkip
+Style pypanel*             NoTitle
+Style pypanel*             StaysOnBottom
+Style pypanel*             NoHandles
+Style pypanel*             FixedPosition
+Style pypanel*             FixedSize
+Style pypanel*             Sticky
+Style pypanel*             NeverFocus
+Style pypanel*             NoIcon
+Style Firefox-bin EWMHMiniIconOverride, MiniIcon icons/firefox.png
+Style Thunderbird-bin EWMHMiniIconOverride, MiniIcon icons/thunderbird.png
+Style gvim  EWMHMiniIconOverride, MiniIcon icons/gvim.png
+Style gnome-terminal  EWMHMiniIconOverride, MiniIcon icons/gnome-terminal.png
+Style xchat-2  EWMHMiniIconOverride, MiniIcon icons/xchat.png
+Style gimp-2.0 EWMHMiniIconOverride, MiniIcon icons/gimp.png
+Style gaim EWMHMiniIconOverride, MiniIcon icons/gaim.png
+Style nautilus EWMHMiniIconOverride, MiniIcon icons/nautilus.png
+Style gFTP EWMHMiniIconOverride, MiniIcon icons/gftp.png
+Style Gkrellm2 NoTitle, Sticky, WindowListSkip, StaysOnBottom, NeverFocus
+Style xmms NoTitle, WindowListSkip, BorderWidth 0
+Style beep-media-player NoTitle, WindowListSkip, BorderWidth 0
+Style Gdesklets NoTitle, NoHandles, Borderwidth 0
+Style MPlayer NoTitle, WindowListSkip
+Style Untitled  NoTitle
+
+#### Override others icons 
+Style * EwmhMiniIconOverride
+
+###################################################################
+
+
+
+###################################################################
+### Mouse Bindings
+###################################################################
+
+#### Root Menus
+Mouse 1     R       A   -
+Mouse 3     R       A   Menu MenuFvwmRoot
+Mouse 2     R       A   WindowList NoCurrentDeskTitle
+
+#### Titlebar Buttons
+Mouse 1     1       A   Menu MenuFvwmWindowOps
+Mouse 3     1       A   Menu MenuFvwmwindowOps
+Mouse 1     6       A   Thumbnail
+Mouse 1     4       A   Maximize
+Mouse 1     2       A   Close
+
+#### Window, Frame, Side, Others
+Mouse 1     FS      A   ResizeFunc
+Mouse 2     W       C   ResizeFunc
+Mouse 1     W       M   MoveFunc
+Mouse 3     W       M   ResizeFunc
+Mouse 3     TSIF    A   RaiseLower
+Mouse 3     T       A   Menu MenuFvwmWindowOps
+
+AddToFunc ResizeFunc "M" Resize
+AddToFunc MoveFunc   "M" Move
+
+#### Icons Binding
+Mouse 1     I       A   Iconify
+Mouse 2     I       A   Move
+
+#### Wheel Toggle Shade
+Mouse 4     T       N   WindowShade True
+Mouse 5     T       N   WindowShade False
+Mouse 4     TW      M   WindowShade True
+Mouse 5     TW      M   WindowShade False
+
+#### Mouse Gesture Binding
+Mouse 1     R       A   StrokeFunc
+Mouse 1     W       CM  StrokeFunc
+
+###################################################################
+
+
+
+
+###################################################################
+### Keyboard Bindings
+###################################################################
+
+Key Escape  A       M   SendToModule FvwmProxy ShowToggle
+
+Key Tab A M Windowlist Root c c NoCurrentDeskTitle
+
+
+#### Windows Key Root Menu
+Key Super_L  A  A   Menu MenuFvwmRoot
+Key Super_R  A  A   Menu MenuFvwmRoot
+
+#### Traditional Bindings
+Key F4 A        M   Pick Close
+Key X  A        M   Pick Destroy
+
+#### Fvwm Special Bindings
+Key F3 A        M   Module FvwmConsole -terminal xterm
+Key I  A        M   Pick Module FvwmIdent
+Key R  A        CM  Restart
+Key F4 A        CM  Quit
+
+#### Applications Bindings
+Key F1 A        M   Exec exec aterm
+
+#### Multimedia Keys Bindings
+Key XF86AudioMute        A A Exec exec aumix -vn
+Key XF86AudioRaiseVolume A A Exec exec aumix -v+5
+Key XF86AudioLowerVolume A A Exec exec aumix -v-5
+Key XF86AudioMedia       A A Exec exec xmms
+Key XF86Mail             A A Exec exec thunderbird
+
+#### Pager Bindings
+Key Right A CM GoToPage +1p  0p
+Key Left  A CM GoToPage -1p  0p
+Key Up    A CM GoToPage  0p -1p
+Key Down  A CM GoToPage  0p +1p
+
+###################################################################
+
+
+
+
+###################################################################
+### Menu Settings
+###################################################################
+
+MenuStyle * Hilight3DThin, PopupOffset +0 100, PopupDelay 200
+MenuStyle * Font "Shadow=1 1 SE:xft:sans:bold:pixelsize=10:minspace=True"
+MenuStyle * MenuColorset 0, HilightBack, ActiveColorset 1
+MenuStyle * BorderWidth 1, TitleUnderlines1, SeparatorsLong, TrianglesSolid, Animation
+MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%2.3>%2|"
+MenuStyle * AutomaticHotKeys
+
+###################################################################
+
+
+
+
+###################################################################
+### Menu
+###################################################################
+
+DestroyMenu MenuFvwmRoot
+AddToMenu MenuFvwmRoot
++   ".:Gentoo &Linux:."
++   ""                                      Nop
++   "&Aterm"%icons/gnome-terminal.png%   Exec exec aterm
++   ""                                      Nop
++   "Internet"%icons/internet.png%          Popup MenuInternet
++   "Office"%icons/office.png%              Popup MenuOffice
++   "Editors"%icons/gvim.png%               Popup MenuEditors
++   "Multimédia"%icons/multimedia.png%      Popup MenuMultimedia
++   "Finance"%icons/gcalc.png%              Popup MenuFinance
++   "Utilities"%icons/utils.png%            Popup MenuUtilities
++   "Games"%icons/games.png%                Popup MenuGames
++   "Préférences"%icons/prefs.png%          Popup MenuFvwmConfig
++   ""                                      Nop
++   "Exit"%icons/quit.png%                  Popup MenuQuit-Verify
+
+DestroyMenu MenuInternet
+AddToMenu MenuInternet
++   "Mozilla &Firefox"%icons/firefox.png%   Exec exec firefox-bin
++   "Ximian &Evolution"%icons/thunderbird.png%   Exec exec evolution
++   "&Pan"%icons/thunderbird.png%           Exec exec pan 
++   "&Straw"%icons/internet.png%            Exec exec straw
++   "Xchat"%icons/xchat.png%                Exec exec xchat-2
++   "Gaim"%icons/gaim.png%                  Exec exec gaim
++   ""                                      Nop
++   "Gftp"%icons/gftp.png%                  Exec exec gftp
++   ""                                      Nop
++   "Sites"%icons/internet.png%             Popup MenuFvwmWeb
++   "News"%icons/internet.png%              Popup MenuFvwmHeadlines
+
+DestroyMenu MenuOffice
+AddToMenu MenuOffice
++   "&Open Office.org"%icons/office.png%    Exec exec ooffice
++   ""                                      Nop
++   "OOo &Writer"%icons/oowriter.png%       Exec exec oowriter
++   "OOo &Calc"%icons/oocalc.png%           Exec exec oocalc
++   "OOo &Impress"%icons/oowriter.png%      Exec exec ooimpress
+
+DestroyMenu MenuEditors
+AddToMenu MenuEditors
++   "Vim"%icons/gvim.png%                   Exec exec gvim -geom 115x46
++   "Gedit"%icons/gvim.png%                 Exec exec gedit
+#+   "Bluefish"%icons/bluefish.png%          Exec exec bluefish
+
+DestroyMenu MenuMultimedia
+AddToMenu MenuMultimedia
++ MissingSubmenuFunction FuncFvwmMenuDirectory
++   "Xmms"%icons/xmms.png%                  Exec exec xmms
++   "Rh&ythmbox"%icons/xmms.png%            Exec exec rhythmbox
++   ""                                      Nop
++   "The &Gimp"%icons/gimp.png%             Exec exec gimp-2.0
++   "G&rip"%icons/grip.png%                 Exec exec grip
++   "K3b"%icons/k3b.png%                    Exec exec k3b
++   "Mplayer"%icons/mplayer.png%            Exec exec gmplayer
++   "Gt&kam"%icons/camera.png%              Exec exec gtkam
++   ""                                      Nop
++   "R&adio"%icons/xmms.png%               Popup MenuFvwmRadio
++   ""                                      Nop
++   "Navigator : &Vidéos"%icons/browse.png%  Popup $[fvwm_video_path]
++   "Navigator : &Music"%icons/browse.png% Popup $[fvwm_audio_path]
+
+DestroyMenu MenuFinance
+AddToMenu MenuFinance
++   "Quicken"%icons/gcalc.png%              Exec exec /home/ben/cxoffice/bin/qw
++   "Bank&Login"%icons/bomb.png%            Exec exec kgpg -s /home/ben/wilsonbank
+
+DestroyMenu MenuUtilities
+AddToMenu MenuUtilities
++   "Gdesklets"%icons/gnome-terminal.png%   Exec exec gdesklets
++   "G&krellm"%icons/gnome-terminal.png%    Exec exec gkrellm2
++   "&Gcalc"%icons/gcalc.png%               Exec exec gcalctool
++   ""                                      Nop
++   "&Nmap"%icons/bomb.png%                 Exec exec nmapfe 
++   "K&gpg"%icons/bomb2.png%                Exec exec kgpg -k
+#+   "Bank&Login"%icons/bomb.png%            Exec exec kgpg -s /home/ben/wilsonbank
++   ""                                      Nop
++   "&SSH Server"%icons/browse.png%         Exec exec aterm -tint Red -e ssh -2 ben@192.168.1.115
++   "SSH &Webserver"%icons/browse.png%      Exec exec aterm -tint Blue -e ssh -2 ben@192.168.0.10
++   ""                                      Nop
++   "S&creenshot"%icons/gnome-terminal.png%  Exec exec $[fvwm_script_path]/screenshot.sh
+
+DestroyMenu MenuGames
+AddToMenu MenuGames
++   "Enemy Territory"                       Exec exec et
++   "UT2004"                                Exec exec ut2004demo 
++   "Frozen Bubble"                         Exec exec frozen-bubble
++   "Tux Racer"                             Exec exec tuxracer
+
+DestroyMenu MenuQuit-Verify
+AddToMenu MenuQuit-Verify
++   "Quit"%icons/quit2.png%              Quit
++   "Restart"%icons/quit2.png%           Restart
+
+DestroyMenu MenuFvwmConfig
+AddToMenu MenuFvwmConfig
++ MissingSubmenuFunction WallpaperBrowser
++   "Wallpapers"%icons/prefs.png%           Popup $[fvwm_wallpaper_dir]
++   ""                                      Nop
++   "FvwmConsole"%icons/gnome-terminal.png% Module FvwmConsole -terminal aterm
++   "Edit fvwm2rc"%icons/gvim.png%        Exec exec gvim -geom 115x46 ~/.fvwm/.fvwm2rc
++   "Refresh"%icons/quit2.png%              Refresh
++   "Kill"%icons/quit2.png%                 Pick Destroy
+
+DestroyMenu MenuFvwmWindowOps
+AddToMenu MenuFvwmWindowOps
++   "Resize"                        Pick Resize
++   "Shade"                                 Pick WindowShade Toggle
++   "S&tick"                                Pick Stick
++   "Refresh"                           Pick RefreshWindow
++   ""                                      Nop
++   "Identification"                        Pick Module FvwmIdent
++   ""                                      Nop
++   "Send to"                          Popup MenuFvwmSendTo
++   ""                                      Nop
++   "Close"                                Close
++   "Destroy"                                  Destroy
+
+DestroyMenu MenuFvwmSendTo
+AddToMenu MenuFvwmSendTo
++   "Page &1" MoveToPage 0 0
++   "Page &2" MoveToPage 1 0 
++   "Page &3" MoveToPage 2 0
++   "Page &4" MoveToPage 0 1
++   "Page &5" MoveToPage 1 1
++   "Page &6" MoveToPage 2 1
+
+DestroyMenu MenuFvwmRadio
+AddToMenu MenuFvwmRadio
++   "Digitally Imported"                    Popup MenuFvwmRadioDI
++   "SmoothJazz"                            Exec exec xmms $[fvwm_playlist_path]/scast_lo.m3u
++   ""                                      Nop
++   "Actualiser les playlists"              Exec exec $[fvwm_script_path]/playlist.sh
+
+DestroyMenu MenuGames
+AddToMenu MenuGames
+#+   "America's Army"                        Exec exec armyops
++   "Enemy Territory"                       Exec exec et
++   "UT2004"                                Exec exec ut2004demo 
++   "Frozen Bubble"                         Exec exec frozen-bubble
++   "Tux Racer"                             Exec exec tuxracer
+
+DestroyMenu MenuQuit-Verify
+AddToMenu MenuQuit-Verify
++   "Quit"%icons/quit2.png%              Quit
++  "Restart"%icons/quit2.png%           Restart
+
+
+#### You can change these playlists accordingly, actually I encourge it ;)  Not a big fan of Trance.
+####
+DestroyMenu MenuFvwmRadioDI
+AddToMenu MenuFvwmRadioDI
++   "Trance"                                Exec exec xmms $[fvwm_playlist_path]/trance96k.pls
++   "Hard Trance"                           Exec exec xmms $[fvwm_playlist_path]/hardtrance96k.pls
++   "Vocal Trance"                          Exec exec xmms $[fvwm_playlist_path]/vocaltrance96k.pls
++   "Euro Dance"                            Exec exec xmms $[fvwm_playlist_path]/eurodance96k.pls
++   "Goa-Psy Trance"                        Exec exec xmms $[fvwm_playlist_path]/goapsy96k.pls
++   "Deep House"                            Exec exec xmms $[fvwm_playlist_path]/deephouse96k.pls
++   "Hard House"                            Exec exec xmms $[fvwm_playlist_path]/hardhouse96k.pls
++   "Hard Core"                             Exec exec xmms $[fvwm_playlist_path]/hardcore96k.pls
++   "Classic Techno Trance"                 Exec exec xmms $[fvwm_playlist_path]/classictechno96k.pls
++   "Chillout"                              Exec exec xmms $[fvwm_playlist_path]/chillout96k.pls
++   "DJ Mixes"                              Exec exec xmms $[fvwm_playlist_path]/djmixes96k.pls
++   ""                                      Nop
++   "Mostly Classical"                      Exec exec xmms $[fvwm_playlist_path]/classical96k.pls
++   "New Age"                               Exec exec xmms $[fvwm_playlist_path]/newage96k.pls
++   "Modern Jazz"                           Exec exec xmms $[fvwm_playlist_path]/jazz96k.pls
++   "Salsa Stream"                          Exec exec xmms $[fvwm_playlist_path]/salsastream96k.pls
+
+DestroyMenu MenuFvwmWeb
+AddToMenu MenuFvwmWeb
+#+  "Informatique"                           Popup MenuFvwmInformatique
++  "Forums"				    Popup MenuFvwmForums
+
+DestroyMenu MenuFvwmInformatique
+AddToMenu MenuFvwmInformatique
++  "MozillaZine"                            Exec exec firefox http://www.mozillazine.org
++  "Hardware.fr"                            Exec exec firefox http://www.hardware.fr
++  "PcInpact"                               Exec exec firefox http://www.pcinpact.com
++  "Gentoo"                                 Exec exec firefox http://wwww.gentoo.org
+
+DestroyMenu MenuFvwmForums
+AddToMenu MenuFvwmForums
++  "Clubic"                                 Exec exec firefox http://forum.clubic.com
++  "Hardware.fr"                            Exec exec firefox http://forum.hardware.fr
++  "PcInpact"                               Exec exec firefox http://www.pcinpact.com/forum/
++  "Gentoo"                                 Exec exec firefox http://forums.gentoo.org
+
+
+###################################################################
+
+
+
+
+###################################################################
+### Thumbnails
+###################################################################
+
+SetEnv fvwm_icon_size 128
+
+DestroyFunc Thumbnail
+AddToFunc Thumbnail
++ I Raise
++ I SetEnv Icon-$[w.id] $[w.iconfile]
++ I ThisWindow (!Shaded Iconifiable !Iconic) PipeRead \
+    "xwd -silent -id $[w.id] | convert -scale $[fvwm_icon_size] -frame 1x1 \
+    -mattecolor black -quality 0 xwd:- png:$[FVWM_USERDIR]/icon.tmp.$[w.id].png \
+    && echo WindowStyle IconOverride, Icon $[FVWM_USERDIR]/icon.tmp.$[w.id].png \
+    || echo Nop"
++ I TestRc (Match) Test (f $[HOME]/icons/$[w.miniiconfile]) PipeRead "composite -geometry +2+4 \
+    $[HOME]/icons/$[w.miniiconfile] $[FVWM_USERDIR]/icon.tmp.$[w.id].png \
+    $[FVWM_USERDIR]/icon.tmp.$[w.id].png && echo Nop \
+    || echo Beep"
++ I Iconify
+
+DestroyFunc DeThumbnail
+AddToFunc DeThumbnail
++ I PipeRead "echo WindowStyle Icon \\$\\[Icon-$[w.id]\\]"
++ I UnsetEnv Icon-$[w.id]
++ I Exec exec rm -f $[FVWM_USERDIR]/icon.tmp.$[w.id].png
+
+#*FvwmEvent: deiconify DeThumbnail
+
+#### Comment out these lines if you don't like Icons to have Titles.
+#Colorset 12 fg white, bg black, fgsh black, RootTransparent
+#Style * IconTitle, IconTitleColorset 12, HilightIconTitleColorset 12, IconTitleRelief 0
+#Style * IconFont "Shadow=1 1 SE:xft:sans:bold:pixelsize=10:minspace=True", IndexedIconName, IconBackgroundPadding 0
+#Style * IconBackgroundRelief 0, IconBackGroundColorset 12
+
+###################################################################
+
+
+
+
+###################################################################
+### Pager
+###################################################################
+
+DestroyModuleConfig FvwmPager: *
+*FvwmPager: Geometry 350x114-0-0
+*FvwmPager: MiniIcons
+*FvwmPager: Colorset * 60
+*FvwmPager: HilightColorset * 61
+*FvwmPager: WindowColorsets 63 62
+*FvwmPager: BalloonColorset * 63
+*FvwmPager: Font none
+*FvwmPager: SmallFont none
+*FvwmPager: Balloons All
+*FvwmPager: BalloonFont "Shadow=1 1 SE:xft:sans:bold:pixelsize=10:minspace=True"
+*FvwmPager: BalloonYOffset +2
+*FvwmPager: BalloonBorderWidth 1
+*FvwmPager: UseSkipList
+*FvwmPager: MoveThreshold 0
+*FvwmPager: SolidSeparators
+*FvwmPager: WindowBorderWidth 1
+
+###################################################################
+
+
+
+
+###################################################################
+### OsXDock
+###################################################################
+
+DestroyModuleConfig FvwmDock: *
+*FvwmDock: Rows 2
+*FvwmDock: Frame 0
+*FvwmDock: Columns 50
+*FvwmDock: Colorset 30
+*FvwmDock: (5x2, Icon dock/nautilus.png, ActionOnPress, Action(Mouse 1) `DockLaunch "nautilus --no-desktop" nautilus $left $top`, Action(Mouse 3) `Next (nautilus) Popup MenuFvwmWindowOps Rectangle +$left+$top 0 -100m`)
+*FvwmDock: (5x2, Icon dock/firefox.png, ActionOnPress, Action(Mouse 1) `DockLaunch firefox-bin firefox-bin $left $top`, Action(Mouse 3) `Next (firefox-bin) Popup MenuFvwmWindowOps Rectangle +$left+$top 0 -100m`)
+*FvwmDock: (5x2, Icon dock/xmms.png, ActionOnPress, Action(Mouse 1) `DockLaunch xmms $left $top`, Action(Mouse 3) `Menu MenuMultimedia Rectangle +$left+$top 0 -100m`)
+*FvwmDock: (5x2, Icon dock/mail.png, ActionOnPress, Action(Mouse 1) `DockLaunch evolution evolution  $left $top`, Action(Mouse 3) `Next (Evolution) Popup MenuFvwmWindowOps Rectangle +$left+$top 0 -100m`)
+*FvwmDock: (5x2, Icon dock/gimp.png, ActionOnPress, Action(Mouse 1) `DockLaunch gimp-2.0 gimp-2.0 $left $top`, Action(Mouse 3) `Next (gimp-2.0) Popup MenuFvwmWindowOps Rectangle +$left+$top 0 -100m`)
+*FvwmDock: (5x2, Icon dock/gvim.png, ActionOnPress, Action(Mouse 1) `DockLaunch gvim gvim $left $top`, Action(Mouse 3) `Next (gvim) Popup MenuFvwmWindowOps Rectangle +$left+$top 0 -100m`)
+*FvwmDock: (5x2, Icon dock/bluefish.png, ActionOnPress, Action(Mouse 1) `DockLaunch gnome-system-monitor gnome-system-monitor $left $top`, Action(Mouse 3) `Next (bluefish) Popup MenuFvwmWindowOps Rectangle +$left+$top 0 -100m`)
+*FvwmDock: (5x2, Icon dock/ooo.png, ActionOnPress, Action(Mouse 1) `DockLaunch oowriter oowriter $left $top`, Action(Mouse 3) `Next (oowriter) Popup MenuFvwmWindowOps Rectangle +$left+$top 0 -100m`)
+*FvwmDock: (5x2, Icon dock/term.png, ActionOnPress, Action(Mouse 1) `Exec aterm`)
+*FvwmDock: (5x2, Icon dock/fvwm.png, ActionOnPress, Action(Mouse 1) `Exec gvim -geom 115x46 ~/.fvwm/.fvwm2rc`)
+
+DestroyFunc DockLaunch
+AddToFunc DockLaunch
++ C Any ($1) Next ($1) WindowListFunc
++ C TestRc (NoMatch) Exec $0
++ H Any ($1) WindowList ($1) Rectangle +$2+$3 0 -100m CurrentAtEnd UseListSkip SortByClass NoCurrentDeskTitle
++ D Exec $0
+
+###################################################################
+
+
+
+
+###################################################################
+### Animation
+###################################################################
+
+DestroyModuleConfig FvwmAnimate: *
+*FvwmAnimate: Color white
+*FvwmAnimate: Effect flip
+*FvwmAnimate: Delay 2
+*FvwmAnimate: Iterations 100
+*FvwmAnimate: Width 5
+
+###################################################################
+
+
+
+
+###################################################################
+### Directory Browsing
+###################################################################
+
+#### Browse Audio/Video Directory
+DestroyFunc FuncFvwmMenuDirectory
+AddToFunc FuncFvwmMenuDirectory
++ I PipeRead 'case "$0" in \
+        "$[fvwm_video_path]"*) myexec="$[fvwm_video_exec]" mypng=icons/video.png;; \
+        "$[fvwm_audio_path]"*) myexec="$[fvwm_audio_exec]" mypng=icons/audio.png;; \
+    esac; \
+    fvwm-menu-directory --icon-title icons/browse.png --icon-file ${mypng:-icons/browse.png} \
+    --icon-dir icons/browse.png --dir "$0" --exec-t="^${myexec:-gvim} *" \
+    --exec-file "^${myexec:-gvim}"'
+
+#### Browse Wallpapers Directory
+DestroyFunc WallpaperBrowser
+AddToFunc WallpaperBrowser
++ I PipeRead 'test ! -d "$0/.thumbs" && mkdir "$0/.thumbs"; \
+    for i in "$0/"*; do \
+        test -f "$0/.thumbs/${i##*/}" \
+            -a "${i}" -ot "$0/.thumbs/${i##*/}" || { \
+                convert -quality 0 -scale 24 "${i}" "png:$0/.thumbs/${i##*/}" 2>/dev/null \
+                    || continue; \
+            }; \
+    done; \
+    fvwm-menu-directory --icon-title icons/browse.png --icon-file __PIXMAP__ \
+    --icon-dir icons/browse.png --dir $0 --exec-file "^fbsetbg -f" \
+    --exec-t="^eog *" | sed -e "s#FuncFvwmMenuDirectory#WallpaperBrowser#g" \
+    -e "s#__PIXMAP__\\(.*\\)\\"\\(.*/\\)\\(.*\\)\\"#\\2.thumbs/\\3\\1\\2\\3#g"'
+
+###################################################################
+
+
+
+
+###################################################################
+### Headlines
+###################################################################
+
+DestroyFunc FuncFvwmMenuHeadlines
+AddToFunc   FuncFvwmMenuHeadlines
++ I PipeRead `fvwm-menu-headlines --frontpage --site $0 --exec="firefox '%u'"
+
+DestroyMenu MenuFvwmHeadlines
+AddToMenu   MenuFvwmHeadlines "News" Title
++ MissingSubmenuFunction FuncFvwmMenuHeadlines
++ "FreshMeat"  Popup freshmeat
++ "Slashdot"   Popup slashdot
++ "LinuxFr"    Popup linuxfr
++ "Reset"  FuncFvwmResetHeadlines
+
+DestroyFunc FuncFvwmResetHeadlines
+AddToFunc   FuncFvwmResetHeadlines
++ I DestroyMenu freshmeat
++ I DestroyMenu slashdot
++ I DestroyMenu linuxfr
+
+###################################################################
+
+
+
+###################################################################
+### FvwmProxy and FvwmIdent
+###################################################################
+
+DestroyModuleConfig FvwmProxy: *
+*FvwmProxy: Colorset 5
+*FvwmProxy: Font "xft:sans:bold:pixelsize=10:minspace=True"
+*FvwmProxy: ProxyMove true
+
+DestroyModuleConfig FvwmIdent: *
+*FvwmIdent: Back black
+*FvwmIdent: Fore #f1f1f1
+*FvwmIdent: Font "xft:sans:bold:pixelsize=10:minspace=True"
+
+###################################################################
+
+
+
+###################################################################
+### Mouse Gestures
+###################################################################
+
+Stroke N159   0 W CM Pick Close
+Stroke N951   0 W CM Thumbnail
+Stroke N258   0 W CM Maximize
+
+#### Pager Gestures
+Stroke N456 0 R N    GotoPage +1p  0p
+Stroke N654 0 R N    GotoPage -1p  0p
+Stroke N258 0 R N    GotoPage  0p -1p
+Stroke N852 0 R N    GotoPage  0p +1p
+Stroke N753 0 R N    GotoPage +1p +1p
+Stroke N357 0 R N    GotoPage -1p -1p
+Stroke N159 0 R N    GotoPage +1p -1p
+Stroke N951 0 R N    GotoPage -1  +1p
+
+#### Launch Applications 
+Stroke N98741 0 R N Exec exec firefox
+Stroke N12369 0 R N Exec exec thunderbird
+Stroke N789852 0 R N Exec exec gnome-terminal
+Stroke N9874123 0 R N Exec exec gvim -geom 115x46 ~/.fvwm/.fvwm2rc
+
+#### Restart
+Stroke N789632147 0 R N Restart
+
+###################################################################
+

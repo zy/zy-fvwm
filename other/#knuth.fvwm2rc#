@@ -1,0 +1,282 @@
+# This Fvwm2 setup file provides the basic emacs-centered environment
+# that I have found most comfortable on my standalone machine at home.
+# Basically it gives me a big Emacs window at the left and a slightly
+# smaller XTerm at the right, together with a clock and CPU monitor
+# and a few buttons for accessing independent desktops.
+
+# I've tried to write lots of comments because I will certainly forget
+# most of the details of Fvwm2's syntax and semantics before long.
+
+# My screen is 1024 pixels wide and 768 high; about 88dpi.
+
+# First, make sure that Exec chooses tcsh instead of bash:
+ExecUseShell /bin/tcsh
+
+# Next, specify the paths for all icons (.xpm files) that I'm using:
+# PixmapPath /usr/share/icons:/home/icons
+ImagePath /home/icons:/usr/share/icons
+
+# I tried mxn desktops and didn't like them.
+DeskTopSize 1x1
+
+# X's font rendering without anti-aliasing looks least bad with the following:
+WindowFont -adobe-times-bold-r-*-*-18-*-*-*-*-*-*-*
+IconFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+
+# "gainsboro" is a light grey; it's for the active window border
+HilightColor black gainsboro
+
+# FVWM style menus have a 3D look but not exaggeratedly so;
+# this MenuStyle option must come first
+MenuStyle * FVWM
+
+# I'm guessing that gold letters on deep blue background will make cool menus
+MenuStyle * Foreground gold, Background #000060, Greyed #202080
+MenuStyle * Font -adobe-times-bold-r-*-*-14-*-*-*-*-*-*-*
+
+# With FocusFollowsMouse and AutoRaise, I don't need to click for attention.
+# (FvwmAuto will raise the window after one second = 1000 milliseconds.)
+# But I set SloppyFocus on text windows below; this keeps them focused
+# when the mouse goes over an empty ("root window") area.
+Module FvwmAuto 1000 Raise Nop
+Style * FocusFollowsMouse
+
+# Setting HandleWidth to 7 makes the handle 6 pixels wide; this seems
+# most effective for a classy 3D look (2+2+2).
+Style * BorderWidth 7, HandleWidth 7
+
+# I'm glad I don't have to use the ugly "unknown1.xpm" that came as default...
+Style * Icon unknown.xpm
+
+# The default colors for window titles and frames might as well be documented:
+Style * Color white/dimgrey
+
+# The next is just to provide approximately decent behavior when a program
+# has been written to follow protocols of Motif or OpenLook:
+Style * MWMFunctions, MWMDecor, MWMButtons, HintOverride, OLDecor
+
+# Transient windows will get title bar and other decorations by default.
+Style * DecorateTransient
+
+# Icons are supposed to cluster in the upper right part of the screen.
+# (I could specify another IconBox for overflows, if I need it...)
+# This specification evidently applies on all desktops.
+# The number 488 is the width of my emacs window; FvwmButtons are 132x84
+Style * IconBox 330x84+488+0, IconFill right bottom
+
+# Try to place in open space, otherwise at random
+Style * SmartPlacement, RandomPlacement
+
+# (Here I originally used "SuperSmart placement", knowing full well that
+#  the documentation said that the GlobalOpts feature was "temporary"....)
+# GlobalOpts SmartPlacementIsReallySmart
+# Now in version 2.4, we do it this way:
+Style * MinOverlapPlacement
+
+# XTerm gets the icon that I made from Royal Shell's web pages.
+# (It surely is protected by trademark, but it's just for me at home.)
+Style XTerm Icon royalshell.xpm, SloppyFocus, NoTitle
+Style Emacs Icon emacs.xpm, SloppyFocus, NoTitle
+Style XOsview Icon xosview.xpm, ClickToFocus
+Style Gimp Icon gimp.xpm, StaysOnTop
+Style XEyes NoTitle, StaysOnTop, Sticky, WindowListSkip
+Style Xmag Icon xmag.xpm
+Style Metafont StaysOnTop
+
+# (By the way, it's interesting to try "while(1) ;  xeyes & ; end".)
+
+# Now for mouse commands in the root window R:
+# Left mouse button brings up Root-Menu; middle button brings up Window-Ops
+# Clicking instead of dragging makes the menu stay up; cursor is <== then.
+# Double-clicking takes the menu away.
+# Here "A" means an arbitrary combination of shift/meta/control/numlock etc.
+Mouse 1 R A Menu Root-Menu Nop
+Mouse 2 R A Menu Window-Ops Nop
+# Right button gives window list. Caution: Double clicking gets you a sort of
+# random window, because double-click control comes only with a Menu spec!
+Mouse 3 R A WindowList
+
+# I'm putting three buttons in the titlebars of ordinary windows.
+# At the left (which Fvwm calls button 1), a lightning bolt;
+# this will close the program when touched with any mouse click.
+# (It does NOT pop up a menu. Closing is better than Deleting and Destroying:
+# it tries to delete gracefully, then destroys if the window is uncooperative.)
+Mouse 0 1 A Close
+ButtonStyle 1 Vector 7 \
+  65x15@0 25x55@1 45x55@0 35x85@1 75x45@0 55x45@1 65x15@0
+ButtonStyle 1 - MWMDecorMenu
+
+# At the right, a button that iconifies the window; we draw a small square
+# (because I tried to draw an X but it looked horrible):
+Mouse 0 2 A Iconify
+#ButtonStyle 2 Vector 17 \
+#  20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x70@1 \
+#  80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+ButtonStyle 2 Vector 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1
+ButtonStyle 2 - MWMDecorMin
+
+# Next to that, a button with a big square; this one maximizes the window.
+# (More precisely, if you double-click, the window goes to full screen size;
+# if you single-click, it goes to full height but keeps its width.
+# But if the window was already in "maximized" state, it goes back to normal.
+# If you try to drag this button, it unconditionally goes to full width.)
+Mouse 0 4 A Maximize-Function
+ButtonStyle 4 Vector 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
+AddtoFunc Maximize-Function "D" Maximize 100 100
++                           "C" Maximize 0 100
++                           "M" Function Go-Max
+AddtoFunc Go-Max  "I" Current (Maximized) Maximize
++                 "I" Maximize 100 100
+ButtonStyle 4 - MWMDecorMax
+
+# Ordinary windows also have title bar ("T"), corner frames ("F"),
+# side frames ("S"), or iconic state ("I"). Left mouse in the corner
+# will resize or raise; in the title or on the side it will move or raise;
+# double raising is lowering. Left mouse on an icon moves the icon,
+# or deiconifies it on double-click.
+Mouse 1 F A Resize-or-Raise
+Mouse 1 TS A Move-or-Raise
+Mouse 1 I A Move-or-DeIconify
+AddToFunc Resize-or-Raise "I" Raise
++ "M" Resize
++ "D" Lower
+AddToFunc Move-or-Raise "I" Raise
++ "M" Move
++ "D" Lower
+AddToFunc Move-or-DeIconify "I" Raise
++ "M" Move
++ "D" Iconify
+
+# Middle mouse iconifies or deiconifies.
+Mouse 2 FTSI A Iconify
+
+# Right mouse raises or lowers.
+Mouse 3 FTSI A RaiseLower
+
+# The root menus are next. Since I'm perfectly happy with launching programs
+# from a command line, my menus mostly provide functions that are difficult
+# to type (for example, when no terminal window is handy) or impossible
+# to activate from a command line (namely Fvwm's builtin modules).
+AddtoMenu Root-Menu "Shell terminal (BIG FONT)" \
+  Exec exec rxvt -font "-adobe-courier-medium-r-*-*-17-*-*-*-*-*-*-*" -rv
++ "Shell terminal (Normal Font)" \
+  Exec exec rxvt -font fixed -rv
++ "Shell terminal (small font)" \
+  Exec exec rxvt -font "-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*" -rv
++ "Shell terminal (as root)" \
+  Exec exec doit rxvt -font fixed -fg white -bg DarkRed
++ "" Nop
++ "Emacs (BIG FONT)" \
+  Exec exec emacs -font "-adobe-courier-bold-r-*-*-17-*-*-*-*-*-*-*"
++ "Emacs (Normal Font)" Exec exec emacs
++ "Emacs (small font)" \
+  Exec exec emacs -font "-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*"
++ "Emacs (as root)" Exec exec doit emacs -bg DarkRed -cr black
++ "" Nop
++ "" Nop
++ "Show window info" FvwmIdent
++ "Talk to Fvwm" FvwmTalk
++ "Disable AutoRaise" KillModule FvwmAuto
++ "Enable AutoRaise"  Module FvwmAuto 1000 Raise Nop
++ "" Nop
++ "Exit Fvwm" Popup Quit-Verify
+
+AddToMenu Quit-Verify "Really Quit Fvwm?" Title
++ "Yes, Take Me Back To The Shell" Quit
++ "" Nop
++ "No, Sorry ... I Didn't Mean It" Nop
++ "" Nop
++ "Try To Refresh"   Refresh
++ "Try To Recapture" Recapture
++ "Try To Restart"   Restart fvwm2
+
+# The other root menu, invoked by the middle mouse button, gives me a chance
+# to do any window operation on a window of my choice. (The cursor changes to
+# a big black ball as I go searching for the window that will be affected.)
+AddToMenu Window-Ops "Window Operations" Title
++ "Move" Move
++ "Resize" Resize
++ "Raise" Raise
++ "Lower" Lower
++ "Iconify/DeIconify" Iconify
++ "Stick/UnStick" Stick
++ "Maximize/Normalize" Maximize
++ "Refresh" RefreshWindow
++ "" Nop
++ "Delete" Delete
++ "Close" Close
++ "Destroy" Destroy
+
+# Now comes the fun part: Buttons to push that will take me from one
+# desktop to another.
+#
+# Being a control freak, I am not trusting FvwmButtons to find the
+# correct button layout; I'm building it myself. The goal is
+# to have a 64x64 ASClock at the upper right, preceded by four 32x32 buttons
+# that will aim my display at another desktop, all above a 16x128 CPU load
+# display. Geometry-wise, I consider it to be an 8x5 grid of 16x16 squares
+# (although I could have regarded it as a 4x5 grid of 32x16s).
+# The border adds 4 pixels.
+
+*FvwmButtonsRows 5
+*FvwmButtonsColumns 8
+*FvwmButtonsGeometry 132x84-0+0
+*FvwmButtonsBoxSize fixed
+*FvwmButtonsFont None
+*FvwmButtonsBack Orange
+*FvwmButtonsPadding 0 0
+*FvwmButtons(4x4+4+0, Swallow(UseOld,Respawn) ASClock "Exec exec asclock")
+*FvwmButtons(8x1+0+4, Swallow(UseOld,Respawn) \
+  XLoad "Exec xload -nolabel -geometry 128x12+0+0 -bg dimgrey -fg white")
+
+*FvwmButtons(2x2+0+0, Icon zero.xpm, Action "Desk 0 0")
+*FvwmButtons(2x2+2+0, Icon one.xpm, Action "Desk 0 1")
+*FvwmButtons(2x2+0+2, Icon two.xpm, Action "Desk 0 2")
+*FvwmButtons(2x2+2+2, Icon three.xpm, Action "Desk 0 3")
+
+Style FvwmButtons ClickToFocus, NoTitle, NoHandles, Sticky, WindowListSkip
+
+# Finally, the initialization and restart logic.
+# (The pattern "mod 2 2" is an attractive 2x2 plaid texture.)
+# (This is mainly where the "root" background color and other colors
+#  are specified.)
+
+AddToFunc Basic-Setup "I" Module FvwmButtons
++ "I" Wait FvwmButtons
++ "I" Exec exec xsetroot -mod 2 2 -fg \#001860 -bg \#183078
++ "I" Echo done with basic setup...
+
+AddToFunc InitFunction "I" Echo initializing...
++ "I" Function Basic-Setup
++ "I" Desk 0 2
++ "I" Exec exec xosview -geometry 400x200-11+92
++ "I" Wait xosview
++ "I" Desk 0 1
++ "I" Exec exec rxvt -geometry 80x50-3-0 -fg \#fff4c0 -bg \#381900 -sr
++ "I" Wait rxvt
++ "I" Exec exec emacs -geometry 80x61+0+0 -fg \#ffe97a -bg \#00002b
++ "I" Wait emacs
++ "I" Desk 0 0
++ "I" Exec exec rxvt -geometry 80x50-3-0 -fg white -bg black -sr
++ "I" Wait rxvt
++ "I" Exec exec emacs -geometry 80x61+0+0 -fg \#ffe97a -bg \#002b00
++ "I" Wait emacs
++ "I" Exec exec xeyes -geometry 55x50+829+0 -fg DarkGreen -center Orange -outline dimgrey
++ "I" Wait xeyes
++ "I" Exec exec unclutter
++ "I" Echo ready...
+
+#  (When I revised this file in 2003, I made the rxvt windows two characters
+#   narrower, because emacs version 21 wants to be that much wider.
+#   Similarly, I made emacs geometry 3 rows taller because I'm deleting the
+#   new tool-bar --- and the geometry is figured before the tool-bar goes.)
+
+AddToFunc RestartFunction "I" Echo restarting...
++ "I" Function Basic-Setup
+
+# By putting the line "exec fvwm2 >& /tmp/fvmw.out" in my .xinitrc,
+# I'm getting an error log in /tmp/fvmw.out. The following command
+# writes a message to that log.
+Echo Hello, world
+
+

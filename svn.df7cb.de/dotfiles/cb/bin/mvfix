@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ -z "$1" ] ; then
+	set *
+fi
+
+for f in "$@" ; do
+	f=`echo "$f" | sed -e 's!/$!!'`
+	f2=`echo "$f" | sed -e 's/ /_/g' -e 's/%20/_/g'`
+	[ "$f" = "$f2" ] && continue
+	mv -iv "$f" "$f2"
+done

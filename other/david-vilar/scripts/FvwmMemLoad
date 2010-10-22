@@ -1,0 +1,130 @@
+# $Id: FvwmMemLoad,v 1.3 2007-02-22 15:01:12 vilar Exp $
+# Thanks to T. Deselaers
+
+WindowTitle {FvwmMemLoad}
+WindowSize 220 40
+Colorset 18
+Font "xft:Freesans:Bold:pixelsize=16"
+
+Init
+  Begin
+    Set $memValue = (GetOutput {free -m} 2 3)
+    Set $memLimit = (GetOutput {free -m} 2 2)
+    Set $loadValue = (GetOutput {cat /proc/loadavg | tr -d '.'} 1 2)
+    Set $loadValue = (GetOutput {cat /proc/loadavg} 1 2)
+    Set $loadLimit = 400
+
+    ChangeMaxValue 2 $memLimit
+    ChangeValue 2 $memValue
+    ChangeColorset 2 19
+    Set $valueStr = $memValue {M}
+    ChangeTitle 3 $valueStr
+    
+    ChangeMaxValue 5 $loadLimit
+    If $scaledLoad > $loadLimit Then
+    Begin
+      ChangeValue 5 $loadLimit
+      ChangeForeColor 5 {Red}
+    End
+    Else
+    Begin
+      ChangeValue 5 $scaledLoad
+      ChangeColorset 5 19
+    End
+    Set $valueStr = $loadValue 
+    ChangeTitle 6 $valueStr    
+
+  End
+
+
+PeriodicTasks
+  Begin
+    If (RemainderOfDiv (GetTime) 10)==0 Then
+    Begin
+    Set $memValue = (GetOutput {free -m} 2 3)
+    Set $memLimit = (GetOutput {free -m} 2 2)
+    Set $loadValue = (GetOutput {cat /proc/loadavg} 1 2)
+    Set $scaledLoad = (GetOutput {cat /proc/loadavg | tr -d '.'} 1 2)
+    Set $loadLimit = 400
+
+    ChangeMaxValue 2 $memLimit
+    ChangeValue 2 $memValue
+    ChangeColorset 2 19
+    Set $valueStr = $memValue {M}
+    ChangeTitle 3 $valueStr
+    
+    If $scaledLoad > $loadLimit Then
+    Begin
+      ChangeValue 5 $loadLimit
+      ChangeForeColor 5 {Red}
+    End
+    Else
+    Begin
+      ChangeValue 5 $scaledLoad
+      ChangeColorset 5 19
+    End
+    Set $valueStr = $loadValue 
+    ChangeTitle 6 $valueStr    
+
+    End
+  End
+
+#label mem
+Widget 1
+  Property
+    Type ItemDraw
+    Position 0 0
+    Title {mem:}
+    Flags NoReliefString Left
+End
+
+#mem-balken
+Widget 2
+  Property
+    Type HDipstick
+    Size 100 15
+    Position 56 3
+    Value 7500
+    MinValue 0
+    MaxValue 10
+    Colorset 19
+End
+
+#mem text
+Widget 3
+  Property
+    Type ItemDraw
+    Position 162 0
+    Title {188.8G}
+    Flags NoReliefString Right
+End
+
+#label load
+Widget 4
+  Property
+    Type ItemDraw
+    Position 0 20
+    Title {load:}
+    Flags NoReliefString Left
+End
+
+#load balken
+Widget 5
+  Property
+    Type HDipstick
+    Size 100 15
+    Position 56 23
+    Value 0
+    MinValue 0
+    MaxValue 100
+    Colorset 19
+End
+
+#load schrift
+Widget 6
+  Property
+    Type ItemDraw
+    Position 162 20
+    Title {04.00}
+    Flags NoReliefString Right
+End

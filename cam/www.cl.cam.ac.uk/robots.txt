@@ -1,0 +1,52 @@
+# robots.txt for http://www.cl.cam.ac.uk/
+# $Header: /anfs/www/html/RCS/robots.txt,v 1.5 2006/10/24 15:54:25 maj1 Exp $
+
+User-agent: *
+Disallow: /research/hvg/FIV/
+Disallow: /research/hvg/HOL/mail/
+Disallow: /research/wip/
+Disallow: /users/mjcg/no_robot/
+Disallow: /~mjcg/no_robot/
+Disallow: /wednesday/
+Disallow: /m3doc/
+Disallow: /netmaint/
+Disallow: /newslist/
+Disallow: /javadoc/
+Disallow: /pythondoc/
+Disallow: /texinfodoc/
+Disallow: /local/sys/
+
+User-agent: Ultraseek (webmaster@ucs.cam.ac.uk)  # local search engine
+Disallow: /research/hvg/FIV/
+Disallow: /research/hvg/HOL/mail/
+Disallow: /research/wip/
+Disallow: /users/mjcg/no_robot/
+Disallow: /~mjcg/no_robot/
+Disallow: /wednesday/
+Disallow: /m3doc/
+Disallow: /netmaint/
+Disallow: /newslist/
+Disallow: /javadoc/
+Disallow: /pythondoc/
+Disallow: /texinfodoc/
+Disallow: /local/sys/
+Disallow: /users/
+Disallow: /~
+
+User-agent: Ultraseek (internal search; webmaster@ucs.cam.ac.uk)  # local search engine
+Disallow: /research/hvg/FIV/
+Disallow: /research/hvg/HOL/mail/
+Disallow: /research/wip/
+Disallow: /users/mjcg/no_robot/
+Disallow: /~mjcg/no_robot/
+Disallow: /wednesday/
+Disallow: /m3doc/
+Disallow: /netmaint/
+Disallow: /newslist/
+Disallow: /javadoc/
+Disallow: /pythondoc/
+Disallow: /texinfodoc/
+Disallow: /users/
+Disallow: /~
+
+User-agent: linkchecker

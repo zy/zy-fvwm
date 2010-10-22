@@ -1,0 +1,124 @@
+# $Id$
+
+###############################################################################
+#   window buttons                                                            #
+#   1 3 5 7 9  0 8 6 4 2                                                      #
+###############################################################################
+
+# Box for Raise
+#ButtonStyle 0 5 20x20@1 80x20@1 80x80@0 20x80@0 20x20@1
+
+# Cross for Stick
+ButtonStyle 0 13 20x60@1 20x40@1 40x40@1 40x20@1 60x20@1 60x40@0 80x40@1 80x60@0 60x60@0 60x80@0 40x80@0 40x60@1 20x60@0
+
+# Bar for Shade
+ButtonStyle 8 5 20x40@1 20x20@1 80x20@1 80x40@0 20x40@0
+
+# Dot for Zapp
+ButtonStyle 6 5 50x50@0 40x50@0 40x40@1 50x40@1 50x50@0
+
+# Large down Triangle for Iconify
+ButtonStyle 4 4 50x74@1 25x24@1 75x24@1 50x74@0
+
+# Large up Triangle for Maximize
+ButtonStyle 2 4 50x24@1 75x74@0 25x74@0 50x24@1
+
+###############################################################################
+#   colors and fonts                                                          #
+###############################################################################
+
+# Text and background color for the title bar of the selected window
+# 'Lola rennt' style back from 1998
+#Style	"*"		HilightFore red2, HilightBack LightGreen
+#Style	"*"		ForeColor Black, BackColor LightSkyBlue
+# Blue style like df7cb.dyndns.info (030430)
+#Style	"*"		HilightFore yellow, HilightBack #5176e8
+#Style	"*"		ForeColor #5176e8, BackColor #90abf4
+# colorful style (030930)
+#Style	"*"		HilightFore Yellow, HilightBack Orange
+#Style	"*"		ForeColor Orange, BackColor RoyalBlue
+# wmii-like
+Style	"*"		HilightFore White, HilightBack #0a55e0
+Style	"*"		ForeColor Black, BackColor #888888
+
+# Style for fonts is
+#-fndry-fmly-wght-slant-sWdth-adstyl-pxlsz-ptSz-resx-resy-spc-avgWdth-rgstry-encdng
+#
+
+# Menu colors and font
+#         bg    fg   disabled  font           sub-menu-style
+MenuStyle Black Grey LightGrey \
+	-misc-fixed-medium-r-normal-*-15-*-75-75-c-90-iso8859-1 fvwm
+
+# Now the common fonts - one for window titles, another for icons
+WindowFont	-*-helvetica-bold-r-normal-*-10-*-*-*-*-*-*-*
+IconFont	-misc-fixed-medium-r-normal-*-10-*-*-*-c-60-*-*
+
+
+###############################################################################
+#   style options for modules and programs                                    #
+###############################################################################
+
+Style	"*"		BorderWidth 2, HandleWidth 2, DepressableBorder
+Style	"*"		Icon small.Template.xpm
+Style	"*"		SlipperyIcon, IconBox +515 -90 -0 -0
+Style	"*"		NoPPosition
+Style	"*"		SloppyFocus, SmartPlacement, RandomPlacement
+Style	"*"		ResizeOpaque
+
+# decorations for transient windows
+Style	"*"		DecorateTransient
+#Style	"*"		NakedTransient
+
+# flat window borders when inactive
+BorderStyle Inactive -- HiddenHandles NoInset
+
+# fvwm stuff
+Style  "FvwmPager"	NoTitle, Sticky, WindowListSkip, StaysOnBottom
+#Style  "FvwmButtons"	NoTitle, Sticky, WindowListSkip
+#Style  "FvwmBanner"	NoTitle, Sticky, StaysOnTop, WindowListSkip
+Style  "FvwmWinList"	NoTitle, WindowListSkip, NakedTransient
+Style  "IconManModule"	NoTitle, Sticky, NoHandles, Icon toolbox.xpm
+
+# .xinitrc stuff
+Style	"*apm"		NoTitle,Sticky,WindowListSkip,ClickToFocus,StaysOnTop
+Style	"*biff"		NoTitle,Sticky,WindowListSkip,ClickToFocus,NoUSPosition,GrabFocusOff,StaysOnBottom
+Style	"xlassie"	NoTitle,Sticky,WindowListSkip,ClickToFocus,NoUSPosition,GrabFocusOff
+Style	"wmWeather"	NoTitle,Sticky,WindowListSkip,ClickToFocus,NoUSPosition,GrabFocusOff,StaysOnBottom
+Style	"console*"	Sticky, StaysOnBottom
+Style	"coolmail"	NoTitle, Sticky, WindowListSkip
+Style	"*clock*"	NoTitle,Sticky,WindowListSkip,ClickToFocus,StaysOnTop
+Style	"xeyes"		NoTitle, Sticky, WindowListSkip
+Style	"xmeter"	NoTitle, Sticky, WindowListSkip
+Style	"Mixer*"	NoTitle, Sticky, WindowListSkip, HandleWidth 0, StaysOnBottom
+Style	"SshAskpass*"	StaysOnTop
+Style	"xosview*"	Icon meter_3d.xpm, ClickToFocus, NoTitle, Sticky, UsePPosition, WindowListSkip
+Style	"ProcMeter*"	NoTitle, Sticky, WindowListSkip, ClickToFocus
+
+# general
+#Style	"xv 3*"		NoTitle
+Style	"VNC*"		HandleWidth 0, NoTitle
+#Style	Netscape*	StartsOnPage 0 1, SkipMapping
+Style	"xine*"		HilightFore DarkGrey, HilightBack black
+#Style	"xmms"		StartsOnPage 2 0, SkipMapping
+# firefox
+#Style	"navigator:browser"	StartsOnPage 0 1, SkipMapping
+
+# icons
+Style	"xterm"		Icon Terminal.xpm
+Style	"emacs*"	Icon DTP.xpm
+Style	"xconsole"	Icon clipboard_3d.xpm
+Style	"dsk_*"		Icon FileManager.xpm
+Style	"TkMan"		Icon library_3d.xpm
+Style	"Xman"		Icon xman3d.xpm
+Style	"Root"		Icon Diavolo.xpm
+Style	"xv*"		Icon xv.color.xpm 
+
+###############################################################################
+#   MWM emulation                                                             #
+###############################################################################
+# (view the original comment from .fvwm2rc)
+# mwm-style border reliefs (less deep than default fvwm) ?
+# Maximize button does mwm-inversion thingy
+
+Style "*" MWMBorder, MWMDecor, HintOverride, MWMFunctions, MWMButtons 

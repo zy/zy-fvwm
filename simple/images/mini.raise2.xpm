@@ -1,0 +1,25 @@
+/* XPM */
+static char *mini.raise2[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 3 1",
+"  c black",
+". c red",
+"X c None",
+/* pixels */
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXX.XXXXXXX",
+"XXXXXXX...XXXXXX",
+"XXXXXX.....XXXXX",
+"XXXXX.......XXXX",
+"XXXX.........XXX",
+"XXXXXX.....XXXXX",
+"XXXXXX.....XXXXX",
+"XXXXXX.X...XXXXX",
+"XXXXXX...X.XXXXX",
+"XXXXXX..X..XXXXX",
+"XXXXXXXX.X.XXXXX",
+"XXXXXX..X.XXXXXX",
+"XXXXXXXXXX.XXXXX",
+"XXXXXX.X.X.XXXXX",
+"XXXXXXXXXXXXXXXX"
+};

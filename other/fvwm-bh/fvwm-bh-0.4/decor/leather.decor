@@ -1,0 +1,54 @@
+AddToDecor "leather" BorderStyle Active   TiledPixmap buttons/leather_lt.xpm
+AddToDecor "leather" BorderStyle Inactive TiledPixmap buttons/leather_brn.xpm
+AddToDecor "leather" BorderStyle -- NoInset HiddenHandles
+
+AddToDecor "leather" TitleStyle ActiveUp    TiledPixmap buttons/leather_lt.xpm
+AddToDecor "leather" TitleStyle ActiveDown  TiledPixmap buttons/leather_lt.xpm
+AddToDecor "leather" TitleStyle Inactive    TiledPixmap buttons/leather_brn.xpm
+AddToDecor "leather" TitleStyle -- flat
+AddToDecor "leather" TitleStyle Centered
+#AddToDecor "leather" TitleStyle Height 22
+
++ ButtonStyle Reset
++ ButtonStyle All Pixmap empty.xpm
++ ButtonStyle All -- UseTitleStyle
++ ButtonStyle All -- flat
++ AddButtonStyle 1 pixmap buttons/bimetal_menu.xpm
++ AddButtonStyle 2 pixmap buttons/bimetal_max.xpm
++ AddButtonStyle 3 pixmap buttons/gold_close.xpm
++ AddButtonStyle 4 pixmap buttons/bimetal_min.xpm
+
+Colorset 0 fg blanchedalmond, bg burlywood4, TiledPixmap buttons/leather_brn.xpm
+Colorset 1 fg #3f2514, bg blanchedalmond, TiledPixmap buttons/leather_lt.xpm
+
+MenuStyle * MenuColorset 0
+MenuStyle * BorderWidth 2
+MenuStyle * TrianglesSolid
+#MenuStyle * Font -adobe-courier-bold-r-normal--14-140-75-75-m-90-iso8859-1
+MenuStyle * SidePic side.fvwm2.xpm, SideColor Black
+
+#IconFont -adobe-times-medium-r-normal--11-80-100-100-p-54-iso8859-1
+
+Style * Colorset 0
+Style * HilightColorset 1
+#Style * BorderWidth 4
+#Style * HandleWidth 6
+#Style * Font -adobe-courier-bold-r-normal--18-180-75-75-m-110-iso8859-1
+Style * FvwmBorder
+
+Style * UseDecor leather
+
+Style * IconTitleColorset 0
+Style * HilightIconTitleColorset 1
+
+*FvwmPager: Colorset * 0
+*FvwmPager: HilightColorset * 1
+*FvwmTaskBar: Colorset 0
+*FvwmTaskBar: IconColorset 0
+*FvwmTaskBar: FocusColorset 1
+*FvwmTaskBar: StartIcon buttons/bimetal_square.xpm
+#Style "FvwmTaskBar" Sticky, NoTitle, NoHandles, BorderWidth 2, HandleWidth 2, WindowListSkip
+#Style "FvwmPager" Sticky, NoTitle, NoHandles, BorderWidth 2, HandleWidth 2, WindowListSkip
+
+*FvwmIdent: Colorset 0 # should track MenuColorset
+*FvwmIconMan: Colorset 0 # should track MenuColorset

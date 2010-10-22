@@ -1,0 +1,26 @@
+Key j		A	2	Scroll -100 0
+Key l		A	2	Scroll +100 0
+Key i		A	2	Scroll 0 -100
+Key k		A	2	Scroll 0 +100
+
+Key j		A	2S	MoveAndFollow  0 w0
+Key l		A	2S	MoveAndFollow -0 w0 
+Key i		A	2S	MoveAndFollow w0  0
+Key k		A	2S	MoveAndFollow w0 -0
+
+Key j		A	2C	GotoAndFollow -1p 0p
+Key l		A	2C	GotoAndFollow +1p 0p 
+Key i		A	2C	GotoAndFollow 0p -1p
+Key k		A	2C	GotoAndFollow 0p +1p
+
+Key u		A	2	AndWarp MyMaximize
+Key u		A	2S	AndWarp VerticalGrow
+Key u		A	2C	AndWarp BothGrow
+
+Key o		A	2	AndWarp PlaceAgain
+Key o		A	2S	AndWarp PlaceAgainAll
+Key o		A	2C	AndWarp PlaceAgainAll
+
+Key semicolon	A	2	NextWindow
+Key slash	A	2	MyIconify
+Key n		A	2	MyIconify

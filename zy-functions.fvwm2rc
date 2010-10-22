@@ -1,0 +1,214 @@
+# Time-stamp: <zy-functions.fvwm2rc, 01-31-2010 08:25 Ziyu Zhang >
+
+# ==================================Function======================================
+
+# ==================================Maximized======================================
+
+# FuncAddWindow
+# http://linuxgazette.net/128/adam1.html
+
+# DestroyFunc FuncStartMaximized
+# AddToFunc	 FuncStartMaximized
+
+DestroyFunc FuncNewWindow
+AddToFunc	FuncNewWindow
++ I ThisWindow ("*Firefox*|*Conkeror*|acroread", !Maximized)	Maximize 100 -28p
+# + I ThisWindow ("*Firefox*|acroread", !Maximized)	 WindowStyle !Title, FixedSize, FixedPosition, !Maximizable
+# + I UpdateStyles
+# + I	ThisWindow (!emacs,!gimp,!top,!xev, !xfig, !rxvt, !xterm,!realplayer !Event Tester,!FvwmTaskBar, !FvwmButtons, !FvwmPager)	Maximize 100 -28p
+
+# + I ThisWindow ("firefox|acroread", !Maximized)	Maximize 100 -28p
+# + "I" ThisWindow ("Gecko" !Transient)	 Maximize 100 -28p
+
+DestroyFunc toggle-FvwmConsole
+AddToFunc	toggle-FvwmConsole
++ I toggle-window FvwmConsole "Module FvwmConsole"
+
+DestroyFunc toggle-window
+AddToFunc	toggle-window
++ I None	($$0, CirculateHit) $$1
++ I TestRc	(Match) Break
++ I Next	(CurrentPage, Visible, !Iconic, $$0, CirculateHit)	Close
++ I TestRc	(Match) Break
++ I Next	($$0, CirculateHit) Function MakeVisible
+
+# AddToFunc toggle-window
+## + I	None	(Navigator) Exec exec netscape
+# + I	All (Navigator) Close
+DestroyFunc toggle-terminal
+AddToFunc	toggle-terminal
++ I None	(rxvt)	Exec exec rxvt -geometry 80x30+100-40 &
++ I All (rxvt)	Close
+
+# ????????
+DestroyFunc ToggleXMessages
+AddToFunc	ToggleXMessages
++ I None	(XMessages, CirculateHit)	Exec exec rxvt -geometry 80x30+100-40 -T XMessages -n XMessages
+# + I	Next	(XMessages, CirculateHit)	Close
+# xterm -T XMessages -n XMessages -e tail -f /var/adm/?* ~/.X.err
+
+DestroyFunc FuncFocusNextWindow
+AddToFunc	FuncFocusNextWindow
++ I Next	(!FvwmTaskBar, !FvwmButtons !FvwmPager,!Desktop*, CurrentPage)	FlipFocus
+# + I	Next	(!CurrentPage, AcceptsFocus)	FlipFocus
++ I Current Raise
+
+DestroyFunc start-app
+AddToFunc	start-app
++ I Exec exec xterm -T myXterm
++ I Wait myXterm
++ I Next	(myXterm)	Maximize
+
+DestroyFunc DeiconifyRaiseAndFocus
+AddToFunc	DeiconifyRaiseAndFocus
++ I Iconify off
++ I Raise
++ I Focus
+
+DestroyFunc Move-or-Raise
+AddToFunc	Move-or-Raise
++ I Raise
++ M Move
++ D Lower
+
+DestroyFunc Maximize-Func
+AddToFunc	Maximize-Func
++ M Maximize 0 100
++ C Maximize 0 80
++ D Maximize 100 -35p
+
+DestroyFunc Move-or-Iconify
+AddToFunc	Move-or-Iconify
++ I Raise
++ M Move
++ D Iconify
+
+DestroyFunc WindowListFunc
+AddToFunc	WindowListFunc
++ I Iconify off
++ I Focus
++ I Raise
++ I WindowShade false
++ I Current (!"DropTerm*")	Function RecenterWindow
+
+# This function warps to the window, attempts to scroll the window
+# to the center of the viewport, and moves the cursor to the center of the Window
+DestroyFunc RecenterWindow
+AddToFunc	RecenterWindow
++ I WarpToWindow 50 50
++ I PipeRead 'echo Scroll `echo $[pointer.x] - $[vp.width]/2 | bc`p 0p'
++ I PipeRead 'echo CursorMove `echo - $[pointer.x] + $[w.width]/2 + $[w.x] | bc`p 0p'
+
+# ==================================show-desktop-function======================================
+DestroyFunc show-desktop-function
+AddToFunc	show-desktop-function
++ I All (CurrentPage,!Iconic,!FvwmTaskBar, !FvwmButtons, !FvwmPager)	Iconify
+
+SetEnv desk_flag 0
+DestroyFunc toggle-desk
+AddToFunc	toggle-desk
++ I Test	(EnvMatch desk_flag 0)	GotoDesk -1
++ I TestRc	(NoMatch)	GotoDesk 1
++ I Test	(EnvMatch desk_flag 0)	SetEnv desk_flag -1
++ I TestRc	(NoMatch)	SetEnv desk_flag 0
+
+SetEnv ppp_flag 1
+DestroyFunc toggle-ppp
+AddToFunc	toggle-ppp
++ I Test	(EnvMatch ppp_flag 1)	Exec exec ifup ppp0
++ I TestRc	(NoMatch)	Exec exec ifdown ppp0
++ I Test	(EnvMatch ppp_flag 1)	SetEnv ppp_flag 0
++ I TestRc	(NoMatch)	SetEnv ppp_flag 1
+
+SetEnv ftpd_flag 1
+DestroyFunc toggle-ftpd
+AddToFunc	toggle-ftpd
++ I Test	(EnvMatch ftpd_flag 1)	PipeRead '/etc/init.d/vsftpd stop'
++ I TestRc	(NoMatch)	PipeRead '/etc/init.d/vsftpd restart'
++ I Test	(EnvMatch ftpd_flag 1)	SetEnv ftpd_flag 0
++ I TestRc	(NoMatch)	SetEnv ftpd_flag 1
+
+DestroyFunc switch-window
+AddToFunc	switch-window
++ I Next	(CurrentPage, $0)	Iconify off
++ I Next	(CurrentPage, $0)	Focus
++ I Current (CurrentPage, $0)	Raise
+# + I	None	($0)	Exec exec $0
+
+SetEnv emacs_flag 1
+
+DestroyFunc toggle-emacs-hot_program
+AddToFunc	toggle-emacs-hot_program
++ I Test	(EnvMatch emacs_flag 1) Function switch-window "emacs"
+# + I	TestRc	(NoMatch)	Function switch-window $fvwm_hot_program
+# + I TestRc	(NoMatch)	Function switch-window "Xpdf"
++ I	TestRc	(NoMatch)	Function switch-window "acroread"
++ I Test	(EnvMatch emacs_flag 1) SetEnv emacs_flag 0
++ I TestRc	(NoMatch)	SetEnv emacs_flag 1
+
+DestroyFunc call-emacs
+AddToFunc	call-emacs
++ I Function switch-window "emacs"
+# + I	Function switch-window "Emacs"
+
+# ==================================StartFunction->InitFunction->RestartFunction======================================
+
+# DestroyFunc RestartFunction
+# AddToFunc	 RestartFunction
+# + I Module FvwmEvent Close
+# + I Module FvwmEvent
+# + I Module FvwmWinList Close
+# + I Module	FvwmWinList
+# + I KillModule FvwmEvent FE-StartMaximized
+# + I Module FvwmEvent FE-StartMaximized
+
+# StartFunction is a function that FVWM runs at both restarts and init.
+DestroyFunc StartFunction
+AddToFunc	StartFunction
++ I Exec exec mkdir -p $[FVWM_TEMP] $[FVWM_ICONS]
++ I Test (Init) Module FvwmBanner
+# + I Module FvwmBanner
+# + I Exec exec xmodmap ~/.xmodmaprc
+# + I Exec exec xrdb ~/.Xresources
++ I Module FvwmCommandS
++ I Module FvwmEvent
+# + I	Module FvwmEvent FE-StartMaximized
++ I Module FvwmButtons
+# automatically raise focused windows.
+# + I	Module FvwmAuto 100
++ I Module FvwmAuto 100 Raise Nop
+# + I	Module FvwmPager 0 1
++ I Module FvwmBacker
++ I Module FvwmTaskBar
++ I Test (Restart) Beep
+# + I	Module FvwmIconMan FvwmIconMan-TaskBar
+# + I	Module FvwmIconMan
+#+ I	Module FvwmNetHints
+
+DestroyFunc InitFunction
+AddToFunc	InitFunction
+# + I	Test	(Init)	Exec exec /etc/init.d/networking restart
+# + I	Test	(Init)	Exec exec /etc/init.d/udev restart
+# + I	Exec exec gnome-settings-daemon &
++ I 	Exec exec xmodmap ~/.xmodmaprc
++ I Exec exec xrdb ~/.Xresources
+# + I	Desk 0 0
+# + I	Exec exec iwconfig ath0 ap any
+# + I	Exec exec $[fvwm_emacs] &
++ I	Exec exec emacs
+# + I Test (EnvMatch zy_hostname "x40") Exec exec gksu emacs
+# + I Test (EnvMatch zy_hostname "x40") Exec exec gksu rxvt
++ I	Exec exec firefox
+# + I	Exec exec rxvt
+# + I	Exec exec sudo -i rxvt
+# + I	Exec exec hot-babe &
+# + I	Exec exec $[fvwm_browser] &
+# + I	Exec exec sh $zy/linux/device/usbhd/zy-usbhd-check-respose.sh
+
+######################## ExitFunction ############################
+DestroyFunc ExitFunction
+AddToFunc	ExitFunction
+# + I All (xscreensaver)	Close
+# + I Module FvwmEvent Close
+# + I Test (Quit) Echo Bye-bye
+# + I Test (ToRestart) Beep

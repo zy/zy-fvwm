@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gnuclient $* || { emacs -geometry 80x40 $* & }

@@ -1,0 +1,268 @@
+# Time-stamp: <zy-menus.fvwm2rc, 12-10-2009 15:51 Ziyu Zhang >
+
+# change Menu title host user
+# DestroyMenu Debian
+# AddToMenu "/Debian" "DebianMenu" Title
+## add the system menu automatically
+# Read /etc/X11/fvwm/menudefs.hook
+
+# Popup /Debian
+# Read /etc/X11/fvwm/menudefs.hook Quiet
+# Read menudefs.hook Quiet
+
+# PipeRead `fvwm-menu-desktop --type fvwm --dir /var/lib/gnome/Debian --name fvwm-gnome-debian-menu'
+# /etc/menu-methods
+
+# Read /etc/X11/fvwm/menudefs.hook Quiet
+# Read menudefs.hook Quiet
+
+# DestroyFunc UpdateDebianMenu
+# AddToFunc UpdateDebianMenu
+# + I Exec exec test -f $[fvwm_home]/DebianMenu \
+# && /bin/rm -f $[fvwm_home]/DebianMenu
+# + I PipeRead 'update-menus --menumethod $[FVWM_SCRIPTDIR]/fvwm.menu-method >/dev/null'
+# + I Read DebianMenu
+
+# UpdateDebianMenu
+
+# DestroyFunc BuildDebianMenu
+# AddToFunc BuildDebianMenu
+# + I Exec exec if [ -f "$[fvwm_home]/DebianMenu" ] then rm $[fvwm_home]/DebianMenu fi
+# + I PipeRead 'update-menus --menumethod $[fvwm_scrpt]/fvwm_menu; \
+# cat $[fvwm_home]/DebianMenu'
+
+# ============================Gnome Menus=====================================
+# Module FvwmGtk
+# *FvwmGtk: Destroy gnome-all
+# *FvwmGtk: Menu gnome-all
+# *FvwmGtk: Title "Gnome Menus"
+# *FvwmGtk: Separator
+# *FvwmGtk: Destroy gnome-sys
+# *FvwmGtk: Submenu "System" gnome-sys
+# *FvwmGtk: Destroy gnome-user
+# *FvwmGtk: Submenu "User" gnome-user
+# *FvwmGtk: Destroy gnome-redhat
+# *FvwmGtk: Submenu "RedHat" gnome-redhat
+
+# PipeRead 'fvwm-menu-desktop --type gtk --enable-mini-icons --icon-folder :re --icon-app :re --icon-title :re --icon-toptitle :re'
+
+# PipeRead 'fvwm-menu-desktop --type gtk --desktop gnome-user --enable-mini-icons'
+
+# PipeRead 'fvwm-menu-desktop --type gtk --desktop gnome-redhat --enable-mini-icons'
+
+## To obtain the menu above with Alt-button1 on the root window
+# Mouse 1 R M SendToModule FvwmGtk gnome-all
+
+# PipeRead '$[fvwm_home]/scripts/fvwm-gnome2.sh'
+
+# ==================================Menus======================================
+
+MenuStyle * Hilight3DThickness 2
+MenuStyle * BorderWidth 3
+
+# ============
+# MenuStyle
+# ============
+MenuStyle * MWM
+MenuStyle * PopupDelayed, PopupDelay 160, Animation, TitleWarp
+MenuStyle * Foreground black, Background gray40
+MenuStyle * ActiveFore blue
+
+# MenuStyle * Font -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+# MenuStyle * Font -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
+MenuStyle * Font "xft:wenquanyi bitmap song:size=10:encoding=iso10646-1"
+MenuStyle * MenuFace VGradient 45 gray90 gray80
+#MenuStyle * MenuFace TiledPixmap weird10dark.xpm
+
+DestroyMenu RootMenu
+# AddToMenu RootMenu $[USER]@$[zy_hostname] Title
+AddToMenu RootMenu "$[USER]@$[zy_hostname]" Title
+# + "Game%gun.png%" Popup GameMenu
+# + "Accesary%file-roller.png%" Popup accessory-menu
+
+# + "Network%connect_established.png%" Popup NetworkMenu
+
+# + "" Popup
+# + "Multimedia%emblem-multimedia.png%" Popup MultimediaMenu
+
+# + "Document%addressbook.png%" Popup DocumentMenu
+# + "Research%coral-star.png%" Popup ResearchMenu
+
+# + "Programing%text-x-c.png%" Popup ProgramingMenu
+
+# + "" Popup
+
+# + "Process" Popup MenuProcess
+# + "ListFiles" Popup ListFiles
+
+# + "System%Apple-imac-dark.png%" Popup SystemMenu
+# + "System%gnome-globe.png%" Popup SystemMenu
+# + "Control Center%configure.png%" Exec exec gnome-control-center
+# software-center
+# + "Favorites%gnome-favorites.png%" Popup favorites-menu
+# + "Favorites%emblem-special.png%" Popup favorites-menu
+
++ "" Nop
+
+# + "Volume%multimedia-volume-control.png%" Exec exec alsamixergui
+
+# + "alsamixer" Exec exec alsamixer
+# + "GotoDeskMenu" Popup GotoDeskMenu
+# + "" Nop
+
+# + "GotoDesk%gnome-workspace.png%" Popup GotoDeskMenu
++ "Fvwm%X11.png%" Popup FvwmMenu
+# Use the auto-generated menu
+# + "Gnome Menu" Popup Gnome2Menu
+# Reread the menus - will regenerate the auto-generated menu
+# + "Refresh Menus" Read $[fvwm_home]/zy-fvwm-menus
+# + "Debian" Popup "/Debian"
+
+# + "Debian" Popup /Debian
+# + "Test" Exec exec conky
+# + "Test" Test (EnvMatch zy_hostname "zy-x40") Exec exec conky
+# + "Test" Test (EnvMatch qw "zy-x40") Exec exec conky
+# + "Test" Test (EnvMatch zy_hostname "zy-x40") Echo zy-x40
+# + "Test" Test (EnvMatch zy_hostname "zy-x40") Exec exec xmesage "zy-x40"
+# + "Test" Test (EnvMatch zy_hostname "zy-x40") Exec exec xmesage "zy-x40"
+# + "Test" Test ($[zy_hostname]=="desktop") Exec exec kile !!!!!
+
+DestroyMenu favorites-menu
+AddToMenu favorites-menu
+
++ "ooffice%ooo-writer.png%"		Exec exec ooffice -geometry 800x700+0+0
++ "stardict%stardict.png%"		Exec exec stardict
++ "pidgin%pidgin.xpm%"			Exec exec pidgin
+# + "dhelp"						Exec exec dhelp -geometry 1020x710+0+0
+# + "conky%conky.xpm%"			Exec exec conky
+# + "top%gnome-cpu.png%"			Exec exec rxvt -e sudo top
+# + "mutt%mutt.xpm%"			Exec exec rxvt -e mutt
++ "emacs%emacs.png%"			Exec exec $[fvwm_emacs]
++ "emacs-snapshot%emacs.png%"			Exec exec emacs-snapshot --debug-init
++ "sudo -i emacs%emacs.png%"			Exec exec sudo -i emacs
++ "sudo -i rxvt%gnome-terminal.png%"			Exec exec sudo -i rxvt
+# + "google-chrome%chromium-browser.png%"			Exec exec google-chrome
++ "google-chrome%chromium-browser.png%"			Exec exec chromium-browser
++ "googleearth%googleearth.xpm%"			Exec exec googleearth
+# + "googleearth%google-earth.png%"			Exec exec googleearth
+
+# + "HP1000%hp-logo.xpm%"		Exec exec cat $zy/linux/device/printer/sihp1000.img > /dev/hplj1000 | sudo sh
++ "" Nop
++ "gnome-control-center%configure.png%" Exec exec gksudo gnome-control-center
++ "software-center%control-center2.xpm%" Exec exec gnome-control-center
++ "alacarte%alacarte.png%" Exec exec gksudo alacarte
++ "gconf-editor%gconf-editor.png%" Exec exec gksudo gconf-editor
++ "" Nop
++ "sysv-rc-conf" Exec exec rxvt -e sudo sysv-rc-conf
++ "network%network-config.png%" Exec exec rxvt -e sudo zy-set-network-interfaces.sh
+# + "gnome-alsamixer" Exec exec gnome-alsamixer
++ "alsamixergui%multimedia-volume-control.png%" Exec exec alsamixergui
+# + "alsamixergui" Exec exec alsamixergui
+# alsamixer
+# + "network%network-config.png%" Exec exec network-admin
++ "" Nop
++ "Quit Fvwm%gnome-logout.png%" Quit
++ "Restart Fvwm%gnome-session-reboot.png%" Restart fvwm2
++ "" Nop
++ "Reboot%boot.png%"			Exec exec rxvt -e sudo reboot
+
+# + "Shutdown%exit.png%" Exec exec shutdown -h 0
++ "Shutdown%gtk-quit.png%"	Exec exec rxvt -e sudo shutdown -h 0
+# + "Shutdown%gnome-session-halt.png%" Exec exec shutdown -h 0
+
++ "" Nop
+
+# =================================
+# TaskBar Window Operation Menu
+# =================================
+AddToMenu TaskBar-Window-Ops Window Operations" Title
++ "Move" Move-or-Raise
++ "Resize" Resize-or-Raise
++ "WindowShade" WindowShade
++ "Lower"		Lower
++ "Raise"		Raise
++ "(Un)Stick"	Stick
++ "" Nop
++ "(Un)Maximize"	Maximize 100 -22p
++ "" Nop
++ "Delete"		Delete
++ "Raise/Lower" RaiseLower
++ "Destroy"		Destroy
++ "" Nop
++ "Iconify" Iconify
++ "Close"	Close
+
+AddToMenu FvwmSetup "Fvwm Setup" Title
++ "Change Scrolling" Popup FvwmScroll
+
+AddToMenu FvwmScroll "Change Scroll Behavior" Title
++ "OFF"		EdgeScroll 0 0
++ "ON"		EdgeScroll 100 100
++ "Horizontal Only" EdgeScroll 100 0
++ "Vertical Only"	EdgeScroll 0 100
++ "Partial"			EdgeScroll 50 50
+
+AddToMenu FvwmModules "Fvwm Modules" Title
++ "Pager"		Module FvwmPager 0 0
++ "Button-Bar"	Module FvwmButtons
++ "WinList"		Module FvwmWinList
++ "Identify"	Module FvwmIdent
++ "" Nop
++ "Clean-Up"	Module FvwmClean
++ "SaveDesktop" Module FvwmSave
++ "Debug"		Module FvwmDebug
++ "Background"	Module FvwmBacker
++ "IconBox"		Module FvwmIconBox
++ "Banner"		Module FvwmBanner
++ "Talk"		Module FvwmTalk
++ "Prompt"		Module FvwmPrompt "hello" raise
+
+AddToMenu Module-Popup Modules Title
++ Audio		Module FvwmAudio
++ Auto		Module FvwmAuto 200
++ Buttons	Module FvwmButtons
++ Console	Module FvwmConsole
++ Ident		Module FvwmIdent
++ Banner	Module FvwmBanner
++ Pager		Module FvwmPager 0 1
+
+# ==============
+# FvwmMenu
+# ==============
+
+DestroyMenu FvwmMenu
+AddToMenu FvwmMenu "Fvwm" Title
++ "Lock%lock.png%"		Exec exec xscreensaver-command -lock
++ "Recapture Screen"	Recapture
++ "Refresh Screen"		Refresh
++ "Xman"				Exec exec xman
++ "Xmag"				Exec exec xmag
+# + "Reset X defaults"	Exec exec xrdb -load $HOME/.Xdefaults
++ "Screen Shot"			Exec exec import -window root shot.png%
++ "Preferences"			Popup MenuFvwmConfig
++ "" Nop
++ "Fvwm Setup"			Popup FvwmSetup
++ "Fvwm Modules"		Popup FvwmModules
++ "toggle FvwmConsole"	Function ToggleFvwmConsole
++ "" Nop
++ "FvwmMan"				Popup FvwmManPagesMenu
++ "" Nop
++ "Quit Fvwm%gnome-logout.png%" Quit
++ "Restart Fvwm%gnome-session-reboot.png%" Restart fvwm2
++ "" Nop
++ "Reboot%boot.png%"	Exec exec sudo /sbin/reboot
+
+# + "Shutdown%exit.png%" Exec exec shutdown -h 0
+# + "Shutdown%gtk-quit.png%" Exec exec sudo shutdown -h 0
++ "Halt%gtk-quit.png%" Exec exec sudo /sbin/halt
+
+# Local Variables:
+# zy-info-nodes: "erc"
+# zy-files: "/etc/network/interfaces"
+# zy-urls: "http://localhost/research/system/network/zy-network.html"
+# zy-web-search-hint-keywords: "fvwm, fvwm menu"
+# zy-gui-programs: "alacarte"
+# zy-cli-programs:
+# zy-shell-command: "ls"
+# End:
+

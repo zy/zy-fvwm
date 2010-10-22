@@ -1,0 +1,26 @@
+# 2005/0426: 0.4:
+	* Retire gnome2-program in favour of fvwm-gnome2 script
+	* Implement GETMINI to seek out and create mini icons where needed and cache in .fvwm/mini16
+	* Added S-M-Tab to provide windows list for skipped programs such as terminals
+	* Added FvwmEvent handle to warp cursor to new windows
+	* Reverse mouse button usage on root window - button 3 now pops up the menu - more like other WM such as gnome & xfce4
+	* Use EwmhBaseStruts to control maximize functions
+	* Many fixes to app.m4 for individual applications
+	* Better button styles for base decor
+
+# 2004/07/25: 0.3:
+
+    * Use RunFocusWarp for all RXVT invocations
+    * Add program name to Gnome-2 menus
+    * Separate the graphics parts from the rest - they won't change often
+    * Heaps of new programs added, cleanups and bug fixes 
+
+# 2004/07/11: 0.2:
+
+    * New ADD_TO* macros for automatic menu and apps panel building
+    * New default menu categories - Utilities, Development, Office
+    * Support for gnome-2 menus (new script fvwm-gnome2)
+    * gnome-1 menus fixed (using fvwm-menu-desktop)
+    * Heaps of cleanup and bug fixes 
+
+# 2004/04/04: 0.1: Initial version

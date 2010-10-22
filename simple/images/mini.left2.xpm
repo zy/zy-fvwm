@@ -1,0 +1,25 @@
+/* XPM */
+static char *mini.left2[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 3 1",
+"  c black",
+". c red",
+"X c None",
+/* pixels */
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXX.XXXXXXXXXX",
+"XXXX..XXXXXXXXXX",
+"XXX.........X..X",
+"XX.......X.X.XXX",
+"X.........X.XX.X",
+"XX......X..X.XXX",
+"XXX........X.X.X",
+"XXXX..XXXXXXXXXX",
+"XXXXX.XXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX",
+"XXXXXXXXXXXXXXXX"
+};

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+file=~/.recentf
+if ! test -f $file ; then
+    echo "+ \"No $file%stock_dialog-error%\" Beep"
+    exit
+fi
+    
+cat ~/.recentf | sed -n 's/^ *"\(.*\)" *$/\1/p' | head -n 40 | \
+    $(dirname $0)/recentdir-menu.py "$@"

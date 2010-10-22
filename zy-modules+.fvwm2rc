@@ -1,0 +1,286 @@
+# -*- fvwm -*-
+# Time-stamp: <zy-modules+.fvwm2rc, 08-15-2009 07:39 Ziyu Zhang >
+
+######################## FvwmBanner ############################
+# *FvwmBanner: Pixmap snoopy.xpm
+#linux_logo.gif Scenery.jpg rock-climbing.jpg bigJohnbigD.jpg 
+*FvwmBanner: Timeout 1 
+
+# ==================================FvwmEvent======================================
+# add_window-> StartFirefoxMaximized
+
+DestroyModuleConfig FE-StartMaximized: *
+*FE-StartMaximized: Cmd Function
+# *FE-StartMaximized: add_window StartFirefoxMaximized
+*FE-StartMaximized: add_window FuncStartMaximized
+
+Module	FvwmEvent FE-StartMaximized
+
+# DestroyModuleConfig FE-SM: *
+# *FE-SM: Cmd Function
+# *FE-SM: add_window StartFirefoxMaximised
+
+# Module	FvwmEvent FE-SM
+
+# ==================================Window-Identifier======================================
+# Just choose colors and a fonts
+# *FvwmIdentBack MidnightBlue
+*FvwmIdentFore Yellow
+# *FvwmIdentFont -default-song-medium-r-normal--14-140-72-72-c-140-gb2312.1980-0
+# *FvwmIdentFont -default-ming-medium-r-normal--14-140-72-72-c-140-iso10646-1
+# *FvwmIdentFont -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
+*FvwmIdentFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+# ==================================FvwmWinList======================================
+*FvwmWinListBack #908090
+*FvwmWinListFore Black
+# *FvwmWinListFont -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
+*FvwmWinListFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+*FvwmWinListAction Click1 Iconify -1,Focus
+*FvwmWinListAction Click2 Iconify
+*FvwmWinListAction Click3 Module	"FvwmIdent" FvwmIdent
+*FvwmWinListUseSkipList
+*FvwmWinListGeometry +0-1
+
+# ==================================Desktops======================================
+#page layout per desktop 
+DeskTopSize	1x1 
+EdgeScroll	100 100
+EdgeResistance	250 100
+DesktopName	0 Up	
+DesktopName	1 Down 
+
+# ==================================FvwmPager======================================
+# Style FvwmPager ClickToFocus, NoTitle, StaysOnBottom, NoHandles, !Iconifiable, Sticky, WindowListSkip 
+# # UseSkipList
+# # *PagerPanel: Geometry 200x80+0-20
+# # define desk
+# Module	FvwmPager 0 1
+# # *FvwmPager: Geometry 10x10+0-0 
+# # # hide it at the left bottom corner
+# *FvwmPager: Geometry 200x60+0-30
+
+# *FvwmPager: Rows 1
+# *FvwmPager: Columns 2
+
+# *FvwmPager: Back grey
+# *FvwmPager: Fore black 
+# *FvwmPager: Hilight WhiteSmoke
+# *FvwmPager: DeskHilight 
+
+# # fore back hiFore hiBack
+# *FvwmPager: WindowColors SlateBlue LightGray DodgerBlue WhiteSmoke
+
+# *FvwmPager: Font -adobe-helvetica--bold-r-*-*-12-*-*-*-*-*-*-* 
+# # -*-simsun-medium-r-*-*-10-*-*-*-*-*-*-*
+# *FvwmPager: SmallFont -adobe-helvetica--bold-r-*-*-12-*-*-*-*-*-*-* 
+
+# *FvwmPager: Balloons All
+# *FvwmPager: BalloonBack yellow
+# *FvwmPager: BalloonFore Black
+# *FvwmPager: BalloonFont -*-simsun-medium-r-*-*-12-*-*-*-*-*-*-*
+# *FvwmPager: BalloonYOffset +2
+# *FvwmPager: BalloonBorderWidth 1
+# *FvwmPager: BalloonBorderColor Black
+
+# ==================================FvwmBacker======================================
+DesroyModuleConfig FvwmBacker*
+
+*FvwmBacker: Command (Desk 0, Page 0 0) -solid RoyalBlue4
+# *FvwmBacker: Command (Desk 0, Page 1 0) -solid DeepSkyBlue4
+*FvwmBacker: Command (Desk 1, Page 0 0) -solid DarkSlateGray 
+# # *FvwmBacker: Command (Desk 1, Page 1 0) -solid DarkSlateGray
+
+# *FvwmBacker: Command (Desk 0) Exec exec xpmroot $zy/linux/fvwm/wallpaper/ShiptonSpire.xpm
+# *FvwmBacker: Command (Desk 1) Exec exec xpmroot $zy/linux/fvwm/wallpaper/zy-blue.xpm
+
+# ==================================FvwmButtons======================================
+Style FvwmButtons ClickToFocus, NoTitle, StaysOnBottom, NoHandles, !Iconifiable, Sticky, WindowListSkip
+
+# KillModule	FvwmButtons
+# DestroyModuleConfig FvwmButtons: *
+
+*FvwmButtons: Fore Black
+*FvwmButtons: Back rgb:90/80/90
+# *FvwmButtons: Geometry 124x66-100+0
+*FvwmButtons: Geometry 124x63-100+0
+*FvwmButtons: Rows 1
+*FvwmButtons: Columns 2
+# *FvwmButtons: BoxSize fixed
+*FvwmButtons: BoxSize smart
+# *FvwmButtons: Padding 1 1
+*FvwmButtons: Padding 1 1
+# *FvwmButtons: Font -*-helvetica-medium-r-*-*-12-*
+*FvwmButtons: Font -*-simsun-medium-r-*-*-12-*-*-*-*-*-*-*
+# *FvwmButtons(1x1, Swallow(UseOld,Respawn) ASClock "Exec exec asclock -geometry -3000-3000 &" )
+# *FvwmButtons(1x1, Swallow(UseOld,NoKill) "xload15" `Exec xload -title xload15 -nolabel -bg rgb:90/80/90 -update 5 &`)
+# *FvwmButtons(1x1, Swallow(UseOld,NoKill) "xload15" `Exec exec xload -title xload15 -nolabel -bg rgb:90/80/90 -update 5 &`)
+
+# ==================================FvwmTaskBar======================================
+
+Style FvwmTaskBar HandleWidth 0, BorderWidth 0, Height 10, WindowListSkip, NoHandles !Iconifiable
+# StaysOnTop
+
+*FvwmTaskBar: Back LightSkyBlue3
+*FvwmTaskBar: Fore black
+*FvwmTaskBar: FocusFore blue
+
+*FvwmTaskBar: Font -adobe-helvetica-medium-r-*-*-14-*-*-*-*-*-*-*
+*FvwmTaskBar: SelFont -adobe-helvetica-bold-r-*-*-14-*-*-*-*-*-*-*
+# *FvwmTaskBar: Font -*-simsun-medium-r-*-*-12-*-*-*-*-*-*-*
+# *FvwmTaskBar: SelFont -*-simsun-medium-r-*-*-12-*-*-*-*-*-*-*
+*FvwmTaskBar: StatusFont fixed
+
+*FvwmTaskBar: IconBack darkgreen
+*FvwmTaskBar: IconFore white
+
+*FvwmTaskBar: Action Click1 DeiconifyRaiseAndFocus
+*FvwmTaskBar: Action Click2 Iconify 
+# *FvwmTaskBar: Action Click3 Menu FvwmWindowOpsMenu
+*FvwmTaskBar: Action Click3 Menu TaskBar-Window-Ops
+
+*FvwmTaskBar: UseSkipList
+*FvwmTaskBar: AutoStick
+# *FvwmTaskBar: PageOnly
+*FvwmTaskBar: DeskOnly
+
+*FvwmTaskBar: StartButtonRightMargin 3
+*FvwmTaskBar: StartName 
+*FvwmTaskBar: StartMenu RootMenu
+*FvwmTaskBar: StartIcon tux32.png
+# *FvwmTaskBar: StartIcon John-Lennon.png
+
+# *FvwmTaskBar: AutoHide [7]
+*FvwmTaskBar: ShowTransients
+
+*FvwmTaskBar: ShowTips
+*FvwmTaskBar: TipsBack bisque
+*FvwmTaskBar: TipsFore black
+
+*FvwmTaskBar: ClockFormat %I:%M %p %m/%d 
+*FvwmTaskBar: BellVolume 20
+*FvwmTaskBar: ButtonWidth 180
+*FvwmTaskBar: WindowButtonsRightMargin 124
+*FvwmTaskBar: BellVolume 20
+# *FvwmTaskBar: MailBox $zy/mail/
+# *FvwmTaskBar: MailBox $zy/mail/
+# *FvwmTaskBar: MailBox /var/spool/mail/
+# *FvwmTaskBar: MailCommand Exec exec xterm -e mail
+# *FvwmTaskBar: MailCommand Exec exec rxvt -e mutt
+*FvwmTaskBar: MailCommand Exec exec rxvt -geometry 80x30+100-40 -e mutt 
+# *FvwmTaskBar: Button NoTitle, Icon gnome-favorites.png, Action (Mouse 1) Popup favorites-menu
+*FvwmTaskBar: Button NoTitle, Icon gun.png, Action (Mouse 1) Popup favorites-menu
+
+# *FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Exec exec $[fvwm_terminal]
+*FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Exec exec rxvt -geometry 80x30+100-40 
+# *FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Exec exec gnome-terminal -geometry 80x30+100-40 
+# *FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Function toggle-terminal
+# *FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Function ToggleXMessages
+
+# *FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Exec exec $[fvwm_terminal] -geometry 80x30+100-40 &
+
+# *FvwmTaskBar: Button NoTitle, Icon email.png, Action (Mouse 1) Exec exec gnome-terminal -geometry 80x30+100-40 -e mutt &
+# torify mutt
+
+*FvwmTaskBar: Button NoTitle, Icon mac.png, Action (Mouse 1) Function show-desktop-function
+# *FvwmTaskBar: Button NoTitle, Icon firefox.xpm, Action (Mouse 1) Exec exec firefox
+*FvwmTaskBar: Button NoTitle, Icon firefox.xpm, Action (Mouse 1) Exec exec firefox -geometry 100x100+0-30 
+
+# *FvwmTaskBar: Button NoTitle, Icon firefox.xpm, Action (Mouse 1) Exec exec $[fvwm_br owser] Action (Mouse 3) Exec exec $[fvwm_terminal] 
+# *FvwmTaskBar: Button ( NoTitle, Icon firefox.xpm, \
+# Action (Mouse 1) "Exec exec firefox" \
+# # Action (Mouse 1) "Exec exec \$[fvwm_browser]" \
+# Action (Mouse 3) "PipeRead "$zy/linux/process/kill-firefox.sh"" ) 
+# Action (Mouse 3) "PipeRead "$zy/linux/process/kill-firefox.sh"" ) 
+
+# *FvwmTaskBar: Button NoTitle, Icon google-earth.png, Action (Mouse 1) Exec exec konqueror http://localhost -geometry 1020x710+0+0 &
+# *FvwmTaskBar: Button NoTitle, Icon google-earth.png, Action (Mouse 1) Exec exec epiphany-browser &
+
+# all (CurrentPage,!Iconic,!FvwmTaskBar) iconify
+
+# *FvwmTaskBar: Button NoTitle, Icon emacs_.png, Action (Mouse 1) Exec exec emacs
+# 
+# --batch /mnt/f/zy/linux/fvwm/.fvwm2rc
+# -l hack-c
+
+# *FvwmTaskBar: Button FvwmButtonsBack , 
+# *FvwmTaskBar: *FvwmButtons(1x1, Swallow(UseOld,NoKill) "xload15" `Exec exec xload -title xload15 -nolabel -bg rgb:90/80/90 -update 5 &`)
+# *FvwmTaskBar: Button Title hello, Icon mini.x.xpm, Action (Mouse 1) Module	FvwmConsole
+
+# *FvwmTaskBar: HighlightFocus
+# *FvwmTaskBar: AutoHide 6
+
+# Style FvwmIconMan-TaskBar NoTitle, \
+# BorderWidth 0, \
+# HandleWidth 0, \
+# WindowListSkip, \
+# StaysOnTop, \
+# Sticky 
+
+# Module	FvwmIconMan FvwmIconMan-TaskBar
+# *FvwmIconMan-TaskBar: Action Mouse 1 N sendcommand EWMHActivateWindowFunc
+# *FvwmIconMan-TaskBar: ManagerGeometry 1x1
+# *FvwmIconMan-TaskBar: ButtonGeometry 1190x10+--0
+# *FvwmIconMan-TaskBar: Format "%t" # just the window title
+# *FvwmIconMan-TaskBar: PlainButton up # bye bye indentations
+# *FvwmIconMan-TaskBar: Sort none # no sorting, please
+
+# FvwmIconMan - Taskbar
+# Colorset 15 fg white, bg #c6c3c6, sh #dedbde, hi #dedbde, RootTransparent buffer, Tint #efebef 65
+# Colorset 16 fg white, bg black, RootTransparent buffer, Tint #556593 85
+# DestroyModuleConfig FvwmIconMan: *
+# *FvwmIconMan: ManagerGeometry 1x1
+# *FvwmIconMan: ButtonGeometry 24x23
+# *FvwmIconMan: FocusAndSelectButton down
+# *FvwmIconMan: FocusButton down
+# *FvwmIconMan: IconButton down
+# *FvwmIconMan: PlainButton down
+# *FvwmIconMan: SelectButton down
+# *FvwmIconMan: Action Select gotobutton select, sendcommand FlipFocus
+# *FvwmIconMan: Action Mouse 0 N sendcommand Nop
+# *FvwmIconMan: Action Mouse 2 N sendcommand Thumbnail
+# *FvwmIconMan: Action Mouse 1 N sendcommand "Iconify off", sendcommand RaiseLower, sendcommand FlipFocus
+# *FvwmIconMan: Action Mouse 3 N sendcommand "Popup MenuFvwmWindowOps Rectangle +$center+$top 0 -100m"
+# *FvwmIconMan: Colorset 3
+# *FvwmIconMan: ReliefThickness 1
+# *FvwmIconMan: Font "xft:vizung:style=vizung:size=8"
+# *FvwmIconMan: FocusAndSelectColorset 16
+# *FvwmIconMan: FocusColorset 16
+# *FvwmIconMan: Resolution Page
+# *FvwmIconMan: DrawIcons Always
+# *FvwmIconMan: FollowFocus True
+# *FvwmIconMan: UseWinList True
+# *FvwmIconMan: ShowOnlyIcons False
+# *FvwmIconMan: Format "%i"
+# *FvwmIconMan: Title ""
+# *FvwmIconMan: Sort id
+
+# DestroyModuleConfig FvwmIconMan: *
+# *FvwmIconMan: ManagerGeometry 1x1
+# *FvwmIconMan: ButtonGeometry 24x23
+# *FvwmIconMan: FocusAndSelectButton down
+# *FvwmIconMan: FocusButton down
+# *FvwmIconMan: IconButton down
+# *FvwmIconMan: PlainButton down
+# *FvwmIconMan: SelectButton down
+# # disable default binding of "Iconify"
+# *FvwmIconMan: Action Mouse 0 N sendcommand Nop
+# # redefine buttons 1, 2 and 3.
+# *FvwmIconMan: Action Mouse 2 N sendcommand Thumbnail
+# *FvwmIconMan: Action Mouse 1 N sendcommand "Iconify off", sendcommand RaiseLower, sendcommand FlipFocus
+# *FvwmIconMan: Action Mouse 3 N sendcommand "Popup MenuFvwmWindowOps Rectangle +$left+$top 0 -100m"
+# #*FvwmIconMan: Action Mouse 4 N sendcommand "LockingSlide keep w-3p"
+# #*FvwmIconMan: Action Mouse 5 N sendcommand "LockingSlide keep w3p"
+# *FvwmIconMan: Colorset 15
+# *FvwmIconMan: ReliefThickness 1
+# *FvwmIconMan: Font "xft:Bitstream Vera Sans Mono:style=Roman:size=8"
+# *FvwmIconMan: FocusAndSelectColorset 16
+# *FvwmIconMan: FocusColorset 16
+# *FvwmIconMan: Resolution Page
+# *FvwmIconMan: DrawIcons Always
+# *FvwmIconMan: FollowFocus True
+# *FvwmIconMan: UseWinList True
+# *FvwmIconMan: ShowOnlyIcons False
+# #*FvwmIconMan: Format "%c: %i"
+# *FvwmIconMan: Title ""
+# *FvwmIconMan: Sort id

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+sshhosts=~/.ssh/known_hosts
+
+if ! test -f $sshhosts ; then
+    echo "+ \"No $sshhosts%stock_dialog-error%\" Beep"
+    exit
+fi
+
+# discover remote hosts based on 
+for host in $(grep -o -e '^[a-z][a-zA-Z0-9.]*' $sshhosts | sort -u)
+do
+    echo "+ \"$host%$1%\" Recent RemoteShell $host"
+done
+
+# make fusermount points
+
+for dir in $(ls ~/mnt)
+do
+    for host in $(grep -o -e "^$dir[a-zA-Z0-9.]*" $sshhosts)
+    do
+	echo "+ \"$host%$2%\" Recent Exec sshfs $host:/ ~/mnt/$dir; exec rox ~/mnt/$dir"
+    done
+done

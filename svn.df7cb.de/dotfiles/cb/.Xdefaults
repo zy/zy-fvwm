@@ -1,0 +1,120 @@
+! $Id$
+*background:		white
+*foreground:		black
+!*Scrollbar*background:	Navy
+*Scrollbar*foreground:	LimeGreen
+*Scrollbar*thickness:	7
+*Scrollbar*thumb:	None
+XApm*background:	LightSkyBlue
+XApm*delay:		5
+XApm*font:		-misc-fixed-medium-*-*-*-12-*-*-*-*-*-*-*
+XApm*height:		12
+!XApm*highColor:		MediumSpringGreen
+XApm.Form.Scrollbar.width:	30
+Xawtv*basename:		snap
+Xawtv.geometry:		320x240
+XClock*analog:		false
+XClock*background:	RoyalBlue
+XClock*foreground:	Yellow
+XClock*padding:		0
+XClock*update:		1
+! XFree 4.3: face
+XClock*face:		fixed-8
+XClock*font:		-misc-fixed-medium-*-*-*-12-*-*-*-*-*-*-*
+XDvi.expert:		true
+XDvi.highlight:		blue
+XDvi.keepPosition:	true
+XEmacs.font:		-*-Fixed-medium-r-*-*-*-160-*-*-*-*-ISO8859-1
+Fig*inches:		false
+Fig*library_dir:	~/lib/xfig
+Fig*PaperSize:		A4
+Fig*specialtext:	true
+Fig*splash:		false
+Netscape*blinkingEnabled: false
+! From http://kaluta.ilog.fr/colas/mouse-wheel-scroll/
+Netscape*drawingArea.translations:  #replace    \
+	<Btn1Down>:           ArmLink()   \n\
+	<Btn2Down>:           ArmLink()   \n\
+	~Shift<Btn1Up>:       ActivateLink()  \n\
+	~Shift<Btn2Up>:       ActivateLink(new-window)  \
+	DisarmLink()    \n\
+	Shift<Btn1Up>:        ActivateLink(save-only)  \
+	DisarmLink()    \n\
+	Shift<Btn2Up>:        ActivateLink(save-only)  \
+	DisarmLink()    \n\
+	<Btn1Motion>:             DisarmLinkIfMoved()  \n\
+	<Btn2Motion>:             DisarmLinkIfMoved()  \n\
+	<Btn3Motion>:             DisarmLinkIfMoved()  \n\
+	<Motion>:             DescribeLink()  \n\
+	<Btn3Down>:           xfeDoPopup()    \n\
+	<Btn3Up>:             ActivatePopup() \n\
+	Ctrl<Btn4Down>: PageUp()\n\
+	Ctrl<Btn5Down>: PageDown()\n\
+	Shift<Btn4Down>: LineUp()\n\
+	Shift<Btn5Down>: LineDown()\n\
+	None<Btn4Down>: LineUp()LineUp()LineUp()LineUp()LineUp()LineUp()\n\
+	None<Btn5Down>: LineDown()LineDown()LineDown()LineDown()LineDown()LineDown()\n\
+	Alt<Btn4Down>: xfeDoCommand(forward)\n\
+	Alt<Btn5Down>: xfeDoCommand(back)\n\
+	<Btn3Down>: \n\
+	<Btn3Down>,<Btn3Up>: xfeDoCommand(back)\n\
+	<Btn3Down>,<Btn3Motion>: xfeDoPopup()\n
+Netscape*globalNonTextTranslations: #override\n\
+	Shift<Btn4Down>: LineUp()\n\
+	Shift<Btn5Down>: LineDown()\n\
+	None<Btn4Down>:LineUp()LineUp()LineUp()LineUp()LineUp()LineUp()\n\
+	None<Btn5Down>:LineDown()LineDown()LineDown()LineDown()LineDown()LineDown()\n\
+	Alt<Btn4Down>: xfeDoCommand(forward)\n\
+	Alt<Btn5Down>: xfeDoCommand(back)\n\
+	<Btn3Down>: \n\
+	<Btn3Down>,<Btn3Up>: xfeDoCommand(back)\n\
+	<Btn3Down>,<Btn3Motion>: xfeDoPopup()\n
+Netscape*installColormap: true
+XLock.logoutButton:	-1
+XLock.background:	black
+XLock.foreground:	red
+XLock.echokeys:		true
+Xpdf.initialZoom:	page
+XTerm*boldMode:		false
+XTerm*color3:		orange
+XTerm*color11:		orange
+! XFree > 4.3 redefines blue:
+XTerm*color4:		blue
+XTerm*color12:		blue
+XTerm*color5:		maroon
+XTerm*color13:		maroon
+XTerm*cursorColor:	RoyalBlue
+XTerm*faceName:		mono-9
+XTerm*font:		-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-*-*
+XTerm*highlightColor:	Orange
+!XTerm*highlightSelection: true
+XTerm*internalBorder:	1
+XTerm*metaSendsEscape:	true
+XTerm*saveLines:	1000
+! work around xterm select() bug
+XTerm*sessionMgt:	false
+XTerm*scrollBar:	true
+XTerm*scrollKey:	true
+XTerm*scrollTtyOutput:	false
+XTerm*showBlinkAsBold:	true
+XTerm*utmpInhibit:	true
+XTerm*visualBell:	true
+!xterm*VT100.Translations: #override <Key>BackSpace: string(0x08) \n
+xterm*VT100.Translations: #override \n\
+	Ctrl ~Shift <KeyPress> -: smaller-vt-font() \n\
+	Ctrl ~Shift <KeyPress> =: larger-vt-font() \n\
+	Shift <KeyPress> Prior:scroll-back(2,halfpage) \n\
+	Shift <KeyPress> Next:scroll-forw(2,halfpage) \n\
+	<Btn4Down>:scroll-back(2,halfpage,m)     \n\
+	<Btn5Down>:scroll-forw(2,halfpage,m)     \n\
+	Ctrl Shift <KeyPress> p: string(0xe2) string(0x99) string(0xa0)
+xv*ctrlGeometry: -15-30
+xv.preset1.igraf: S 3 : 0,0 : 127,137 : 255,255
+xv.preset2.igraf: S 3 : 0,0 : 127,147 : 255,255
+xv.preset3.igraf: S 3 : 0,0 : 127,157 : 255,255
+xv.preset4.igraf: S 3 : 0,0 : 127,167 : 255,255
+xv.*.rgraf: S 4 : 0,0 : 64,64 : 192,192 : 255,255
+xv.*.ggraf: S 4 : 0,0 : 64,64 : 192,192 : 255,255
+xv.*.bgraf: S 4 : 0,0 : 64,64 : 192,192 : 255,255
+xv.saveNormal: true
+wmWeather*geometry:	+898+416

@@ -1,0 +1,1730 @@
+# /home/pz215/download/applications.menu
+AddToMenu ""
++ "Biuro%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Biuro"
++ "Debian%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian"
++ "Edytory%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Edytory"
++ "Grafika%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Grafika"
++ "Gry%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Gry"
++ "Internet%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Internet"
++ "Multimedia%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Multimedia"
++ "Narzędzia programistów%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Narzędzia programistów"
++ "Nauka i rozrywka%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Nauka i rozrywka"
++ "Naukowe%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Naukowe"
++ "System%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "System"
++ "Ustawienia%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Ustawienia"
++ "Użytki%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Użytki"
++ "Zabawa%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Zabawa"
++ "Zgubione i znalezione%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Zgubione i znalezione"
++ "Centrum sterowania%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kcontrol -caption "%c" %i %m
++ "Katalog domowy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kfmclient openProfile filemanagement
++ "Pomoc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec khelpcenter
++ "Znajdź pliki%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kfind %f
+
+AddToMenu "Biuro"
++ "Kontact%/usr/share/pixmaps/kontact.xpm%" Exec exec kontact
+# not supported: <xdg.Menu.Separator instance at 0xb74dc4ec>
++ "AbiWord Word Processor%/usr/share/pixmaps/abiword.png%" Exec exec abiword
++ "Adobe Reader%/usr/share/pixmaps/AdobeReader.png%" Exec exec acroread
++ "Arkusz Gnumerica%/usr/share/pixmaps/gnome-gnumeric.png%" Exec exec gnumeric %U
++ "Evolution%/usr/share/icons/gnome/24x24/apps/evolution.png%" Exec exec evolution-2.6
++ "Menedżer adresów%/usr/share/pixmaps/kaddressbook.xpm%" Exec exec kaddressbook %u
++ "Mozilla Calendar%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec mozilla-suite -calendar
++ "Organizator%/usr/share/pixmaps/korganizer.xpm%" Exec exec korganizer %u
+
+AddToMenu "Debian"
++ "Apps%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps"
++ "Games%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games"
++ "Help%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Help"
++ "Screen%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen"
++ "XShells%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/XShells"
+
+AddToMenu "Debian/Apps"
++ "Editors%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Editors"
++ "Education%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Education"
++ "Graphics%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Graphics"
++ "Math%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Math"
++ "Net%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Net"
++ "Programming%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Programming"
++ "Science%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Science"
++ "Shells%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Shells"
++ "Sound%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Sound"
++ "System%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/System"
++ "Text%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Text"
++ "Tools%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Tools"
++ "Viewers%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Viewers"
+
+AddToMenu "Debian/Apps/Editors"
++ "AbiWord Word Processor%/usr/share/AbiSuite-2.4/icons/menu.xpm%" Exec exec /usr/bin/abiword
++ "AbiWord Word Processor%/usr/share/AbiSuite-2.4/icons/menu.xpm%" Exec exec /usr/bin/abiword
++ "EasyEditor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ee
++ "Emacs 21 (X11)%/usr/share/emacs/21.4/etc/gnu-32x32.xpm%" Exec exec /usr/bin/emacs21
++ "Emacs 21 (X11)%/usr/share/emacs/21.4/etc/gnu-32x32.xpm%" Exec exec /usr/bin/emacs21 -i
++ "Emacs 21 (text)%/usr/share/emacs/21.4/etc/gnu-32x32.xpm%" Exec exec /usr/bin/emacs21 -nw
++ "Emacs 21 (text)%/usr/share/emacs/21.4/etc/gnu-32x32.xpm%" Exec exec /usr/bin/emacs21 -nw
++ "Emacs Snapshot (GTK)%/usr/share/emacs/22.0.92/etc/emacs.xpm%" Exec exec /usr/bin/emacs-snapshot-gtk
++ "Emacs Snapshot (X11)%/usr/share/emacs/22.0.50/etc/emacs.xpm%" Exec exec /usr/bin/emacs-snapshot
++ "Emacs Snapshot (text)%/usr/share/emacs/22.0.92/etc/emacs.xpm%" Exec exec /usr/bin/emacs-snapshot -nw
++ "Emacs Snapshot (text)%/usr/share/emacs/22.0.50/etc/emacs.xpm%" Exec exec /usr/bin/emacs-snapshot -nw
++ "Gedit%/usr/share/pixmaps/gedit-icon.xpm%" Exec exec /usr/bin/gedit
++ "Gedit%/usr/share/pixmaps/gedit-icon.xpm%" Exec exec /usr/bin/gedit
++ "KEdit%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kedit
++ "KImageMapEditor%/usr/share/pixmaps/kimagemapeditor.xpm%" Exec exec /usr/bin/kimagemapeditor
++ "KWrite%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kwrite
++ "Kate%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kate
++ "Nano%/usr/share/nano/nano-menu.xpm%" Exec exec /bin/nano
++ "Quanta Plus%/usr/share/pixmaps/quanta.xpm%" Exec exec /usr/bin/quanta
++ "XEmacs21-mule%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xemacs21-mule
++ "Xedit%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xedit
++ "jed%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/jed
++ "yudit%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/yudit
++ "zile%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/zile
+
+AddToMenu "Debian/Apps/Education"
++ "Arithmetic Quiz%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c '/usr/games/arithmetic;echo PRESS ENTER;read line'
++ "GNU Typist%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gtypist
++ "KEduca%/usr/share/pixmaps/keduca.xpm%" Exec exec /usr/bin/keduca
++ "KEduca-Editor%/usr/share/pixmaps/keduca.xpm%" Exec exec /usr/bin/keducabuilder
++ "KLatin%/usr/share/pixmaps/klatin.xpm%" Exec exec /usr/bin/klatin
++ "KLettres%/usr/share/pixmaps/klettres.xpm%" Exec exec /usr/bin/klettres
++ "KTouch%/usr/share/pixmaps/ktouch.xpm%" Exec exec /usr/bin/ktouch
++ "KTurtle%/usr/share/pixmaps/kturtle.xpm%" Exec exec /usr/bin/kturtle
++ "KVocTrain%/usr/share/pixmaps/kvoctrain.xpm%" Exec exec /usr/bin/kvoctrain
++ "KWordQuiz%/usr/share/pixmaps/kwordquiz.xpm%" Exec exec /usr/bin/kwordquiz
++ "Kiten%/usr/share/pixmaps/kiten.xpm%" Exec exec /usr/bin/kiten
++ "Kverbos%/usr/share/pixmaps/kverbos.xpm%" Exec exec /usr/bin/kverbos
++ "Typefortune (long)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/typefortune -l -n 10
++ "Typefortune (short)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/typefortune -s -n 10
+
+AddToMenu "Debian/Apps/Graphics"
++ "Bitmap%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec bitmap
++ "Dia%/usr/share/pixmaps/dia_menu.xpm%" Exec exec /usr/bin/dia-normal
++ "Inkscape%/usr/share/pixmaps/inkscape.xpm%" Exec exec /usr/bin/inkscape
++ "KPovModeler%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kpovmodeler
++ "Kino%/usr/share/pixmaps/kino.xpm%" Exec exec /usr/bin/kino
++ "Sodipodi%/usr/share/pixmaps/sodipodi.xpm%" Exec exec sodipodi
++ "The GIMP%/usr/share/gimp/2.0/images/wilber-icon.png%" Exec exec /usr/bin/gimp-2.2
++ "byzanz-record%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/byzanz-record
++ "coriander%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/coriander
++ "dotty%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/dotty
++ "gqcam%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gqcam
++ "kcolorchooser%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kcolorchooser
++ "kcoloredit%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kcoloredit
++ "kfax%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kfax
++ "kiconedit%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kiconedit
++ "kolourpaint%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kolourpaint
++ "kooka%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kooka
++ "kpdf%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kpdf
++ "kruler%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kruler
++ "ksnapshot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ksnapshot
++ "kuickshow%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kuickshow
++ "lefty%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/lefty
++ "xfig%/usr/share/pixmaps/xfig32x32.xpm%" Exec exec /usr/bin/xfig
+
+AddToMenu "Debian/Apps/Math"
++ "Bc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/bc
++ "Calc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/calc
++ "Dc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/dc
++ "GCalcTool%/usr/share/pixmaps/gcalctool.xpm%" Exec exec /usr/bin/gcalctool
++ "GCalcTool%/usr/share/pixmaps/gcalctool.png%" Exec exec /usr/bin/gcalctool
++ "GNU R%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/R
++ "Grace%/usr/share/pixmaps/grace-menu.xpm%" Exec exec /usr/bin/xmgrace
++ "KBruch%/usr/share/pixmaps/kbruch.xpm%" Exec exec /usr/bin/kbruch
++ "KCalc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kcalc
++ "KPercentage%/usr/share/pixmaps/kpercentage.xpm%" Exec exec /usr/bin/kpercentage
++ "Kig%/usr/share/pixmaps/kig.xpm%" Exec exec /usr/bin/kig
++ "KmPlot%/usr/share/pixmaps/kmplot.xpm%" Exec exec /usr/bin/kmplot
++ "Octave (2.0)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/octave2.0
++ "Octave (2.1)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/octave2.1
++ "ProofGeneral%/usr/share/pixmaps/proofgeneral.xpm%" Exec exec /usr/bin/proofgeneral
++ "Xcalc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xcalc
++ "bc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/bc
++ "dc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/dc
+
+AddToMenu "Debian/Apps/Net"
++ "Mozilla Components%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/Net/Mozilla Components"
++ "Dillo%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/dillo
++ "EGroupware Setup Wizard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/egroupwarewizard
++ "Ekiga%/usr/share/pixmaps/ekiga-logo-icon.png%" Exec exec /usr/bin/ekiga
++ "Epiphany web browser%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/epiphany
++ "Evolution%/usr/share/pixmaps/evolution.xpm%" Exec exec /usr/bin/evolution
++ "Evolution%/usr/share/pixmaps/evolution-2.4.png%" Exec exec /usr/bin/evolution
++ "FileRunner%/usr/share/pixmaps/filerunner.xpm%" Exec exec /usr/bin/fr
++ "Gaim%/usr/share/pixmaps/gaim-menu.xpm%" Exec exec /usr/bin/gaim
++ "Gaim%/usr/share/pixmaps/gaim-menu.xpm%" Exec exec /usr/bin/gaim
++ "Galeon%/usr/share/pixmaps/galeon.xpm%" Exec exec /usr/bin/galeon
++ "GnomeMeeting%/usr/share/pixmaps/gnomemeeting-logo-icon.png%" Exec exec /usr/bin/gnomemeeting
++ "GnomeMeeting%/usr/share/pixmaps/gnomemeeting-logo-icon.png%" Exec exec /usr/bin/gnomemeeting
++ "Iceweasel%/usr/share/pixmaps/iceweasel.xpm%" Exec exec iceweasel
++ "KDE Groupware Wizard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/groupwarewizard
++ "KDict%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kdict
++ "KGet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kget
++ "KLinkStatus%/usr/share/pixmaps/klinkstatus.xpm%" Exec exec /usr/bin/klinkstatus
++ "KMail%/usr/share/pixmaps/kmail.xpm%" Exec exec /usr/bin/kmail
++ "KMail/KAB Import Tool%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kmailcvt
++ "KNewsTicker%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/appletproxy knewsticker.desktop
++ "KNode%/usr/share/pixmaps/knode.xpm%" Exec exec /usr/bin/knode
++ "KOLab Setup Wizard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kolabwizard
++ "KOrn%/usr/share/pixmaps/korn.xpm%" Exec exec /usr/bin/korn
++ "KPPP%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kppp
++ "KPPP - Logview%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kppplogview
++ "KSig%/usr/share/pixmaps/ksig.xpm%" Exec exec /usr/bin/ksig
++ "KSirc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ksirc
++ "KWifiManager%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kwifimanager
++ "Kleopatra%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kleopatra
++ "Konqueror%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/konqueror --profile webbrowsing
++ "Kopete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kopete
++ "Krdc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/krdc
++ "Krfb%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/krfb
++ "Links%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/links.main
++ "Lynx%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/lynx
++ "Lynx%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/lynx
++ "Mozilla Firefox%/usr/share/pixmaps/mozilla-firefox.xpm%" Exec exec firefox
++ "Mozilla Navigator%/usr/share/pixmaps/mozilla.xpm%" Exec exec mozilla-suite
++ "Mozilla Navigator%/usr/share/pixmaps/mozilla.xpm%" Exec exec mozilla-suite
++ "Mozilla Thunderbird%/usr/share/pixmaps/mozilla-thunderbird-menu.xpm%" Exec exec mozilla-thunderbird
++ "Mutt%/usr/share/pixmaps/mutt.xpm%" Exec exec /usr/bin/mutt
++ "Openexchange Setup Wizard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/sloxwizard
++ "Pan%/usr/X11R6/include/X11/pixmaps/pan.xpm%" Exec exec /usr/bin/pan
++ "Sun Java 5.0 Web Start%/usr/share/icons/sun-java5.xpm%" Exec exec /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/javaws
++ "Telnet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/telnet
++ "Telnet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/telnet
++ "VNC Viewer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xvnc4viewer
++ "X Chat%/usr/share/icons/xchat_mini.xpm%" Exec exec /usr/bin/xchat
++ "Xbiff%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xbiff
++ "gtk-gnutella%/usr/share/gtk-gnutella/pixmaps/icon.xpm%" Exec exec /usr/bin/gtk-gnutella
++ "irssi-text%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/irssi-text
++ "ncftp%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ncftp3
++ "ncftp%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ncftp3
++ "w3m%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/w3m /usr/share/doc/w3m/MANUAL.html
++ "xmule%/usr/share/pixmaps/xmule.xpm%" Exec exec /usr/bin/xmule
++ "xvncviewer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xrealvncviewer
+
+AddToMenu "Debian/Apps/Net/Mozilla Components"
++ "Mozilla Addressbook%/usr/share/pixmaps/mozilla-addressbook.xpm%" Exec exec mozilla-suite -addressbook
++ "Mozilla Browser%/usr/share/pixmaps/mozilla-navigator.xpm%" Exec exec mozilla-suite
++ "Mozilla Browser%/usr/share/pixmaps/mozilla-navigator.xpm%" Exec exec mozilla-suite
++ "Mozilla Composer%/usr/share/pixmaps/mozilla-composer.xpm%" Exec exec mozilla-suite -edit
++ "Mozilla Composer%/usr/share/pixmaps/mozilla-composer.xpm%" Exec exec mozilla-suite -edit
++ "Mozilla Mail%/usr/share/pixmaps/mozilla-mailnews.xpm%" Exec exec mozilla-suite -mail
++ "Mozilla Mail Composer%/usr/share/pixmaps/mozilla-mail-compose.xpm%" Exec exec mozilla-suite -compose
++ "Mozilla News%/usr/share/pixmaps/mozilla-mailnews.xpm%" Exec exec mozilla-suite -news
+
+AddToMenu "Debian/Apps/Programming"
++ "Data Display Debugger%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ddd
++ "GDB%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gdb
++ "GDB%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gdb
++ "Glade 2%/usr/share/pixmaps/glade-2.xpm%" Exec exec /usr/bin/glade-2
++ "Glade 2%/usr/share/pixmaps/glade.xpm%" Exec exec /usr/bin/glade-2
++ "Guile 1.6%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/guile-1.6
++ "Hugs%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/hugs
++ "KProf%/usr/share/pixmaps/kprof.xpm%" Exec exec /usr/bin/kprof
++ "Monodoc%/usr/share/pixmaps/monodoc.png%" Exec exec /usr/bin/monodoc
++ "Python (v2.1)%/usr/share/pixmaps/python2.1-32.xpm%" Exec exec /usr/bin/python2.1
++ "Python (v2.2)%/usr/share/pixmaps/python2.2-32.xpm%" Exec exec /usr/bin/python2.2
++ "Python (v2.3)%/usr/share/pixmaps/python2.3.xpm%" Exec exec /usr/bin/python2.3
++ "Python (v2.3)%/usr/share/pixmaps/python2.3-32.xpm%" Exec exec /usr/bin/python2.3
++ "Python (v2.4)%/usr/share/pixmaps/python2.4.xpm%" Exec exec /usr/bin/python2.4
++ "Python (v2.4)%/usr/share/pixmaps/python2.4-32.xpm%" Exec exec /usr/bin/python2.4
++ "SWI-Prolog%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/swipl
++ "Sun Java 5.0 FileChooser Demo%/usr/share/icons/sun-java5-app.xpm%" Exec exec /bin/sh -c 'cd /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/demo/jfc/FileChooserDemo; /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/java -jar FileChooserDemo.jar'
++ "Sun Java 5.0 Font2DTest Demo%/usr/share/icons/sun-java5-app.xpm%" Exec exec /bin/sh -c 'cd /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/demo/jfc/Font2DTest; /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/java -jar Font2DTest.jar'
++ "Sun Java 5.0 Java 2D Demo%/usr/share/icons/sun-java5-app.xpm%" Exec exec /bin/sh -c 'cd /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/demo/jfc/Java2D; /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/java -jar Java2Demo.jar'
++ "Sun Java 5.0 SampleTree Demo%/usr/share/icons/sun-java5-app.xpm%" Exec exec /bin/sh -c 'cd /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/demo/jfc/SampleTree; /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/java -jar SampleTree.jar'
++ "Sun Java 5.0 Stylepad Demo%/usr/share/icons/sun-java5-app.xpm%" Exec exec /bin/sh -c 'cd /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/demo/jfc/Stylepad; /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/java -jar Stylepad.jar'
++ "Sun Java 5.0 SwingSet2 Demo%/usr/share/icons/sun-java5-app.xpm%" Exec exec /bin/sh -c 'cd /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/demo/jfc/SwingSet2; /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/java -jar SwingSet2.jar'
++ "Sun Java 5.0 TableExample Demo%/usr/share/icons/sun-java5-app.xpm%" Exec exec /bin/sh -c 'cd /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/demo/jfc/TableExample; /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/java -jar TableExample.jar'
++ "Tclsh8.3%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/tclsh8.3
++ "Tclsh8.3%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/tclsh8.3
++ "Tclsh8.4%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/tclsh8.4
++ "Tclsh8.4%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/tclsh8.4
++ "TkWish8.3%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec x-terminal-emulator -e /usr/bin/wish8.3
++ "TkWish8.3%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec x-terminal-emulator -e /usr/bin/wish8.3
++ "TkWish8.4%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec x-terminal-emulator -e /usr/bin/wish8.4
++ "TkWish8.4%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec x-terminal-emulator -e /usr/bin/wish8.4
++ "autoproject%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/autoproject
++ "ccmake%/usr/share/pixmaps/cmake.xpm%" Exec exec /usr/bin/ccmake
++ "pycrust%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/pycrust
++ "pyshell%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/pyshell
++ "xrced%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xrced
+
+AddToMenu "Debian/Apps/Science"
++ "KStars%/usr/share/pixmaps/kstars.xpm%" Exec exec /usr/bin/kstars
++ "Kalzium%/usr/share/pixmaps/kalzium.xpm%" Exec exec /usr/bin/kalzium
++ "gperiodic%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec gperiodic
+
+AddToMenu "Debian/Apps/Shells"
++ "Ash%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/ash -i
++ "Ash%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/ash -i
++ "Bash%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/bash --login
++ "Bash%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/bash --login
++ "Dash%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/dash -i
++ "Dash%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/dash -i
++ "Sh%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/sh --login
++ "Sh%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/sh --login
++ "Zsh%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/zsh4
++ "tcsh%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /bin/tcsh
+
+AddToMenu "Debian/Apps/Sound"
++ "Aconnectgui%/usr/share/pixmaps/aconnectgui.xpm%" Exec exec /usr/bin/aconnectgui
++ "GNOME ALSA Mixer%/usr/share/pixmaps/gnome-alsamixer/gnome-alsamixer-icon.xpm%" Exec exec /usr/bin/gnome-alsamixer
++ "KAudioCreator%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kaudiocreator
++ "KMid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kmid
++ "KMix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kmix
++ "KRec%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/krec
++ "Kaboodle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kaboodle
++ "Kscd%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kscd
++ "Noatun%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/noatun
++ "Rhythmbox%/usr/share/pixmaps/rhythmbox.xpm%" Exec exec /usr/bin/rhythmbox
++ "Sound Juicer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/sound-juicer
++ "Sound Juicer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/sound-juicer
++ "XMMS%/usr/share/pixmaps/xmms.xpm%" Exec exec xmms
++ "XMMS%/usr/share/pixmaps/xmms.xpm%" Exec exec /usr/bin/xmms
++ "aRts Builder%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/artsbuilder
++ "aRts Control%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/artscontrol
++ "aumix%/usr/share/pixmaps/icon_aumix.xpm%" Exec exec /usr/bin/aumix
++ "aumix%/usr/share/pixmaps/icon_aumix.xpm%" Exec exec /usr/bin/aumix
++ "gmix (Gnome 2.0 Mixer)%/usr/share/pixmaps/gnome-mixer.xpm%" Exec exec /usr/bin/gnome-volume-control
++ "gmix (Gnome 2.0 Mixer)%/usr/share/pixmaps/gnome-mixer.xpm%" Exec exec /usr/bin/gnome-volume-control
++ "gnome-cd (Gnome 2.0 CD Player)%/usr/share/pixmaps/gnome-cd.xpm%" Exec exec /usr/bin/gnome-cd
++ "gnome-cd (Gnome 2.0 CD Player)%/usr/share/pixmaps/gnome-cd.xpm%" Exec exec /usr/bin/gnome-cd
++ "grecord (GNOME 2.0 Recorder)%/usr/share/pixmaps/gnome-grecord.xpm%" Exec exec /usr/bin/gnome-sound-recorder
++ "grecord (GNOME 2.0 Recorder)%/usr/share/pixmaps/gnome-grecord.xpm%" Exec exec /usr/bin/gnome-sound-recorder
++ "sweep%/usr/share/pixmaps/sweep.xpm%" Exec exec /usr/bin/sweep
++ "vumeter (Gnome 2.0 Volume Meter)%/usr/share/pixmaps/gnome-vumeter.xpm%" Exec exec /usr/bin/vumeter
++ "vumeter (Gnome 2.0 Volume Meter)%/usr/share/pixmaps/gnome-vumeter.xpm%" Exec exec /usr/bin/vumeter
++ "wmXMMS%/usr/share/pixmaps/wmxmms_32.xpm%" Exec exec wmxmms
++ "wmXMMS%/usr/share/pixmaps/wmxmms_32.xpm%" Exec exec /usr/bin/wmxmms
+
+AddToMenu "Debian/Apps/System"
++ "Admin%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/System/Admin"
++ "Gnome%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/System/Gnome"
++ "Language-Environment%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Apps/System/Language-Environment"
++ "Boot Admin%/usr/share/gnome-system-tools/pixmaps/boot.xpm%" Exec exec /usr/bin/boot-admin
++ "DSL/PPPoE configuration tool%/usr/share/pixmaps/pppoeconf.xpm%" Exec exec /usr/sbin/pppoeconf
++ "Disks Admin%/usr/share/gnome-system-tools/pixmaps/disks.xpm%" Exec exec /usr/bin/disks-admin
++ "Disks Admin%/usr/share/gnome-system-tools/pixmaps/disks.xpm%" Exec exec /usr/bin/disks-admin
++ "GDM Photo Setup%/usr/share/pixmaps/gdm.xpm%" Exec exec gdmphotosetup
++ "GDM Photo Setup%/usr/share/pixmaps/gdm.xpm%" Exec exec gdmphotosetup
++ "GDM Setup%/usr/share/pixmaps/gdm.xpm%" Exec exec su-to-root -X -p root -c gdmsetup
++ "GDM Setup%/usr/share/pixmaps/gdm.xpm%" Exec exec su-to-root -X -p root -c gdmsetup
++ "GDM flexiserver%/usr/share/pixmaps/gdm.xpm%" Exec exec gdmflexiserver
++ "GDM flexiserver%/usr/share/pixmaps/gdm.xpm%" Exec exec gdmflexiserver
++ "GDM flexiserver in Xnest%/usr/share/pixmaps/gdm.xpm%" Exec exec gdmflexiserver -n
++ "GDM flexiserver in Xnest%/usr/share/pixmaps/gdm.xpm%" Exec exec gdmflexiserver -n
++ "GNOME Bug Report Tool%/usr/share/pixmaps/bug-buddy.xpm%" Exec exec /usr/bin/bug-buddy
++ "GNOME Bug Report Tool%/usr/share/pixmaps/bug-buddy.xpm%" Exec exec /usr/bin/bug-buddy
++ "GNOME Floppy Formatter%/usr/share/pixmaps/gfloppy.xpm%" Exec exec /usr/bin/gfloppy
++ "GNOME Floppy Formatter%/usr/share/pixmaps/gfloppy.xpm%" Exec exec /usr/bin/gfloppy
++ "GNOME Log Viewer%/usr/share/pixmaps/gnome-system-log.xpm%" Exec exec /usr/bin/gnome-system-log
++ "GNOME Log Viewer%/usr/share/pixmaps/gnome-system-log.xpm%" Exec exec /usr/bin/gnome-system-log
++ "GNOME Network Tool%/usr/share/pixmaps/gnome-nettool.xpm%" Exec exec /usr/bin/gnome-nettool
++ "GNOME Network Tool%/usr/share/pixmaps/gnome-nettool.xpm%" Exec exec /usr/bin/gnome-nettool
++ "GNOME system monitor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gnome-system-monitor
++ "GNOME system monitor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gnome-system-monitor
++ "KControl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kcontrol
++ "KDCOP%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kdcop
++ "KDE PAM Security Policy Editor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/secpolicy
++ "KDE Package Manager%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kpackage
++ "KDE SysV-Init Editor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ksysv
++ "KDE System Guard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ksysguard
++ "KDE System Guard - Process Table%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kpm
++ "KDE Task Scheduler%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kcron
++ "KDE User Manager%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kuser
++ "KDEPrintFax%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kdeprintfax
++ "KDat%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kdat
++ "KDebugDialog%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kdebugdialog
++ "KDiskFree%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kdf
++ "KEditBookmarks%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/keditbookmarks
++ "KFind%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kfind
++ "KFloppy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kfloppy
++ "KJobViewer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kjobviewer --show --all
++ "KMenuEdit%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kmenuedit
++ "KPersonalizer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kpersonalizer
++ "KPrinter%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kprinter
++ "Kicker%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kicker
++ "Konqueror%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/konqueror --profile filemanagement
++ "Nautilus%/usr/share/pixmaps/nautilus.xpm%" Exec exec /usr/bin/nautilus
++ "Nautilus%/usr/share/pixmaps/nautilus.xpm%" Exec exec /usr/bin/nautilus
++ "Network Admin%/usr/share/gnome-system-tools/pixmaps/network.xpm%" Exec exec /usr/bin/network-admin
++ "Network Admin%/usr/share/gnome-system-tools/pixmaps/network.xpm%" Exec exec /usr/bin/network-admin
++ "Pstree%/usr/share/pixmaps/pstree16.xpm%" Exec exec /usr/bin/pstree.x11
++ "ROX Filer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/rox
++ "ROX Filer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/rox
++ "Run as different user (GKsu)%/usr/share/pixmaps/gksuexec-debian.xpm%" Exec exec /usr/bin/gksuexec
++ "Sun Java 5.0 Plugin Control Panel%/usr/share/icons/sun-java5.xpm%" Exec exec /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/ControlPanel
++ "Sun Java 5.0 Policy Tool%/usr/share/icons/sun-java5.xpm%" Exec exec /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/policytool
++ "Synaptic Package Manager%/usr/share/synaptic/pixmaps/synaptic_32x32.xpm%" Exec exec /usr/sbin/su-to-root -X -c /usr/sbin/synaptic
++ "Synaptic Package Manager%/usr/share/synaptic/pixmaps/synaptic_32x32.xpm%" Exec exec /usr/sbin/su-to-root -X -c /usr/sbin/synaptic
++ "Task selector%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -c /usr/bin/tasksel
++ "Task selector%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -c /usr/bin/tasksel
++ "TeXconfig%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/texconfig
++ "TeXconfig%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/texconfig
++ "Time Admin%/usr/share/gnome-system-tools/pixmaps/time.xpm%" Exec exec /usr/bin/time-admin
++ "Time Admin%/usr/share/gnome-system-tools/pixmaps/time.xpm%" Exec exec /usr/bin/time-admin
++ "Top%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/top
++ "Top%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/top
++ "User accounts Admin%/usr/share/gnome-system-tools/pixmaps/users.xpm%" Exec exec /usr/bin/users-admin
++ "User accounts Admin%/usr/share/gnome-system-tools/pixmaps/users.xpm%" Exec exec /usr/bin/users-admin
++ "X-Terminal as root (GKsu)%/usr/share/pixmaps/gksu-debian.xpm%" Exec exec /usr/bin/gksu -u root /usr/bin/x-terminal-emulator
++ "X-Terminal as root (GKsu)%/usr/share/pixmaps/gksu-debian.xpm%" Exec exec /usr/bin/gksu -u root /usr/bin/x-terminal-emulator
++ "Xconsole%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xconsole
++ "Xfq RPM Manager%/usr/share/pixmaps/xfq.xpm%" Exec exec /usr/bin/xfilequery
++ "Xload%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xload
++ "Xvidtune%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xvidtune
++ "aptitude%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/aptitude
++ "aptitude%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/aptitude
++ "gscanbus%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gscanbus
++ "kAppfinder%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kappfinder
++ "kcmlinuz%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kcmshell linuz
++ "kdepasswd%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kdepasswd
++ "kwikdisk%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kwikdisk
++ "pstree%/usr/share/pixmaps/pstree16.xpm%" Exec exec x-terminal-emulator -e /usr/bin/pstree.x11
++ "reportbug%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/reportbug --exit-prompt
++ "xrestop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xrestop
+
+AddToMenu "Debian/Apps/System/Admin"
++ "Configure Debian%/usr/share/pixmaps/configure-debian.xpm%" Exec exec /usr/sbin/su-to-root -p root -c /usr/sbin/configure-debian --frontend=##CHECK##
++ "Lilo-config%/usr/share/pixmaps/lilo-term.xpm%" Exec exec /usr/sbin/su-to-root -p root -c /usr/sbin/liloconfig
++ "Lilo-config%/usr/share/pixmaps/lilo-term.xpm%" Exec exec /usr/sbin/su-to-root -p root -c /usr/sbin/liloconfig
++ "Magicfilter-config%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/su-to-root -p root -c /usr/sbin/magicfilterconfig
++ "Orphaner (all)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -c '/usr/sbin/orphaner -a'
++ "Orphaner (all)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -c '/usr/sbin/orphaner -a'
++ "Orphaner (libs)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -c /usr/sbin/orphaner
++ "Orphaner (libs)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -c /usr/sbin/orphaner
++ "Orphaner - editkeep%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -c '/usr/sbin/editkeep '
++ "Orphaner - editkeep%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -c '/usr/sbin/editkeep'
++ "alsaconf%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -p root -c /usr/sbin/alsaconf
++ "alsaconf%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -p root -c /usr/sbin/alsaconf
++ "pppconfig%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/sbin/su-to-root -p root -c /usr/sbin/pppconfig
+
+AddToMenu "Debian/Apps/System/Gnome"
++ "Gnome Control Center%/usr/share/pixmaps/control-center2.xpm%" Exec exec /usr/bin/gnome-control-center
++ "Gnome Control Center%/usr/share/pixmaps/control-center2.xpm%" Exec exec /usr/bin/gnome-control-center
+
+AddToMenu "Debian/Apps/System/Language-Environment"
++ "Belarusian environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l be
++ "Bulgarian environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l bg
++ "Catalan environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l ca
++ "Danish environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l da
++ "French environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l fr
++ "German environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l de
++ "Japanese environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l ja
++ "Korean environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l ko
++ "Lithuanian environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l lt
++ "Macedonian environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l mk
++ "Native Language Environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/tklanguage
++ "Native Language Environment - remove%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -r
++ "Polish environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l pl
++ "Russian environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l ru
++ "Serbian environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l sr
++ "Spanish environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l es
++ "Thai environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l th
++ "Turkish environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l tr
++ "Ukrainian environment%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/set-language-env -l uk
+
+AddToMenu "Debian/Apps/Text"
++ "Character map%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gucharmap
++ "Fortune%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c 'while /usr/games/fortune | col -x | xmessage -center -buttons OK:1,Another:0 -default OK -file - ; do :; done'
++ "Fortune%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c 'while /usr/games/fortune | col -x | xmessage -center -buttons OK:1,Another:0 -default OK -file - ; do :; done'
++ "FreeMind%/usr/share/pixmaps/FreeMindWindowIcon.xpm%" Exec exec /usr/bin/freemind
++ "GNOME Dictionary%/usr/share/pixmaps/gdict.xpm%" Exec exec /usr/bin/gnome-dictionary
++ "GNOME Dictionary%/usr/share/pixmaps/gdict.xpm%" Exec exec /usr/bin/gnome-dictionary
++ "KXSLDbg%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kxsldbg
++ "Unicode character map%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gucharmap
+
+AddToMenu "Debian/Apps/Tools"
++ "Ark%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ark
++ "Dasher text entry%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/dasher
++ "Dasher text entry%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/dasher
++ "Editres%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec editres
++ "File-Roller%/usr/share/pixmaps/file-roller.xpm%" Exec exec /usr/bin/file-roller
++ "File-Roller%/usr/share/pixmaps/file-roller.xpm%" Exec exec /usr/bin/file-roller
++ "GNOME Screenshot Tool%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gnome-panel-screenshot
++ "GNOME Search Tool%/usr/share/pixmaps/gsearchtool.xpm%" Exec exec /usr/bin/gnome-search-tool
++ "GNOME Search Tool%/usr/share/pixmaps/gsearchtool.xpm%" Exec exec /usr/bin/gnome-search-tool
++ "Gentoo%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec gentoo
++ "Istanbul%/usr/share/pixmaps/istanbul.xpm%" Exec exec /usr/bin/istanbul
++ "KAddressbook%/usr/share/pixmaps/kaddressbook.xpm%" Exec exec /usr/bin/kaddressbook
++ "KAlarm%/usr/share/pixmaps/kalarm.xpm%" Exec exec /usr/bin/kalarm
++ "KArm%/usr/share/pixmaps/karm.xpm%" Exec exec /usr/bin/karm
++ "KCharSelect%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kcharselect
++ "KHexEdit%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/khexedit
++ "KJots%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kjots
++ "KNotes%/usr/share/pixmaps/knotes.xpm%" Exec exec /usr/bin/knotes
++ "KOrganizer%/usr/share/pixmaps/korganizer.xpm%" Exec exec /usr/bin/korganizer
++ "KPager%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kpager
++ "KPalmDOC%/usr/share/pixmaps/kpalmdoc.xpm%" Exec exec /usr/bin/kpalmdoc
++ "KPilot%/usr/share/pixmaps/kpilot.xpm%" Exec exec /usr/bin/kpilot
++ "KSync%/usr/share/pixmaps/ksync.xpm%" Exec exec /usr/bin/ksync
++ "KTimer%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ktimer
++ "KTip%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ktip
++ "KTnef%/usr/share/pixmaps/ktnef.xpm%" Exec exec /usr/bin/ktnef
++ "KWatchGnuPG%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kwatchgnupg
++ "Kandy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kandy
++ "Kgpg%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kgpg
++ "KitchenSync%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kitchensync
++ "Klipper%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/klipper
++ "Kommander Editor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kmdr-editor
++ "Kontact%/usr/share/pixmaps/kontact.xpm%" Exec exec /usr/bin/kontact
++ "Kregexpeditor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kregexpeditor
++ "Oclock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec oclock
++ "Rclock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec rclock
++ "Tdl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/tdl
++ "TeXfind%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/texfind
++ "TeXfind%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/texfind
++ "The GNOME Onscreen Keyboard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gok
++ "Unison 2.13.16 (GTK)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/unison-2.13.16-gtk
++ "Unison 2.13.16 (GTK)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/unison-2.13.16-gtk
++ "X Window Snapshot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xwd | xwud
++ "Xclipboard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xclipboard
++ "Xclock (analog)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xclock -analog
++ "Xclock (digital)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xclock -digital -update 1
++ "Xcutsel%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xcutsel
++ "Xev%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec x-terminal-emulator -e xev
++ "Xfe File Manager%/usr/share/pixmaps/xfe.xpm%" Exec exec /usr/bin/xfe
++ "Xfi Image Viewer%/usr/share/pixmaps/xfi.xpm%" Exec exec /usr/bin/xfileimage
++ "Xfontsel%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xfontsel
++ "Xkill%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xkill
++ "Xmag%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xmag
++ "Xrefresh%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xrefresh
++ "bbkeys%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/bbkeys -noqt
++ "bbkeys docked%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/bbkeys -w -noqt
++ "gdeskcal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/gdeskcal
++ "mc%/usr/share/pixmaps/mc.xpm%" Exec exec /usr/bin/mc
++ "xcal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xcal
++ "xkbsel%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xkbsel-aw
++ "xkeycaps%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xkeycaps
+
+AddToMenu "Debian/Apps/Viewers"
++ "Adobe Reader%/usr/share/pixmaps/acroread.xpm%" Exec exec /usr/bin/acroread
++ "Evince%/usr/share/evince/pdf-icon.png%" Exec exec /usr/bin/evince
++ "Evince%/usr/share/evince/pdf-icon.png%" Exec exec /usr/bin/evince
++ "Eye of GNOME%/usr/share/pixmaps/gnome-eog.xpm%" Exec exec /usr/bin/eog
++ "Eye of GNOME%/usr/share/pixmaps/gnome-eog.xpm%" Exec exec /usr/bin/eog
++ "GQview%/usr/share/pixmaps/gqview.xpm%" Exec exec /usr/bin/gqview
++ "GV%/usr/share/pixmaps/mini-gv.xpm%" Exec exec /usr/bin/gv
++ "GV%/usr/share/pixmaps/mini-gv.xpm%" Exec exec /usr/bin/gv
++ "Gnome Ghostscript Viewer%/usr/share/pixmaps/gnome-ghostview.xpm%" Exec exec /usr/bin/gnome-gv
++ "ImageMagick%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/display
++ "ImageMagick%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/display
++ "MPlayer%/usr/share/pixmaps/mplayer.xpm%" Exec exec /usr/bin/gmplayer
++ "PDF viewer%/usr/share/pixmaps/gnome-pdf.xpm%" Exec exec /usr/bin/gpdf
++ "XDvi%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xdvi
++ "XDvi%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xdvi
++ "Xditview%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xditview
++ "Xfv File Viewer%/usr/share/pixmaps/xfv.xpm%" Exec exec /usr/bin/xfileview
++ "Xpdf%/usr/share/pixmaps/xpdf.xpm%" Exec exec /usr/bin/xpdf
++ "Xpdf%/usr/share/pixmaps/xpdf.xpm%" Exec exec /usr/bin/xpdf
++ "gThumb Image Viewer%/usr/share/pixmaps/gthumb.xpm%" Exec exec /usr/bin/gthumb
++ "gthumb%/usr/share/pixmaps/gthumb.xpm%" Exec exec /usr/bin/gthumb
++ "gxine video player%/usr/share/gxine/pixmaps/gxine-icon.xpm%" Exec exec /usr/bin/gxine
++ "gxine video player%/usr/share/gxine/pixmaps/gxine-icon.xpm%" Exec exec /usr/bin/gxine
++ "kdvi%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kdvi
++ "kghostview%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kghostview
++ "kview%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kview
++ "totem%/usr/share/pixmaps/totem.xpm%" Exec exec /usr/bin/totem
++ "totem%/usr/share/pixmaps/totem.xpm%" Exec exec /usr/bin/totem
++ "xine media player%/usr/share/xine/desktop/xine.xpm%" Exec exec /usr/bin/xine
+
+AddToMenu "Debian/Games"
++ "Adventure%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games/Adventure"
++ "Arcade%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games/Arcade"
++ "Board%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games/Board"
++ "Card%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games/Card"
++ "Puzzles%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games/Puzzles"
++ "Strategy%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games/Strategy"
++ "Tetris-like%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games/Tetris-like"
++ "Toys%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Games/Toys"
+
+AddToMenu "Debian/Games/Adventure"
++ "Adventure%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/adventure
++ "Battlestar%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c '/usr/games/battlestar;echo PRESS ENTER;read line'
++ "Hack%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/hack
++ "Hunt the Wumpus%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/wump
++ "Phantasia%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/phantasia
+
+AddToMenu "Debian/Games/Arcade"
++ "DoomLegacy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/llxdoom
++ "Gnibbles%/usr/share/pixmaps/gnibbles.xpm%" Exec exec /usr/games/gnibbles
++ "Gnibbles%/usr/share/pixmaps/gnibbles.xpm%" Exec exec /usr/games/gnibbles
++ "KAsteroids%/usr/share/pixmaps/kasteroids.xpm%" Exec exec /usr/games/kasteroids
++ "KDE Bounce Ball Game%/usr/share/pixmaps/kbounce.xpm%" Exec exec /usr/games/kbounce
++ "KDE Miniature Golf%/usr/share/pixmaps/kolf.xpm%" Exec exec /usr/games/kolf
++ "KDE Snake Race%/usr/share/pixmaps/ksnake.xpm%" Exec exec /usr/games/ksnake
++ "KDE SpaceDuel%/usr/share/pixmaps/kspaceduel.xpm%" Exec exec /usr/games/kspaceduel
++ "KDE Tron%/usr/share/pixmaps/ktron.xpm%" Exec exec /usr/games/ktron
++ "KGoldrunner%/usr/share/pixmaps/kgoldrunner.xpm%" Exec exec /usr/games/kgoldrunner
++ "LxDoom%/usr/share/pixmaps/lxdoom.xpm%" Exec exec /usr/games/lxdoom
++ "Robots%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/robots
++ "Snake%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c '/usr/games/snake;echo PRESS ENTER;read line'
++ "Star Trek%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/trek
++ "Worm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c '/usr/games/worm;echo PRESS ENTER;read line'
+
+AddToMenu "Debian/Games/Board"
++ "Atlantik%/usr/share/pixmaps/atlantik.xpm%" Exec exec /usr/games/atlantik
++ "Atlantik Designer%/usr/share/pixmaps/atlantikdesigner.xpm%" Exec exec /usr/bin/atlantikdesigner
++ "Backgammon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/backgammon -pb
++ "Four-in-a-row%/usr/share/pixmaps/gnect.xpm%" Exec exec /usr/games/gnect
++ "Four-in-a-row%/usr/share/pixmaps/gnect.xpm%" Exec exec /usr/games/gnect
++ "Gataxx%/usr/share/pixmaps/gataxx.xpm%" Exec exec /usr/games/gataxx
++ "Gataxx%/usr/share/pixmaps/gataxx.xpm%" Exec exec /usr/games/gataxx
++ "Gnome GYahtzee%/usr/share/pixmaps/gtali.xpm%" Exec exec /usr/games/gtali
++ "Gnome GYahtzee%/usr/share/pixmaps/gtali.xpm%" Exec exec /usr/games/gtali
++ "Gnome Iagno%/usr/share/pixmaps/iagno.xpm%" Exec exec /usr/games/iagno
++ "Gnome Iagno%/usr/share/pixmaps/iagno.xpm%" Exec exec /usr/games/iagno
++ "Gnome Lines%/usr/share/pixmaps/glines.xpm%" Exec exec /usr/games/glines
++ "Gnome Lines%/usr/share/pixmaps/glines.xpm%" Exec exec /usr/games/glines
++ "Gnome Mahjongg%/usr/share/pixmaps/gnome-mahjongg.xpm%" Exec exec /usr/games/mahjongg
++ "Gnome Mahjongg%/usr/share/pixmaps/gnome-mahjongg.xpm%" Exec exec /usr/games/mahjongg
++ "GnuChess%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/gnuchess
++ "Gomoku%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/gomoku
++ "KBattleship%/usr/share/pixmaps/kbattleship.xpm%" Exec exec /usr/games/kbattleship
++ "KDE Backgammon%/usr/share/pixmaps/kbackgammon.xpm%" Exec exec /usr/games/kbackgammon
++ "KDE Reversi%/usr/share/pixmaps/kreversi.xpm%" Exec exec /usr/games/kreversi
++ "KDE Shisen-Sho%/usr/share/pixmaps/kshisen.xpm%" Exec exec /usr/games/kshisen
++ "KEnolaba%/usr/share/pixmaps/kenolaba.xpm%" Exec exec /usr/games/kenolaba
++ "KLines%/usr/share/pixmaps/klines.xpm%" Exec exec /usr/games/klines
++ "KMahjongg%/usr/share/pixmaps/kmahjongg.xpm%" Exec exec /usr/games/kmahjongg
++ "KWin4%/usr/share/pixmaps/kwin4.xpm%" Exec exec /usr/games/kwin4
++ "Monopoly%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/monop
++ "XBoard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/xboard -xncp
++ "XBoard (passive chessboard)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/xboard -ncp
+
+AddToMenu "Debian/Games/Card"
++ "Canfield%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/canfield
++ "Cribbage%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/cribbage
++ "Gnome Blackjack%/usr/share/pixmaps/blackjack.xpm%" Exec exec /usr/games/blackjack
++ "Gnome Blackjack%/usr/share/pixmaps/blackjack.xpm%" Exec exec /usr/games/blackjack
++ "Gnome FreeCell%/usr/share/pixmaps/freecell.xpm%" Exec exec /usr/games/sol --variation freecell
++ "Gnome FreeCell%/usr/share/pixmaps/freecell.xpm%" Exec exec /usr/games/sol --variation freecell
++ "Gnome Solitaire Games%/usr/share/pixmaps/aisleriot.xpm%" Exec exec /usr/games/sol
++ "Gnome Solitaire Games%/usr/share/pixmaps/aisleriot.xpm%" Exec exec /usr/games/sol
++ "Go Fish%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c '/usr/games/fish;echo;echo PRESS ENTER;read line'
++ "KDE Lieutnant Skat%/usr/share/pixmaps/lskat.xpm%" Exec exec /usr/games/lskat
++ "KDE Patience%/usr/share/pixmaps/kpat.xpm%" Exec exec /usr/games/kpat
++ "KDE Poker%/usr/share/pixmaps/kpoker.xpm%" Exec exec /usr/games/kpoker
++ "Mille Bornes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/mille
+
+AddToMenu "Debian/Games/Puzzles"
++ "Boggle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/boggle
++ "Codebreaker%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/codebreaker
++ "Gnome Klotski%/usr/share/pixmaps/gnotski.xpm%" Exec exec /usr/games/gnotski
++ "Gnome Klotski%/usr/share/pixmaps/gnotski.xpm%" Exec exec /usr/games/gnotski
++ "Gnome Robots%/usr/share/pixmaps/gnobots2.xpm%" Exec exec /usr/games/gnobots2
++ "Gnome Robots%/usr/share/pixmaps/gnobots2.xpm%" Exec exec /usr/games/gnobots2
++ "Gnome Stones%/usr/share/pixmaps/gnome-stones.xpm%" Exec exec /usr/games/gnome-stones
++ "Gnome Tetravex%/usr/share/pixmaps/gnotravex.xpm%" Exec exec /usr/games/gnotravex
++ "Gnome Tetravex%/usr/share/pixmaps/gnotravex.xpm%" Exec exec /usr/games/gnotravex
++ "Gnomine%/usr/share/pixmaps/gnomine.xpm%" Exec exec /usr/games/gnomine
++ "Gnomine%/usr/share/pixmaps/gnomine.xpm%" Exec exec /usr/games/gnomine
++ "Hangman%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/hangman
++ "KBlackBox%/usr/share/pixmaps/kblackbox.xpm%" Exec exec /usr/games/kblackbox
++ "KDE Atomic Entertainment%/usr/share/pixmaps/katomic.xpm%" Exec exec /usr/games/katomic
++ "KDE SameGame%/usr/share/pixmaps/ksame.xpm%" Exec exec /usr/games/ksame
++ "KDE Sokoban%/usr/share/pixmaps/ksokoban.xpm%" Exec exec /usr/games/ksokoban
++ "KHangMan%/usr/share/pixmaps/khangman.xpm%" Exec exec /usr/bin/khangman
++ "KMessedWords%/usr/share/pixmaps/kmessedwords.xpm%" Exec exec /usr/bin/kmessedwords
++ "Klickety%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/klickety
++ "Kmines%/usr/share/pixmaps/kmines.xpm%" Exec exec /usr/games/kmines
++ "Same Gnome%/usr/share/pixmaps/gsame.xpm%" Exec exec /usr/games/same-gnome
++ "Same Gnome%/usr/share/pixmaps/gsame.xpm%" Exec exec /usr/games/same-gnome
+
+AddToMenu "Debian/Games/Strategy"
++ "Air Traffic Controller%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c '/usr/games/atc ; echo;echo PRESS ENTER;read line'
++ "KJumpingCube%/usr/share/pixmaps/kjumpingcube.xpm%" Exec exec /usr/games/kjumpingcube
++ "Konquest%/usr/share/pixmaps/konquest.xpm%" Exec exec /usr/games/konquest
++ "Sail%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/sail
++ "Xfrisk%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/risk
++ "Xfrisk local-client-only%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/xfrisk
+
+AddToMenu "Debian/Games/Tetris-like"
++ "Bsd Tetris%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec sh -c '/usr/games/tetris-bsd;echo;echo PRESS ENTER;read line'
++ "Gnometris%/usr/share/pixmaps/gnometris.xpm%" Exec exec /usr/games/gnometris
++ "Gnometris%/usr/share/pixmaps/gnometris.xpm%" Exec exec /usr/games/gnometris
++ "KDE Foul Eggs%/usr/share/pixmaps/kfouleggs.xpm%" Exec exec /usr/games/kfouleggs
++ "KDE Sirtet%/usr/share/pixmaps/ksirtet.xpm%" Exec exec /usr/games/ksirtet
++ "KDE Smiletris%/usr/share/pixmaps/ksmiletris.xpm%" Exec exec /usr/games/ksmiletris
+
+AddToMenu "Debian/Games/Toys"
++ "AMOR%/usr/share/pixmaps/amor.xpm%" Exec exec /usr/bin/amor
++ "KDE Potato Guy%/usr/share/pixmaps/ktuberling.xpm%" Exec exec /usr/games/ktuberling
++ "KOdometer%/usr/share/pixmaps/kodo.xpm%" Exec exec /usr/bin/kodo
++ "KTeaTime%/usr/share/pixmaps/kteatime.xpm%" Exec exec /usr/bin/kteatime
++ "KWorldClock%/usr/share/pixmaps/kworldclock.xpm%" Exec exec /usr/bin/kworldclock
++ "Rain%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/rain
++ "Xeyes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xeyes
++ "Xlogo%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xlogo
+
+AddToMenu "Debian/Help"
++ "Info%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec info
++ "Info%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec info
++ "KDE Help Center%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/khelpcenter
++ "TeXdoctk%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/texdoctk
++ "TeXdoctk%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/texdoctk
++ "TeXshow%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/texshow
++ "TeXshow%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/texshow
++ "Xman%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xman
++ "yelp%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/yelp
++ "yelp%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/yelp
+
+AddToMenu "Debian/Screen"
++ "Lock%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock"
++ "Save%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save"
+
+AddToMenu "Debian/Screen/Lock"
++ "Assorted%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/Assorted"
++ "Automata%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/Automata"
++ "Fractal%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/Fractal"
++ "Geometry%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/Geometry"
++ "MarqueeMessage%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/MarqueeMessage"
++ "NoseMessage%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/NoseMessage"
++ "Space%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/Space"
++ "Special%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/Special"
++ "XPM%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/XPM"
++ "XjackMessage%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Lock/XjackMessage"
++ "KTux%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/ktux -root
++ "Lock Screen (XScreenSaver)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -lock
++ "Lock Screen (XScreenSaver)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -lock
+
+AddToMenu "Debian/Screen/Lock/Assorted"
++ "Anemone%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode anemone
++ "Ball%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode ball
++ "Ball%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode ball
++ "Blot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode blot
++ "Blot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode blot
++ "Bounce%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode bounce
++ "Bounce%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode bounce
++ "Bubble%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode bubble
++ "Bubble%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode bubble
++ "Clock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode clock
++ "Clock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode clock
++ "Crystal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode crystal
++ "Crystal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode crystal
++ "Daisy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode daisy
++ "Daisy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode daisy
++ "Dclock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode dclock
++ "Dclock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode dclock
++ "Decay%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode decay
++ "Decay%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode decay
++ "Deco%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode deco
++ "Deco%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode deco
++ "Deluxe%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode deluxe
++ "Eyes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode eyes +trackmouse
++ "Eyes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode eyes +trackmouse
++ "Eyesptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode eyes -trackmouse
++ "Eyesptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode eyes -trackmouse
++ "Fiberlamp%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode fiberlamp
++ "Fzort%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode fzort
++ "Goop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode goop
++ "Goop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode goop
++ "Juggle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode juggle
++ "Juggle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode juggle
++ "Marquee%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode marquee
++ "Marquee%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode marquee
++ "Matrix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode matrix
++ "Matrix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode matrix
++ "Munch%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode munch
++ "Munch%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode munch
++ "Nose%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode nose
++ "Nose%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode nose
++ "Pacman%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode pacman
++ "Pacman%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode pacman
++ "Pyro%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode pyro +use3d
++ "Pyro%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode pyro +use3d
++ "Pyro3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode pyro -use3d
++ "Pyro3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode pyro -use3d
++ "Roll%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode roll
++ "Roll%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode roll
++ "Slip%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode slip
++ "Slip%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode slip
++ "Solitare%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode solitare +trackmouse
++ "Solitare%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode solitare +trackmouse
++ "Solitareptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode solitare -trackmouse
++ "Solitareptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode solitare -trackmouse
++ "Starfish%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode starfish -install
++ "Starfish%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode starfish -install
++ "Swarm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode swarm +trackmouse
++ "Swarm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode swarm +trackmouse
++ "Swarmptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode swarm -trackmouse
++ "Swarmptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode swarm -trackmouse
++ "Swirl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode swirl -install
++ "Swirl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode swirl -install
++ "T3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode t3d
++ "T3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode t3d
++ "Tetris%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode tetris
++ "Tetris%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode tetris
++ "Tube%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode tube -install
++ "Tube%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode tube -install
++ "Worm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode worm +use3d
++ "Worm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode worm +use3d
++ "Worm3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode worm -use3d
++ "Worm3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode worm -use3d
++ "Xcl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode xcl
++ "Xcl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode xcl
++ "Xjack%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode xjack
++ "Xjack%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode xjack
+
+AddToMenu "Debian/Screen/Lock/Automata"
++ "Ant%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode ant -neighbors 4 +truchet
++ "Ant%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode ant -neighbors 4 +truchet
++ "Ant Truchet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode ant -neighbors 4 -truchet
++ "Ant Truchet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode ant -neighbors 4 -truchet
++ "Ant3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode ant3d
++ "Ant3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode ant3d
++ "Bee%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode ant -neighbors 6 +truchet
++ "Bee%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode ant -neighbors 6 +truchet
++ "Bee Truchet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode ant -neighbors 6 -truchet
++ "Bee Truchet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode ant -neighbors 6 -truchet
++ "Bug%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode bug
++ "Bug%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode bug
++ "Demon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode demon
++ "Demon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode demon
++ "Dilemma%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode dilemma
++ "Dilemma%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode dilemma
++ "Life%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode life
++ "Life%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode life
++ "Life Callahan%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode life -callahan -size 7
++ "Life Callahan%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode life -callahan -size 7
++ "Life1d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode life1d
++ "Life1d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode life1d
++ "Life3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode life3d
++ "Life3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode life3d
++ "Loop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode loop
++ "Loop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode loop
++ "Petri%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode petri
++ "Petri%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode petri
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist allautomata -fullrandom -neighbors 0
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allautomata -fullrandom -neighbors 0
++ "Voters%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode voters
++ "Voters%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode voters
++ "Wator%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode wator
++ "Wator%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode wator
++ "Wire%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode wire
++ "Wire%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode wire
+
+AddToMenu "Debian/Screen/Lock/Fractal"
++ "Coral%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode coral
++ "Coral%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode coral
++ "Discrete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode discrete
++ "Discrete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode discrete
++ "Dragon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode dragon
++ "Dragon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode dragon
++ "Drift%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode drift -fullrandom
++ "Drift%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode drift -fullrandom
++ "Euler2d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode euler2d
++ "Euler2d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode euler2d
++ "Flame%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode flame
++ "Flame%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode flame
++ "Flow%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode flow
++ "Flow%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode flow
++ "Forest%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode forest
++ "Forest%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode forest
++ "Hop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode hop -fullrandom
++ "Hop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode hop -fullrandom
++ "IFS%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode ifs
++ "IFS%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode ifs
++ "Julia%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode julia +trackmouse
++ "Julia%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode julia +trackmouse
++ "Juliaptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode julia -trackmouse
++ "Juliaptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode julia -trackmouse
++ "Kumppa%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode kumppa
++ "Kumppa%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode kumppa
++ "Lightning%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode lightning
++ "Lightning%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode lightning
++ "Lyapunov%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode lyapunov -install
++ "Lyapunov%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode lyapunov -install
++ "Mandelbrot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode mandelbrot -install
++ "Mandelbrot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode mandelbrot -install
++ "Mountain%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode mountain
++ "Mountain%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode mountain
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist allfractal -fullrandom
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allfractal -fullrandom
++ "Sierpinski%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode sierpinski
++ "Sierpinski%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode sierpinski
++ "Strange%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode strange
++ "Strange%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode strange
++ "Thornbird%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode thornbird
++ "Thornbird%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode thornbird
++ "Triangle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode triangle
++ "Triangle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode triangle
++ "Turtle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode turtle
++ "Turtle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode turtle
++ "Vines%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode vines
++ "Vines%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode vines
+
+AddToMenu "Debian/Screen/Lock/Geometry"
++ "Apollonian%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode apollonian
++ "Apollonian%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode apollonian
++ "Braid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode braid
++ "Braid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode braid
++ "Fadeplot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode fadeplot
++ "Fadeplot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode fadeplot
++ "Helix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode helix -fullrandom
++ "Helix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode helix -fullrandom
++ "Hyper%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode hyper
++ "Hyper%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode hyper
++ "Ico%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode ico
++ "Ico%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode ico
++ "Kaleid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode kaleid
++ "Kaleid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode kaleid
++ "Laser%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode laser
++ "Laser%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode laser
++ "Lisa%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode lisa
++ "Lisa%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode lisa
++ "Lissie%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode lissie
++ "Lissie%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode lissie
++ "Penrose%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode penrose +ammann
++ "Penrose%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode penrose +ammann
++ "Penrose Ammann%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode penrose -ammann
++ "Penrose Ammann%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode penrose -ammann
++ "Petal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode petal
++ "Petal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode petal
++ "Polyominoes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode polyominoes
++ "Polyominoes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode polyominoes
++ "Qix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode qix +complete
++ "Qix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode qix +complete
++ "Qix complete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode qix -complete
++ "Qix complete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode qix -complete
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist allgeometry -fullrandom
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allgeometry -fullrandom
++ "Rotor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode rotor
++ "Rotor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode rotor
++ "Shape%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode shape
++ "Shape%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode shape
++ "Sphere%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode sphere
++ "Sphere%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode sphere
++ "Spiral%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode spiral
++ "Spiral%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode spiral
++ "Spline%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode spline
++ "Spline%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode spline
++ "Tik_Tak%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode tik_tak
++ "Tik_Tak%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode tik_tak
++ "Toneclock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode toneclock
+
+AddToMenu "Debian/Screen/Lock/MarqueeMessage"
++ "Back Soon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode marquee -message "$LOGNAME will be back soon."
++ "Back Soon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode marquee -message "$LOGNAME will be back soon."
++ "Overnight%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode marquee -message "$LOGNAME will be back in the morning."
++ "Overnight%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode marquee -message "$LOGNAME will be back in the morning."
++ "Rude%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode marquee -message "$LOGNAME not here, please go away!"
++ "Rude%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode marquee -message "$LOGNAME not here, please go away!"
+
+AddToMenu "Debian/Screen/Lock/NoseMessage"
++ "Back Soon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode nose -message "$LOGNAME will be back soon."
++ "Back Soon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode nose -message "$LOGNAME will be back soon."
++ "Overnight%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode nose -message "$LOGNAME will be back in the morning."
++ "Overnight%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode nose -message "$LOGNAME will be back in the morning."
++ "Rude%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode nose -message "$LOGNAME not here, please go away!"
++ "Rude%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode nose -message "$LOGNAME not here, please go away!"
+
+AddToMenu "Debian/Screen/Lock/Space"
++ "Bouboule%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode bouboule +use3d
++ "Bouboule%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode bouboule +use3d
++ "Bouboule3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode bouboule -use3d
++ "Bouboule3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode bouboule -use3d
++ "Galaxy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode galaxy
++ "Galaxy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode galaxy
++ "Grav%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode grav +trail +decay
++ "Grav%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode grav +trail +decay
++ "Grav Decay%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode grav -decay
++ "Grav Decay%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode grav -decay
++ "Grav Trail%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode grav -trail
++ "Grav Trail%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode grav -trail
++ "Random Space%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist allspace
++ "Random Space%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allspace
++ "Rock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode star -rock
++ "Rock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode star -rock
++ "Space%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode space
++ "Space%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode space
++ "Star%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode star +rock +use3d +trek 0
++ "Star%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode star +rock +use3d +trek 0
++ "Star Trek%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode star -trek 100
++ "Star Trek%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode star -trek 100
++ "Star3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode star -use3d
++ "Star3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode star -use3d
++ "World%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode world
++ "World%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode world
+
+AddToMenu "Debian/Screen/Lock/Special"
++ "Blank%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode blank
++ "Blank%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode blank
++ "Bomb%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode bomb
++ "Bomb%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode bomb
++ "Random 3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist all3d -use3d -fullrandom
++ "Random 3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist all3d -use3d -fullrandom
++ "Random all%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist all -fullrandom -neighbors 0
++ "Random all%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist all -fullrandom -neighbors 0
++ "Random nice%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist allnice -fullrandom -neighbors 0
++ "Random nice%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allnice -fullrandom -neighbors 0
++ "Random ptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist allmouse -trackmouse -fullrandom
++ "Random ptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allmouse -trackmouse -fullrandom
++ "Random standard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist all-allgl -fullrandom -neighbors 0
++ "Random standard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist all-allgl -fullrandom -neighbors 0
++ "Random write%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist allwrite -install -fullrandom
++ "Random write%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allwrite -install -fullrandom
++ "Transparent%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode blank -geometry 1x1 -enablesaver
++ "Transparent%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode blank -geometry 1x1 -enablesaver
+
+AddToMenu "Debian/Screen/Lock/XPM"
++ "Bat%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode bat
++ "Bat%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode bat
++ "Flag%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode flag
++ "Flag%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode flag
++ "Image%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode image
++ "Image%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode image
++ "Life%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode life
++ "Life%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode life
++ "Life1d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode life1d
++ "Life1d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode life1d
++ "Maze%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode maze
++ "Maze%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode maze
++ "Puzzle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode puzzle
++ "Puzzle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode puzzle
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode random -modelist allxpm -fullrandom
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allxpm -fullrandom
+
+AddToMenu "Debian/Screen/Lock/XjackMessage"
++ "Crazy Boy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode xjack -message "All work and no play makes $LOGNAME a dull boy."
++ "Crazy Boy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode xjack -message "All work and no play makes $LOGNAME a dull boy."
++ "Crazy Girl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -mode xjack -message "All work and no play makes $LOGNAME a dull girl."
++ "Crazy Girl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode xjack -message "All work and no play makes $LOGNAME a dull girl."
+
+AddToMenu "Debian/Screen/Save"
++ "Assorted%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/Assorted"
++ "Automata%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/Automata"
++ "Fractal%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/Fractal"
++ "Geometry%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/Geometry"
++ "MarqueeMessage%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/MarqueeMessage"
++ "NoseMessage%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/NoseMessage"
++ "Space%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/Space"
++ "Special%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/Special"
++ "XPM%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Debian/Screen/Save/XPM"
++ "Activate ScreenSaver (Next)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -next
++ "Activate ScreenSaver (Next)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -next
++ "Activate ScreenSaver (Previous)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -prev
++ "Activate ScreenSaver (Previous)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -prev
++ "Activate ScreenSaver (Random)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -activate
++ "Activate ScreenSaver (Random)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -activate
++ "Beforelight%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec beforelight
++ "Demo Screen Hacks%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -demo
++ "Demo Screen Hacks%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -demo
++ "Disable XScreenSaver%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -exit
++ "Disable XScreenSaver%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -exit
++ "Enable XScreenSaver%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver
++ "Enable XScreenSaver%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver
++ "Reinitialize XScreenSaver%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -restart
++ "Reinitialize XScreenSaver%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -restart
++ "ScreenSaver Preferences%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -prefs
++ "ScreenSaver Preferences%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xscreensaver-command -prefs
+
+AddToMenu "Debian/Screen/Save/Assorted"
++ "Anemone%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode anemone
++ "Ball%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode ball
++ "Ball%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode ball
++ "Blot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode blot
++ "Blot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode blot
++ "Bounce%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode bounce
++ "Bounce%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode bounce
++ "Bubble%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode bubble
++ "Bubble%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode bubble
++ "Clock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode clock
++ "Clock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode clock
++ "Crystal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode crystal
++ "Crystal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode crystal
++ "Daisy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode daisy
++ "Daisy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode daisy
++ "Dclock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode dclock
++ "Dclock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode dclock
++ "Decay%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode decay
++ "Decay%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode decay
++ "Deco%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode deco
++ "Deco%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode deco
++ "Deluxe%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode deluxe
++ "Eyes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode eyes +trackmouse
++ "Eyes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode eyes +trackmouse
++ "Eyesptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode eyes -trackmouse
++ "Eyesptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode eyes -trackmouse
++ "Fiberlamp%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode fiberlamp
++ "Fzort%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode fzort
++ "Goop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode goop
++ "Goop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode goop
++ "Juggle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode juggle
++ "Juggle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode juggle
++ "Marquee%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode marquee
++ "Marquee%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode marquee
++ "Matrix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode matrix
++ "Matrix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode matrix
++ "Munch%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode munch
++ "Munch%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode munch
++ "Nose%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode nose
++ "Nose%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode nose
++ "Pacman%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode pacman
++ "Pacman%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode pacman
++ "Pyro%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode pyro +use3d
++ "Pyro%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode pyro +use3d
++ "Pyro3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode pyro -use3d
++ "Pyro3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode pyro -use3d
++ "Roll%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode roll
++ "Roll%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode roll
++ "Slip%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode slip
++ "Slip%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode slip
++ "Solitare%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode solitare +trackmouse
++ "Solitare%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode solitare +trackmouse
++ "Solitareptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode solitare -trackmouse
++ "Solitareptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode solitare -trackmouse
++ "Starfish%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode starfish -install
++ "Starfish%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode starfish -install
++ "Swarm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode swarm +trackmouse
++ "Swarm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode swarm +trackmouse
++ "Swarmptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode swarm -trackmouse
++ "Swarmptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode swarm -trackmouse
++ "Swirl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode swirl -install
++ "Swirl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode swirl -install
++ "T3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode t3d
++ "T3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode t3d
++ "Tetris%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode tetris
++ "Tetris%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode tetris
++ "Tube%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode tube -install
++ "Tube%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode tube -install
++ "Worm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode worm +use3d
++ "Worm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode worm +use3d
++ "Worm3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode worm -use3d
++ "Worm3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode worm -use3d
++ "Xcl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode xcl
++ "Xcl%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode xcl
++ "Xjack%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode xjack
++ "Xjack%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode xjack
+
+AddToMenu "Debian/Screen/Save/Automata"
++ "Ant%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode ant -neighbors 4 +truchet
++ "Ant%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode ant -neighbors 4 +truchet
++ "Ant Truchet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode ant -neighbors 4 -truchet
++ "Ant Truchet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode ant -neighbors 4 -truchet
++ "Ant3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode ant3d
++ "Ant3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode ant3d
++ "Bee%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode ant -neighbors 6 +truchet
++ "Bee%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode ant -neighbors 6 +truchet
++ "Bee Truchet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode ant -neighbors 6 -truchet
++ "Bee Truchet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode ant -neighbors 6 -truchet
++ "Bug%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode bug
++ "Bug%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode bug
++ "Demon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode demon
++ "Demon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode demon
++ "Dilemma%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode dilemma
++ "Dilemma%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode dilemma
++ "Life%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode life
++ "Life%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode life
++ "Life Callahan%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode life -callahan -size 7
++ "Life Callahan%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode life -callahan -size 7
++ "Life1d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode life1d
++ "Life1d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode life1d
++ "Life3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode life3d
++ "Life3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode life3d
++ "Loop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode loop
++ "Loop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode loop
++ "Petri%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode petri
++ "Petri%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode petri
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist allautomata -fullrandom -neighbors 0
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allautomata -fullrandom -neighbors 0
++ "Voters%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode voters
++ "Voters%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode voters
++ "Wator%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode wator
++ "Wator%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode wator
++ "Wire%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode wire
++ "Wire%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode wire
+
+AddToMenu "Debian/Screen/Save/Fractal"
++ "Coral%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode coral
++ "Coral%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode coral
++ "Discrete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode discrete
++ "Discrete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode discrete
++ "Dragon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode dragon
++ "Dragon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode dragon
++ "Drift%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode drift -fullrandom
++ "Drift%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode drift -fullrandom
++ "Euler2d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode euler2d
++ "Euler2d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode euler2d
++ "Flame%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode flame
++ "Flame%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode flame
++ "Flow%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode flow
++ "Flow%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode flow
++ "Forest%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode forest
++ "Forest%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode forest
++ "Hop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode hop -fullrandom
++ "Hop%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode hop -fullrandom
++ "IFS%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode ifs
++ "IFS%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode ifs
++ "Julia%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode julia +trackmouse
++ "Julia%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode julia +trackmouse
++ "Juliaptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode julia -trackmouse
++ "Juliaptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode julia -trackmouse
++ "Kumppa%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode kumppa
++ "Kumppa%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode kumppa
++ "Lightning%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode lightning
++ "Lightning%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode lightning
++ "Lyapunov%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode lyapunov -install
++ "Lyapunov%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode lyapunov -install
++ "Mandelbrot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode mandelbrot -install
++ "Mandelbrot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode mandelbrot -install
++ "Mountain%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode mountain
++ "Mountain%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode mountain
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist allfractal -fullrandom
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allfractal -fullrandom
++ "Sierpinski%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode sierpinski
++ "Sierpinski%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode sierpinski
++ "Strange%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode strange
++ "Strange%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode strange
++ "Thornbird%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode thornbird
++ "Thornbird%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode thornbird
++ "Triangle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode triangle
++ "Triangle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode triangle
++ "Turtle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode turtle
++ "Turtle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode turtle
++ "Vines%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode vines
++ "Vines%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode vines
+
+AddToMenu "Debian/Screen/Save/Geometry"
++ "Apollonian%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode apollonian
++ "Apollonian%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode apollonian
++ "Braid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode braid
++ "Braid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode braid
++ "Fadeplot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode fadeplot
++ "Fadeplot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode fadeplot
++ "Helix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode helix -fullrandom
++ "Helix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode helix -fullrandom
++ "Hyper%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode hyper
++ "Hyper%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode hyper
++ "Ico%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode ico
++ "Ico%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode ico
++ "Kaleid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode kaleid
++ "Kaleid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode kaleid
++ "Laser%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode laser
++ "Laser%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode laser
++ "Lisa%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode lisa
++ "Lisa%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode lisa
++ "Lissie%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode lissie
++ "Lissie%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode lissie
++ "Penrose%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode penrose +ammann
++ "Penrose%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode penrose +ammann
++ "Penrose Ammann%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode penrose -ammann
++ "Penrose Ammann%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode penrose -ammann
++ "Petal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode petal
++ "Petal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode petal
++ "Polyominoes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode polyominoes
++ "Polyominoes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode polyominoes
++ "Qix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode qix +complete
++ "Qix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode qix +complete
++ "Qix complete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode qix -complete
++ "Qix complete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode qix -complete
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist allgeometry
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allgeometry
++ "Rotor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode rotor
++ "Rotor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode rotor
++ "Shape%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode shape
++ "Shape%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode shape
++ "Sphere%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode sphere
++ "Sphere%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode sphere
++ "Spiral%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode spiral
++ "Spiral%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode spiral
++ "Spline%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode spline
++ "Spline%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode spline
++ "Tik_Tak%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode tik_tak
++ "Tik_Tak%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode tik_tak
++ "Toneclock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode toneclock
+
+AddToMenu "Debian/Screen/Save/MarqueeMessage"
++ "Available%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode marquee -message "Hey, I'm available now!"
++ "Available%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode marquee -message "Hey, I'm available now!"
++ "Brilliant!%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode marquee -message "WOW! $LOGNAME, You're Brilliant!"
++ "Brilliant!%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode marquee -message "WOW! $LOGNAME, You're Brilliant!"
++ "Love You%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode marquee -message "You know, I Love You $LOGNAME."
++ "Love You%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode marquee -message "You know, I Love You $LOGNAME."
+
+AddToMenu "Debian/Screen/Save/NoseMessage"
++ "Available%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode nose -message "Hey, I'm available now!"
++ "Available%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode nose -message "Hey, I'm available now!"
++ "Brilliant!%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode nose -message "WOW! $LOGNAME, You're Brilliant!"
++ "Brilliant!%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode nose -message "WOW! $LOGNAME, You're Brilliant!"
++ "Love You%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode nose -message "You know, I Love You $LOGNAME."
++ "Love You%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode nose -message "You know, I Love You $LOGNAME."
+
+AddToMenu "Debian/Screen/Save/Space"
++ "Bouboule%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode bouboule +use3d
++ "Bouboule%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode bouboule +use3d
++ "Bouboule3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode bouboule -use3d
++ "Bouboule3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode bouboule -use3d
++ "Galaxy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode galaxy
++ "Galaxy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode galaxy
++ "Grav%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode grav +trail +decay
++ "Grav%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode grav +trail +decay
++ "Grav Decay%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode grav -decay
++ "Grav Decay%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode grav -decay
++ "Grav Trail%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode grav -trail
++ "Grav Trail%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode grav -trail
++ "Random Space%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist allspace
++ "Random Space%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allspace
++ "Rock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode star -rock
++ "Rock%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode star -rock
++ "Scooter%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode scooter
++ "Scooter%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode scooter
++ "Space%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode space
++ "Space%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode space
++ "Star%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode star +rock +use3d +trek 0
++ "Star%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode star +rock +use3d +trek 0
++ "Star Trek%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode star -trek 100
++ "Star Trek%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode star -trek 100
++ "Star3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode star -use3d
++ "Star3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode star -use3d
++ "World%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode world
++ "World%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode world
+
+AddToMenu "Debian/Screen/Save/Special"
++ "Blank%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode blank
++ "Blank%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode blank
++ "Bomb%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode bomb
++ "Bomb%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode bomb
++ "Random 3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist all3d -use3d -fullrandom
++ "Random 3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist all3d -use3d -fullrandom
++ "Random all%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist all -fullrandom -neighbors 0
++ "Random all%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist all -fullrandom -neighbors 0
++ "Random nice%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist allnice -fullrandom -neighbors 0
++ "Random nice%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allnice -fullrandom -neighbors 0
++ "Random ptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist allmouse -trackmouse -fullrandom
++ "Random ptr%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allmouse -trackmouse -fullrandom
++ "Random standard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist all-allgl -fullrandom -neighbors 0
++ "Random standard%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist all-allgl -fullrandom -neighbors 0
++ "Random write%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist allwrite -fullrandom
++ "Random write%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allwrite -fullrandom
+
+AddToMenu "Debian/Screen/Save/XPM"
++ "Bat%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode bat
++ "Bat%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode bat
++ "Flag%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode flag
++ "Flag%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode flag
++ "Image%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode image
++ "Image%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode image
++ "Life%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode life
++ "Life%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode life
++ "Life1d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode life1d
++ "Life1d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode life1d
++ "Maze%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode maze
++ "Maze%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode maze
++ "Puzzle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode puzzle
++ "Puzzle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode puzzle
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xlock -remote -nice 19 -nolock -mode random -modelist allxpm -fullrandom
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allxpm -fullrandom
+
+AddToMenu "Debian/XShells"
++ "Eterm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/Eterm
++ "Gnome Terminal%/usr/share/pixmaps/gnome-terminal.xpm%" Exec exec /usr/bin/gnome-terminal
++ "Gnome Terminal%/usr/share/pixmaps/gnome-terminal.xpm%" Exec exec /usr/bin/gnome-terminal
++ "Kanji Terminal%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/kterm
++ "Konsole%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/konsole
++ "Multi GNOME Terminal%/usr/share/pixmaps/mgt/multignometerm.xpm%" Exec exec /usr/bin/multi-gnome-terminal
++ "Rxvt%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec rxvt
++ "Rxvt-Unicode%/usr/share/pixmaps/urxvt.xpm%" Exec exec urxvt
++ "Rxvt-Unicode (Black,Xft)%/usr/share/pixmaps/urxvt.xpm%" Exec exec urxvt -fn "xft:Courier New" -rv
++ "XTerm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xterm
++ "XTerm%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xterm
++ "XTerm (Unicode)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec uxterm
++ "XTerm (Unicode)%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec uxterm
+
+AddToMenu "Edytory"
++ "Edytor%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kedit  -caption "%c" %i %m %u
++ "Edytor tekstu%/usr/share/icons/gnome/24x24/apps/text-editor.png%" Exec exec gedit %U
++ "Emacs 21 (X11)%/usr/share/emacs/21.4/etc/gnu-32x32.xpm%" Exec exec /usr/bin/emacs21
++ "Emacs Snapshot (GTK)%/usr/share/icons/emacs-snapshot/emacs.xpm%" Exec exec /usr/bin/emacs-snapshot-gtk
++ "Emacs Snapshot (X11)%/usr/share/emacs/22.0.50/etc/emacs.xpm%" Exec exec /home/pz215/bin/emacs-noframe
++ "Emacs Snapshot (client)%/usr/share/icons/emacs-snapshot/emacs.xpm%" Exec exec /usr/bin/emacsclient.emacs-snapshot -a emacs-snapshot
++ "KWrite%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kwrite %U
++ "Kate%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kate %U
+
+AddToMenu "Grafika"
++ "Album fotograficzny F-Spot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec f-spot
++ "GIMP Image Editor%/usr/share/gimp/2.0/images/wilber-icon.png%" Exec exec gimp-remote-2.2 %U
++ "Inkscape program do grafiki wektorowej SVG%/usr/share/pixmaps/inkscape.png%" Exec exec inkscape %F
++ "KDVI%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kviewshell dvi %f -caption "%c" %i %m
++ "KFax%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kfax %f   -caption "%c" %i %m
++ "KGhostView%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kghostview %u -caption "%c" %i %m
++ "KPDF%/usr/share/icons/hicolor/32x32/apps/kpdf.png%" Exec exec kpdf %i %m -caption "%c"
++ "KolourPaint%/usr/share/icons/hicolor/32x32/apps/kolourpaint.png%" Exec exec kolourpaint %u
++ "Kooka%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kooka %i %m %U
++ "Kuickshow%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kuickshow %i %m -caption "%c" %U
++ "Modeler Povray%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kpovmodeler -caption "%c" %i %m %f
++ "Przeglądarka obrazów%/usr/share/icons/gnome/24x24/apps/image-viewer.png%" Exec exec eog %U
++ "Przeglądarka obrazów%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kview -caption "%c" %i %m %U
++ "Przeglądarka obrazów gThumb%/usr/share/pixmaps/gthumb.png%" Exec exec gthumb
++ "Sodipodi%/usr/share/icons/gnome/48x48/apps/sodipodi.png%" Exec exec sodipodi %U
++ "xpdf%/usr/share/pixmaps/xpdf.xpm%" Exec exec xpdf
++ "zxpdf%/usr/share/pixmaps/xpdf.xpm%" Exec exec zxpdf
+# not supported: <xdg.Menu.Separator instance at 0xb74dc34c>
++ "Więcej aplikacji%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Grafika/Więcej aplikacji"
+
+AddToMenu "Grafika/Więcej aplikacji"
++ "Edytor ikon%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kiconedit -caption "%c" %i %m %u
++ "Edytor kolorów%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kcoloredit %i %m %U
++ "Linijka%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kruler %i %m
++ "Wybór koloru%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kcolorchooser %i %m
++ "Zrzuty ekranu%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec ksnapshot -caption "%c" %i %m
+
+AddToMenu "Gry"
++ "Gry karciane%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Gry/Gry karciane"
++ "Gry planszowe%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Gry/Gry planszowe"
++ "Gry taktyczne i strategiczne%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Gry/Gry taktyczne i strategiczne"
++ "Gry zręcznościowe%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Gry/Gry zręcznościowe"
++ "Kidsgames%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Gry/Kidsgames"
++ "Cztery w rzędzie%/usr/share/icons/hicolor/48x48/apps/gnome-four-in-a-row.png%" Exec exec /usr/games/gnect
++ "GCompris - pakiet edukacyjny%/usr/share/pixmaps/gcompris.png%" Exec exec gcompris
++ "GCompris Editor%/usr/share/pixmaps/gcompris-edit.png%" Exec exec gcompris_edit
++ "Gnometris%/usr/share/icons/hicolor/48x48/apps/gnome-gnometris.png%" Exec exec /usr/games/gnometris
++ "Iagno%/usr/share/icons/hicolor/32x32/apps/gnome-iagno.png%" Exec exec /usr/games/iagno
++ "Klocki%/usr/share/icons/hicolor/48x48/apps/gnome-klotski.png%" Exec exec /usr/games/gnotski
++ "Kulki%/usr/share/icons/hicolor/48x48/apps/gnome-five-or-more.png%" Exec exec /usr/games/glines
++ "Miny%/usr/share/icons/gnome/24x24/apps/gnome-gnomine.png%" Exec exec /usr/games/gnomine
++ "Same GNOME%/usr/share/icons/hicolor/48x48/apps/gnome-same-gnome.png%" Exec exec /usr/games/same-gnome
++ "Tali%/usr/share/icons/hicolor/32x32/apps/gnome-tali.png%" Exec exec /usr/games/gtali
++ "Tetravex%/usr/share/icons/hicolor/48x48/apps/gnome-tetravex.png%" Exec exec /usr/games/gnotravex
+
+AddToMenu "Gry/Gry karciane"
++ "Oczko%/usr/share/icons/hicolor/48x48/apps/gnome-blackjack.png%" Exec exec /usr/games/blackjack
++ "Pasjans%/usr/share/pixmaps/kpat.xpm%" Exec exec /usr/games/kpat %i %m -caption "%c"
++ "Pasjans AisleRiot%/usr/share/icons/hicolor/48x48/apps/gnome-aisleriot.png%" Exec exec /usr/games/sol
++ "Pasjans FreeCell%/usr/share/icons/hicolor/48x48/apps/gnome-freecell.png%" Exec exec /usr/games/sol --variation freecell
++ "Poker%/usr/share/pixmaps/kpoker.xpm%" Exec exec /usr/games/kpoker %i %m -caption "%c"
++ "Skat porucznika%/usr/share/pixmaps/lskat.xpm%" Exec exec /usr/games/lskat
+
+AddToMenu "Gry/Gry planszowe"
++ "Ataxx%/usr/share/icons/hicolor/32x32/apps/gnome-ataxx.png%" Exec exec /usr/games/gataxx
++ "Atlantik%/usr/share/pixmaps/atlantik.xpm%" Exec exec /usr/games/atlantik -caption "%c" %i %m
++ "Czarna skrzynka%/usr/share/pixmaps/kblackbox.xpm%" Exec exec /usr/games/kblackbox %i %m -caption "%c"
++ "KBackgammon%/usr/share/pixmaps/kbackgammon.xpm%" Exec exec /usr/games/kbackgammon %i %m -caption "%c"
++ "KWin4%/usr/share/pixmaps/kwin4.xpm%" Exec exec /usr/games/kwin4
++ "Kenolaba%/usr/share/pixmaps/kenolaba.xpm%" Exec exec /usr/games/kenolaba %i %m -caption "%c"
++ "Mahjongg%/usr/share/pixmaps/kmahjongg.xpm%" Exec exec /usr/games/kmahjongg %i %m -caption "%c"
++ "Mahjongg%/usr/share/pixmaps/gnome-mahjongg.xpm%" Exec exec /usr/games/mahjongg
++ "Projektant do programu Atlantyk%/usr/share/pixmaps/atlantikdesigner.xpm%" Exec exec atlantikdesigner -caption "%c" %i %m
++ "Reversi%/usr/share/pixmaps/kreversi.xpm%" Exec exec /usr/games/kreversi %i %m -caption "%c"
++ "Shisen-Sho%/usr/share/pixmaps/kshisen.xpm%" Exec exec /usr/games/kshisen %i %m -caption "%c"
+
+AddToMenu "Gry/Gry taktyczne i strategiczne"
++ "Atomy%/usr/share/pixmaps/katomic.xpm%" Exec exec /usr/games/katomic %i %m -caption "%c"
++ "KBattleship%/usr/share/pixmaps/kbattleship.xpm%" Exec exec /usr/games/kbattleship %i %m -caption "%c"
++ "Klickety%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/klickety -caption "%c" %i %m
++ "Kolorowe linie%/usr/share/pixmaps/klines.xpm%" Exec exec /usr/games/klines -caption "%c" %i %m
++ "Konquest%/usr/share/pixmaps/konquest.xpm%" Exec exec /usr/games/konquest %i %m -caption %c
++ "Miny%/usr/share/pixmaps/kmines.xpm%" Exec exec /usr/games/kmines -caption "%c" %i %m
++ "Skaczący sześcian%/usr/share/pixmaps/kjumpingcube.xpm%" Exec exec /usr/games/kjumpingcube -caption "%c" %i %m
++ "Sokoban%/usr/share/pixmaps/ksokoban.xpm%" Exec exec /usr/games/ksokoban %i %m -caption "%c"
++ "ToSamo%/usr/share/pixmaps/ksame.xpm%" Exec exec /usr/games/ksame %i %m -caption "%c"
+
+AddToMenu "Gry/Gry zręcznościowe"
++ "Asteroidy%/usr/share/pixmaps/kasteroids.xpm%" Exec exec /usr/games/kasteroids %i %m -caption "%c"
++ "Foul Eggs%/usr/share/pixmaps/kfouleggs.xpm%" Exec exec /usr/games/kfouleggs -caption "%c" %i %m
++ "KBounce%/usr/share/pixmaps/kbounce.xpm%" Exec exec /usr/games/kbounce %i %m -caption "%c"
++ "KGoldrunner%/usr/share/pixmaps/kgoldrunner.xpm%" Exec exec /usr/games/kgoldrunner
++ "KSmileTris%/usr/share/pixmaps/ksmiletris.xpm%" Exec exec /usr/games/ksmiletris -caption "%c" %i %m
++ "KSpaceDuel%/usr/share/pixmaps/kspaceduel.xpm%" Exec exec /usr/games/kspaceduel %i %m -caption "%c"
++ "KTron%/usr/share/pixmaps/ktron.xpm%" Exec exec /usr/games/ktron -caption "%c" %i %m
++ "Kolf%/usr/share/pixmaps/kolf.xpm%" Exec exec /usr/games/kolf %U
++ "Nibbles%/usr/share/icons/gnome/24x24/apps/gnome-nibbles.png%" Exec exec /usr/games/gnibbles
++ "Roboty%/usr/share/icons/hicolor/48x48/apps/gnome-robots.png%" Exec exec /usr/games/gnobots2
++ "Sirtet (anagram)%/usr/share/pixmaps/ksirtet.xpm%" Exec exec /usr/games/ksirtet -caption "%c" %i %m
++ "Wyścig węży%/usr/share/pixmaps/ksnake.xpm%" Exec exec /usr/games/ksnake %i %m -caption "%c"
+
+AddToMenu "Gry/Kidsgames"
++ "Ziemniaczany facet%/usr/share/pixmaps/ktuberling.xpm%" Exec exec /usr/games/ktuberling %i %m -caption "%c" %u
+
+AddToMenu "Internet"
++ "BitTorrent%/usr/share/gnome-btdownload/pixmaps/download.png%" Exec exec gnome-btdownload %U
++ "Ekiga - telefon programowy%/usr/share/pixmaps/ekiga.png%" Exec exec ekiga
++ "Evolution Mail%/usr/share/icons/gnome/24x24/apps/evolution.png%" Exec exec evolution --component=mail
++ "GnomeMeeting%/usr/share/pixmaps/gnomemeeting-logo-icon.png%" Exec exec gnomemeeting
++ "KGet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kget -caption "%c" %i %m
++ "KMail%/usr/share/pixmaps/kmail.xpm%" Exec exec kmail -caption "%c" %i %m
++ "KNode%/usr/share/pixmaps/knode.xpm%" Exec exec knode -caption "%c" %i %m
++ "KPPP%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kppp %i %m
++ "KSirc%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec ksirc %i %m
++ "Komunikator Internetowy Gaim%/usr/share/icons/gnome/24x24/apps/gaim.png%" Exec exec gaim
++ "Konqueror%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kfmclient openProfile webbrowsing
++ "Kopete%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kopete -caption "%c" %i %m %u
++ "Mozilla Composer%/usr/share/pixmaps/mozilla-composer.png%" Exec exec mozilla-suite -edit
++ "Mozilla Mail%/usr/share/pixmaps/mozilla-mail.png%" Exec exec mozilla-suite -mail
++ "Mozilla Mail Composer%/usr/share/pixmaps/mozilla-mail-compose.xpm%" Exec exec mozilla-suite -compose
++ "Mozilla News%/usr/share/pixmaps/mozilla-news.png%" Exec exec mozilla-suite -news
++ "Mozilla Web Browser%/usr/share/pixmaps/mozilla.png%" Exec exec mozilla-suite
++ "Połączenia zdalne%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec krdc -caption "%c" %i %m
++ "Przeglądarka Galeon%/usr/share/pixmaps/galeon.png%" Exec exec galeon %U
++ "Przeglądarka WWW Epiphany%/usr/share/icons/gnome/48x48/apps/web-browser.png%" Exec exec /usr/bin/epiphany %U
++ "Przeglądarka WWW Iceweasel%/usr/share/pixmaps/iceweasel.png%" Exec exec iceweasel %u
++ "SSH AskPass%/usr/share/pixmaps/ssh-askpass-gnome.png%" Exec exec /usr/bin/ssh-add
++ "Sun Java 5.0 Web Start%/usr/share/icons/sun-java5.xpm%" Exec exec /usr/lib/jvm/java-1.5.0-sun-1.5.0.10/bin/javaws
++ "Thunderbird Mail Client%/usr/share/pixmaps/mozilla-thunderbird.xpm%" Exec exec mozilla-thunderbird
++ "Thunderbird Profile Manager%/usr/share/pixmaps/mozilla-thunderbird-pm-menu.xpm%" Exec exec mozilla-thunderbird -P
++ "XChat IRC%/usr/share/icons/gnome/48x48/apps/xchat.png%" Exec exec xchat
++ "Zakładki Epiphany%/usr/share/pixmaps/epiphany-bookmarks.png%" Exec exec /usr/bin/epiphany --bookmarks-editor
++ "ayttm%/usr/local/share/pixmaps/ayttm.png%" Exec exec /usr/local/bin/ayttm
+# not supported: <xdg.Menu.Separator instance at 0xb757552c>
++ "Więcej aplikacji%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Internet/Więcej aplikacji"
+
+AddToMenu "Internet/Więcej aplikacji"
++ "Dziennik połączeń KPPP%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kppplogview
++ "KWiFiManager%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kwifimanager -caption "%c" %i %m
++ "Korn%/usr/share/pixmaps/korn.xpm%" Exec exec korn  -caption "%c" %i %m %f
++ "News Ticker%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec appletproxy knewsticker.desktop
+
+AddToMenu "Multimedia"
++ "Istanbul Desktop Session Recorder%/usr/share/pixmaps/istanbul.png%" Exec exec istanbul
++ "KMix%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kmix -caption "%c" %i %m
++ "KRec%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec krec %i %m -caption "%c"
++ "Kaboodle%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kaboodle %i %m -caption "%c" %U
++ "Kino Video Editor%/usr/share/pixmaps/kino.png%" Exec exec kino %F
++ "Kreator audio%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kaudiocreator
++ "KsCD%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kscd -caption "%c" %i %m
++ "MPlayer%/usr/share/pixmaps/mplayer-desktop.xpm%" Exec exec gmplayer
++ "Monitor głośności%/usr/share/pixmaps/gnome-vumeter.png%" Exec exec vumeter
++ "Monitor poziomu nagrywania%/usr/share/pixmaps/gnome-reclevel.png%" Exec exec vumeter -r
++ "Noatun%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec noatun %i %m -caption "%c" %U
++ "Odtwarzacz CD%/usr/share/pixmaps/gnome-cd.png%" Exec exec gnome-cd
++ "Odtwarzacz filmów%/usr/share/pixmaps/totem.xpm%" Exec exec totem %U
++ "Regulacja głośności%/usr/share/pixmaps/gnome-mixer.png%" Exec exec gnome-volume-control
++ "Rejestrator dźwięku%/usr/share/icons/gnome/48x48/apps/gnome-grecord.png%" Exec exec gnome-sound-recorder
++ "Sound Juicer - Zgrywarka CD%/usr/share/icons/hicolor/24x24/apps/sound-juicer.png%" Exec exec sound-juicer
++ "XMMS%/usr/share/pixmaps/xmms.xpm%" Exec exec xmms %U
++ "gxine%/usr/share/pixmaps/gxine.png%" Exec exec gxine
+# not supported: <xdg.Menu.Separator instance at 0xb74dc48c>
++ "Więcej aplikacji%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Multimedia/Więcej aplikacji"
+
+AddToMenu "Multimedia/Więcej aplikacji"
++ "Arts Builder%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec artsbuilder -caption "%c"
++ "KMid%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kmid %u
++ "Sterowanie aRts%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec artscontrol -caption "%c"
+
+AddToMenu "Narzędzia programistów"
++ "Glade - budowniczy interfejsów użytkownika%/usr/share/pixmaps/glade-2.png%" Exec exec glade-2 %F
++ "Narzędzie do zgłaszania błędów%/usr/share/pixmaps/bug-buddy.png%" Exec exec gnome-open https://launchpad.net/distros/ubuntu/+filebug
++ "Python (v2.4)%/usr/share/pixmaps/python2.4.xpm%" Exec exec /usr/bin/python2.4
+
+AddToMenu "Nauka i rozrywka"
++ "Languages%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Nauka i rozrywka/Languages"
++ "Mathematics%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Nauka i rozrywka/Mathematics"
++ "Miscellaneous%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Nauka i rozrywka/Miscellaneous"
++ "Science%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Nauka i rozrywka/Science"
++ "Tools%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Nauka i rozrywka/Tools"
+
+AddToMenu "Nauka i rozrywka/Languages"
++ "KHangMan%/usr/share/pixmaps/khangman.xpm%" Exec exec khangman -caption "%c" %i %m
++ "KLettres%/usr/share/pixmaps/klettres.xpm%" Exec exec klettres -caption "%c" %i %m
++ "KVocTrain%/usr/share/pixmaps/kvoctrain.xpm%" Exec exec kvoctrain
++ "Kiten%/usr/share/pixmaps/kiten.xpm%" Exec exec kiten -caption "%c" %i %m
++ "Kverbos%/usr/share/pixmaps/kverbos.xpm%" Exec exec kverbos -caption "%c" %i %m
++ "Pozamieniane słowa%/usr/share/pixmaps/kmessedwords.xpm%" Exec exec kmessedwords -caption "%c" %i %m
++ "Łacina%/usr/share/pixmaps/klatin.xpm%" Exec exec klatin -caption "%c" %i %m
+
+AddToMenu "Nauka i rozrywka/Mathematics"
++ "KBruch%/usr/share/pixmaps/kbruch.xpm%" Exec exec kbruch -caption "%c" %i %m
++ "KPercentage%/usr/share/pixmaps/kpercentage.xpm%" Exec exec kpercentage
++ "Kig%/usr/share/pixmaps/kig.xpm%" Exec exec kig %i %m -caption "%c"
++ "KmPlot%/usr/share/pixmaps/kmplot.xpm%" Exec exec kmplot
+
+AddToMenu "Nauka i rozrywka/Miscellaneous"
++ "Gperiodic%/usr/share/pixmaps/gperiodic.png%" Exec exec gperiodic
++ "KTouch%/usr/share/pixmaps/ktouch.xpm%" Exec exec ktouch -caption "%c" %i %m
++ "KTurtle%/usr/share/pixmaps/kturtle.xpm%" Exec exec kturtle -caption "%c" %i %m
+
+AddToMenu "Nauka i rozrywka/Science"
++ "Gwiazdy%/usr/share/pixmaps/kstars.xpm%" Exec exec kstars -caption "%c" %i %m
++ "Kalzium (Program do nauki pierwiastków chemicznych)%/usr/share/pixmaps/kalzium.xpm%" Exec exec kalzium -caption "%c" %i %m
+
+AddToMenu "Nauka i rozrywka/Tools"
++ "Edytor do programu KEduca%/usr/share/pixmaps/keduca.xpm%" Exec exec keducabuilder
++ "KEduca%/usr/share/pixmaps/keduca.xpm%" Exec exec keduca
+
+AddToMenu "Naukowe"
++ "Grace%/usr/share/pixmaps/grace.png%" Exec exec xmgrace %f
+
+AddToMenu "System"
++ "ADSL/PPPOE configuration%/usr/share/pixmaps/pppoeconf.xpm%" Exec exec /usr/sbin/pppoeconf
++ "Czas i data%/usr/share/gnome-system-tools/pixmaps/time.png%" Exec exec gksu time-admin
++ "Disks%/usr/share/gnome-system-tools/pixmaps/disks.png%" Exec exec gksu disks-admin
++ "Dziennik systemowy%/usr/share/icons/gnome/48x48/apps/logviewer.png%" Exec exec gnome-system-log
++ "Edytor Startu SysV%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec ksysv -caption "%c" %i %m
++ "Edytor konfiguracji%/usr/share/icons/hicolor/48x48/apps/gconf-editor.png%" Exec exec gconf-editor
++ "Ekran logowania%/usr/share/pixmaps/gdm-setup.png%" Exec exec gksu gdmsetup
++ "Foldery współdzielone%/usr/share/gnome-system-tools/pixmaps/shares.png%" Exec exec gksu shares-admin
++ "Formater dyskietek%/usr/share/icons/gnome/24x24/devices/gnome-dev-floppy.png%" Exec exec gfloppy
++ "GDebi Package Installer%/usr/share/icons/gnome/48x48/mimetypes/gnome-mime-application-x-deb.png%" Exec exec gdebi-gtk
++ "KCron%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kcron %i %m -caption "%c"
++ "KDE Strażnik Systemu%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec ksysguard %U
++ "Konsola%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec konsole
++ "Menedżer bazy kluczy%/usr/share/icons/gnome/24x24/stock/generic/stock_keyring.png%" Exec exec gnome-keyring-manager
++ "Monitor systemu%/usr/share/icons/gnome/24x24/apps/gnome-monitor.png%" Exec exec gnome-system-monitor
++ "Narzędzia sieciowe%/usr/share/pixmaps/gnome-nettool.png%" Exec exec gnome-nettool
++ "Nowe logowanie w zagnieżdżonym oknie%/usr/share/pixmaps/gdm-xnest.png%" Exec exec gdmflexiserver --xnest
++ "Nowy login%/usr/share/icons/gnome/24x24/apps/gdm.png%" Exec exec gdmflexiserver
++ "Obrót i zmiana rozmiaru ekranu%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec krandrtray
++ "Pakiety%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kpackage -caption "%c" %i %m %u
++ "Root Terminal%/usr/share/pixmaps/gksu-root-terminal.png%" Exec exec gksu /usr/bin/x-terminal-emulator
++ "Synaptic Menedżer Pakietów%/usr/share/pixmaps/synaptic.png%" Exec exec gksu -u root /usr/sbin/synaptic
++ "Ubuntu Device Database%/usr/share/hwdb-client/hwdb.png%" Exec exec hwdb-gui
++ "Ustawienia sieci%/usr/share/gnome-system-tools/pixmaps/network.png%" Exec exec gksu -u root network-admin
++ "Usługi%/usr/share/gnome-system-tools/pixmaps/services.png%" Exec exec gksu services-admin
++ "Użytkownicy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kuser %i %m -caption "%c"
++ "Użytkownicy i grupy%/usr/share/gnome-system-tools/pixmaps/users.png%" Exec exec gksu users-admin
++ "Współdzielenie pulpitu%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec krfb -caption "%c" %i %m
+# not supported: <xdg.Menu.Separator instance at 0xb74dc5cc>
++ "Więcej aplikacji%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "System/Więcej aplikacji"
+
+AddToMenu "System/Więcej aplikacji"
++ "KDat%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kdat %i %m -caption "%c"
++ "KwikDisk%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kwikdisk -caption "%c"
++ "Menedżer plików - tryb administratora%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec konqueror --profile filemanagement
++ "Terminal - Tryb administratora%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec konsole --type su
++ "Wolna przestrzeń na dyskach%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kdf -caption "%c"
+
+AddToMenu "Ustawienia"
++ "Asystent ustawień środowiska%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kpersonalizer -caption "%c" %i %m
++ "Centrum Sterowania GNOME%/usr/share/icons/gnome/24x24/apps/gnome-control-center.png%" Exec exec gnome-control-center
++ "Czas i data%/usr/share/gnome-system-tools/pixmaps/time.png%" Exec exec gksu time-admin
++ "Czcionki%/usr/share/icons/gnome/24x24/apps/gnome-settings-font.png%" Exec exec gnome-font-properties
++ "Disks%/usr/share/gnome-system-tools/pixmaps/disks.png%" Exec exec gksu disks-admin
++ "Dźwięk%/usr/share/icons/gnome/24x24/apps/gnome-settings-sound.png%" Exec exec gnome-sound-properties
++ "Edytor menu%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kmenuedit
++ "Ekran logowania%/usr/share/pixmaps/gdm-setup.png%" Exec exec gksu gdmsetup
++ "Foldery współdzielone%/usr/share/gnome-system-tools/pixmaps/shares.png%" Exec exec gksu shares-admin
++ "Fotografia użytkownika%/usr/share/pixmaps/login-photo.png%" Exec exec gdmphotosetup
++ "Klawiatura%/usr/share/icons/gnome/48x48/apps/gnome-settings-accessibility-keyboard.png%" Exec exec gnome-accessibility-keyboard-properties
++ "Klawiatura%/usr/share/icons/gnome/48x48/devices/gnome-dev-keyboard.png%" Exec exec gnome-keyboard-properties
++ "Konfiguracja panelu%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kcmshell %i kicker_config kcmtaskbar
++ "Motyw%/usr/share/icons/gnome/24x24/apps/gnome-settings-theme.png%" Exec exec gnome-theme-manager
++ "Mysz%/usr/share/icons/gnome/48x48/devices/gnome-dev-mouse-optical.png%" Exec exec gnome-mouse-properties
++ "Narzędzie do aktualizacji menu%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kappfinder
++ "Narzędzie do zarządzania Portfelem%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kwalletmanager %u
++ "O mnie%/usr/share/icons/gnome/48x48/apps/user-info.png%" Exec exec gnome-about-me
++ "Obsługa technologii wspierających%/usr/share/icons/gnome/48x48/apps/gnome-settings-accessibility-technologies.png%" Exec exec gnome-at-properties
++ "Okna%/usr/share/icons/gnome/24x24/apps/gnome-window-manager.png%" Exec exec gnome-window-properties
++ "Paski menu i narzędziowe%/usr/share/icons/gnome/24x24/apps/gnome-settings-ui-behavior.png%" Exec exec gnome-ui-properties
++ "Pośrednik sieciowy%/usr/share/icons/gnome/48x48/stock/net/stock_proxy.png%" Exec exec gnome-network-preferences
++ "Preferowane aplikacje%/usr/share/icons/gnome/48x48/apps/gnome-settings-default-applications.png%" Exec exec gnome-default-applications-properties
++ "Rozdzielczość ekranu%/usr/share/icons/gnome/24x24/apps/display-capplet.png%" Exec exec gnome-display-properties
++ "Serwer bazy danych płyt CD%/usr/share/pixmaps/gnome-cd.png%" Exec exec cddb-slave2-properties
++ "Sesje%/usr/share/icons/gnome/24x24/apps/gnome-session.png%" Exec exec gnome-session-properties
++ "Skróty klawiszowe%/usr/share/icons/gnome/24x24/apps/gnome-settings-keybindings.png%" Exec exec gnome-keybinding-properties
++ "Szukanie i indeksowanie%/usr/share/icons/gnome/24x24/apps/gnome-searchtool.png%" Exec exec beagle-settings
++ "Tło pulpitu%/usr/share/icons/gnome/24x24/apps/gnome-settings-background.png%" Exec exec gnome-background-properties %F
++ "Ustawienia sieci%/usr/share/gnome-system-tools/pixmaps/network.png%" Exec exec gksu -u root network-admin
++ "Usługi%/usr/share/gnome-system-tools/pixmaps/services.png%" Exec exec gksu services-admin
++ "Użytkownicy i grupy%/usr/share/gnome-system-tools/pixmaps/users.png%" Exec exec gksu users-admin
++ "Wybór systemów multimediów%/usr/share/pixmaps/gstreamer-properties.png%" Exec exec gstreamer-properties
++ "Wygaszacz ekranu%/usr/share/pixmaps/xscreensaver.svg%" Exec exec xscreensaver-demo
++ "Zarządzanie plikami%/usr/share/icons/gnome/48x48/apps/file-manager.png%" Exec exec nautilus-file-management-properties
++ "Zdalny pulpit%/usr/share/icons/hicolor/48x48/apps/gnome-remote-desktop.png%" Exec exec vino-preferences
+
+AddToMenu "Użytki"
++ "Ark%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec ark -caption "%c" %i %m %U
++ "Dyskietka%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kfloppy -caption "%c" %i %m
++ "Edytor tekstu%/usr/share/icons/gnome/24x24/apps/text-editor.png%" Exec exec gedit %U
++ "Emacs 21 (X11)%/usr/share/emacs/21.4/etc/gnu-32x32.xpm%" Exec exec /usr/bin/emacs21
++ "Emacs Snapshot (GTK)%/usr/share/icons/emacs-snapshot/emacs.xpm%" Exec exec /usr/bin/emacs-snapshot-gtk
++ "Emacs Snapshot (X11)%/usr/share/emacs/22.0.50/etc/emacs.xpm%" Exec exec /home/pz215/bin/emacs-noframe
++ "Emacs Snapshot (client)%/usr/share/icons/emacs-snapshot/emacs.xpm%" Exec exec /usr/bin/emacsclient.emacs-snapshot -a emacs-snapshot
++ "KGpg%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kgpg %U
++ "KPilot%/usr/share/pixmaps/kpilot.xpm%" Exec exec kpilot
++ "Kalkulator%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kcalc  -caption "%c" %i %m
++ "Kalkulator%/usr/share/icons/gnome/24x24/apps/gnome-calculator.png%" Exec exec gcalctool
++ "KdeprintFax%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kdeprintfax -caption "%c" %i %m %u
++ "Kdict%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kdict -caption "%c" %i %m
++ "Klipper%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec klipper
++ "Lista zadań%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec gtodo
++ "Mapa znaków%/usr/share/pixmaps/gucharmap.png%" Exec exec gucharmap
++ "Menedżer bazy kluczy%/usr/share/icons/gnome/24x24/stock/generic/stock_keyring.png%" Exec exec gnome-keyring-manager
++ "Narzędzia sieciowe%/usr/share/pixmaps/gnome-nettool.png%" Exec exec gnome-nettool
++ "Notatki%/usr/share/pixmaps/knotes.xpm%" Exec exec knotes
++ "Przeglądarka plików%/usr/share/icons/gnome/48x48/apps/file-manager.png%" Exec exec nautilus --no-desktop --browser %U
++ "Rox Filer%/usr/share/rox/images/application.png%" Exec exec /usr/bin/rox %f
++ "Szukanie i indeksowanie%/usr/share/icons/gnome/24x24/apps/gnome-searchtool.png%" Exec exec beagle-settings
++ "Słownik%/usr/share/pixmaps/gnome-dictionary.png%" Exec exec gnome-dictionary
++ "Terminal%/usr/share/icons/gnome/24x24/apps/gnome-terminal.png%" Exec exec gnome-terminal
++ "Wyszukiwanie...%/usr/share/pixmaps/system-search.png%" Exec exec beagle-search
++ "Zadania drukowania%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kjobviewer --all --show %i %m
++ "Zrzut ekranu%/usr/share/icons/gnome/24x24/apps/applets-screenshooter.png%" Exec exec gnome-screenshot
+# not supported: <xdg.Menu.Separator instance at 0xb74dc56c>
++ "Więcej aplikacji%/usr/share/icons/gnome/24x24/filesystems/gnome-fs-directory.png%" Popup "Użytki/Więcej aplikacji"
+
+AddToMenu "Użytki/Więcej aplikacji"
++ "Alarm%/usr/share/pixmaps/kalarm.xpm%" Exec exec kalarm -caption "%c" %i
++ "Czasomierz%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec ktimer
++ "Edytor binarny%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec khexedit -caption "%c" %i %m %U
++ "Edytor wyrażeń regularnych%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kregexpeditor
++ "Interpretacja plików lnk systemu Windows%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec lnkforward -map C=/mnt/winc
++ "KArm%/usr/share/pixmaps/karm.xpm%" Exec exec karm  -caption "%c" %i %m
++ "KFontView%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kfontview %u
++ "KJots%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kjots  -caption "%c" %i %m
++ "KPager%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kpager
++ "KPalmDOC%/usr/share/pixmaps/kpalmdoc.xpm%" Exec exec kpalmdoc
++ "KSig%/usr/share/pixmaps/ksig.xpm%" Exec exec ksig -caption "%c" %i %m
++ "Kandy%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kandy %i %m -caption "%c"
++ "Przeglądarka plików TNEF%/usr/share/pixmaps/ktnef.xpm%" Exec exec ktnef %i %m -caption "%c"
++ "Serwer LIRC dla KDE%/usr/share/icons/hicolor/32x32/apps/irkick.png%" Exec exec irkick
++ "Użyteczne porady%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec ktip
++ "Wybór znaków%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec kcharselect -caption "%c" %i %m
+
+AddToMenu "Zabawa"
++ "AMOR%/usr/share/pixmaps/amor.xpm%" Exec exec amor
++ "Pomiar aktywności myszki%/usr/share/pixmaps/kodo.xpm%" Exec exec kodo
++ "Przyrządzanie herbaty%/usr/share/pixmaps/kteatime.xpm%" Exec exec kteatime
++ "Zegar światowy%/usr/share/pixmaps/kworldclock.xpm%" Exec exec kworldclock
+
+AddToMenu "Zgubione i znalezione"
++ "Above & Beyond%/home/pz215/.menu/icons/Above & Beyond.xpm%" Exec exec wine "C:\Program Files\Above & Beyond\A&b.exe" --
++ "Atlantis%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode atlantis
++ "Atlantis%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode atlantis
++ "Atunnels%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode atunnels
++ "Atunnels%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode atunnels
++ "Bubble3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode bubble3d
++ "Bubble3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode bubble3d
++ "Cage%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode cage
++ "Cage%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode cage
++ "Chess Net%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/xboard -ics -icshost chess.net
++ "Czytnik ekranowy i lupa%/usr/share/pixmaps/gnopernicus.png%" Exec exec gnopernicus
++ "Dasher%/usr/local/share/icons/dasher.png%" Exec exec dasher
++ "Default%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/xboard -ics
++ "Fire%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode fire
++ "Fire%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode fire
++ "Free I.C.S.%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/xboard -ics -icshost freechess.org
++ "GL-Planet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode glplanet
++ "GL-Planet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode glplanet
++ "Gears%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode gears
++ "Gears%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode gears
++ "Internet Chess Club%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/games/xboard -ics -icshost chessclub.com
++ "Invert%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode invert
++ "Lament%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode lament
++ "Lament%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode lament
++ "Moebius%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode moebius
++ "Moebius%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode moebius
++ "Molecule%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode molecule
++ "Molecule%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode molecule
++ "Morph3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode morph3d
++ "Morph3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode morph3d
++ "Noof%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode noof
++ "Noof%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode noof
++ "Pipes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode pipes
++ "Pipes%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode pipes
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode random -modelist allgl -fullrandom
++ "Random%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode random -modelist allgl -fullrandom
++ "Rubik%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode rubik
++ "Rubik%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode rubik
++ "Sballs%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode sballs
++ "Sballs%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode sballs
++ "Sierpinski3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode sierpinski3d
++ "Sierpinski3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode sierpinski3d
++ "Sproingies%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode sproingies
++ "Sproingies%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode sproingies
++ "Stairs%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode stairs
++ "Stairs%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode stairs
++ "Superquadrics%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode superquadrics
++ "Superquadrics%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode superquadrics
++ "Text3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -nolock -mode text3d -message "$LOGNAME"
++ "Text3d%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/X11R6/bin/xlock -remote -nice 19 -mode text3d -message "$LOGNAME"
++ "Xsetroot%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec xsetroot
++ "xplanet%/usr/share/icons/gnome/24x24/apps/gnome-applications.png%" Exec exec /usr/bin/xplanet
+

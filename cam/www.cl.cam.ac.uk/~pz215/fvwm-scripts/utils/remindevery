@@ -1,0 +1,4 @@
+#!/bin/bash
+
+remindat "now + $1" $2 "Exec exec $0 $1 $2"
+

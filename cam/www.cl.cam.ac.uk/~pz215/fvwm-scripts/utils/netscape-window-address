@@ -1,0 +1,13 @@
+#!/bin/bash
+# $Id: netscape-window-address,v 1.4 2005/05/02 17:46:50 pz215 Exp $
+
+BROWSER=${BROWSER:-phoenix}
+
+if $BROWSER -remote "openURL($1,new-tab)" ;
+then
+ exit 0
+else
+ exec $BROWSER $1
+fi
+
+

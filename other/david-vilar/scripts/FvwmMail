@@ -1,0 +1,30 @@
+# $Id: FvwmMail,v 1.4 2007-02-22 15:01:12 vilar Exp $
+
+WindowTitle {FvwmMail}
+WindowSize 690 20
+Colorset 18
+Font "xft:Freesans:Bold:pixelsize=16"
+
+Init
+  Begin
+    Set $mailCheck = 60
+    Set $mailStr = (GetOutput {/u/vilar/.fvwm/scripts/checkNewMails.sh} 1 -1)
+    ChangeTitle 1 $mailStr
+  End
+
+PeriodicTasks
+  Begin
+    If (RemainderOfDiv (GetTime) $mailCheck)==0 Then
+    Begin
+       Set $mailStr = (GetOutput {/u/vilar/.fvwm/scripts/checkNewMails.sh} 1 -1)
+       ChangeTitle 1 $mailStr
+    End
+  End
+
+Widget 1
+  Property
+    Type ItemDraw
+    Position 0 0
+    Size 690 17
+    Flags NoReliefString Left
+End

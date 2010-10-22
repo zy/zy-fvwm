@@ -1,0 +1,94 @@
+#! /bin/sh
+PROG=`basename $0`
+IMAGEPATH="$1"
+ICONDIR=`dirname "$2"`
+[ -n "$ICONDIR" ] && IMAGEPATH="$ICONDIR:$IMAGEPATH"
+ICON=`basename "$2"`
+LABEL="$3"
+
+# space gives commentary, "d" for debug:
+VERBOSE=""
+#set -x
+
+# Looks for a mini-image in .fvwm/mini16. If not there, then it looks
+# for an image of that name along IMAGEPATH and creates a 16x16
+# version in .fvwm/mini16. Returns the name of the 16x16 file or "" on
+# error. Uses Poskanzer utilities for graphics manipulation. Elements
+# in PATH are separated by : and may have a ;EXT suffix which means
+# append EXT to ICON to look for a file.
+
+use_icon() {
+	[ "$VERBOSE" = "d" ] && echo "$PROG: use_icon \"$@\"" >&2 
+	#set -x
+	DIR="$1"
+	ICON="$2"
+
+	if [ -f "mini16/$ICON" ]; then
+		echo -n "$HOME/.fvwm/mini16/$ICON"
+		exit 0
+	fi
+	case "$ICON" in
+		*.xpm) CONV=xpmtoppm ; INVCONF=ppmtoxpm;;
+		*.gif) CONV=giftopnm ; INVCONF=ppmtogif;;
+		*.png) CONV=pngtopnm ; INVCONF=pnmtopng;;
+		*) return ;;
+	esac
+	RES=`$CONV "$DIR/$ICON" |pamfile 2>/dev/null`
+	if [ $? -ne 0 ]; then
+		echo "$PROG: Problem converting $DIR/$ICON for $LABEL" >&2
+		return 1
+	fi
+	case "$RES" in
+		*"16 by 16"*) 
+		[ -n "$VERBOSE" ] && echo "$PROG: copying existing $DIR/$ICON for $LABEL" >&2
+		cp "$DIR/$ICON" "mini16/$ICON" 
+		;;
+
+		*) 
+		[ -n "$VERBOSE" ] && echo "$PROG: converting existing $DIR/$ICON for $LABEL" >&2
+		$CONV -quiet "$DIR/$ICON" | pamscale -quiet -xyfill 16 16 2>/dev/null | $INVCONF -quiet > "mini16/$ICON";;
+	esac
+	echo -n "$HOME/.fvwm/mini16/$ICON"
+	exit 0
+}
+
+[ "$VERBOSE" = "d" ] && echo "$PROG: \"$@\"" >&2 
+
+[ -z "$IMAGEPATH" ] && exit 1
+[ -z "$ICON" ] && exit 1
+
+if [ -d mini16 ]; then
+	:
+else
+	mkdir mini16
+fi
+
+if [ -f "mini16/$ICON" ]; then
+	[ -n "$VERBOSE" ] && echo "$PROG: using existing mini16/$ICON for $LABEL" >&2
+	echo -n "$HOME/.fvwm/mini16/$ICON"
+	exit 0
+fi
+
+SAVEIFS="$IFS"
+IFS=":"
+set - "$IMAGEPATH"
+
+for DIR in $@; do
+	IFS=';'
+	set - $DIR
+	DIR="$1"
+	EXT="$2"
+	
+	if [ -f "$DIR/$ICON" ]; then
+		use_icon "$DIR" "$ICON"
+	fi
+
+	if [ -n "$EXT" ]; then
+		if [ -f "$DIR/$ICON$EXT" ]; then
+			use_icon "$DIR" "$ICON$EXT"
+		fi
+	fi
+done
+
+echo "$PROG: Can't find or make 16x16 image $ICON for $LABEL - will use x.xpm instead" >&2
+echo -n "$HOME/.fvwm/mini16/x.xpm"

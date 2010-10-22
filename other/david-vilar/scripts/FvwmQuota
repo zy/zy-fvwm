@@ -1,0 +1,141 @@
+# $Id: FvwmQuota,v 1.5 2007-02-22 15:01:12 vilar Exp $
+
+WindowTitle {FvwmQuota}
+WindowSize 220 40
+Colorset 18
+Font "xft:Freesans:Bold:pixelsize=16"
+
+Init
+  Begin
+    # We make sure /work/vilar is mounted
+    Set $dummy = (GetOutput {ls /work/vilar} 1 1)
+    Set $homeValue = (GetOutput {quota -Q | /u/vilar/.fvwm/scripts/getquota.awk} 1 1)
+    Set $homeLimit = (GetOutput {quota -Q | /u/vilar/.fvwm/scripts/getquota.awk} 1 2)
+    Set $workValue = (GetOutput {quota -Q | /u/vilar/.fvwm/scripts/getquota.awk} 1 3)
+    Set $workLimit = (GetOutput {quota -Q | /u/vilar/.fvwm/scripts/getquota.awk} 1 4)
+
+    ChangeMaxValue 2 $homeLimit
+    If $homeValue >= $homeLimit Then
+    Begin
+      ChangeValue 2 $homeLimit
+      ChangeForeColor 2 {Red}
+    End
+    Else
+    Begin
+      ChangeValue 2 $homeValue
+      ChangeColorset 2 19
+    End
+    Set $valueStr = $homeValue {G}
+    ChangeTitle 3 $valueStr
+    
+    
+    ChangeMaxValue 5 $workLimit
+    If $workValue >= $workLimit Then
+    Begin
+      ChangeValue 5 $workLimit
+      ChangeForeColor 5 {Red}
+    End
+    Else
+    Begin
+      ChangeValue 5 $workValue
+      ChangeColorset 5 19
+    End
+    Set $valueStr = $workValue {G}
+    ChangeTitle 6 $valueStr    
+  End
+
+
+PeriodicTasks
+  Begin
+    If (RemainderOfDiv (GetTime) 3600)==0 Then
+    Begin
+      # We make sure /work/vilar is mounted
+      Set $dummy = (GetOutput {ls /work/vilar} 1 1)
+      Set $homeValue = (GetOutput {quota -Q | /u/vilar/.fvwm/scripts/getquota.awk} 1 1)
+      Set $homeLimit = (GetOutput {quota -Q | /u/vilar/.fvwm/scripts/getquota.awk} 1 2)
+      Set $workValue = (GetOutput {quota -Q | /u/vilar/.fvwm/scripts/getquota.awk} 1 3)
+      Set $workLimit = (GetOutput {quota -Q | /u/vilar/.fvwm/scripts/getquota.awk} 1 4)
+
+      ChangeMaxValue 2 $homeLimit
+      If $homeValue > $homeLimit Then
+      Begin
+	ChangeValue 2 $homeLimit
+	ChangeForeColor 2 {Red}
+      End
+      Else
+      Begin
+        ChangeValue 2 $homeValue
+	ChangeColorset 2 19
+      End
+      Set $valueStr = $homeValue {G}
+      ChangeTitle 3 $valueStr
+      
+      ChangeMaxValue 5 $workLimit
+      If $workValue > $workLimit Then
+      Begin
+	ChangeValue 5 $workLimit
+	ChangeForeColor 5 {Red}
+      End
+      Else
+      Begin
+        ChangeValue 5 $workValue
+	ChangeColorset 5 19
+      End
+      Set $valueStr = $workValue {G}
+      ChangeTitle 6 $valueStr
+    End
+  End
+
+Widget 1
+  Property
+    Type ItemDraw
+    Position 0 0
+    Title {home:}
+    Flags NoReliefString Left
+End
+
+Widget 2
+  Property
+    Type HDipstick
+    Size 100 15
+    Position 56 3
+    Value 7500
+    MinValue 0
+    MaxValue 10
+    Colorset 19
+End
+
+Widget 3
+  Property
+    Type ItemDraw
+    Position 162 0
+    Title {188.8G}
+    Flags NoReliefString Right
+End
+
+Widget 4
+  Property
+    Type ItemDraw
+    Position 0 20
+    Title {work:}
+    Flags NoReliefString Left
+End
+
+Widget 5
+  Property
+    Type HDipstick
+    Size 100 15
+    Position 56 23
+    Value 0
+    MinValue 0
+    MaxValue 100
+    Colorset 19
+End
+
+Widget 6
+  Property
+    Type ItemDraw
+    Position 162 20
+    Title {188.8G}
+    Flags NoReliefString Right
+End

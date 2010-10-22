@@ -1,0 +1,59 @@
+AddToDecor "redgold" BorderStyle -- !NoInset
+
+AddToDecor "redgold" TitleStyle Active MultiPixmap \
+    Main Colorset 1 \
+    LeftOfText buttons/goldfleur_r.xpm \
+    RightOfText buttons/goldfleur_l.xpm
+AddToDecor "redgold" TitleStyle Inactive MultiPixmap \
+    Main Colorset 0 \
+    LeftOfText buttons/goldfleur_r.xpm \
+    RightOfText buttons/goldfleur_l.xpm \
+
+AddToDecor "redgold" TitleStyle Centered
+#AddToDecor "redgold" TitleStyle Height 23
+
++ ButtonStyle Reset
++ ButtonStyle All -- UseTitleStyle
++ ButtonStyle All -- raised
++ ButtonStyle All Inactive Colorset 0
++ ButtonStyle All Active Colorset 1
++ AddButtonStyle 1 Active pixmap buttons/gold_mwm_menu.xpm
++ AddButtonStyle 2 Active pixmap buttons/gold_mwm_max.xpm
++ AddButtonStyle 3 Active pixmap buttons/star.xpm
++ AddButtonStyle 4 Active pixmap buttons/gold_mwm_min.xpm
+
+#IconFont -adobe-helvetica-medium-r-normal--10-100-75-75-p-56-iso8859-1
+
+Colorset 0 fg black, bg #bf9d79, VGradient 24 #ad8153 #e5d8c8
+Colorset 1 fg #FFF3D9, bg #a23b3d, VGradient 24 #781d1c #d65f65
+
+MenuStyle * MenuColorset 1
+MenuStyle * BorderWidth 2
+MenuStyle * TrianglesRelief
+#MenuStyle * Font -adobe-helvetica-bold-r-normal--12-120-75-75-p-70-iso8859-1
+MenuStyle * SidePic side.fvwm2.xpm, SideColor Black
+
+Style * Colorset 0
+Style * HilightColorset 1
+#Style * Font -adobe-helvetica-bold-r-normal--14-140-75-75-p-82-iso8859-1
+Style * FvwmBorder
+#Style * BorderWidth 4
+#Style * HandleWidth 6
+
+Style * IconTitleColorset 0
+Style * HilightIconTitleColorset 1
+
+Style * UseDecor redgold
+
+*FvwmPager: Colorset * 0
+*FvwmPager: HilightColorset * 1
+*FvwmTaskBar: Colorset 1
+*FvwmTaskBar: IconColorset 0
+*FvwmTaskBar: FocusColorset 1
+#*FvwmTaskBar: StartIcon buttons/goldfleur_l.xpm
+*FvwmTaskBar: StartIcon buttons/goldfleur_down.xpm
+#Style "FvwmTaskBar" Sticky, NoTitle, NoHandles, BorderWidth 3, HandleWidth 3, WindowListSkip
+#Style "FvwmPager" Sticky, NoTitle, NoHandles, BorderWidth 3, HandleWidth 3, WindowListSkip
+
+*FvwmIdent: Colorset 1 # should track MenuColorset
+*FvwmIconMan: Colorset 1 # should track MenuColorset

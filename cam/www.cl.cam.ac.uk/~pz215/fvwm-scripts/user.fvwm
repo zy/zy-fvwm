@@ -1,0 +1,33 @@
+## some useless bindings
+
+# Mouse 4		T	N	Resize br w+0 w-5
+# Mouse 5		T	N	Resize br w+0 w+5
+# Mouse 4		W	2C	GotoAndFollow 0p -1p
+# Mouse 5		W	2C	GotoAndFollow 0p +1p
+# Mouse 4		W	2S	Move  0 w0
+# Mouse 5		W	2S	Move -0 w0 
+# Mouse (xterm) 3	W	A	RightClick RootMenu IconifyPointer
+
+
+Colorset 3 fg black, bg rgb:f5/f3/f0	      # inactive menu entries
+Colorset 4 fg black, bg rgb:FF/D7/99	      # active menu entries
+
+Colorset 20 fg white, bg rgb:20/10/0	      # FvwmPager active
+Colorset 21 fg black, bg rgb:ff/ee/dd	      # FvwmPager inactive
+Colorset 24 fg white, bg rgb:80/70/50 # FvwmPager ?
+Colorset 23 fg black, bg rgb:FF/D7/99	      # FvwmPager ?
+
+
+
+## qwerty or dvorak? (qwerty is default)
+
+# Read $./qwerty.fvwm 		
+# Read $./dvorak.fvwm
+
+## disable the pager (only if you really can't stand it!)
+
+# RedefineFunc ShowPager I Nop 
+
+# SetEnv FVWM_BROWSER 	    firefox
+# SetEnv FVWM_FILEMANAGER   rox
+# SetEvn FVWM_OPENAPP 	    gnome-open

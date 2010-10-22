@@ -1,0 +1,8 @@
+BorderStyle -- HiddenHandles NoInset Raised
+TitleStyle Centered Height 22
+Style * Font         -*-arial-bold-r-*-*-10-*-*-*-*-*-*-*
+Style * HandleWidth  4
+Style * ForeColor    #C0C0C0
+Style * BackColor    #F0F0F0
+Style * HilightFore  #F0F0F0
+Style * HilightBack  #4271AE

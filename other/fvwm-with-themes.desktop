@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=XSession
+Exec=fvwm-themes-start
+TryExec=fvwm-themes-start
+Name=FVWM-THEMES

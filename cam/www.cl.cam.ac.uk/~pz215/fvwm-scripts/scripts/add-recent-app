@@ -1,0 +1,12 @@
+#!/bin/bash
+
+menufile=$1
+tmpfile=$1.tmp
+
+shift
+
+cat ~/.fvwm2rc ~/.fvwm/config ~/.fvwm/*.menu ~/*.menu | grep "$*"  | head -n 1 > $tmpfile
+grep -v "$*" $menufile >> $tmpfile
+mv $tmpfile $menufile
+
+

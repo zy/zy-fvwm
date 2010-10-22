@@ -1,0 +1,149 @@
+# -*- fvwm -*-
+# Time-stamp: <zy.fvwm2rc, 12-03-2009 16:20 Ziyu Zhang >
+# sudo halt
+# http://www.fvwm.org/documentation/manpages/stable/
+# http://fvwm.lair.be/
+# http://fvwmwiki.bu-web.de/Tips
+
+# Ziyu /\|||||/\ Zhang
+# Email: emacs.zy@gmail.com (o o) GPG-ID: 92BAEC86
+# ---------------------------ooO--(_)--Ooo----------------------
+
+# fvwm --version
+# Piperead "echo Read /etc/FVWM/.fvwm2rc_$(groups|awk '{print $1}')"
+# echo Read $zy/linux/x/fvwm/zy-$(groups|awk '{print $1}')
+
+#	 ~/.fvwm2rc
+root@x40:/zp/zy/linux/x/
+# Test (!EnvIsSet FVWM_TEMP) SetEnv FVWM_TEMP /tmp/fvwm.$[USER]
+# Test (!EnvIsSet FVWM_ICONS) SetEnv FVWM_ICONS $[FVWM_USERDIR]/icons
+# SetEnv	FVWM_USERDIR	$[zy]/linux/x/fvwm
+# SetEnv	FVWM_DATADIR	$[zy]/linux/x/fvwm
+
+SetEnv	fvwm_home		$[zy]/linux/x/fvwm
+# SetEnv	fvwm_home		/zp/zy/linux/x/fvwm
+# SetEnv fvwm_home $[HOME]/.fvwm
+
+# hostname
+# scp /zp/zy/linux/x/fvwm/zy.fvwm2rc root@zy-a751:/zp/zy/linux/x/fvwm/
+# SetEnv	zy_hostname "zy-x40"
+# SetEnv	zy_hostname	"$[HOSTNAME]"
+# SetEnv	zy_hostname	$[HOSTNAME]
+# SetEnv	zy_hostname "zy-a751"
+# SetEnv		zy_hostname			$[(hostname)]
+# SetEnv	qw	Piperead 'echo $(hostname)'
+# SetEnv	qw	Piperead "hostname"
+
+# SetEnv fvwm_img $[fvwm_home]/images
+# SetEnv fvwm_icon $[fvwm_home]/icons
+# SetEnv fvwm_script $[fvwm_home]/scripts
+# SetEnv fvwm_wallpaper $[fvwm_home]/wallpapers
+# SetEnv fvwm_tmp $[fvwm_home]/tmp
+
+# SetEnv	fvwm_host desktop
+SetEnv		fvwm_terminal /usr/bin/rxvt
+# SetEnv	fvwm_terminal	gnome-terminal
+# SetEnv	fvwm_pdf_viewer "Xpdf" "acroread"
+SetEnv	fvwm_pdf_viewer Xpdf
+# SetEnv	hot_program Xpdf
+SetEnv	hot_program "Xpdf"
+SetEnv	fvwm_webbrowser /usr/local/bin/firefox
+SetEnv	fvwm_media_player	/usr/bin/xmms
+SetEnv	fvwm_video_player	/usr/local/bin/mplayer
+SetEnv	fvwm_chat		pidgin
+# SetEnv	fvwm_chat		empacy
+SetEnv	fvwm_browser	firefox
+SetEnv	fvwm_emacs emacs
+SetEnv	fvwm_hot_program acroread
+
+# SetEnv	fvwm_emacs emacs-snapshot
+SetEnv	fvwm_qq		/usr/local/bin/lumaqq
+SetEnv	fvwm_ftp	/usr/bin/gftp
+SetEnv	fvwm_dict	/usr/bin/stardict
+# SetEnv	fvwm_icons $[fvwm_home]/icons
+# SetEnv	zy_icons_dir	/zp/zy/linux/x/ui/icons
+SetEnv	zy_icons_dir	$[zy]/linux/x/ui/icons
+# /usr/share/icons/hicolor/48x48/apps/emacs-snapshot.png
+# /usr/share/emacs/23.0.91/etc/images/icons/hicolor/48x48/apps/
+
+# SetEnv	fvwm_path $zy/linux/x/fvwm
+# SetEnv	fvwm_webbrowser $zy/linux//firefox
+# SetEnv	fvwm_term aterm
+# SetEnv	fvwm_term /usr/bin/aterm
+# SetEnv	fvwm_mail /usr/bin/mutt
+# SetEnv	fvwm_media_player /usr/bin/xmms
+# SetEnv	fvwm_video_player /usr/bin/mplayer
+
+# SetEnv	fvwm_video_path $[HOME]/media/video
+# SetEnv	fvwm_video_exec mplayer
+
+# SetEnv	fvwm_audio_path $[HOME]/media/audio
+# SetEnv	fvwm_audio_exec beep-media-player --play
+
+# SetEnv	fvwm_image_path $[HOME]/media/images
+# SetEnv	fvwm_image_exec xv
+
+# SetEnv	fvwm_wallpaper $zy/linux/x/fvwm/wallpaper/zy-blue.png
+
+SetEnv fvwm_icon_size 20
+
+# ================ImagePath================
+# zy-image
+# ImagePath $[zy]/linux/x/fvwm/icons/:$[zy]/linux/x/fvwm/wallpaper/:$[zy]/linux/x/fvwm/banner:+
+# ImagePath $zy/linux/x/fvwm/icons/:$zy/linux/x/fvwm/wallpaper/:$zy/linux/x/fvwm/banner:+
+ImagePath	$[zy_icons_dir]:$[zy_icons_dir];.png:+
+# fvwm-icons
+# ImagePath /usr/include/X11/pixmaps/:+
+# wm-icons
+# ImagePath /usr/share/icons/wm-icons/14x14-general/:+
+
+# /usr/share/icons/hicolor/48x48/apps/
+# /usr/share/pixmaps/
+# /media/sda4/zy/linux/ui/icons/other/Mac4Lin/Mac4Lin_Icons_v0.3a/scalable/apps/
+# ImagePath $zy/linux/ui/wallpaper:+
+# ImagePath $zy/linux/ui/banner:+
+# ImagePath /usr/share/pixmaps:+
+# /usr/share/pixmaps/
+
+# ImagePath $zy/html/images:+
+# /usr/share/pixmaps/mozilla-thunderbird.png
+# ImagePath /usr/share/icons/crystalsvg/48x48/apps/:+
+# ImagePath /usr/share/icons/hicolor/48x48/apps/:+
+
+###############################################################################
+# import other files #
+###############################################################################
+
+# Echo	-Styles-
+Read	$[fvwm_home]/zy-decor.fvwm2rc
+Read	$[fvwm_home]/zy-styles.fvwm2rc
+Read	$[fvwm_home]/zy-menus.fvwm2rc
+# Read	$[fvwm_home]/FvwmManPagesMenu
+# Read	$[fvwm_zy]/zy-menus
+Read	$[fvwm_home]/zy-functions.fvwm2rc
+Read	$[fvwm_home]/zy-modules.fvwm2rc
+
+# Echo -Buttons & Keys-
+
+Read	$[fvwm_home]/zy-keys-mouse-$[zy_hostname].fvwm2rc
+# Read	$[fvwm_home]/zy-keys-mouse.fvwm2rc
+# Test (EnvMatch zy_hostname "zy-x40")	Read	$[fvwm_home]/zy-keys-mouse-zy-x40.fvwm2rc
+# Test (EnvMatch HOSTNAME "zy-x40")	Read	$[fvwm_home]/zy-keys-mouse-zy-x40.fvwm2rc
+# Test (EnvMatch HOSTNAME zy-x40)	Read	$[fvwm_home]/zy-keys-mouse-zy-x40.fvwm2rc
+# Test (EnvMatch $ENV{HOSTNAME} zy-x40)	Read	$[fvwm_home]/zy-keys-mouse-zy-x40.fvwm2rc
+# Read	 $[fvwm_home]/zy-keys-mouse-$[HOSTNAME].fvwm2rc
+# Test (EnvMatch zy_hostname "zy-a751")	Read	$[fvwm_home]/zy-keys-mouse-a751.fvwm2rc
+# Read	 $[fvwm_home]/zy-strokes.fvwm2rc
+# Test (EnvMatch qw "zy-x40")		Exec exec xterm
+# Read /etc/X11/fvwm/DebianMenu
+
+# Test (EnvMatch DISPLAY :0.0) Read monitor_extra_config Test (EnvMatch DISPLAY :0.1) Read tv_extra_config
+
+# /usr/share/icons/gnome/scalable/categories/gnome-control-center.svg
+
+# preferences-desktop.svg
+# mogrify -geometry 16x16 qw.jpeg
+# convert qw.svg png qw-new.png
+# convert -resize 16x16 qw.png qw-new.png
+# convert -rotate 90 image.jpg image.png
+

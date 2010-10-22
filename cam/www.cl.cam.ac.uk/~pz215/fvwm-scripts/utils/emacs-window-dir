@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gnuclient $PWD || { emacs -geometry 80x40 & }
+

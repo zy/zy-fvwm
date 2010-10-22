@@ -1,0 +1,39 @@
+# Key Keyname Context Modifiers Function
+# Mouse Button Context Modifiers Function
+# Button #
+# 1 --- click the left mouse button
+# 2 --- click the middle mouse button
+# 3 --- click the right mouse button
+# 4 --- scroll up
+# 5 --- scroll down
+
+# Context #
+# R - the root window I - Icon F - frame corners S - frame sides,
+# T - title bar W - application window 0-9 - buttons
+
+# beginning-of-protection
+#  ___________________________________
+# |                                   |
+# |   R                       R       |
+# |                                   |
+# |     F___________________ F        |
+# |     |13579 T  T  T 08642|         |
+# |     |-------------------|         |
+# |    S|                   |S        |
+# |     |   W          W    |         |
+# |    S|                   |S        |
+# |     |                   |         |
+# | R   |                   |   R     |
+# |     |                   |         |
+# |    S|                   |S        |
+# |     |   W          W    |         |
+# |    S|                   |S        |
+# |     |                   |         |
+# |    F|___________________|F        |
+# |   R       S       S        R      |
+# |               R                   |
+# |___________________________________|
+# end-of-protection
+
+# Modifiers #
+# C - Ctrl M - Meta(Alt) S - Shift A - Any 3 Super 4 Hyper N - None

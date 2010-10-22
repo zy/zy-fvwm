@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<head>
+	<title>Homepage of David Vilar</title>
+	<meta http-equiv="content-type"	content="text/html;	charset=iso-8859-1">
+    <link rel="stylesheet" href="tabs.css">
+    <link rel="SHORTCUT ICON" href="i6_icon.gif">
+
+</head>
+
+<body>
+<ul id="tabmenu">
+	<li><a href="index.html">Personal</a></li>
+	<li><a href="publications.php">Publications</a></li>
+	<li><a href="teaching.html">Teaching</a></li>
+	<li><a class="active" href="other.html">Other stuff</a></li>
+</ul>
+
+<div id="content">
+      <table border="0" bgcolor="#0066cc" width="100%">
+        <tr> <td class="bg"> <font color="#ffffff">My fvwm config</font> </td> </tr>
+      </table>
+
+      <p>
+      
+      <a href="fvwmconfig">Here</a> you can find my  config file for <a
+          href="http://www.fvwm.org">fvwm</a>, the best window manager around
+      ;-)
+
+      <p>
+
+      My desktop is mainly keyboard oriented. I removed the window titles in
+      order to gain scren space. Actually, I don't need the titles in most
+      windows to know what they are (informative prompts in shells go a long
+      way) and I can access the functionality of the title buttons quicker via
+      keystrokes. The mandatory screenshot is thus not so impressive, but here
+      it is:
+
+      <p>
+      <a href="fvwmScreen.png"> <img src="fvwmScreen-mini.png" border=0 alt="Fvwm screenshot"> </a>
+
+      <p>
+      Some interesting features:
+      <ul>
+      <li>
+         You can assign numbers (up to 10 per screen) to windows and jump to
+	 them quickly using the keyboard.
+      </li>
+      <li>
+         Names not only for desktops, but also for pages within
+         desktops. You can navigate and move windows using these names
+	 (see screenshot).
+      </li>
+      <li>
+         Creation and destruction of desktops "on the fly" (in reality
+	 is only a restart of FvwmPager, but it looks impressive for
+         "non-fvwmers" ;-).
+      </li>
+      <li>
+         Automatically sorting of shaded windows to keep the desktop
+         clean (see screenshot).
+      <li>
+         Mail programm (MUTT) accessible everywhere with only a keystroke.
+      </li>
+      <li>
+      WMII-like arrangement of windows (<a href="fvwm-wmii.png">example</a>).
+      </li>
+      <li>
+         "Expose"-like display of open windows (resizing them, i.e. no cool 3D
+         smooth effects).
+      </ul>
+
+      For these two last features to work, you have to modify FvwmRearrange (see also <a href="http://fvwm.lair.be/viewtopic.php?f=6&amp;t=1526&amp;p=8497&amp;hilit=#p8497">this thread</a>).
+      
+      <p>
+
+      <a href="fvwmScripts.tgz">Here</a> you can find the scripts I use (clock,
+      mail notification, page name display and quota display). Also included is
+      a battery status monitor I use on my laptop (which has a
+      similar config, but with window titles).  <p> <img src="FvwmBattery.png"
+      alt="Battery script">
+
+      <h2> List of keybindings </h2>
+
+      I write this list mainly for personal reference, but it should help if
+      you want to use my config. (Nearly) All keybinding use the fvwm key,
+      formerly known as "windows-key". (Note: I use an american keyboard). This
+      list is probably outdated, but most of the bindings listed should still
+      be valid.
+      
+      <ul>
+      <li> <b> fvwm+Tab: </b> Cycle through windows </li>
+      <li> <b> fvwm+shift+Tab: </b> Cycle through windows in reverse order </li>
+      <li> <b> fvwm+\: </b> Cycle through windows without rising them </li>
+      <li> <b> fvwm+[: </b> Cycle through windows of a certain type </li>
+      <li> <b> fvwm+]: </b> Cycle through windows of a certain type in reverse order </li>
+      <li> <b> fvwm+shift+[: </b> Cycle through windows of a certain type without rising them </li>
+      <li> <b> fvwm+shift+]: </b> Cycle through windows of a certain type in reverse order without rising them </li>
+      <li> <b> fvwm+Z: </b> Raise/lower a window </li>
+      <li> <b> fvwm+Space: </b> show the list of windows in current page </li>
+      <li> <b> fvwm+shift+Space: </b> show the list of all open windows </li>
+      <li> <b> fvwm+directions: </b> circulate through pages (NOT stopping at
+              desk boundaries!)</li>
+      <li> <b> fvwm+shift+directions: </b> move current window across pages </li>
+      <li> <b> fvwm+X:</b> open terminal </li>
+      <li> <b> fvwm+C:</b> open calender </li>
+      <li> <b> fvwm+shift+C:</b> open calculator </li>
+      <li> <b> fvwm+F1: </b> maximize current window </li>
+      <li> <b> fvwm+shift+F1: </b> maximize current window to fullscreen </li>
+      <li> <b> fvwm+F2: </b> maximize current window vertically </li>
+      <li> <b> fvwm+F3: </b> maximize current window horizontally </li>
+      <li> <b> fvwm+F4: </b> iconify current window </li>
+      <li> <b> fvwm+shift+F4: </b> shade current window </li>
+      <li> <b> fvwm+KP_Up: </b> resize window to upper half of the screen </li>
+      <li> <b> fvwm+KP_Down: </b> resize window to lower half of the screen </li>
+      <li> <b> fvwm+KP_Left: </b> resize window to left half of the screen </li>
+      <li> <b> fvwm+KP_Right: </b> resize window to right half of the screen </li>
+      <li> <b> fvwm+KP_Home: </b> resize window to upper left quarter of the screen </li>
+      <li> <b> fvwm+KP_PgUp: </b> resize window to upper right quarter of the screen </li>
+      <li> <b> fvwm+KP_End: </b> resize window to lower left quarter of the screen </li>
+      <li> <b> fvwm+KP_PgDn: </b> resize window to lower right quarter of the screen </li>
+      <li> <b> fvwm+Q: </b> close current window </li>
+      <li> <b> fvwm+shift+Q: </b> destroy current window </li>
+      <li> <b> fvwm+M: </b> Move window </li>
+      <li> <b> fvwm+shift+M: </b> Resize window </li>
+      <li> <b> fvwm+Control+KPdirections: </b> move current window in given direction </li>
+      <li> <b> fvwm+KP_5: </b> center window </li>
+      <li> <b> fvwm+shift+KPdirections: </b> resize current window in given direction </li>
+      <li> <b> fvwm+control+number: </b> assign number to window </li>
+      <li> <b> fvwm+number: </b> jump to window with given number </li>
+      <li> <b> fvwm+shift+number: </b> focus with given number (do not raise) </li>
+      <li> <b> fvwm+R: </b> run dialog </li>
+      <li> <b> fvwm+`: </b> show MUTT window </li>
+      <li> <b> fvwm+BackSpace: </b> raise/lower pager </li>
+      <li> <b> Menu: </b> show list of pages to jump to</li>
+      <li> <b> control+Menu: </b> show current desk and page name (using osd_cat) </li>
+      <li> <b> shift+Menu: </b> change page name </li>
+      <li> <b> shift+control+Menu: </b> change desk name </li>
+      <li> <b> fvwm+Menu: </b> menu move current window to page </li>
+      <li> <b> fvwm+shift+Menu: </b> menu move all windows to desk </li>
+      <li> <b> fvwm+D: </b> "create" desk </li>
+      <li> <b> fvwm+control+D: </b> "delete" desk </li>
+      <li> <b> control+Pause: </b> lock screen (and do some time accounting) </li>
+      <li> <b> control+shift+Pause: </b> lock screen (but don't do time accounting) </li>
+      <li> <b> fvwm+S: </b> shade all windows of current page </li>
+      <li> <b> fvwm+shift+S: </b> unshade all windows of current page </li>
+      <li> <b> fvwm+I: </b> iconifies all windows of current page </li>
+      <li> <b> fvwm+shift+I: </b> iconifies all windows of current page </li>
+      <li> <b> fvwm+P: </b> show pointer location (via FvwmAnimate) </li>
+      <li> <b> fvwm+T: </b> toggle window title </li>
+      <li> <b> fvwm+K: </b> show keyboard map </li>
+      </ul>
+
+      <table border="0" bgcolor="#0066cc" width="100%">
+        <tr> <td class="bg"> <font color="#ffffff">Sudokus</font> </td> </tr>
+      </table>
+      <p>
+
+      <a href="sudoku.tgz">Here</a> you can download a sudoku
+      solving/generating program I wrote in python. It supports
+      not only "traditional" sudokus, but also "exotic-sized" ones
+      (see screenshots below), and it is guaranteed that every
+      generated sudoku can be solved using only logical deductions, no
+      guessing is needed. It requires
+      <a href="http://www.python.org" target="_top">python 2.4</a> or newer and the Tk
+      python  bindings. So far I only tested on linux, but it should
+      also work on other platforms.
+      <p>
+      
+      <a href="sudoku.tgz"><img src="sudokuNormal.png" border=0 alt="Normal sudoku"></a>
+
+      <a href="sudoku.tgz"><img src="sudokuExotic.png" border=0 alt="Exotic sudoku"></a>
+
+      <table border="0" bgcolor="#0066cc" width="100%">
+        <tr> <td class="bg"> <font color="#ffffff">Vim color file</font> </td> </tr>
+      </table>
+      <p>
+
+      It seems I'm slowly changing from emacs to vim for programm-editing
+      purposes (but I remain in emacs for LaTeX until someone shows me an
+      equivalent to reftex in vim). I didn't find any sensible green-on-black
+      color scheme, so I built my own, starting from the provided "torte" color
+      scheme and taking over the color I got accostumed to in emacs. You can
+      find it <a href="greenOnBlack.vim">here</a>.
+</div>
+
+<div align="right">
+<p>
+Last modified: 07.05.2008
+</p>
+
+<p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-html401"
+        alt="Valid HTML 4.01 Transitional" height="31" width="88" border=0></a>
+</p>
+</div>
+
+</body>
+</html>

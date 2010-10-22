@@ -1,0 +1,146 @@
+#  -*- fvwm -*-
+# Time-stamp: <zy-fvwm-functions, 03-20-2008 05:42 Ziyu Zhang >
+
+# =============Function=====================
+## Mouse
+## I = Immediate 
+## M = On Mouse Motion
+## C = On Click
+## D = On Double Click
+## H = On Button Held Down 
+
+AddToFunc toggle_FvwmConsole
++ I toggle_window FvwmConsole "Module FvwmConsole"
+
+AddToFunc toggle_window
++ I None ($$0, CirculateHit) $$1
++ I TestRc (Match) Break
++ I Next (currentpage, visible, !iconic, $$0, CirculateHit) Close
++ I TestRc (Match) Break
++ I Next ($$0, CirculateHit) Function MakeVisible
+
+
+AddToFunc DeiconifyRaiseAndFocus
++ I Iconify off
++ I Raise 
++ I Focus
+
+AddToFunc Move-or-Raise		I Raise
++				M Move
++  				D Lower
+
+AddToFunc Maximize-Func		M Maximize    0   100
++				C Maximize    0   80
++				D Maximize   100  -35p
+
+AddToFunc Move-or-Iconify	I Raise
++				M Move
++				D Iconify
+
+DestroyFunc  NextWindow
+AddToFunc    NextWindow
++ I Next (!Desktop*, CurrentPage,  AcceptsFocus) FlipFocus NoWarp
++ I Current Raise
+
+DestroyFunc  PrevWindow
+AddToFunc    PrevWindow
++ I NoWindow Prev (!Desktop*, CurrentPage,  AcceptsFocus) FlipFocus NoWarp
++ I Current Raise
+
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I Iconify off
++ I Focus 
++ I Raise
++ I WindowShade false
++ I Current (!"DropTerm*") Function RecenterWindow
+
+# This function warps to the window, attempts to scroll the window 
+# to the center of the viewport, and moves the cursor to the center of the  Window
+AddToFunc RecenterWindow
++ I WarpToWindow 50 50
++ I PipeRead 'echo Scroll `echo $[pointer.x] - $[vp.width]/2 | bc`p 0p'
++ I PipeRead 'echo CursorMove `echo - $[pointer.x] + $[w.width]/2 + $[w.x] | bc`p 0p'
+
+######################## show-desktop-function ############################
+DestroyFunc     show-desktop-function
+AddToFunc       show-desktop-function
++ I All (CurrentPage,!Iconic,!FvwmTaskBar, !FvwmButtons !FvwmPager) Iconify
+
+SetEnv zyDesk 0
+DestroyFunc toggle-desk
+AddToFunc  toggle-desk
++ I Test (EnvMatch zyDesk 0) GotoDesk -1
++ I TestRc (NoMatch) GotoDesk 1
++ I Test (EnvMatch zyDesk 0) SetEnv zyDesk -1
++ I TestRc (NoMatch) SetEnv zyDesk 0
+
+SetEnv pppflag 1
+DestroyFunc toggle-ppp
+AddToFunc  toggle-ppp
++ I Test (EnvMatch pppflag 1) Exec ifup   ppp0
++ I TestRc (NoMatch) Exec ifdown ppp0     
++ I Test (EnvMatch pppflag 1) SetEnv pppflag 0
++ I TestRc (NoMatch) SetEnv pppflag 1
+
+DestroyFunc switch-window
+AddToFunc switch-window
++ I Next (CurrentPage,  $0) Iconify off
++ I Next (CurrentPage,  $0) Focus
++ I Current (CurrentPage, $0) Raise
+
+SetEnv zyEmacs 1
+DestroyFunc toggle-emacs-acroread
+AddToFunc  toggle-emacs-acroread
++ I Test (EnvMatch zyEmacs 1) Function switch-window "emacs"
++ I TestRc (NoMatch) Function switch-window  "Acroread"
+# + I TestRc (NoMatch) Function switch-window  "Xpdf"
++ I Test (EnvMatch zyEmacs 1) SetEnv zyEmacs 0 
++ I TestRc (NoMatch) SetEnv zyEmacs 1
+
+DestroyFunc FuncStartMaximised
+AddToFunc	FuncStartMaximised
+# + I ThisWindow (!FvwmTaskBar, !FvwmButtons !FvwmPager) Maximize   100  -35p
++ I ThisWindow (!emacs, !FvwmTaskBar, !FvwmButtons !FvwmPager) Maximize   100  -35p
++ I ThisWindow (emacs ) Maximize 100  -30p
++ I ThisWindow (gnome-terminal ) Maximize 100  -28p
+# + I ThisWindow (Firefox-bin !Maximized) Maximize 100  -35p
+# # + I ThisWindow (Firefox-bin) Exec firefox
+
+#Order of Execution: StartFunction, InitFunction, RestartFunction
+# StartFunction is a function that FVWM runs at both restarts and init. 
+DestroyFunc StartFunction
+AddToFunc   StartFunction
++ I Module FvwmBanner 
+# + I Module FvwmButtons
+# automatically raise focused windows.
++ I Module FvwmAuto 100 
+# + I Module FvwmAuto 100 Raise Nop
+# + I Module FvwmPager 0 1
++ I Module FvwmBacker
++ I Module FvwmTaskBar
+# FvwmIconMan
+# + I Module FvwmIconMan FvwmIconMan-TaskBar
++ I Module FvwmIconMan 
++ I Module FvwmNetHints
++ I Test (Init) Exec exec gnome-settings-daemon &
++ I Test (Init) Exec xmodmap ~/.xmodmaprc  
++ I Desk 0 0
+# + I Test (Init) Exec exec iwconfig ath0 ap any 
++ I Test (Init) Exec  emacs &
+# + I Test (Init) Exec emacs &
++ I Test (Init) Exec acroread -geometry 1020x710+0+0 &
++ I Test (Init) Exec exec firefox &
+# + I Test (Restart) Exec exec xterm -T Woo -ls
+# + I Desk 1 0
+# + I Exec firefox &
+
+######################## ExitFunction ############################
+DestroyFunc ExitFunction
+AddToFunc ExitFunction
++ I All (xscreensaver) Close
+# Exec sh $zy/linux/bin/kill-firefox.sh
+# + I All (emacs) Close
++ I All (firefiox) Close
+

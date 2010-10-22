@@ -1,0 +1,41 @@
+DEBIAN_VERSION=`cat /etc/debian_version`
+case $DEBIAN_VERSION in
+	3.1) DISTRIBUTION="sarge" ;;
+	4.0) DISTRIBUTION="etch" ;;
+	unstable|*/sid|sid) DISTRIBUTION="sid" ;;
+	testing/unstable) echo "please use unstable in /etc/debian_version"
+	   exit 1 ;;
+	*) echo "unknown distribution in /etc/debian_version: $DEBIAN_VERSION"
+	   exit 1 ;;
+esac
+echo "Debian version: $DEBIAN_VERSION -> $DISTRIBUTION"
+
+ARCH=`dpkg --print-architecture`
+MIRRORSITE="http://localhost:9999/debian"
+#MIRRORSITE="http://ftp2.de.debian.org/debian"
+if [ "$ARCH" = amd64 ] && [ "$DISTRIBUTION" = sarge ] ; then
+	MIRRORSITE="http://localhost:9999/debian-amd64"
+fi
+
+ROOT="/srv/pbuilder"
+BASETGZ="$ROOT/$DISTRIBUTION-$ARCH.tgz"
+ls -l "$BASETGZ" || :
+BUILDPLACE="$ROOT/build"
+BUILDRESULT="$ROOT/result"
+APTCACHE="$ROOT/aptcache"
+#ln: creating hard link `/data/pbuilder/aptcache//g++_4%3a3.3.5-1_i386.deb' to `/data/pbuilder/build//3381/var/cache/apt/archives/g++_4%3a3.3.5-1_i386.deb': Invalid cross-device link
+APTCACHEHARDLINK="no"
+
+BUILDUSERID=1000
+LOGNAME=root
+
+#OTHERMIRROR="deb http://planck.df7cb.de/apt-move unstable main"
+#export http_proxy="http://router.df7cb.de:3128/"
+unset http_proxy
+
+REMOVEPACKAGES="lilo"
+#BINDMOUNTS="/home/cb /tmp"
+
+unset TMPDIR TMP TEMP
+
+# vim:ft=sh:

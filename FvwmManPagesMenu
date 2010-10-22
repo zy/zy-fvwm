@@ -1,0 +1,70 @@
+
+#  -*- fvwm -*-
+# Time-stamp: <zy-fvwm-menus, 03-18-2008 17:30 Ziyu Zhang >
+
+# Add menu Fvwm man pages
+
+DestroyFunc FvwmViewManPage
+AddToFunc FvwmViewManPage
++ I Exec exec xterm -fg White -bg DarkBlue -g 80x40 -fn 7x14 -fb 7x14bold \
+-n "Manual Page - $0" -T "Manual Page - $0" -e man "$0"
+
+#####
+# FVWM Help Menu
+###########
+DestroyMenu FvwmManPagesMenu
+AddToMenu FvwmManPagesMenu "FVWM Man Pages" Title
++ "%menu/help.png%fvwm" FvwmViewManPage fvwm
++ "%menu/help.png%xpmroot" FvwmViewManPage xpmroot
+
++ "%menu/help.png%FvwmAnimate" FvwmViewManPage FvwmAnimate
++ "%menu/help.png%FvwmAuto" FvwmViewManPage FvwmAuto
++ "%menu/help.png%FvwmBacker" FvwmViewManPage FvwmBacker
++ "%menu/help.png%FvwmBanner" FvwmViewManPage FvwmBanner
++ "%menu/help.png%FvwmButtons" FvwmViewManPage FvwmButtons
+
++ "%menu/help.png%FvwmCommand" FvwmViewManPage FvwmCommand
++ "%menu/help.png%FvwmConsole" FvwmViewManPage FvwmConsole
++ "%menu/help.png%FvwmConsoleC.pl" FvwmViewManPage FvwmConsoleC.pl
++ "%menu/help.png%FvwmCpp" FvwmViewManPage FvwmCpp
+
++ "%menu/help.png%FvwmDebug" FvwmViewManPage FvwmDebug
++ "%menu/help.png%FvwmDragWell" FvwmViewManPage FvwmDragWell
++ "%menu/help.png%FvwmEvent" FvwmViewManPage FvwmEvent
++ "%menu/help.png%FvwmForm" FvwmViewManPage FvwmForm
++ "%menu/help.png%FvwmGtk" FvwmViewManPage FvwmGtk
++ "%menu/help.png%FvwmGtkDebug" FvwmViewManPage FvwmGtkDebug
++ "%menu/help.png%FvwmIconBox" FvwmViewManPage FvwmIconBox
++ "%menu/help.png%FvwmIconMan" FvwmViewManPage FvwmIconMan
++ "%menu/help.png%FvwmIdent" FvwmViewManPage FvwmIdent
+
++ "%menu/help.png%FvwmM4" FvwmViewManPage FvwmM4
++ "%menu/help.png%FvwmPager" FvwmViewManPage FvwmPager
++ "%menu/help.png%FvwmPerl" FvwmViewManPage FvwmPerl
++ "%menu/help.png%FvwmProxy" FvwmViewManPage FvwmProxy
++ "%menu/help.png%FvwmRearrange" FvwmViewManPage FvwmRearrange
++ "%menu/help.png%FvwmSave" FvwmViewManPage FvwmSave
++ "%menu/help.png%FvwmSaveDesk" FvwmViewManPage FvwmSaveDesk
++ "%menu/help.png%FvwmScript" FvwmViewManPage FvwmScript
++ "%menu/help.png%FvwmScroll" FvwmViewManPage FvwmScroll
+
++ "%menu/help.png%FvwmTabs" FvwmViewManPage FvwmTabs
++ "%menu/help.png%FvwmTaskBar" FvwmViewManPage FvwmTaskBar
++ "%menu/help.png%FvwmTheme" FvwmViewManPage FvwmTheme
++ "%menu/help.png%FvwmWharf" FvwmViewManPage FvwmWharf
++ "%menu/help.png%FvwmWinList" FvwmViewManPage FvwmWinList
++ "%menu/help.png%FvwmWindowMenu" FvwmViewManPage FvwmWindowMenu
++ "" Nop
++ "%menu/help.png%fvwm-config" FvwmViewManPage fvwm-config
++ "%menu/help.png%fvwm-perllib" FvwmViewManPage fvwm-perllib
++ "%menu/help.png%fvwm-root" FvwmViewManPage fvwm-root
+
++ "%menu/help.png%fvwm-bug" FvwmViewManPage fvwm-bug
+#+ "%menu/help.png%fvwm-convert-2.2" FvwmViewManPage fvwm-convert-2.2
++ "%menu/help.png%fvwm-convert-2.4" FvwmViewManPage fvwm-convert-2.4
++ "" Nop
++ "%menu/help.png%fvwm-menu-desktop" FvwmViewManPage fvwm-menu-desktop
++ "%menu/help.png%fvwm-menu-directory" FvwmViewManPage fvwm-menu-directory
++ "%menu/help.png%fvwm-menu-headlines" FvwmViewManPage fvwm-menu-headlines
++ "%menu/help.png%fvwm-menu-xlock" FvwmViewManPage fvwm-menu-xlock
+  

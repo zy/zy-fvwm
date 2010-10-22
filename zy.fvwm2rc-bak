@@ -1,0 +1,114 @@
+# -*- fvwm -*-
+# Time-stamp: <zy.fvwm2rc-bak, 11-11-2008 20:49 Ziyu Zhang >
+
+# http://www.fvwm.org/documentation/manpages/stable/
+# http://fvwm.lair.be/
+# http://fvwmwiki.bu-web.de/Tips
+
+# ____________________________
+# ( _________________________)
+# ) (__ _ _ _ _
+# ( __)( \/ )( \/\/ )/\/\
+# ) ( \ / \ // \
+# (___) \/ \/\/(_/\/\_) 2.5
+
+# Ziyu /\|||||/\ Zhang
+# Email: emacs.zy@gmail.com ( o o ) GPG-ID: 47E322CE
+# ---------------------------ooO--(_)--Ooo----------------------
+# fvwm --version
+# ln -s /etc/FVWM/.fvwm2rc ~/.fvwm2rc
+# Piperead "echo Read /etc/FVWM/.fvwm2rc_$(groups|awk '{print $1}')"
+# echo Read $zy/linux/x/fvwm/zy-$(groups|awk '{print $1}')
+
+# ~/.fvwm2rc
+
+SetEnv fvwm_home $[zy]/linux/x/fvwm
+
+SetEnv zy_hostname desktop
+# SetEnv fvwm_host desktop
+# SetEnv fvwm_terminal /usr/local/bin/urxvt
+# SetEnv fvwm_terminal /usr/local/bin/rxvt
+SetEnv fvwm_terminal gnome-terminal
+SetEnv fvwm_webbrowser /usr/local/bin/firefox
+SetEnv fvwm_media_player /usr/bin/xmms
+SetEnv fvwm_video_player /usr/local/bin/mplayer
+SetEnv fvwm_chat pidgin
+SetEnv fvwm_browser firefox
+SetEnv fvwm_emacs emacs
+# SetEnv fvwm_emacs emacs-snapshot
+SetEnv fvwm_qq /usr/local/bin/lumaqq
+SetEnv fvwm_ftp /usr/bin/gftp
+SetEnv fvwm_dict /usr/bin/stardict
+# SetEnv fvwm_icons $[fvwm_home]/icons
+SetEnv fvwm_icons $zy/linux/x/ui/icons
+# SetEnv fvwm_path $zy/linux/x/fvwm
+# SetEnv fvwm_webbrowser $zy/linux//firefox
+# SetEnv fvwm_term aterm
+# SetEnv fvwm_term /usr/bin/aterm
+# SetEnv fvwm_mail /usr/bin/mutt
+# SetEnv fvwm_media_player /usr/bin/xmms
+# SetEnv fvwm_video_player /usr/bin/mplayer
+
+# SetEnv fvwm_video_path $[HOME]/media/video
+# SetEnv fvwm_video_exec mplayer
+
+# SetEnv fvwm_audio_path $[HOME]/media/audio
+# SetEnv fvwm_audio_exec beep-media-player --play
+
+# SetEnv fvwm_image_path $[HOME]/media/images
+# SetEnv fvwm_image_exec xv
+
+# SetEnv fvwm_wallpaper $zy/linux/x/fvwm/wallpaper/zy-blue.png
+
+# ================ImagePath================
+
+# ImagePath +:$zy/linux/x/fvwm/icons/:$zy/linux/x/fvwm/wallpaper/:$zy/linux/x/fvwm/banner:
+# ImagePath $zy/linux/ui/icons
+# ImagePath $zy/linux/ui/icons
+
+ImagePath $[fvwm_icons]:$[fvwm_icons];.png:+
+
+# /usr/share/icons/hicolor/48x48/app
+
+# /usr/share/icons/hicolor/48x48/apps/
+# /usr/share/pixmaps/
+# /media/sda4/zy/linux/ui/icons/other/Mac4Lin/Mac4Lin_Icons_v0.3a/scalable/apps/
+# ImagePath $zy/linux/ui/wallpaper:+
+# ImagePath $zy/linux/ui/banner:+
+# ImagePath /usr/share/pixmaps:+
+# /usr/share/pixmaps/
+
+# ImagePath $zy/html/images:+
+# /usr/share/pixmaps/mozilla-thunderbird.png
+# ImagePath /usr/share/icons/crystalsvg/48x48/apps/:+
+# ImagePath /usr/share/icons/hicolor/48x48/apps/:+
+
+###############################################################################
+# import other files #
+###############################################################################
+
+Echo -Styles-
+Read $[fvwm_home]/zy-fvwm-decor
+Read $[fvwm_home]/zy-fvwm-styles
+Read $[fvwm_home]/zy-fvwm-menus
+Read $[fvwm_home]/FvwmManPagesMenu
+# Read $[fvwm_zy]/zy-fvwm-menus
+Read $[fvwm_home]/zy-fvwm-functions
+Read $[fvwm_home]/zy-fvwm-modules
+# Echo -Buttons & Keys-
+Read $[fvwm_home]/zy-fvwm-keys-mouse
+Read $[fvwm_home]/zy-fvwm-strokes
+
+# /usr/share/icons/gnome/scalable/categories/ gnome-control-center.svg
+
+# ~/.fvwm2rc
+# $zy/html/research/system/os/linux/gui/x/fvwm/zy-fvwm.html
+# /etc/X11/gdm/Sessions/Fvwm
+
+# preferences-desktop.svg
+# mogrify -geometry 16x16 qw.jpeg
+# convert qw.svg png qw-new.png
+# convert -resize 16x16 qw.png qw-new.png
+# convert -rotate 90 image.jpg image.png
+
+# Read $zy/linux/x/fvwm/zy.fvwm2rc

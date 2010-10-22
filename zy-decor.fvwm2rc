@@ -1,0 +1,51 @@
+# -*- fvwm -*-
+# Time-stamp: <zy-decor.fvwm2rc, 09-16-2009 15:28 Ziyu Zhang >
+
+# ==================================zy-decor======================================
+
+SetEnv  COLOR LightYellow
+SetEnv  HICOLOR DodgerBlue
+SetEnv  FG_COLOR Black
+SetEnv  FG_HICOLOR White
+
+DestroyDecor    zy-decor
+AddToDecor      zy-decor
++ TitleStyle    VGradient 128 $[HICOLOR]3 $[HICOLOR]4 -- Flat
+# + TitleStyle  ActiveUp Solid SteelBlue4 -- flat
+# + TitleStyle  ActiveUp Colorset 3
+# + TitleStyle  ActiveUp (HGradient 128 2 LightSkyBlue 20 grey70 LightSkyBlue3 10)-- Flat
++ TitleStyle    ActiveUp (HGradient 128 2 black 50 rgb:80/80/80 50 black -- Sunk)
+
+# + TitleStyle  InActive Colorset 4
+# + TitleStyle  Inactive Solid #11236b -- flat
++ TitleStyle    Inactive VGradient 128 $[COLOR]3 $[COLOR]4 -- Flat
+
+# + TitleStyle  ActiveDown Solid SteelBlue4 -- flat
+# + TitleStyle  ActiveDown Colorset 3
+# + TitleStyle  ActiveDown (HGradient 128 2 black 50 rgb:80/80/80 50 black -- Sunk)
++ TitleStyle    ActiveDown (HGradient 128 2 SkyBlue SkyBlue3 10 -- Sunk)
+
+# + TitleStyle  LeftJustified
++ TitleStyle    CenterJustified
++ TitleStyle    -- flat
++ TitleStyle    Height 20
+
++ BorderStyle   -- HiddenHandles
++ BorderStyle   -- Flat
+
+## +--------------------------------------------------------------------------+
+## | 1 3 5 7 9          Title           0 8 6 4 2 |
+## |--------------------------------------------------------------------------|
++ ButtonStyle   1 Vector 5 25x75@0 75x75@0 75x25@0 25x25@1 25x75@1
++ ButtonStyle   3 Vector 4 50x75@1 25x25@1 75x25@1 50x75@0
+
++ ButtonStyle   5 Vector 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 \
+60x50@0 80x70@0 80x80@0 70x80@0 50x60@0 30x80@0 \
+20x80@0 20x70@1 40x50@1 20x30@0 20x20@1
++ ButtonStyle   6 Vector 7 70x15@0 30x55@1 50x55@0 40x85@1 80x45@0 60x45@1 70x15@0
+# + ButtonStyle 4 Vector 7 70x15@0 30x55@1 50x55@0 40x85@1 80x45@0 60x45@1 70x15@0
++ ButtonStyle   2 Vector 5 25x75@0 75x75@0 75x25@0 25x25@1 25x75@1
+# + ButtonStyle 6 Vector 4 50x75@1 25x25@1 75x25@1 50x75@0
+
+# + ButtonStyle All ActiveDown VGradient 8 palevioletred black # All -- UseTitleStyle
+

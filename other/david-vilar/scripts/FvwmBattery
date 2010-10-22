@@ -1,0 +1,112 @@
+# $Id: FvwmBattery,v 1.2 2005/06/08 12:59:26 vilar Exp $
+
+WindowTitle {FvwmBattery}
+WindowSize 190 50
+Colorset 14
+Font "Shadow=2 C:xft:Arial Black:pixelsize=16"
+
+# Widget list:
+# 1: "HDipstick": battery level
+# 2: ItemDraw: text battery level
+# 3: ItemDraw: battery status
+
+Init
+  Begin
+    Set $batteryInfo = (GetOutput {$HOME/.fvwm/scripts/fvwmGetBatteryStatus.sh} 1 -1)
+    Set $status = (StrCopy $batteryInfo 1 1)
+    Set $level = (StrCopy $batteryInfo 2 4)
+    Set $lastLevel = $level    
+    Set $lastStatus = $status
+    SendSignal 1 1
+    SendSignal 2 1
+    SendSignal 3 1
+  End
+
+PeriodicTasks
+  Begin
+    If (RemainderOfDiv (GetTime) 10)==0 Then
+      Begin
+        Set $batteryInfo = (GetOutput {$HOME/.fvwm/scripts/fvwmGetBatteryStatus.sh} 1 -1)
+	Set $status = (StrCopy $batteryInfo 1 1)
+        Set $level = (StrCopy $batteryInfo 2 4)
+
+	If $status <> $lastStatus Then
+	Begin
+	  SendSignal 3 1
+	  Set $lastStatus = $status
+	End
+	  
+ 	If $level <> $lastLevel Then
+        Begin
+	  SendSignal 1 1
+          SendSignal 2 1
+	  Set $lastLevel = $level
+        End
+      End
+  End
+
+Widget 1
+  Property
+    Type HDipstick
+    Size 130 20
+    Position 56 4
+    Value 50
+    MinValue 0
+    MaxValue 100
+    Colorset 15
+  Main
+    Case message of
+      1 :
+      Begin
+        If $level == 100 Then
+	   HideWidget 1
+	Else
+	Begin
+	   ShowWidget 1
+           ChangeValue 1 $level
+	End
+      End
+End
+
+Widget 2
+  Property
+    Type ItemDraw
+    Position 2 0
+    Title {100%}
+    Flags NoReliefString Right
+  Main
+    Case message of
+      1 :
+      Begin
+        If $level == 100 Then
+	   HideWidget 2
+	Else
+	Begin
+	   ShowWidget 2
+           Set $levelString = $level {%}
+           ChangeTitle 2 $levelString
+	End
+      End
+End
+
+Widget 3
+  Property
+    Type ItemDraw
+    Position 5 25
+    Title {Battery: Discharging}
+    Flags NoReliefString Left
+  Main
+    Case message of
+    1 :
+    Begin
+      If $status == {f} Then
+        ChangeTitle 3 {Battery: Charged}
+      Else
+        Begin
+        If $status == {d} Then
+          ChangeTitle 3 {Battery: Discharging}
+        Else
+          ChangeTitle 3 {Battery: Charging}
+        End
+    End
+End

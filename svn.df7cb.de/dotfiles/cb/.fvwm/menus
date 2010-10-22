@@ -1,0 +1,156 @@
+# $Id$
+
+# This file is read by .fvwm2rc-xterm.m4
+# otherwise, the menu entry order is screwed up
+
+DestroyMenu Main
+AddToMenu Main	"fvwm2"		Title
++		"&xterm"	Exec xterm
+#+		"xterm"		Popup xterm
++		"&Apps"		Popup Apps
++		"&Debian"	Popup "/Debian"
+#+		"&Init"		Popup Init
++		"&Fvwm"		Popup FvwmMenu
++		"&Keymaps"	Popup KeymapMenu
+#+		"&Screen"	Popup Screen
+#+		"&VNC"		Popup VNC
++		"&Window"	Popup WindowOps
++		""		Nop
+#+		"Quit FVWM"	Quit
++		"&Quit X"	Exec killall xterm xterm.real fvwm
++		"&Poweroff"	Exec sudo poweroff
+#+		" +&Commit"	Exec xterm -e "make commit ; sudo poweroff"
+#+		" +&Backup"	Exec xterm -e "make commit ; rdiff-volta-planck ; sudo poweroff"
+
+
+DestroyMenu Apps
+AddToMenu Apps	"Apps"		Title
++		"&firefox"	Exec firefox
+#+		"address&book"	Exec addressbook
++		"bbo"		Exec bbo
++		"bm2000"	Exec bm2000
++		"&endeavour2"	Exec endeavour2
++		"gimp"		Exec gimp
++		"&grip"		Exec grip
++		"gv"		Exec gv
++		"&netscape"	Exec netscape
++		"oo&ffice"	Exec ooffice
++		"&plan"		Exec LANG=de_DE.ISO-8859-1 plan
++		"p&ycocuma"	Exec pycocuma
++		"&teatimer"	Exec teatimer 02:30
++		"&unison-gtk"	Exec unison-gtk
++		"xawt&v"	Exec xawtv -geometry 780x585
++		"x&mms"		Exec xmms
++		"&xvncviewer"	Exec xvncviewer
+
+
+DestroyMenu Init
+AddToMenu Init	"Init"		Title
++		"&poweroff"	Exec sudo poweroff
++		"&halt"		Exec sudo halt
++		"&reboot"	Exec sudo reboot
++		"&pump"		Exec sudo pump
+
+
+DestroyMenu Screen
+AddToMenu Screen	"Screen"	Title
++		"&dpmsoff"	Exec dpmsoff
++		"x&lock"	Exec dpmsoff blank
++		"x&root"	Exec xroot
++		" &offline"	Exec xv -root -quit +noresetroot bilder/back
++		""		Nop
++		"xscr prefs"	Exec xscreensaver-command -prefs
+
+
+DestroyMenu FvwmMenu
+AddToMenu FvwmMenu	"fvwm2"	Title
++			"Fvwm&Talk"	Module FvwmTalk
++			"&3x3 Desktop"	DeskTopSize 3 3
++			"&Modules"	Popup ModulePopup
++			""		Nop
++			"Re&fresh"	Refresh
++			"Re&capture"	Recapture
++			"Re&start"	Restart
++			"&Quit"		Quit
+
+
+DestroyMenu VNC
+AddToMenu VNC		"VNC"	Title
++ "intertalk:0"	Exec vncviewer -passwd /home/cb/.vnc/passwd_intertalk:0 intertalk.vpn.df7cb.de:0
++ "meitner:1"	Exec vncviewer -passwd /home/cb/.vnc/passwd_meitner:1 meitner.vpn.df7cb.de:1
++ "volta:0"	Exec vncviewer -passwd /home/cb/.vnc/passwd_volta:0 volta.vpn.df7cb.de:0
+
+
+DestroyMenu WindowOps
+AddToMenu WindowOps "Window Ops"	Title
++	"Identify	 S1"	Module FvwmIdent
++	"&Iconify	 F4"	Iconify
++	"Re&fresh	 S4"	RefreshWindow
++	"&Close	 A4"		Close
++	"&Destroy	CA4"	Destroy
++	"&Raise	 F5"		Raise
++	"&Lower	 S5"		Lower
++	"S&hade	 F6"		WindowShade
++	"S&tick	 S6"		Stick
++	"&Move	 F8"		Move
++	"Re&size	 F9"	Resize
+#+	"Resize..."		Popup ResizeMenu
++	"Max &vert	F10"	Function Maximize0100
++	"Ma&ximize	F11"	Function Maximize100100
++	"Max &horiz	F12"	Function Maximize1000
+
+
+DestroyMenu ResizeMenu
+AddToMenu ResizeMenu	"Resize/Move"	Title
++			"80x25"		Resize 49 43
++			"Max hor"	Maximize 100 0
++			"Max vert"	Maximize 0 100
++			"Maximize"	Maximize 100 100
++			""		Nop
++			"LO"		Move 0 0
++			"RO"		Move 50 0
++			"LU"		Move 0 44
++			"RU"		Move 50 44
+
+
+DestroyMenu KeymapMenu
+AddToMenu KeymapMenu	"Keymaps"	Title
++			"&PC"		Exec xmodmap $HOME/.xmodmap-pc
++			"PC (&D)"	Exec xmodmap $HOME/.xmodmap-pc-d
++			"&Sun"		Exec xmodmap $HOME/.xmodmap-sun
++			"&NCD"		Exec xmodmap $HOME/.xmodmap-ncd
++			""		Nop
++			"&xkeycaps"	Exec xkeycaps
+
+
+# fvwm modules ############################################################
+
+DestroyMenu ModulePopup
+AddToMenu ModulePopup "Fvwm2-Module"	Title
++	"Audio"		Module FvwmAudio
++	"AutoRaise ein"	Module FvwmAuto 500
++	"AutoRaise aus"	KillModule FvwmAuto
++	"Banner"	Module FvwmBanner
++	"Buttons"	Module FvwmButtons
++	"Cascade"	Module FvwmCascade
++	"Command"	Module FvwmCommand
++	"Config"	Module FvwmConfig
++	"Console"	Module FvwmConsole
++	"Debug"		Module FvwmDebug
++	"Form"		Module FvwmForm
++	"GoodStuff"	Module FvwmGoodStuff
++	"IconBox"	Module FvwmIconBox
++	"IconMan"	Module FvwmIconMan
++	"Ident"		Module FvwmIdent
++	"M4"		Module FvwmM4
++	"Pager"		Module FvwmPager 0 0
++	"Pipe"		Module FvwmPipe
++	"Save"		Module FvwmSave
++	"SaveDesk"	Module FvwmSaveDesk
++	"Script"	Module FvwmScript
++	"Scroll"	Module FvwmScroll
++	"Talk"		Module FvwmTalk
++	"TaskBar"	Module FvwmTaskBar
++	"Tile"		Module FvwmTile
++	"Wharf"		Module FvwmWharf
++	"WinList"	Module FvwmWinList

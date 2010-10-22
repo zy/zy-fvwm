@@ -1,0 +1,590 @@
+# -*- fvwm -*-
+#    ___                    ___    ____   ___  ___ 
+#   / _/  ___    ____ _    |_  |  / __/  |_  ||_  |
+#  / _/ |/ / |/|/ /  ' \  / __/_ /__ \_ / __// __/ 
+# /_/ |___/|__,__/_/_/_/ /____(_)____(_)____/____/ 
+#           
+# author        park3r
+# email:        
+# version:      0.08
+# date:         20070622
+# credits:      taviso (thumbnail function, kuake terminal, wallpaper thumbs)
+#
+# -multi-term           for kuake-like terminal
+# -xosview              for perf tabs
+# -scrot or imlib2      for screenshots
+# -xwd                  for thumbnails
+#
+# -the HUD should be hideable by pressing H
+# -all windows black translucent
+#
+# TODO
+# - FvwmWinList or FvwmIconMan or FvwmTaskBar to Bottom
+# - MiniIcons on Minimized Apps to Desktop
+# - MiniIcons to Apps
+# - 1px black borders (Colors)
+# - define some custom colors
+# - highlight on mouseover for FvwmButtons
+# - FvwmRearange for active desktop (tile)
+# - FvwmTabs for the quake Terminal
+#-----------------------------------------------------------------------
+# This work is licensed under the Creative Commons Attribution License.
+# To view a copy of this license, visit http://creativecommons.org/licenses/by/2.0/
+# or send a letter to Creative Commons, 559 Nathan Abbott Way,
+# Stanford, California 94305, USA.
+#-----------------------------------------------------------------------
+
+# [1] set IMAGE PATH variable
+# i have the qnx icons which are 16x16, try to include them temporary here to see the effect
+ImagePath $[HOME]/.icons/qnx:$[HOME]/.icons/apps1:$[HOME]/.icons/fvwm
+
+# ENV variables
+SetEnv fvwm_icon_size           128
+SetEnv fvwm_video_path          /home/sound/avi
+SetEnv fvwm_video_exec          "mplayer"
+SetEnv fvwm_audio_path          /audio/mp3
+SetEnv fvwm_audio_exec          "audacious"
+#SetEnv fvwm_image_path                 /home/sound/pics/wallpaper
+SetEnv browser                  "firefox-bin"
+SetEnv fvwm_wallpaper_dir       /home/sound/pics/wallpaper
+SetEnv fvwm_wallpaper           $[fvwm_wallpaper_dir]/NOP-1600x1200.png
+#SetEnv fvwm_other_path
+
+# http://www.fvwm.org/documentation/faq/#5.5
+IgnoreModifiers LS
+DeskTopSize 3x3
+EwmhBaseStruts 3 3 3 55
+#DefaultLayers 0 4 6
+ClickTime 200
+EdgeResistance 100 10
+EdgeThickness 1
+
+### start funciton section #####
+AddToFunc StartFunction
++ I Test (Init) Test (x aterm) StartHiddenConsole
++ I Test (Init) Exec exec fvwm-root --dither --retain-pixmap $[fvwm_wallpaper]
+#+ I Module FvwmAuto FvwmAutohide -menter FuncAutoEnter
++ I Module FvwmAnimate
++ I Module FvwmButtons
++ I Test (Init) xscreensaver
+#+ I FvwmButtons MiniButtons
+#+ I Test (Init) Exec exec tail -n 0 -f /var/log/messages | osd_cat -A left -o 10 -i 10 -c white -d 10 -s 1
++ I Test (Init) Exec exec root-tail -g 800x100+25+10 -noinitial -wordwrap -reverse -color white /var/log/messages
+#+ I Test (Init) Exec exec  
+#+ I Test (Init) Exec exec ncmpc -c | osd_cat -A left -o 10 -i 10 -c white -d 10 -s 1
+
+#------------------
+# [3] style section
+#-------------------------------------------------
+#Style * Colorset 0, HilightColorset 8
+#Style * BorderWidth 4, HandleWidth 4
+#Style * BorderColorset 40, HilightBorderColorset 42
+#Style * MWMFunctions, MWMDecor
+#Style * HintOverride, DecorateTransient, NoPPosition
+#Style * MouseFocusClickRaises, SloppyFocus, GrabFocusOff
+#Style * SmartPlacement
+#Style * WindowShadeSteps 20
+#Style * Button 1, Button 2, Button 4, Button 6
+Style * Button 2, Button 4, Button 6 
+Style * UseDecor DefaultDecor
+
+# [2] cursor styles
+CursorStyle root    left_ptr
+CursorStyle title   left_ptr
+CursorStyle sys     left_ptr
+CursorStyle default left_ptr
+CursorStyle menu    left_ptr
+
+### color section
+##### menu
+Colorset 0 fg #ffffff, fgsh #000000, bg #000000, hi #000000, sh #000000, Translucent #666666 50
+Colorset 1 fg #000000, fgsh #000000, bg #ffffff, hi #000000, sh #000000, Translucent #666666 80
+Colorset 2 fg #ffffff, bg #000000 
+#### Decoration
+Colorset 10 fg #ffffff, bg #ffffff, RootTransparent, Tint #000000 50, IconAlpha 70
+Colorset 11 fg #ffffff, bg #ffffff, RootTransparent, Tint #000000 50, IconAlpha 80
+#### Pager
+Colorset 20 fg #ffffff, bg #ffffff,  RootTransparent, Tint #666666 50 
+Colorset 21 fg #ffffff, bg #ffffff,  RootTransparent, Tint #666666 30
+Colorset 22 fg #ffffff, bg #ffffff,  RootTransparent, Tint #666666 80
+Colorset 23 fg #ffffff, bg #ffffff,  RootTransparent, Tint #666666 45
+#### Iconbox
+Colorset 30 fg #ffffff, fgsh #000000, bg #000000, RootTransparent, Tint #666666 00, IconAlpha 20
+Colorset 31 fg #ffffff, fgsh #ffffff, bg #ffffff, RootTransparent, Tint #666666 00, IconAlpha 20
+Colorset 32 fg #ffffff, fgsh #ffffff, bg #ffffff, RootTransparent, Tint #666666 00, IconAlpha 20
+#### Buttons
+colorset 40 fg #e0e0e0, bg #202020, RootTransparent, Tint #666666 50
+Colorset 41 fg #aaaaaa, bg #202020, RootTransparent, Tint #333333 50
+Colorset 42 fg #e0e0e0, bg #999999, RootTransparent, Tint #000000 50
+### transparent set
+Colorset 50 fg #e0e0e0, bg #202020, RootTransparent, Tint #666666 30
+### fvwm buttons xosview
+Colorset 18 fg black, bg #c6c3c6, RootTransparent buffer, Tint #c3c6c3 65
+
+###menu style
+MenuStyle * Hilight3DThin, PopupOffset +0 100, PopupDelay 999
+MenuStyle * Font "xft:Bitstream Vera Sans Mono:style=Roman:size=10"
+#MenuStyle * Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=12"
+MenuStyle * MenuColorset 0, HilightBack, ActiveColorset 1
+MenuStyle * BorderWidth 1, TitleUnderlines0, SeparatorsLong, Animation
+MenuStyle * TrianglesSolid
+MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%10.3>%2|"
+MenuStyle * AutomaticHotKeys
+MenuStyle * TitleColorset 2
+MenuStyle * TitleFont "xft:Bitstream Vera Sans Mono:style=Roman:size=10"
+MenuStyle * FlatSeparators
+MenuStyle * Animation
+
+#### decoration style
+#Style * Colorset 0, HilightColorset 11
+Style * Font "xft:Bitstream Vera Sans Mono:style=Roman:size=10"
+#Style * Font "Shadow=0 1 SE:xft:Swis721 Cn BT:bold:pixelsize=12"
+#Style * InactiveFont "Shadow=0 1 SE:xft:Swis721 Cn BT:pixelsize=12"
+Style * DecorateTransient
+#Style * SmartPlacement, WindowShadeSteps 20, ResizeOpaque
+#Style * BorderWidth 3, HandleWidth 3
+#Style * NoIconTitle
+#Style * SloppyFocus, MouseFocusClickRaises
+#Style * GrabFocusOff, NoIconTitle
+#Style * RoundedCorners, SlightlyRoundedCorners
+Style * ResizeOutline , ResizeOutlineThin
+Style "*" MWMFunctions
+Style "*" HintOverride
+Style "*" MWMDecor
+Style "*" MWMButtons
+Style "*" MWMBorder
+#Style "*" NoIcon
+
+### fvwm buttons style
+Style FvwmButtons NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 1, CirculateSkip, ParentalRelativity
+# FvwmButtons
+#Style FvwmButtons Colorset 14 RootTransparent, Tint "slate gray" 20, fg azure
+# FvwmButtons active
+#Style FvwmButtons Colorset 15 Transparent, fg #303030
+# FvwmButtons pressed
+#Style FvwmButtons Colorset 16 Transparent, fg #303030, Tint #f6f6f6 90
+#Style FvwmButtons * Colorset 42 fg black, bg #c6c3c6, RootTransparent buffer, Tint #efebef 65
+
+DestroyModuleConfig FvwmPager: *
+*FvwmPager: Colorset * 20
+*FvwmPager: HilightColorset * 21
+*FvwmPager: WindowColorsets 1 2
+*FvwmPager: BalloonColorset * 16
+*FvwmPager: Font none
+# Comment out or set this option for window names in pager windows
+# also see WindowLabelFormat.
+#*FvwmPager: SmallFont "xft:Bitstream Vera Sans:style=Roman:size=4:antialias=True"
+*FvwmPager: Balloons All
+*FvwmPager: BalloonFont "xft:Bitstream Vera Sans:style=Roman:size=8:antialias=True"
+*FvwmPager: BalloonYOffset +2
+*FvwmPager: BalloonBorderWidth 1
+*FvwmPager: UseSkipList
+*FvwmPager: MoveThreshold 0
+*FvwmPager: SolidSeparators
+*FvwmPager: WindowBorderWidth 1
+# Try uncommenting this for MiniIcon's in pager windows
+*FvwmPager: MiniIcons
+
+
+####
+# [4] window decoration
+###########
+DestroyDecor DefaultDecor
+AddToDecor   DefaultDecor
++ TitleStyle LeftJustified Height 18 
++ TitleStyle Active   ( Colorset 41 -- Flat ) \
+             InActive ( Colorset 40 -- Flat )
++ ButtonStyle All Active   ( Colorset 40 -- Flat )
++ ButtonStyle All InActive ( Colorset 41 -- Flat )
++ AddButtonStyle 1 Inactive   Vector 5 40x40@3 40x60@3 60x60@3 60x40@3 40x40@3 -- Flat
++ AddButtonStyle 1 ActiveUp   Vector 5 40x40@3 40x60@3 60x60@3 60x40@3 40x40@3 -- Flat
++ AddButtonStyle 1 ActiveDown Vector 4 49x49@3 49x50@3 50x50@3 49x49@3 -- Flat
++ AddButtonStyle 6 Inactive   Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
++ AddButtonStyle 6 ActiveUp   Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
++ AddButtonStyle 6 ActiveDown Vector 5 35x65@3 65x65@3 65x60@3 35x60@3 35x65@3 -- Flat
++ AddButtonStyle 4 Inactive   Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
++ AddButtonStyle 4 ActiveUp   Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
++ AddButtonStyle 4 ActiveDown Vector 7 35x35@3 35x65@3 65x65@3 65x35@3 35x35@3 35x40@3 65x40@3 -- Flat
++ AddButtonStyle 2 Inactive   Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
++ AddButtonStyle 2 ActiveUp   Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
++ AddButtonStyle 2 ActiveDown Vector 4 35x35@3 65x65@3 65x35@4 35x65@3 -- Flat
++ ButtonStyle 1 - MwmDecorMenu
++ ButtonStyle 6 - MwmDecorMin
++ ButtonStyle 4 - MwmDecorMax
+
+#BorderStyle Active   Solid #555555 -- NoInset HiddenHandles
+#BorderStyle Inactive Solid #000000 -- NoInset HiddenHandles
+
+#### [5] kuake multi-aterm ### 
+DestroyFunc FuncAutoEnter
+AddToFunc FuncAutoEnter I Autohide HiddenConsole 250 500 S 
+
+##### [6] apps specific style configureation #####
+Style HiddenConsole Sticky, WindowListSkip, StaysOnTop, NoHandles, CirculateSkip, TitleAtLeft
+#Style MiniButtons NoTitle, Sticky, Handlewidth 0, NoHandles, NeverFocus, StaysOnTop, BorderWidth 1, BorderColorset 1
+Style xosview Sticky, Handlewidth 0, NeverFocus, StaysOnTop, BorderWidth 0, BorderColorset 2
+
+#### [7] bindings ######
+Key F12 A A Next (CirculateHit, HiddenConsole) HiddenConsoleKeyBinding
+
+# root window
+Key Tab A M WindowList NoGeometry
+Key F2  A M Resize
+Key F4  A M Close
+
+Mouse 1 R A Menu MenuFvwmRoot Nop
+Mouse 3 R A WindowList NoGeometry
+
+# titlebar buttons
+Mouse 0 1 A Menu MenuWindowOptions Close
+Mouse 0 6 A Thumbnail
+Mouse 0 4 A Maximize
+Mouse 0 2 A FuncDestroyOnHold
+
+# window/border/icon
+Mouse 1 I A DeThumbnail
+Mouse 1 T A FuncMoveOrMaximize
+
+DestroyFunc ExitFunction
+AddToFunc   ExitFunction
++ I Test (!ToRestart) Exec exec rm -f $[HOME]/.fvwm/icon.tmp.*
+
+DestroyFunc StartHiddenConsole
+AddToFunc StartHiddenConsole
++ I Exec aterm -tr -sh 60 -fg yellow +sb -geometry 120x30+3-58 -name HiddenConsole
++ I Wait HiddenConsole
+#+ I Next (HiddenConsole) Resize $[vp.width]
++ I Autohide HiddenConsole 250 500 S
+
+# XXX: This doesnt change focus, should it?
+DestroyFunc HiddenConsoleKeyBinding
+AddToFunc HiddenConsoleKeyBinding
++ I ThisWindow (Shaded) FuncAutoEnter
++ I TestRc (NoMatch) NoWindow FuncAutoEnter
+
+# headline func
+DestroyFunc FuncFvwmMenuHeadlines
+AddToFunc   FuncFvwmMenuHeadlines
++ I PipeRead 'fvwm-menu-headlines --exec="firefox-bin \'%u\'" --site $0'
+
+DestroyFunc FuncFvwmMenuHeadlinesReset
+AddToFunc   FuncFvwmMenuHeadlinesReset
++ I DestroyMenu freshmeat
++ I DestroyMenu slashdot
++ I DestroyMenu linuxtoday
+
+# move or max func
+DestroyFunc FuncMoveOrMaximize
+AddToFunc   FuncMoveOrMaximize
++ I Raise
++ M Move
++ D Maximize 100 100
+
+# thumbnail function
+DestroyFunc Thumbnail
+AddToFunc   Thumbnail
++ I Raise
++ I PipeRead "xwd -silent -id $[w.id] | convert -scale $[fvwm_icon_size] -frame 1x1 \
+              -mattecolor black -quality 0 xwd:- png:$[HOME]/.fvwm/icon.tmp.$[w.id].png \
+              && echo WindowStyle IconOverride, Icon $[HOME]/.fvwm/icon.tmp.$[w.id].png, StaysOnBottom \
+              || echo Nop"
++ I Iconify
+
+DestroyFunc DeThumbnail
+AddToFunc   DeThumbnail
++ I Iconify off
++ I DestroyWindowStyle
++ I Exec exec rm -f $[HOME]/.fvwm/icon.tmp.$[w.id].png
+
+# menu browser
+DestroyFunc FuncFvwmMenuDirectory
+AddToFunc FuncFvwmMenuDirectory
++ I PipeRead 'case "$0" in \
+        "$[fvwm_video_path]"*) myexec="$[fvwm_video_exec]" mypng=film.png;; \
+        "$[fvwm_audio_path]"*) myexec="$[fvwm_audio_exec]" mypng=audio.png;; \
+        "$[fvwm_image_path]"*) myexec="$[fvwm_image_exec]" mypng=graphics.png;; \
+        "$[fvwm_book_path]"*) myexec="$[fvwm_book_exec]" mypng=acroread.png;; \
+        esac; \
+    test -f "$0"/.icontitle.png && mytitle="$0"/.icontitle.png; \
+    fvwm-menu-directory --icon-title "${mytitle:-folder_view.png}" --icon-file ${mypng:-edit.png} \
+    --icon-dir folder_paper_closed.png --dir "$0" --exec-t="^${myexec:-gvim} *" \
+    --exec-file "^${myexec:-gvim}"'
+
+### Wallpaper browser 
+
+DestroyFunc WallpaperBrowser
+AddToFunc WallpaperBrowser
++ I PipeRead 'test ! -d "$0/.thumbs" && mkdir "$0/.thumbs"; \
+  for i in "$0/"*; do \
+    test -f "$0/.thumbs/${i##*/}" \
+      -a "${i}" -ot "$0/.thumbs/${i##*/}" || { \
+        convgert -quality 0 -scale 32 "${i}" "png:$0/.thumbs/${i##*/}" 2>/dev/null \
+          || continue; \
+       }; \
+    done; \
+    fvwm-menu-directory --icon-title "folder_paper_closed.png" --icon-file __PIXMAP__ \
+    --icon-dir "folder_paper_closed.png" --dir $0 --exec-file "^fbsetbg -f" \
+    --exec-t="^eog *" | sed -e "s#FuncFvwmMenuDirectory#WallpaperBrowser#g" \
+    -e "s#__PIXMAP__\\(.*\\)\\"\\(.*/\\)\\(.*\\)\\"#\\2.thumbs/\\3\\1\\2\\3#g"'
+
+# [8] http://www.fvwm.org/documentation/faq/#7.17
+AddToFunc Autohide
++ I ThisWindow ($0) Deschedule $[w.id]
++ I TestRc (!Match) Deschedule -$[w.id]
++ I ThisWindow ($0) ThisWindow (shaded) AutohideShow $1 $3
++ I TestRc (!Match) All ($0, !shaded) AutohideHide $2 $3
+
+AddToFunc AutohideShow
++ I Schedule $0 -$[w.id] WindowShade $1 off
++ I Schedule $0 -$[w.id] Raise
++ I Schedule $0 -$[w.id] Deschedule $[w.id]
++ I Schedule $0 -$[w.id] Deschedule -$[w.id]
+
+AddToFunc AutohideHide
++ I Schedule $0 $[w.id] WindowShade $1 on
++ I Schedule $0 $[w.id] Deschedule $[w.id]
++ I Schedule $0 $[w.id] Deschedule -$[w.id
+i
+
+Colorset 30 fg black, bg #c6c3c6, RootTransparent buffer, Tint #efebef 65
+
+### [10] menu
+DestroyMenu MenuFvwmRoot
+AddToMenu MenuFvwmRoot ":::: scapegoat ::::"    Title
++ MissingSubmenuFunction WallpaperBrowser
++   "Terminal"%computer_x11.png%                Exec exec aterm
++   "Home"%house_tree.png%                      Exec exec dolphin 
++   ""                                          Nop
++   "Office"%paper_pencil.png%                  Popup MenuOffice
++   "Editors"%text.png%                         Popup MenuEditors
++   "Graphics"%graphics_draw_edit.png%          Popup MenuGraphics
++   "Multimedia"%film.png%                      Popup MenuMultimedia
++   "Pro-Audio"%bar_analysis.png%               Popup MenuProAudio
++   "Internet"%world-wide-web.png%              Popup MenuInternet
++   "Utilities"%tools.png%                      Popup MenuUtilities
++   "Settings"%swiss-army-knife.png%            Popup MenuFvwmConfig
++   ""                                          Nop
++   "Wallpapers"%backgrounds.png%               Popup $[fvwm_wallpaper_dir]
++   "Background"%dynamic-content.png%           Popup MenuBackground
++   ""                                          Nop     
++   "Quit"%warning_symbol.png%                  Popup MenuQuit-Verify
+#+   ""                                         Nop
+#+ "KDE User Menu"                              Popup kde-user
+#+ "KDE System Menu"                            Popup kde-sys
+
+DestroyMenu MenuOffice
+AddToMenu MenuOffice
++   "Draw"%oodraw.png%                          Exec exec oodraw
++   "Impress"%ooimpress.png%                    Exec exec ooimpress
++   "Math"%oomath.png%                          Exec exec oomath
++   "Writer"%oowriter.png%                      Exec exec oowriter
++   ""                                          Nop
++   "Acroread"%acroread.png%                    Exec exec acroread
+
+DestroyMenu MenuEditors
+AddToMenu MenuEditors
++   "Gvim"%gvim.png%                            Exec exec vim
++   "Kate"%kate.png%                            Exec exec kate
++   "NVU"%nvu.png%                              Exec exec nvu
++   "Quanta"%quanta.png%                        Exec exec quanta
++   "Bluefish"%bluefish.png%                    Exec exec bluefish
+
+DestroyMenu MenuGraphics
+AddToMenu MenuGraphics
++   "Gimp"%gimp.png%                            Exec exec gimp
++   "Inkscape"%inkscape.png%                    Exec exec inkscape
++   ""                                          Nop
++   "Blender"%blender.png%                      Exec exec blender
+
+DestroyMenu MenuMultimedia
+AddToMenu MenuMultimedia
++ MissingSubmenuFunction FuncFvwmMenuDirectory
++   "Amarok"%music.png%                         Exec exec amarok
++   "QMPDClient"%music.png%                     Exec exec qmpdclient
++   "Audacious"%audacious.png%                  Exec exec audacious
++   ""                                          Nop
++   "Mplayer"%mplayer.png%                      Exec exec gmplayer
++   "Xine"%xine.png%                            Exec exec xine
++   "Totem"%totem.png%                          Exec exec totem
++   ""                                          Nop
++   "Alsamixer"%kmix.png%                       Exec exec alsamixer
++   ""                                          Nop
++   "K3B"%k3b.png%                              Exec exec k3b
++   ""                                          Nop
++   "Movies:"%hardware_video_camera_display.png%        Popup $[fvwm_video_path]
++   "Music:"%music_notes_view.png%                      Popup $[fvwm_audio_path]
++   "Pictures:"%graphics_presentation_person.png%       Popup $[fvwm_image_path]
+
+DestroyMenu MenuInternet
+AddToMenu MenuInternet
++   "Firefox"%netscape.png%                     Exec exec firefox-bin
++   "Opera"%opera.png%                          Exec exec opera
++   "Evolution"%mail.png%                       Exec exec evolution
++   ""                                          Nop
++   "Xchat"%balloon_chat.png%                           Exec exec xchat
++   "Pidgin"%instant-messenger.png%             Exec exec pidgin
++   ""                                          Nop
++   "Sites"%sites.png%                          Popup MenuFvwmWeb
++   "News"%news_newspaper.png%                  Popup MenuFvwmNews
+
+DestroyMenu MenuUtilities
+AddToMenu MenuUtilities
++   "Screenshot"%hardware_camera.png%           Exec exec scrot -d 10
++   "ScummVM"%scummvm.png%                      Exec exec scummvm
+
+DestroyMenu MenuQuit-Verify 
+AddToMenu MenuQuit-Verify
++   "Quit"%plug.png%                            Quit
++   "Restart"%gears_panel.png%                  Restart
+
+DestroyMenu MenuFvwmConfig
+AddToMenu MenuFvwmConfig
++   "Control Center"%gnome.png%                 Exec exec gnome-control-center
++   "FvwmConsole"%terminal.png%                 Module  FvwmConsole -terminal aterm -sr
++   ""                                          Nop
++   "Refresh"%view-refresh.png%                 Refresh
++   "Kill"%bomb.png%                            Pick Destroy
+
+DestroyMenu MenuFvwmWindowOps
+AddToMenu MenuFvwmWindowOps
++   "Resize"                                    Pick Resize
++   "Shade"P                                    Pick WindowShade Toggle
++   "Stick"                                     Pick Stick
++   "Refresh"                                   Pick RefreshWindow
++   ""                                          Nop
++   "Identify"                                  Pick Module FvwmIdent
++   ""                                          Nop
++   "Send to"                                   Popup MenuFvwmSendTo
++   ""                                          Nop
++   "Close"                                     Close
++   "Destroy"                                   Destroy
+
+DestroyMenu MenuFvwmSendTo
+AddToMenu MenuFvwmSendTo
++   "Desktop 1" MoveToPage 0 0
++   "Desktop 2" MoveToPage 1 0
++   "Desktop 3" MoveToPage 2 0
++   "Desktop 4" MoveToPage 3 0
++   "Desktop 5" MoveToPage 0 1
++   "Desktop 6" MoveToPage 1 1
++   "Desktop 7" MoveToPage 2 1
++   "Desktop 8" MoveToPage 3 1
++   "Desktop 9" MoveToPage 0 2
++   "Desktop 10" MoveToPage 1 2 
++   "Desktop 11" MoveToPage 2 2
++   "Desktop 12" MoveToPage 3 2
+
+DestroyMenu MenuFvwmWeb
+AddToMenu MenuFvwmWeb
++  "Information"%sites.png%                     Popup MenuFvwmInformation
++  "Community"%sites.png%                       Popup MenuFvwmCommunity
++  "Themes"%sites.png%                          Popup MenuFvwmThemes
++  "FVWM"%sites.png%                            Popup MenuFvwmFvwm
+
+DestroyMenu MenuFvwmNews
+AddToMenu MenuFvwmNews
++ DynamicPopdownAction   Function FuncFvwmMenuHeadlinesRese
++ MissingSubmenuFunction FuncFvwmMenuHeadlines
++ "freshMeat"%news.png%                         Popup freshmeat
++ "slashdot"%news.png%                          Popup slashdot
++ "linuxtoday"%news.png%                        Popup linuxtoday
++ "Reset"  FuncFvwmResetHeadlines
+
+
+DestroyMenu MenuFvwmInformation
+AddToMenu MenuFvwmInformation
++  "Spiegel"%sites.png%                         Exec exec $[browser] http://www.spiegel.de
++  "Stern"%sites.png%                           Exec exec $[browser] http://www.stern.de
++  "Heise"%sites.png%                           Exec exec $[browser] http://www.heise.de
++  "Golem"%sites.png%                           Exec exec $[browser] http://www.golem.de
+
+DestroyMenu MenuFvwmCommunity
+AddToMenu MenuFvwmCommunity
++  "Deviantart"%sites.png%                      Exec exec $[browser] http://www.deviantart.com
+
+DestroyMenu MenuFvwmThemes
+AddToMenu MenuFvwmThemes
++  "Gnome-look"%sites.png%                      Exec exec $[browser] http://www.gnome-look.org
++  "Kde-look"%kde.png%                          Exec exec $[browser] http://www.kde-look.org
++  "Gnome"%gnome.png%                           Exec exec $[browser] http://art.gnome.org
++  "Customize"%sites.png%                       Exec exec $[browser] http://www.customize.org
++  "Enlightenment"%sites.png%                   Exec exec $[browser] http://www.get-e.org
+
+DestroyMenu MenuFvwmFvwm
+AddToMenu MenuFvwmFvwm "Fvwm"%sites.png%        Title
++  "FVWM"%fvwm-crystal.png%                     Exec exec $[browser] http://www.fvwm.org
++  "forum"%fvwm-crystal.png%                    Exec exec $[browser] http://fvwm.lair.be
+
+DestroyMenu MenuBackground
+AddToMenu MenuBackground
++   "Default"           Exec exec xsetroot
++   "Black"             Exec exec xsetroot -solid black
++   "DarkSlateGray"     Exec exec xsetroot -solid DarkSlateGray
++   "SteelBlue"         Exec exec xsetroot -solid SteelBlue
++   "Gray"              Exec exec xsetroot -solid gray20
+
+DestroyMenu MenuProAudio
+AddToMenu MenuProAudio
++ MissingSubmenuFunction FuncFvwmMenuDirectory
+Test (x ardour) + %audio_horn.png%"Ardour"%ctl_alt_b.png% Exec exec ardour
+Test (x ardour2) + %audio_horn.png%"Ardour 2" Exec exec ardour2
+Test (x audacity) + %audacity.png%"Audacity" Exec exec audacity
+Test (x hydrogen) + %hydrogen.png%"Hydrogen" Exec exec hydrogen
+Test (x lmms) + %lmms.png%"LMMS" Exec exec lmms
+Test (x alsamixer) + %audio_horn.png%"Alsamixer" Exec exec aterm -g 160x30 -e alsamixer
+Test (x qjackctl) + %audio_horn.png%"QJackCtl" Exec exec qjackctl
+Test (x amsynth) + %audio_horn.png%"amSynth" Exec exec amsynth
+Test (x psindustrializer) + %audio_horn.png%"PSIdustrializer" Exec exec psindustrializer
+Test (x gnuitar) + %audio_horn.png%"Gnuitar" Exec exec gnuitar
+Test (x vkeybd) + %audio_horn.png%"VKeybd" Exec exec vkeybd
+Test (x wired) + %audio_horn.png%"Wired" Exec exec wired
+Test (x jamin) + %audio_horn.png%"Jamin" Exec exec jamin
+
+DestroyMenu kde-user
+AddToMenu kde-user
++ DynamicPopupAction PipeRead 'fvwm-menu-desktop --desktop kde-user'
+
+DestroyMenu kde-sys
+AddToMenu kde-sys
++ DynamicPopupAction PipeRead 'fvwm-menu-desktop --desktop kde-sys'
+
+# syntax reminder
+# FvwmButtons(5x1) - (vertical x horizontal) (colums x rows)
+# FVWM Buttons
+DestroyModuleConfig FvwmButtons: *
+*FvwmButtonsGeometry 1270x52+3-3
+*FvwmButtons(Frame 0 Padding 0 0 Container(Rows 2 Columns 40 Frame 1 Padding 0 0))
+*FvwmButtons(5x2, Padding 0 0, Container(Padding 0 0, Columns 5, Rows 2)
+*FvwmButtons(Colorset 42, Title |<<, Action 'Exec exec mpc prev')
+*FvwmButtons(Colorset 42, Title ||,Action 'Exec exec mpc pause')
+*FvwmButtons(Colorset 42, 2x1, Title >,Action 'Exec exec mpc play')
+*FvwmButtons(Colorset 42, Title >>|, Action 'Exec exec mpc next')
+*FvwmButtons(Colorset 42, Icon desk_desktop.png, Action(Mouse 1) `All (AcceptsFocus, CurrentPage, !Iconic, !Shaded) Thumbnail`)
+*FvwmButtons(Colorset 42, Icon floppy_disk.png, Action 'Exec exec aterm -g 100x30 -e mc')
+*FvwmButtons(Colorset 42, Icon bomb.png, Action 'Exec exec xkill')
+*FvwmButtons(Colorset 42, Icon key2.png, Action 'Exec exec xscreensaver-command --lock')
+*FvwmButtons(Colorset 42, Icon gvim.png, Action 'Exec exec gvim .fvwm2rc')
+*FvwmButtons(End)
+*FvwmButtons(4x2, Padding 0 0, Container(Padding 0 0, Columns 4, Rows 2)
+*FvwmButtons(Colorset 42, Icon netscape.png, Action 'Exec exec firefox-bin')
+*FvwmButtons(Colorset 42, Icon opera.png, Action 'Exec exec opera')
+*FvwmButtons(Colorset 42, Icon balloon_chat.png, Action 'Exec exec xchat')
+*FvwmButtons(Colorset 42, Icon instant-messenger.png, Action 'Exec exec pidgin')
+*FvwmButtons(Colorset 42, Icon graph_mixer.png, Action 'Exec exec aterm -g 160x30 -e alsamixer')
+*FvwmButtons(Colorset 42, Icon mail.png, Action 'Exec exec evolution')
+*FvwmButtons(Colorset 42, Icon television.png, Action 'Exec exec totem')
+*FvwmButtons(Colorset 42, Icon filter_video.png, Action 'Exec exec xine')
+*FvwmButtons(End)
+*FvwmButtons(21x2, Padding 0 0, Container(Padding 0 0, Columns 21 Rows 2))
+*FvwmButtons(21x2, Colorset 42, Frame 0, Padding 0 0)
+*FvwmButtons(End)
+*FvwmButtons(8x2, Padding 0 0, Container(Padding 0 0, Columns 8 Rows 2))
+*FvwmButtons(1x1, Colorset 42, Frame 0, Padding 0 0, Icon hardware_card.png)
+*FvwmButtons(3x1, Colorset 42, Frame 0, Padding 4 4, Left, Swallow(UseOld) "memmon" `Exec exec xosview -title memmon -labels -net -swap -page -ints -load -disk +mem -cpu`) 
+*FvwmButtons(1x1, Colorset 42, Frame 0, Padding 0 0, Icon network.png))
+*FvwmButtons(3x1, Colorset 42, Frame 0, Padding 3 3, Left, Swallow(UseOld) "netmon" `Exec exec xosview -title netmon -labels +net -swap -page -ints -load -disk -mem -cpu`)
+*FvwmButtons(1x1, Colorset 42, Frame 0, Padding 0 0, Icon brain_ai_memory.png)
+*FvwmButtons(7x1, Colorset 42, Frame 0, Padding 2 2, Left, Swallow(UseOld) "cpumon" `Exec exec xosview -title cpumon -labels -net -swap -page -ints -load -disk -mem +cpu`)
+*FvwmButtons(End)
+*FvwmButtons(2x2 Swallow(UseOld) "FvwmPager" "Module FvwmPager 0")  
+

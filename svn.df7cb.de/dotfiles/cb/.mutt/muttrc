@@ -1,0 +1,20 @@
+# $Id$
+
+set folder="~/mail"
+#set folder="imaps://localhost/"
+
+# external files
+source ~/.mutt/options
+source ~/.mutt/bind
+source ~/.mutt/color
+source ~/.mutt/headers
+ifdef xface source ~/.mutt/x-face
+source ~/.mutt/lists
+source ~/.mutt/hooks
+
+# aliases
+source `if [ -f ~/.priv/mutt/aliases ] ; then echo ~/.priv/mutt/aliases ; else echo /dev/null ; fi`
+source `if [ -f ~/.priv/mutt/aliases.ab ] ; then echo ~/.priv/mutt/aliases.ab ; else echo /dev/null ; fi`
+
+set spoolfile="~/mail/cb/cb"
+source `if [ -f ~/.priv/mutt/account ] ; then echo ~/.priv/mutt/account ; else echo /dev/null ; fi`

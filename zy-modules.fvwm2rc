@@ -1,0 +1,196 @@
+# -*- fvwm -*-
+# Time-stamp: <zy-modules.fvwm2rc, 12-19-2009 18:08 Ziyu Zhang >
+
+######################## FvwmBanner ############################
+# *FvwmBanner: Pixmap snoopy.xpm
+#linux_logo.gif Scenery.jpg rock-climbing.jpg bigJohnbigD.jpg
+*FvwmBanner: Timeout 1
+
+# ==================================FvwmEvent======================================
+
+# http://linuxgazette.net/128/adam1.html
+
+# *FvwmEvent: PassID
+# *FvwmEvent: add_window FuncAddWindow
+
+# add_window-> StartFirefoxMaximized
+# DestroyModuleConfig FvwmEvent: *
+
+DestroyModuleConfig FvwmEvent
+*FvwmEvent: Cmd Function
+*FvwmEvent: PassId Function
+*FvwmEvent: add_window FuncNewWindow
+# *FvwmEvent: new_page NewPageFunction
+# *FvwmEvent: deiconify OnDeiconify
+# *FvwmEvent: window_name OnTitleChange
+# *FvwmEvent: icon_name OnTitleChange
+# *FvwmEvent: raise_window OnRaiseWindow
+# *FvwmEvent: destroy_window OnDestroyWindow
+
+# DestroyModuleConfig FE-StartMaximised: *
+# *FE-StartMaximised: Cmd Function
+## *FE-StartMaximised: PassId
+# *FE-StartMaximised: add_window FuncStartMaximized
+
+# Module FvwmEvent FE-StartMaximized
+
+# DestroyFunc ResizeFireFox
+# AddToFunc ResizeFireFox
+# + "I" ThisWindow ("Gecko" !Transient) Resize 850p 980p
+
+# ==================================Window-Identifier======================================
+# Just choose colors and a fonts
+# *FvwmIdentBack MidnightBlue
+*FvwmIdent Fore Yellow
+# *FvwmIdent Font -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+# ==================================FvwmWinList======================================
+
+DestroyModuleConfig FvwmWinList: *
+*FvwmWinList: Font "xft:wenquanyi bitmap song:size=10:encoding=iso10646-1"
+*FvwmWinList: Back #c3c3c3
+*FvwmWinList: Fore Black
+*FvwmWinList: FocusBack SlateBlue
+*FvwmWinList: FocusFore cyan
+*FvwmWinList: IconBack grey60
+*FvwmWinList: IconFore blue
+*FvwmWinList: ButtonFrameWidth 1
+*FvwmWinList: Action Click1 DeiconifyFocusAndRaise
+*FvwmWinList: Action Click2 Iconify
+*FvwmWinList: Action Click3 Menu Window-Ops c+0 -101m
+*FvwmWinList: UseSkipList
+*FvwmWinList: UseIconNames
+*FvwmWinList: ShowCurrentDesk
+*FvwmWinList: MinWidth 32
+*FvwmWinList: MaxWidth 256
+*FvwmWinList: Geometry +0-0
+*FvwmWinList: NoIconAction SendToModule FvwmAnimate animate
+
+# ==================================Virtual Desktop======================================
+#page layout per desktop
+DeskTopSize 1x1
+DesktopName Main
+EdgeScroll 100 100
+EdgeResistance 250 100
+# EdgeResistance 1000 0
+
+# DesktopName 0 Up
+# DesktopName 1 Down
+
+# ==================================FvwmBacker======================================
+DesroyModuleConfig FvwmBacker*
+
+*FvwmBacker: Command (Desk 0, Page 0 0) -solid RoyalBlue4
+# *FvwmBacker: Command (Desk 0, Page 1 0) -solid DeepSkyBlue4
+*FvwmBacker: Command (Desk 1, Page 0 0) -solid DarkSlateGray
+## *FvwmBacker: Command (Desk 1, Page 1 0) -solid DarkSlateGray
+
+# *FvwmBacker: Command (Desk 0) Exec exec xpmroot $zy/linux/fvwm/wallpaper/ShiptonSpire.xpm
+# *FvwmBacker: Command (Desk 1) Exec exec xpmroot $zy/linux/fvwm/wallpaper/zy-blue.xpm
+
+# ==================================FvwmButtons======================================
+Style FvwmButtons ClickToFocus, NoTitle, StaysOnBottom, NoHandles, !Iconifiable, Sticky, WindowListSkip
+
+# KillModule FvwmButtons
+# DestroyModuleConfig FvwmButtons: *
+
+*FvwmButtons: Fore Black
+*FvwmButtons: Back rgb:90/80/90
+# *FvwmButtons: Geometry 124x66-100+0
+*FvwmButtons: Geometry 124x63-100+0
+*FvwmButtons: Rows 1
+*FvwmButtons: Columns 2
+# *FvwmButtons: BoxSize fixed
+*FvwmButtons: BoxSize smart
+# *FvwmButtons: Padding 1 1
+*FvwmButtons: Padding 1 1
+# *FvwmButtons: Font -*-helvetica-medium-r-*-*-12-*
+# *FvwmButtons: Font -*-simsun-medium-r-*-*-12-*-*-*-*-*-*-*
+# *FvwmButtons(1x1, Swallow(UseOld,Respawn) ASClock "Exec exec asclock -geometry -3000-3000 &")
+# *FvwmButtons(1x1, Swallow(UseOld,NoKill) "xload15" `Exec xload -title xload15 -nolabel -bg rgb:90/80/90 -update 5 &`)
+# *FvwmButtons(1x1, Swallow(UseOld,NoKill) "xload15" `Exec exec xload -title xload15 -nolabel -bg rgb:90/80/90 -update 5 &`)
+
+# ==================================FvwmTaskBar======================================
+
+Style FvwmTaskBar HandleWidth 0, BorderWidth 0, Height 10, WindowListSkip, NoHandles !Iconifiable
+# StaysOnTop
+
+*FvwmTaskBar: Back LightSkyBlue3
+*FvwmTaskBar: Fore black
+*FvwmTaskBar: FocusFore blue
+
+# *FvwmTaskBar: Font -adobe-helvetica-medium-r-*-*-14-*-*-*-*-*-*-*
+# *FvwmTaskBar: SelFont -adobe-helvetica-bold-r-*-*-14-*-*-*-*-*-*-*
+
+*FvwmTaskBar: Font "StringEncoding=utf-8:xft:WenQuanYi Bitmap Song:size=10:encoding=iso10646-1"
+*FvwmTaskBar: SelFont "StringEncoding=utf-8:xft:WenQuanYi BitmapSong:size=10:style=Bold:encoding=iso10646-1"
+*FvwmTaskBar: StatusFont "StringEncoding=utf-8:xft:WenQuanYi BitmapSong:size=10:encoding=iso10646-1"
+
+# *FvwmTaskBar: Font "xft:WenQuanYi Bitmap Song:style=bold:size=12:encoding=iso10646-1"
+# *FvwmTaskBar: SelFont "xft:WenQuanYi Bitmap Song:style=bold:size=12:encoding=iso10646-1"
+# *FvwmTaskBar: StatusFont "xft:WenQuanYi Bitmap Song:style=bold:size=12:encoding=iso10646-1"
+
+*FvwmTaskBar: StatusFont fixed
+
+*FvwmTaskBar: IconBack darkgreen
+*FvwmTaskBar: IconFore white
+
+*FvwmTaskBar: Action Click1 DeiconifyRaiseAndFocus
+*FvwmTaskBar: Action Click2 Iconify
+# *FvwmTaskBar: Action Click3 Menu FvwmWindowOpsMenu
+*FvwmTaskBar: Action Click3 Menu TaskBar-Window-Ops
+
+*FvwmTaskBar: UseSkipList
+*FvwmTaskBar: AutoStick
+# *FvwmTaskBar: PageOnly
+*FvwmTaskBar: DeskOnly
+
+# *FvwmTaskBar: HighlightFocus
+# *FvwmTaskBar: AutoHide 6
+
+*FvwmTaskBar: StartButtonRightMargin 3
+*FvwmTaskBar: StartName
+*FvwmTaskBar: StartMenu RootMenu
+*FvwmTaskBar: StartIcon tux32.png
+# *FvwmTaskBar: StartIcon John-Lennon.png
+
+*FvwmTaskBar: ShowTransients
+
+# *FvwmTaskBar: ShowTips
+*FvwmTaskBar: TipsBack bisque
+*FvwmTaskBar: TipsFore black
+
+*FvwmTaskBar: ClockFormat %I:%M %p %m/%d
+*FvwmTaskBar: BellVolume 20
+*FvwmTaskBar: ButtonWidth 180
+*FvwmTaskBar: WindowButtonsRightMargin 124
+*FvwmTaskBar: BellVolume 20
+
+*FvwmTaskBar: Button NoTitle, Icon gun.png, Action (Mouse 1) Popup favorites-menu
+# *FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Exec exec $[fvwm_terminal]
+# *FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Exec exec rxvt -geometry 80x30+100-40
+*FvwmTaskBar: Button NoTitle, Icon gnome-terminal.png, Action (Mouse 1) Exec exec rxvt
+*FvwmTaskBar: Button NoTitle, Icon mac.png, Action (Mouse 1) Function show-desktop-function
+
+*FvwmTaskBar: Button NoTitle, Icon firefox.xpm, Action (Mouse 1) Exec exec firefox
+# *FvwmTaskBar: Button NoTitle, Icon firefox.xpm, Action (Mouse 1) Exec exec conkeror
+
+# *FvwmTaskBar: Button FvwmButtonsBack ,
+# *FvwmTaskBar: *FvwmButtons(1x1, Swallow(UseOld,NoKill) "xload15" `Exec exec xload -title xload15 -nolabel -bg rgb:90/80/90 -update 5 &`)
+# *FvwmTaskBar: Button Title hello, Icon mini.x.xpm, Action (Mouse 1) Module FvwmConsole
+
+# 设置检测到邮件时铃声的音量。为0-100之间的值。默认为20。
+*FvwmTaskBar: BellVolume 10
+# 指定在指定的位置寻找邮件。是用户 mailbox 的绝对路径。默认为/var/spool/mail/$USER_LOGIN。‘None’表示没有mail指示器。
+*FvwmTaskBar: MailBox $[zy]/privacy/mail/
+# *FvwmTaskBar: MailBox /var/spool/mail/
+# 用户mailbox的格式默认为mbox。如果指定这个选项，则使用MailDir格式取代。
+# *FvwmTaskBar: MailDir
+# *FvwmTaskBar: MailCommand Exec exec xterm -e mail
+# *FvwmTaskBar: MailCommand Exec exec rxvt -geometry 80x30+100-40 -e mutt
+
+# 指定检测新邮件的时间间隔。默认为10秒。0或者负值关闭邮件检测。
+*FvwmTaskBar: MailCheck 1000
+
+# 如果没有新邮件，则不显示位图。
+*FvwmTaskBar: IgnoreOldMail

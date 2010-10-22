@@ -1,0 +1,144 @@
+# Time-stamp: <zy-menus.fvwm2rc, 09-03-2009 18:48 Ziyu Zhang >
+
+# DestroyMenu Debian
+# AddToMenu "/Debian" "DebianMenu" Title
+## add the system menu automatically
+# Read /etc/X11/fvwm/menudefs.hook
+
+# Popup /Debian
+# Read /etc/X11/fvwm/menudefs.hook Quiet
+# Read menudefs.hook Quiet
+
+# PipeRead `fvwm-menu-desktop --type fvwm --dir /var/lib/gnome/Debian --name fvwm-gnome-debian-menu'
+# /etc/menu-methods
+
+# Read /etc/X11/fvwm/menudefs.hook Quiet
+# Read menudefs.hook Quiet
+
+# DestroyFunc UpdateDebianMenu
+# AddToFunc UpdateDebianMenu
+# + I Exec exec test -f $[fvwm_home]/DebianMenu \
+# && /bin/rm -f $[fvwm_home]/DebianMenu
+# + I PipeRead 'update-menus --menumethod $[FVWM_SCRIPTDIR]/fvwm.menu-method >/dev/null'
+# + I Read DebianMenu
+
+# UpdateDebianMenu
+
+# DestroyFunc BuildDebianMenu
+# AddToFunc BuildDebianMenu
+# + I Exec exec if [ -f "$[fvwm_home]/DebianMenu" ] then rm $[fvwm_home]/DebianMenu fi
+# + I PipeRead 'update-menus --menumethod $[fvwm_scrpt]/fvwm_menu; \
+# cat $[fvwm_home]/DebianMenu'
+
+# ============================Gnome Menus=====================================
+# Module FvwmGtk
+# *FvwmGtk: Destroy gnome-all
+# *FvwmGtk: Menu gnome-all
+# *FvwmGtk: Title "Gnome Menus"
+# *FvwmGtk: Separator
+# *FvwmGtk: Destroy gnome-sys
+# *FvwmGtk: Submenu "System" gnome-sys
+# *FvwmGtk: Destroy gnome-user
+# *FvwmGtk: Submenu "User" gnome-user
+# *FvwmGtk: Destroy gnome-redhat
+# *FvwmGtk: Submenu "RedHat" gnome-redhat
+
+# PipeRead 'fvwm-menu-desktop --type gtk --enable-mini-icons --icon-folder :re --icon-app :re --icon-title :re --icon-toptitle :re'
+
+# PipeRead 'fvwm-menu-desktop --type gtk --desktop gnome-user --enable-mini-icons'
+
+# PipeRead 'fvwm-menu-desktop --type gtk --desktop gnome-redhat --enable-mini-icons'
+
+## To obtain the menu above with Alt-button1 on the root window
+# Mouse 1 R M SendToModule FvwmGtk gnome-all
+
+# PipeRead '$[fvwm_home]/scripts/fvwm-gnome2.sh'
+
+# ==================================Menus======================================
+
+MenuStyle * Hilight3DThickness 2
+MenuStyle * BorderWidth 3
+
+# ============
+# MenuStyle
+# ============
+MenuStyle * MWM
+MenuStyle * PopupDelayed, PopupDelay 160, Animation, TitleWarp
+MenuStyle * Foreground black, Background gray40
+MenuStyle * ActiveFore blue
+# MenuStyle * Font -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
+MenuStyle * Font -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+MenuStyle * MenuFace VGradient 45 gray90 gray80
+#MenuStyle * MenuFace TiledPixmap weird10dark.xpm
+
+DestroyMenu RootMenu
+AddToMenu RootMenu 'Welcome' Title
+# AddToMenu RootMenu "Root Menu" Title
+# + "Game%gun.png%" Popup GameMenu
+# + "Accesary%file-roller.png%" Popup accessory-menu
+
+# + "Network%connect_established.png%" Popup NetworkMenu
+
+# + "" Popup
+# + "Multimedia%emblem-multimedia.png%" Popup MultimediaMenu
+
+# + "Document%addressbook.png%" Popup DocumentMenu
+# + "Research%coral-star.png%" Popup ResearchMenu
+
+# + "Programing%text-x-c.png%" Popup ProgramingMenu
+
++ "" Popup
+
+# + "Process" Popup MenuProcess
+# + "ListFiles" Popup ListFiles
+
+# + "System%Apple-imac-dark.png%" Popup SystemMenu
+# + "System%gnome-globe.png%" Popup SystemMenu
+# + "Control Center%configure.png%" Exec exec gnome-control-center
+# + "Favorites%gnome-favorites.png%" Popup favorites-menu
+# + "Favorites%emblem-special.png%" Popup favorites-menu
+
++ "" Nop
+
+# + "Volume%multimedia-volume-control.png%" Exec exec alsamixergui
+
+# + "alsamixer" Exec exec alsamixer
+# + "GotoDeskMenu" Popup GotoDeskMenu
+# + "" Nop
+
+# + "GotoDesk%gnome-workspace.png%" Popup GotoDeskMenu
++ "Fvwm%X11.png%" Popup FvwmMenu
+# Use the auto-generated menu
+# + "Gnome Menu" Popup Gnome2Menu
+# Reread the menus - will regenerate the auto-generated menu
+# + "Refresh Menus" Read $[fvwm_home]/zy-fvwm-menus
+# + "Debian" Popup "/Debian"
+
+# + "Debian" Popup /Debian
+
+# + "Test" Test (EnvMatch zy_hostname "desktop") GotoDesk -1
+# + "Test" Test ($[zy_hostname]=="desktop") Exec exec kile !!!!!
+
+DestroyMenu favorites-menu
+AddToMenu favorites-menu
+
++ "ooffice%ooo-writer.png%" Exec exec ooffice -geometry 800x700+0+0
++ "stardict%stardict.png%" Exec exec stardict
++ "pidgin%pidgin.xpm%" Exec exec pidgin
++ "dhelp" Exec exec dhelp -geometry 1020x710+0+0 &
++ "conky%conky.xpm%" Exec exec conky
++ "top%gnome-cpu.png%" Exec exec rxvt -e top
+# + "mutt%mutt.xpm%" Exec exec rxvt -e mutt
++ "emacs%emacs.png%" Exec exec $[fvwm_emacs] &
+# + "HP1000%hp-logo.xpm%" Exec exec cat $zy/linux/device/printer/sihp1000.img > /dev/hplj1000
++ "" Nop
++ "Quit Fvwm%gnome-logout.png%" Quit
++ "Restart Fvwm%gnome-session-reboot.png%" Restart fvwm2
++ "" Nop
++ "Reboot%boot.png%"    Exec exec sudo reboot
+
+# + "Shutdown%exit.png%" Exec exec shutdown -h 0
++ "Shutdown%gtk-quit.png%" 	Exec exec shutdown -h 0
+# + "Shutdown%gnome-session-halt.png%" Exec exec shutdown -h 0
+
++ "" Nop

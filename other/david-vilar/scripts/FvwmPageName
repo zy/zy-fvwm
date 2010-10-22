@@ -1,0 +1,25 @@
+# $Id: FvwmPageName,v 1.3 2005/09/20 12:14:20 vilar Exp $
+
+WindowTitle {FvwmPageName}
+WindowSize 400 22
+Colorset 18
+Font "xft:Freesans:Bold:pixelsize=16"
+
+Init
+  Begin
+    Do {ShowPageName}
+  End
+
+Widget 1
+  Property
+    Type ItemDraw
+    Position 0 0
+    Size 400 20
+    Flags NoReliefString Left
+  Main
+  Case message of
+    1 :
+    Begin
+      ChangeTitle 1 (LastString)
+    End
+End

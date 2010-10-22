@@ -1,0 +1,294 @@
+Notes by Bob Hepple
+
+This fvwm2 configuration scheme.
+================================
+
+fvwm2 is a wonderfully configurable window manager for those able and
+willing to read the manual(s) and to spend hours pouring over the
+intricacies. I have done those hard yards, and I have also gathered,
+assimilated and adapted others' work over the last 10 years to produce
+something which, even now, I prefer over gnome/KDE. The result is an
+extremely usable, fast, (fairly) lightweight desktop which works the
+way I want it to. I present the result here in the hope that it might
+be useful to others - please drop me a line if you use it - otherwise,
+if I'm deafened by the silence, I might not bother keeping it up to
+date.
+
+A word of warning to those new to fvwm2 - there's no GUI configuration
+utility (although some of the minor features are configurable through
+menus in the present scheme). For example, it would be really nice if
+there were an interactive tool to play with and fine-tune the colours
+and fonts. But if you really prefer, want or need a window manager
+that is easy to configure using "point and click" methods then I
+respectfully suggest you look elsewhere - gnome/metacity is pretty
+good (though not _quite_ what I want) and I hear that KDE is very
+popular. fvwm2 is (and probably always will be) for demon tweakers who
+like to use an editor and fine-tune the hell out of it, and then run
+it without needing a 3-GHz/2-Gbyte machine.
+
+Having said that, this configuration for fvwm2 aims to be pretty well
+ready-to-go in a very usable way and if all you want to do is change
+minor details then you can probably restrict your messing around to
+one file - .fvwm/`hostname`/`hostname`.m4
+
+Assuming you're still with me, here are some notes on this
+configuration of fvwm2:
+
+Features & benefits:
+====================
+
+o a single fvwm2 configuration that automatically adapts to different
+  hosts eg. whatever applications are installed are automatically
+  configured into the menus. 
+
+o Simple customisations are simple - just tweak the customisation file
+  (.fvwm/`hostname`/`hostname`.m4) for fine-tuning.
+
+o Support for multiple hosts sharing a home directory eg on NFS. All
+  fvwm2 configuration files are dropped into a host-specific directory
+  .fvwm/`hostname`.
+
+o Attractive decors (almost like themes) that allow a wide choice of
+  pretty window decorations to suit your current mood and your varying
+  need for eye candy - all on the menus. This is adapted from
+  http://www.twobarleycorns.net/fvwm-decors.html and cleaned up eg. so
+  that decors are kept between sessions.
+
+o All information about standard applications is collected into a
+  single place (apps.m4) instead of being scattered all through the
+  configuration file. This allows new applications to be integrated
+  into the menus and buttons more consistently. Almost as important,
+  if applications are removed, they are automatically removed from the
+  menus and button bar (on running 'make'). Hopefully, this will mean
+  an end to dead menu items and buttons.
+
+o key binding are (to me, at least - YMMV) rational, intuitive and
+  highly tuned for effective use. For example, there is fast switching
+  between desktop pages using Alt-left/right etc keystrokes. There is
+  also a fast-warp to each of 6 pages on 2 desktops using Ctl-Alt and
+  the keypad. See the file keys.m4 for details and modify for your own
+  pleasure.
+
+o Vertical pixels are more precious to me than horizontal - so almost
+  all clutter is attracted to the side. One concession is that I have
+  put an autohide taskbar at the bottom for those who like them.
+
+o A cleanup of all the various module and configuration junk that I
+  have accumulated over about 10 years of use - so that just about
+  everything now works - the wharf feature needs some cleanup, but I
+  don't use it so it may never get done. Any contributions?
+
+o it is based on preprocessing with m4 - invoke 'make' to update the
+  configuration after making changes or installing/removing
+  applications. I don't use the FvwmM4 module as it appeared to be
+  broken last time I tried - in any case, the desktop should only be
+  re-built when I say it should be, not every time the system starts.
+
+o menus (in menus.m4) are based on the application database, tempered
+  by the per-host customisation and the automatic sensing of what is
+  actually installed.
+
+o Who knows, but perhaps by separating the mechanism from the textual
+  parts the task of supporting languages other than English is made
+  easier. I haven't tried it but if anyone does, I'd be interested.
+
+Dependencies:
+=============
+
+o fvwm2 obviously - I use version 2.5.7 so you might think of that as
+  a minimum although it might well work on earlier versions
+
+o m4 - it's on most Unix systems
+
+o Gnu make, bash, awk, sed, tr, grep, hostname, expr, eval - ditto
+
+o xdpyinfo - comes with most X distributions
+
+o the buttonbar on the right of the screen uses asmem, ascpu, wmpload,
+  and rclock but you can tweak other applets instead with a bit of
+  work. xclock is already configured in as an alternative to rclock
+  and xterm is an alternative for rxvt. If you don't have them then
+  they simply don't appear and the button bar will be a little sparse
+
+Getting it running:
+===================
+
+This is a work-in-progress so please understand that you may need to
+tweak it before it works for you. Please let me know if you fix or
+improve something and send me the code to improve it for everyone.
+
+o backup and move aside any old fvwm2 configuration such as
+  $HOME/.fvwm2rc or $HOME/.fvwm/
+
+o untar and install these files in $HOME/.fvwm
+
+o install asmem, ascpu, wmpload, rclock, rxvt if desired. Also, maybe
+  also xrlogin, xosview, gtop, gnome stuff, ical, xmessage, Xdialog
+  ...
+
+o run make to create a default setup:
+    cd $HOME/.fvwm
+    make
+
+o tweak the per-host and all-host customisation files to create your
+  own menu choices and over-ride various defaults:
+    .fvwm/`hostname`/`hostname`.m4
+	,fvwm/globals.m4
+
+o run 'make' after any change - fix any errors as you find them. It's
+  bestter to run make often and fix errors as soon as they creep in as
+  the m4 syntax can be a bit hard to debug.
+
+o start (or restart) fvwm2 (Ctl-Alt-Sft-Delete) and keep an eye on
+  $HOME/.xsession-errors
+
+o you may need more icons and mini-icons
+
+o tweak and enjoy: eg. to add an application you need to add an entry
+  in apps.m4. Then, if you want it to appear in a menu, add it to the
+  MAIN or APPS menus in your .fvwm/`hostname`/`hostname`.m4 file.
+  Of course you can fool around with menus.m4 instead and for the
+  button bar you'll need to add an entry in buttons.m4
+
+Decors
+======
+
+The original of these fvwm2 decor hacks is at
+http://www.twobarleycorns.net/fvwm-decors.html I changed them because
+I wanted the decors to not change window geometry unecessarily - for
+example, the originals were hardcoded to set the title bar height to
+18, 23 or 24 pixels. This just didn't suit me - I prefer the fontsize
+to govern that. I also stopped the decors from changing the
+bordersizes and the font - I prefer to handle this myself.
+
+Finally, I added a facility to save the latest decor used so that it
+automatically re-starts on the next login.
+
+Mouse bindings
+==============
+
+See the file mouse.m4 for definitive documentation and for tweaking. 
+
+On the root window (background):
+Left click				pops up main (root) menu
+Middle click			pops up window operation menu
+Right click				pops up icon manager menu
+
+Alt-Left click			pops up gnome menu (pretty useless)
+Alt-Middle click		not assigned
+Alt-Right click			pops up window info - you then need to pick a window
+
+In title bars: (I'll assume the title bar buttons and resize handles are obvious)
+Left click			 	Raise or lowers the window
+Middle click			pops up window operation menu
+Right click				Identify the window
+Ctl-Left click			Send the window to the top left of the screen
+
+In any part of a window:
+Alt-Left click			Raise or lower the window
+Alt-Left drag			Move the window
+
+Key bindings
+============
+
+'direction' means Up, Left, Right, Down
+
+See the file keys.m4 for definitive documentation and for tweaking. 
+
+Window control:
+Alt-Ctl-h				Maximise the window vertically
+Sft-Alt-Ctl-h			Maximise the window vertically, 60% horizontally (emacs size)
+Alt-Ctl-m				Maximise the window
+Sft-Alt-Ctl-Home		Move window to top left
+Sft-Alt-Ctl-End			Resize the window to xterm-size
+Sft-Alt-Ctl->			Raise the window
+Sft-Alt-Ctl-<			Lower the window
+Sft-Alt-Ctl-Next		Focus the next window
+Sft-Alt-Ctl-Prev		Focus the previous window
+Alt-direction  			Move to the adjacent page
+Sft-Alt-direction		Send the window to the adjacent page
+
+Cursor motion:
+Alt-Ctl-direction  		Move the cursor slowly
+Sft-Alt-Ctl-direction	Move the cursor quickly
+
+Command shortcuts:
+Alt-Ctl-e				Popup a new rxvt terminal
+Sft-Alt-Ctl-e			Popup a new xterm terminal
+Sft-Alt-Ctl-t			Popup a window to talk to fvwm2 directly
+Sft-Alt-Ctl-l			Lock screen (and go to bathroom)
+Sft-Alt-Ctl-m			Reset the mouse (eg after Xnest changes the settings)
+Sft-Alt-Ctl-r			Popup a root menu (so you don't have to grope for the background)
+Sft-Alt-Ctl-Delete		Re-start fvwm2 (eg after running 'make' in .fvwm)
+
+The keypad provides a warp function:
+eg. Ctrl-Alt-Home warps to the top left page, desk 0 etc
+eg. Shift-Ctrl-Alt-Home sends the current window to the top left page,
+desk 0 etc
+
+The 2 desktops map to the keypad as follows:
+
+Desktop 1: 7   8   9
+           4   5   6
+
+Desktop 2  1   2   3
+           Ins Del Enter
+
+Adding New Applications
+=======================
+
+Suppose you need to add an application that I have not already put
+into these files. It's not hard - which is just as well since your
+application mix and preferenece is likely to be different to mine.
+
+First, look at apps.m4 and see if there is already an entry - there is
+an explanation of the entries at the top. If there is no such entry,
+add one using the template at the end. If your new application is
+straightforward (ie no special Style or icon directive is needed and
+the program needs nothing special to run it - just the program name)
+then you can get away with using the SIMPLE_PROGRAM macro.
+
+Secondly, you need to place the program in a menu - the easiest and
+cleanest way is to add it to a custom sub-menu in your
+.fvwm/`hostname`/`hostname`.m4 file. There you will find placeholders
+for two groups of 3 submenus - MY_APPS_MENU1..3 and MY_MAIN_MENU1..3
+which, when defined, create sub-menus on the apps menu and on the main
+menu respectively. Just copy and edit the menu entries there - you can
+use literal fvwm2 commands or the macro MENUITEM.
+
+If you want to add the item to the main menu itself (rather than a
+sub-menu) it's a little more work. Look in (surprise, surprise)
+menus.m4 for RootMenu and copy an existing entry. You will also need
+to m4_define(PROG_onmain) in your .fvwm/`hostname`/`hostname`.m4 file
+to enable the entry. 
+
+Note that the _onmain definition is used simply to ensure that if an
+application makes it to the main root menu then it is not duplicated
+in a sub-menu.
+
+Finally, you might want a button in the button bar. If it's not there
+already, add an entry at the end of the buttons.m4 file plus define
+PROG_onbar in your .fvwm/`hostname`/`hostname`.m4 file.
+
+Backgrounds
+===========
+
+There is a place in your .fvwm/`hostname`/`hostname`.m4 file to define
+background (root windows) according to which desk or page you are on.
+See the sample for examples, it should be pretty well
+self-documenting.
+
+Contacts
+========
+
+Constructive comments, praise, contributions and bug fixes gratefully
+received. Bug reports welcome but no guarantees on fixes. Whinges
+ignored.
+
+Please consider sending me your additions so that they will be included
+in subsequent versions.
+
+email to: bhepple at freeshell dot org
+http://bhepple.freeshell.org/fvwm-bh
+
+Brisbane, Queensland, April 2004

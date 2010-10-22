@@ -1,0 +1,52 @@
+AddToDecor "babyblue" BorderStyle Simple
+AddToDecor "babyblue" BorderStyle -- HiddenHandles
+
+AddToDecor "babyblue" TitleStyle Centered
+#AddToDecor "babyblue" TitleStyle Height 20
+
+AddToDecor "babyblue" TitleStyle MultiPixmap \
+  Main Colorset 2 \
+  LeftOfText buttons/rose_violet_left.xpm \
+  RightOfText buttons/rose_violet_right.xpm
+
++ ButtonStyle Reset
++ ButtonStyle 3 Pixmap empty.xpm
++ ButtonStyle All -- UseTitleStyle
++ ButtonStyle All Inactive Colorset 2
++ AddButtonStyle 3 ActiveUp pixmap buttons/rose_violet_left.xpm
+
+#IconFont -adobe-helvetica-medium-r-normal--10-100-75-75-p-56-iso8859-1
+
+Colorset 0 fg gray30, bg #97B3AE, CGradient 24 #6c98bd #c3cf9f
+Colorset 1 fg black, bg #97B3AE, CGradient 24 #6c98bd #c3cf9f
+Colorset 2 fg gray30, bg #97B3AE, VGradient 24 #6c98bd #c3cf9f
+Colorset 3 fg black, bg #97B3AE, VGradient 24 #6c98bd #c3cf9f
+
+MenuStyle * MenuColorset 1
+MenuStyle * BorderWidth 2
+MenuStyle * TrianglesRelief
+#MenuStyle * Font -adobe-helvetica-bold-r-normal--12-120-75-75-p-70-iso8859-1
+MenuStyle * SidePic side.fvwm2.xpm, SideColor Black
+
+#Style * BorderWidth  4
+#Style * HandleWidth  6
+#Style * Font -adobe-helvetica-bold-r-normal--14-140-75-75-p-82-iso8859-1
+Style * MwmBorder
+
+Style * UseDecor babyblue
+
+Style * IconTitleColorset 2
+Style * HilightIconTitleColorset 3
+
+
+*FvwmPager: Colorset * 0
+*FvwmPager: HilightColorset * 2
+*FvwmTaskBar: Colorset 2
+*FvwmTaskBar: IconColorset 2
+*FvwmTaskBar: FocusColorset 2
+*FvwmTaskBar: StartIcon buttons/rose_violet_left.xpm
+#Style "FvwmTaskBar" Sticky, NoTitle, NoHandles, BorderWidth 1, HandleWidth 1, WindowListSkip
+#Style "FvwmPager" Sticky, NoTitle, NoHandles, BorderWidth 2, HandleWidth 2, WindowListSkip
+
+*FvwmIdent: Colorset 1 # should track MenuColorset
+*FvwmIconMan: Colorset 1 # should track MenuColorset

@@ -1,0 +1,1438 @@
+# -*- fvwm -*-
+
+# Configuration file for FVWM 2.5.x, David vilar
+#
+# Initially started as an extension of the debian provided config by Lars
+# Wirzenius, Julian Gilbey and Alexander Kotelnikov, but I don't think much is
+# left from the original.
+
+ImagePath $[HOME]/.fvwm/images:$[HOME]/.fvwm/miniicons
+
+SetEnv FVWMStandardHost methan
+
+# Ignore NumLock and CapsLock
+IgnoreModifiers L2
+
+DeskTopSize 2x2
+SetEnv FVWMmaxPageX 1
+SetEnv FVWMmaxPageY 1
+
+# Don't move pages with the mouse
+EdgeScroll 0 0
+
+#
+# When moving a window against the edge of the screen, it is
+# nice to have a small resistance before the window is moved outside
+# the screen.  This makes it easier to line windows against the
+# edges.  I have also added some resistance to scrolling at the edges
+# of the screen
+#
+EdgeResistance 250 100
+
+# "Magical" constants:
+
+# States that will be used
+# 0.-9. Window Selecting
+# 10. Not used any more
+# 11. Full-screen maximization
+# 12. Showed/hidden state (e.g. MUTT, applets)
+# 13. Maximized vertically
+# 14. Maximized horizontally
+# 15. Marked for AltTab
+# 16. Used for Expose-like function
+# 17. Window has title
+
+# Colorsets:
+# 0. Window with focus
+# 1. Windows without focus
+# 2. Icons
+# 3. Menu entries
+# 4. Active Menu entry
+# 5. FvwmPager normal colorset
+# 6. FvwmPager hilighted page colorset
+# 7. FvwmPager inactive window colorset
+# 8. FvwmPager active windows colorset
+# 9. FvwmPager ballons
+# 10. Icon Title
+# 11. Icon background
+# 14. Shaded Windows highlight
+# 15. Shaded Windows
+# 16. flux-decor Window with focus
+# 17. flux-decor Window without focus
+# 18. fvwmClock & fvwmMail
+# 19. FvwmQuota "Dipsticks"
+# 20. brushedmetal-decor Window with focus
+# 21. brushedmetal-decor Window without focus
+
+CleanupColorsets
+Colorset 0 fg black, bg white, IconAlpha 100
+# IconAlpha 25 makes a nice effect, but refresh is a bit slow
+#Colorset 1 fg black, bg LightSkyBlue4, fgsh black, IconAlpha 25
+Colorset 1 fg black, bg gray30, fgsh black, IconTint rgb:7E/94/CD 70
+Colorset 2 fg white, bg black, fgsh black, RootTransparent
+Colorset 3 RootTransparent, Tint white 20, bg #434c83, fg gray80
+Colorset 4 bg #434c83, fg yellow
+Colorset 5 fg gray70, bg black, RootTransparent, Tint #eeefcf 20
+# For blue background
+Colorset 6 fg gray70, bg steelblue4, RootTransparent, Tint blue 20
+Colorset 7 fg #63656e, bg black, RootTransparent, Tint #b5b2ff 60, IconAlpha 25
+Colorset 8 fg white, bg black, RootTransparent, Tint slateblue 80
+# For green background
+#Colorset 6 fg white, bg black, RootTransparent, Tint #1F3119 80
+#Colorset 7 fg #63656e, bg black, RootTransparent, Tint #5E8625 60, IconAlpha 50
+#Colorset 8 fg white, bg black, RootTransparent, Tint #B9D483 80
+#
+Colorset 9 fg black, bg Khaki1, Plain
+Colorset 10 fg white, bg black, fgsh black, RootTransparent
+Colorset 11 fg white, bg black, fgsh black, RootTransparent
+Colorset 14 fg gray80, bg gray90, RootTransparent, Tint white 30
+Colorset 15 fg white, bg white, RootTransparent, Tint white 30
+Colorset 18 RootTransparent, fg gray75, fgsh DarkSlateBlue
+Colorset 19 RootTransparent, fg RoyalBlue4, sh gray20, hi DodgerBlue4
+
+# Aqua (visual) style for windows
+DestroyDecor aquaDecor
+AddToDecor aquaDecor
++ TitleStyle TiledPixmap aqua/title-active.xpm
++ TitleStyle Inactive TiledPixmap aqua/title-inactive.xpm
++ TitleStyle Height 21 -- Flat
++ ButtonStyle All Inactive Pixmap aqua/button-inactive.png
++ ButtonStyle 1 ActiveUp Pixmap aqua/one_window-active.png
++ ButtonStyle 1 ActiveDown Pixmap aqua/one_window-highlight.png
++ ButtonStyle 1 - MwmDecorMenu
++ ButtonStyle 3 ActiveUp Pixmap aqua/sticky-active.png
++ ButtonStyle 3 ActiveDown Pixmap aqua/sticky-highlight.png
++ ButtonStyle 3 - MwmDecorStick
++ ButtonStyle 2 ActiveUp Pixmap aqua/close-active.png
++ ButtonStyle 2 ActiveDown Pixmap aqua/close-highlight.png
++ ButtonStyle 2 - Clear
++ ButtonStyle 4 ActiveUp Pixmap aqua/maximize-active.png
++ ButtonStyle 4 Activedown Pixmap aqua/maximize-highlight.png
++ ButtonStyle 4 - MwmDecorMax
++ ButtonStyle 6 ActiveUp Pixmap aqua/iconify-active.png
++ ButtonStyle 6 ActiveDown Pixmap aqua/iconify-highlight.png
++ ButtonStyle 6 - MwmDecorMin
++ ButtonStyle All -- Flat
++ ButtonStyle All -- UseTitleStyle
++ BorderStyle -- HiddenHandles
++ BorderStyle Inactive -- HiddenHandles
+
+#Style for shade windows (transparent titles)
+DestroyDecor ShadedWindowDecor
+AddToDecor ShadedWindowDecor
++ TitleStyle Colorset 14
++ TitleStyle Height 20 -- Flat
++ TitleStyle LeftJustified
++ ButtonStyle 3 7 70x15@0 30x55@1 50x55@0 40x85@1 80x45@0 60x45@1 70x15@0
++ ButtonStyle 2 Vector 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 \
+                           60x50@0 80x70@0 80x80@0 70x80@0 50x60@0 30x80@0 \
+                           20x80@0 20x70@1 40x50@1 20x30@0 20x20@1
++ ButtonStyle 4 Vector 5 25x75@0 75x75@0 75x25@0 25x25@1 25x75@1
++ ButtonStyle 6 Vector 4 50x75@1 25x25@1 75x25@1 50x75@0
++ ButtonStyle All -- Flat
++ ButtonStyle All -- UseTitleStyle
+
+OpaqueMoveSize unlimited
+
+Style * HilightColorset 0, Colorset 1, UseDecor aquaDecor, BorderWidth 3, HandleWidth 3
+Style * Font "xft:Bitstream Vera Sans:size=11",  ResizeOpaque
+Style * IconTitle, IconTitleColorset 10, HilightIconTitleColorset 10, IconTitleRelief 0
+Style * IconFont "Shadow=1 1 SE:xft:Aquafont:size=11", IndexedIconName, IconBackgroundPadding 0,
+Style * IconBackgroundRelief 0, IconBackGroundColorset 11
+SetEnv FVWM_defaultMinicon $[HOME]/.fvwm/miniicons/x.png
+Style * MiniIcon $[FVWM_defaultMinicon]
+Style * NoTitle
+Style * NakedTransient
+
+# Not sure what this accomplishes, but it seems to be needed for some applications (e.g. acroread full screen)
+Style "*" MWMFunctions
+Style "*" MWMBorder
+Style "*" MWMDecor
+
+# Window Placement and focus
+Style * WindowShadeSteps 64p, SloppyFocus, CenterPlacement
+Style * NoPPosition
+Style * FPGrabFocus
+Style * DontStackTransientParent
+
+Style xv*Gaim* Sticky, Layer 10, HandleWidth 0
+
+# Firefox has the awful habit of raising its windows when there are flash applications (I think)
+Style Gecko IgnoreRestack
+
+# Module Styles
+Style "Fvwm*" NoTitle
+Style "Fvwm*" WindowListSkip
+Style "Fvwm*" CirculateSkip
+
+Style "FvwmButtons" Sticky
+Style "FvwmIconMan" Sticky
+
+Style "FvwmIdent" Title
+Style "FvwmIdent" WindowListHit
+Style "FvwmIdent" CirculateHit
+
+Style "FvwmConsole" WindowListHit, CirculateHit
+
+Style "fvwm-run-dialog" NoHandles, Title
+Style "fvwm-run-dialog" WindowListHit, CirculateHit, CenterPlacement
+
+Style stalonetray Sticky, NeverFocus, CirculateSkip, WindowListSkip, Layer 0
+
+# MiniIcons
+Style "emacs" MiniIcon /usr/share/icewm/icons/emacs_16x16.xpm
+Style "Firefox-bin" MiniIcon /usr/share/icons/crystalsvg/16x16/apps/firefox.png, EWMHMiniIconOverride
+Style "GV" MiniIcon /usr/share/icons/crystalsvg/16x16/apps/gv.png
+Style "Qmon" MiniIcon /usr/share/icons/crystalsvg/16x16/apps/xmag.png
+Style "Xpdf" MiniIcon $[HOME]/.fvwm/miniicons/Xpdf_16x16.png
+Style "*GridEngine Log Viewer*" MiniIcon $[HOME]/.fvwm/miniicons/shaun16.png
+Style "Bomberclone*" MiniIcon /usr/share/icons/crystalsvg/16x16/apps/clanbomber.png
+Style "Multi-gnome-terminal"  MiniIcon /usr/share/icons/kids/16x16/apps/konsole.png
+Style "*XTerm"  MiniIcon /usr/share/icons/kids/16x16/apps/konsole.png
+Style "*Rxvt"  MiniIcon /usr/share/icons/kids/16x16/apps/konsole.png
+Style "MUTT*" MiniIcon $[HOME]/.fvwm/miniicons/MUTT.mini.xpm
+Style "OpenOffice.org*" MiniIcon $[HOME]/.fvwm/miniicons/OpenOffice_16x16.png
+Style "psi" MiniIcon /usr/share/icons/hicolor/16x16/apps/psi.png
+Style "Opera" MiniIcon $[HOME]/.fvwm/miniicons/opera_16x16.png
+Style "GQview" MiniIcon $[HOME]/.fvwm/miniicons/GQview_16x16.png
+Style "Fvwm*" MiniIcon $[HOME]/.fvwm/miniicons/fvwm-logo-chrom_16x16.png
+Style "XDvi" MiniIcon /usr/share/icons/Locolor/16x16/mimetypes/dvi.png
+Style "Designer" MiniIcon $[HOME]/.fvwm/miniicons/Designer_16.png
+Style "AlignEdit" MiniIcon $[HOME]/.fvwm/miniicons/AlignEdit_16.png
+Style Gvim "MiniIcon" Gvim_16x16.png
+Style Vim "MiniIcon" Gvim_16x16.png
+Style Gecko MiniIcon firefox-icon16x16.png
+
+# Style for "special windows"
+Style "MUTT*" NoTitle, HandleWidth 0, Sticky
+Style "xeyes" Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, Layer 0
+Style Cervisia DecorateTransient
+Style psi Sticky, NoTitle, WindowShadeSteps 3p
+Style kopete Sticky, NoTitle, WindowShadeSteps 3p
+Style gaim Sticky, NoTitle, WindowShadeSteps 6p
+Style pidgin Sticky, NoTitle, WindowShadeSteps 6p
+Style queueWatch Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, BorderWidth 0, HandleWidth 0, Layer 0
+# xpdf redrawing is slow when using ResizeOpaque
+Style Xpdf:* ResizeOutline
+
+# Common stuff for start and restart
+DestroyFunc StartFunction
+AddToFunc StartFunction
++ I PipeRead "echo SetEnv FVWMMaxDeskNumber $${FVWMMaxDeskNumber:-1}"
++ I DesktopName 0 General
++ I DesktopName 1 Tools
+# Only start
++ I Test (Init) SetEnv SHELL zsh
++ I Test (Init) Exec /usr/bin/wmsetbg $HOME/fondos/mellow_blue_water_by_littleweseth.png
++ I Test (Init) Exec exec xset fp+ $[HOME]/.fonts
++ I Test (Init) Exec exec xset fp rehash
++ I Test (Init) Exec exec xrdb -merge $[HOME]/.Xresources
++ I Test (Init) PipeRead "if [ `uname -n` = $FVWMStandardHost ]; then \
+        echo Exec rm -f $HOME/.fvwm/icons/\*; \
+        echo Exec exec /usr/bin/gnome-settings-daemon; \
+        echo Exec exec /usr/bin/kdeinit; \
+        echo Exec exec urxvt -b 4 -bg \\\\#a5a6a6 -fg black -cr gray50 +sb -title MUTT -geometry +10000+10000 +ls -e bash --init-file $[HOME]/.fvwm/bashrc_noPS1; \
+        echo Wait MUTT\*; \
+        echo All \\\(MUTT\*\\\) Maximize 100 86; \
+        echo ToggleMUTTWindow; \
+        fi"
+#echo Exec exec xv /u/vilar/.fvwm/miniicons/Gaim.png -geometry -5000-5000; \
++ I Test (Init) Exec exec xset m 4
++ I Test (Init) Exec exec xmodmap $[HOME]/.xmodmaprc
++ I Test (Init) Exec exec xeyes -geometry 25x16+290-4 -fg RoyalBlue4 -outline gray75 -center gray75
++ I Test (Init) SetEnv FVWMPage0_0x0 "General"
++ I Test (Init) SetEnv FVWMPage1_0x0 "Web"
++ I Test (Init) SetEnv FVWMPage1_0x1 "Fvwm"
++ I Test (Init) SetEnv FVWMPage1_1x0 "Log&viewer"
++ I Test (Init) Exec exec /u/vilar/extSW/stalonetray/bin/stalonetray
++ I CreateMenuGoToPage
++ I CreateMenuMoveWindowToPage
++ I CreateMenuMoveCurrentDeskTo
++ I Test (Init) Exec exec urxvt -geometry 300x+59+0+0 +sb -title queueWatch -ip -fg white -e watch --interval 60 --no-title $[HOME]/bin/myJobs
++ I Test (Init) Exec exec urxvtd -o
++ I Test (Init) Exec exec unclutter
+
+# Menus
+MenuStyle * mwm, Background #434c83, MenuFace DGradient 256 #434c83 #20203e, \
+   Foreground gray85, ActiveFore, ActiveColorset 4, \
+   AnimationOff, Hilight3DThin, HilightBack, TitleUnderlines1
+MenuStyle * Font "xft:FreeSans:Bold:size=9"
+
+CopyMenuStyle * StyleMenuGotoPage
+MenuStyle StyleMenuGotoPage ItemFormat " %c "
+ChangeMenuStyle StyleMenuGotoPage MenuGotoPage
+
+CopyMenuStyle * StyleMenuMoveWindowToPageWithSidePic
+MenuStyle StyleMenuMoveWindowToPageWithSidePic SidePic menu/move_window_side.png, SideColor #091e9c
+
+# System Menu
+DestroyMenu /Debian
+AddToMenu /Debian
+Read /etc/X11/fvwm/menudefs.hook Quiet
+
+# Tack a quit entry on to the end; this version uses a pop-up menu to ask
+# the user to confirm, MWM-style (?).
+AddToMenu /Debian
++  ""            Nop
++  "Exit Fvwm"   Popup Quit-Verify
+
+#
+# The WindowOps menu is for manipulating windows.  It is invoked either
+# from the main menu, or directly from the root window.
+#
+
+DestroyMenu WindowOps
+AddToMenu WindowOps "Window Ops" Title
++ "Move window to..."           Popup MenuMoveWindowToPage
++ "FvwmIdent"                   Module FvwmIdent
+#+ "Main Menu"                   Popup /Debian
++ "Lower"                       Lower
++ "Window List"                 WindowList
++ "Previous"                    Prev
++ "Next"                        Next
++ "Move"                        Move
++ "Resize"                      Resize
++ "(De)Iconify"                 IconifyWithThumbnail
++ "(Un)Maximize to screen"      Maximize 100 100
++ "Raise"                       Raise
++ "(Un)Stick"                   Stick
++ "(Un)Maximize vertical"       MaximizeVertically
++ "(Un)Maximize horizontal"     MaximizeHorizontally
++ "(Un)Shade"                   WindowShade
++ "Sort shaded windows"         SortShadedWindows
++ ""                            Nop
++ "Destroy"                     Destroy
++ "Close"                       Close
+
+
+#
+# The Quit-Verify menu checks that the user really wants to exit.
+#
+
+DestroyMenu Quit-Verify
+AddToMenu Quit-Verify "Really quit FVWM?" Title
++ "No, restart Fvwm"   Restart
++ ""                   Nop
++ "Yes, really quit"   Quit
+
+#
+# Section: Mouse bindings
+#
+# This section defines the mouse bindings, that is, all the things that
+# can be done with the mouse.
+#
+
+#
+# Each button gives a different menu from the background (root window).
+#
+
+Mouse 1   R  A  Menu /Debian
+Mouse 2   R  A  WindowList (CurrentPage)
+Mouse 2   R  S  WindowList NoCurrentDeskTitle,TitleForAllDesks
+Mouse 3   R  A  Menu WindowOps
+
+DestroyFunc SetRootMouseBindings
+AddToFunc SetRootMouseBindings
++ I Mouse ($0) 1   W  A  NoWindow Menu /Debian
++ I Mouse ($0) 2   W  A  NoWindow WindowList (CurrentPage)
++ I Mouse ($0) 2   W  S  NoWindow WindowList NoCurrentDeskTitle,TitleForAllDesks
++ I Mouse ($0) 2   W  3  StrokeFunc
++ I Mouse ($0) 3   W  A  NoWindow Menu WindowOps
+
+# "Root applications"
+#SetRootMouseBindings FvwmClock
+SetRootMouseBindings xeyes
+SetRootMouseBindings FvwmPageName
+SetRootMouseBindings FvwmMail
+SetRootMouseBindings FvwmQuota
+SetRootMouseBindings FvwmMemLoad
+SetRootMouseBindings queueWatch
+
+# Do not change the cursor so much
+CursorStyle DEFAULT left_ptr
+CursorStyle TITLE left_ptr
+CursorStyle SYS left_ptr
+CursorStyle MENU left_ptr
+CursorStyle ROOT left_ptr
+CursorStyle MOVE plus
+CursorStyle STROKE spider
+
+#
+# Moving and resizing, depending on which part of the window
+# you grab (T=title bar, S=side/top/bottom, F=corner).
+#
+
+Mouse 1 T A move-or-raise
+Mouse 3 T A move-and-raise-or-raiselower
+Mouse 0 W M -
+Mouse 0 F A ResizeM
+Mouse 0 S A ResizeM
+
+#
+# Move or de-iconify an icon.
+#
+
+Mouse 0 I A move-or-winmenu-or-deiconify
+Mouse 2 I A Iconify Off
+
+#
+# Buttons on the title bar (1,3,5,7,9 are on the left, 0,8,6,4,2 on
+# the right side of the title bar).
+
+Mouse 0 1 A Menu WindowOps
+Mouse 0 3 A OnlyIfClick Stick
+
+Mouse 0 2 A OnlyIfClick Close
+Mouse 1 4 A OnlyIfClick MaximizeVertically
+Mouse 2 4 A OnlyIfClick Maximize 100 100
+Mouse 3 4 A OnlyIfClick MaximizeHorizontally
+Mouse 0 6 A OnlyIfClick WindowShade
+Mouse 1 6 A OnlyIfClick IconifyWithThumbnail
+
+# Middle button on the title bar shades
+Mouse 2 T N ShadeWindowAndSort
+
+# "Desktop navigation"
+Mouse 2 A 3 StrokeFunc
+Stroke 456 0 A 3 RightPage
+Stroke 654 0 A 3 LeftPage
+Stroke 258 0 A 3 Scroll +0 +100
+Stroke 852 0 A 3 Scroll +0 -100
+
+# fvwm key (see below) and left button moves the window
+DestroyFunc MoveM
+AddToFunc MoveM
++ M Move
+Mouse 1 WSFT 3 MoveM
+# + shift snaps
+DestroyFunc MoveMSnap
+AddToFunc MoveMSnap
++ M SnapAttraction 30 Windows Screen
++ M Move
++ M SnapAttraction 0
+Mouse 1 WSFT S3 MoveMSnap
+
+# fvwm key + middle button raises or lowers the window (+shift lowers)
+Stroke 0 0 WSFT 3 RaiseLower
+Mouse 2 A 3S StrokeFunc
+Stroke 0 0 WSFT S3 Lower
+
+# fvwm key + right button resizes the window
+Mouse 3 WSFT 3 ResizeM
+DestroyFunc ResizeM
+AddToFunc ResizeM
++ M Resize Direction SE
+
+#
+# Section: Key bindings
+#
+# All the key bindings use the fvwm key (formerly known as "widows key" :-)
+# mapped to mod3 (xmodmap stuff)
+
+# fvwm+tab
+Key Tab         A       M       -
+Key Tab         A       3       AltTab Next WarpAltTab
+Key backslash   A       3       AltTab Next Focus
+# Only within a class
+Key bracketright WSFT 3 Next (!Iconic, !Shaded, $[w.class]) WarpToWindow 50 1
+Key bracketright WSFT S3 Next (!Iconic, !Shaded, $[w.class]) Focus
+Key bracketleft WSFT 3 Prev (!Iconic, !Shaded, $[w.class]) WarpToWindow 50 1
+Key bracketleft WSFT S3 Prev (!Iconic, !Shaded, $[w.class]) Focus
+
+Key Space A 3 WindowList (CurrentPage) SortByClass
+Key Space A S3 WindowList NoCurrentDeskTitle,TitleForAllDesks,SortByClass
+
+# fvwm+direction (scrolls)
+Key Left  A    3     LeftPage
+Key Up    A    3     Scroll +0 -100
+Key Right A    3     RightPage
+Key Down  A    3     Scroll +0 +100
+
+# fvwm+shift+directions moves windows
+Key     Up      WT      S3      MoveToPage  0w -1w
+Key     Down    WT      S3      MoveToPage  0w +1w
+Key     Left    WT      S3      MoveToPage -1w  0w
+Key     Right   WT      S3      MoveToPage +1w  0w
+
+# fvwm+alt+directions switches pages while moving the current window
+Key Left  WSFT    3M     SwitchPageWithWindow LeftPage
+Key Up    WSFT    3M     SwitchPageWithWindow Scroll +0 -100
+Key Right WSFT    3M     SwitchPageWithWindow RightPage
+Key Down  WSFT    3M     SwitchPageWithWindow Scroll +0 +100
+
+# Start a terminal quickly
+Key X A 3 Exec exec urxvtc -pe tabbed -e zsh
+
+# A calendar
+Key C A 3 ShowCalendar
+# and a calculator
+Key C A 3S Exec exec xcalc
+
+# Window resizing and positioning
+Key F1 A 3 Maximize 100 100
+Key F1 A S3 MaximizeFullScreen
+Key F2 A 3 MaximizeVertically
+Key F3 A 3 MaximizeHorizontally
+Key F4 A 3 IconifyWithThumbnail
+Key F4 A S3 ShadeWindowAndSort
+
+Key KP_Up    A 3 ResizeMoveMaximize frame 100 50 0 0 Warp
+Key KP_Down  A 3 ResizeMoveMaximize frame 100 50 0 50 Warp
+Key KP_Left  A 3 ResizeMoveMaximize frame 50 100 0 0 Warp
+Key KP_Right A 3 ResizeMoveMaximize frame 50 100 50 0 Warp
+
+Key KP_Home  A 3 ResizeMoveMaximize frame 50 50 0 0 Warp
+Key KP_Prior A 3 ResizeMoveMaximize frame 50 50 50 0 Warp
+Key KP_End   A 3 ResizeMoveMaximize frame 50 50 0 50 Warp
+Key KP_Next  A 3 ResizeMoveMaximize frame 50 50 50 50 Warp
+
+Key KP_Begin WSFT 3 CenterWindow
+
+Key E A 3 Expose
+
+Key A WSFT C3 WMIArrange 30
+Key A WSFT 3 WMIArrange 50
+Key A WSFT S3 WMIArrange 70
+
+# Closing a window
+Key Q A 3  Current Close
+Key Q A S3 Current Destroy
+
+Key Z WSFT 3 RaiseLower
+
+# Move and resize the windows with the keyboard
+Key M WSFT 3 Move
+Key M WSFT 3S Resize Direction SE
+
+# Resize the windows with the keyboard until a window is found
+Key KP_Home WSFT 3SC Maximize growonwindowlayer true growleft growup
+Key KP_Up WSFT 3SC Maximize growonwindowlayer true 0 growup
+Key KP_Prior WSFT 3SC Maximize growonwindowlayer true growright growup
+
+Key KP_Left WSFT 3SC Maximize growonwindowlayer true growleft 0
+Key KP_Right WSFT 3SC Maximize growonwindowlayer true growright 0
+
+Key KP_End WSFT 3SC Maximize growonwindowlayer true growleft growdown
+Key KP_Down WSFT 3SC Maximize growonwindowlayer true 0 growdown
+Key KP_Next WSFT 3SC Maximize growonwindowlayer true growright growdown
+
+#ChangeTitlePosition
+Key KP_Up WSFT 3SC WindowStyle TitleAtTop
+Key KP_Down WSFT 3SC WindowStyle TitleAtBottom
+Key KP_Left WSFT 3SC WindowStyle TitleAtLeft
+Key KP_Right WSFT 3SC WindowStyle TitleAtRight
+
+# Assign a number (state) from 0 to 9 to the current window
+# (windows on different pages can have the same number)
+PipeRead 'for i in `seq 0 9`; do echo Key $i WSFT 3C AssignNumberToCurrentWindow $i; done'
+PipeRead 'for i in `seq 0 9`; do echo Key $i WSFT 3 GoToWindowNumber $i; done'
+PipeRead 'for i in `seq 0 9`; do echo Key $i WSFT 3S FocusWindowNumber $i; done'
+
+# Run dialog
+Key R A 3 CreateRunDialog
+
+# Show "hidden windows"
+Key grave A 3 ToggleMUTTWindow
+
+Key BackSpace A 3 HideUnhidePager
+
+# Keys for handling pages and desks
+Key Menu A N Menu MenuGoToPage Root c c
+Key Menu A 3 PopupMenuMoveWindowToPageWithSidePic
+Key Menu A S3 Menu MenuMoveCurrentDeskTo Root c c
+Key Menu A S FvwmForm FormPageName
+Key Menu A SC FvwmForm FormDeskName
+Key Menu A C OSDShowPageName
+Key D A 3 NewDesk
+Key D A C3 DeleteDesk
+
+# Logging in & out (with Control-Key, these are not "window-manager functions")
+Key Pause A C Exec exec $HOME/bin/out -x
+Key Pause A SC Exec exec $HOME/bin/out -x --nologout
+Key Pause A S Exec exec xscreensaver-command -lock
+Style OneOfSTDDialogs NoTitle
+
+Key P A 3S ShowCursorPosition
+
+# Show the root window or restore the windows
+Key S A 3 ShadeAllWindows On
+Key S A 3S ShadeAllWindows Off
+Key I A 3 All (CurrentPage, !Iconic, !Shaded, !Sticky) IconifyWithThumbnail
+Key I A 3S All (CurrentPage, Iconic) Iconify Off
+
+Key T WSFT 3 ToggleTitle
+
+# Change the title of a window
+Key T WSFT 3S PipeRead 'echo Module FvwmForm FormWindowTitle WINDOWID=$[w.id] OLDTITLE="\\\"$[w.name]\\\"" POSX=$$$$[ ($[w.width] - 310) / 2 + $[w.x] ] POSY=$$$$[ $[w.y] + 4]'
+
+# IM togggling
+Key slash A 3 HideUnhideIM
+Key slash A 3S UnhideIM
+
+# I don't like when I press Control-J by mistake when I want to press Control-K
+Key J WSFT C Nop
+
+# Focus the windows according to their position
+# Specially useful when using the WMIRearrange function
+Key K  A 3 Direction North (CurrentPage, !Iconic) WarpToWindow 50 50
+Key J  A 3 Direction South (CurrentPage, !Iconic) WarpToWindow 50 50
+Key L  A 3 Direction East (CurrentPage, !Iconic) WarpToWindow 50 50
+Key H  A 3 Direction West (CurrentPage, !Iconic) WarpToWindow 50 50
+
+# Swap windows according to their position
+Key K WSFT S3 SwapWindows North
+Key J WSFT S3 SwapWindows South
+Key L WSFT S3 SwapWindows East
+Key H WSFT S3 SwapWindows West
+
+# Navigating through icons (see http://fvwm.lair.be/viewtopic.php?t=1129)
+Key Up    I N Direction North (CurrentPage, Iconic) Focus
+Key Down  I N Direction South (CurrentPage, Iconic) Focus
+Key Right I N Direction East (CurrentPage, Iconic) Focus
+Key Left  I N Direction West (CurrentPage, Iconic) Focus
+Key Return I N Current (Iconic) Iconify off
+
+# Paste X selection (I prefer this shortcut over S-Insert)
+# Todo: it should regardless of where the pointer is
+Key P A 3 Current FakeClick press 2 release 2
+
+Key K A C3 SerbianKeyboard
+
+DestroyFunc SerbianKeyboard
+AddToFunc SerbianKeyboard
++ I PipeRead 'setxkbmap cs && echo Nop'
++ I PipeRead 'xmodmap -e "clear mod4" -e "add mod3 = Super_L Super_R"'
++ I Key Cyrillic_ka A C3 USKeyboard
+
+DestroyFunc USKeyboard
+AddToFunc USKeyboard
++ I PipeRead 'setxkbmap us && echo Nop'
++ I PipeRead 'xmodmap $[HOME]/.xmodmaprc && echo Nop'
++ I Key K A C3 SerbianKeyboard
+
+# Volume control
+
+Key Prior A 3 Exec exec amixer set PCM 5%+
+Key Next  A 3 Exec exec amixer set PCM 5%-
+
+#
+# Section: Functions
+#
+# The following functions operate on a window or menu.  The
+# names are systematic: foo means "do foo"; foo-or-bar means
+# "do foo, if mouse is moving, bar if click"; and foo-or-bar-or-baz
+# adds "baz, if double-clicked".
+# (from the original debian config)
+
+DestroyFunc OnlyIfClick
+AddToFunc OnlyIfClick
++ "C" $*
+
+DestroyFunc move-or-winmenu-or-deiconify
+AddToFunc   move-or-winmenu-or-deiconify
++ "M" Move
++ "C" Popup WindowOps
++ "D" Iconify Off
+
+DestroyFunc deiconify-and-focus
+AddToFunc   deiconify-and-focus
++ "I" Iconify Off
++ "I" Focus
+
+DestroyFunc deiconify-and-raise
+AddToFunc   deiconify-and-raise
++ "I" Iconify Off
++ "I" Raise
+
+DestroyFunc focus-and-raise
+AddToFunc   focus-and-raise
++ "I" Focus
++ "I" Raise
+
+DestroyFunc move-or-raiselower
+AddToFunc   move-or-raiselower
++ "M" Move
++ "C" RaiseLower
+
+DestroyFunc move-or-raise
+AddToFunc   move-or-raise
++ "M" Move
++ "C" Raise
+
+DestroyFunc move-and-raise-or-raiselower
+AddToFunc   move-and-raise-or-raiselower
++ "M" Move
++ "M" Raise
++ "C" RaiseLower
+
+DestroyFunc move-or-raiselower-or-maximize-vertical
+AddToFunc   move-or-raiselower-or-maximize-vertical
++ "M" Move
++ "C" RaiseLower
++ "D" Maximize 0 100
+
+DestroyFunc resize-or-raiselower
+AddToFunc   resize-or-raiselower
++ "M" Resize
++ "C" RaiseLower
+
+DestroyFunc CenterWindow
+AddToFunc   CenterWindow
++ I Pick Piperead "echo AnimatedMove \
+    $(( $[vp.width]/2-$[w.width]/2 ))p \
+        $(( $[vp.height]/2-$[w.height]/2 ))p Warp"
+
+# Like 'Maximize 100 0' or 'Maximize 0 100', but they work independently
+# (you can undo each of them separately)
+DestroyFunc MaximizeVertically
+AddToFunc MaximizeVertically
++ I Pick (State 13) Maximize Off
++ I Pick (State 13, State 14) Maximize On 100 0
++ I Pick (!State 13) Maximize On 0 100
++ I State 13
+
+DestroyFunc MaximizeHorizontally
+AddToFunc MaximizeHorizontally
++ I Pick (State 14) Maximize Off
++ I Pick (State 14, State 13) Maximize On 0 100
++ I Pick (!State 14) Maximize On 100 0
++ I State 14
+
+DestroyFunc DeiconifyAndRearrange
+AddToFunc DeiconifyAndRearrange
++ I Exec exec rm -f $HOME/.fvwm/icons/icon.tmp.$[w.id].png
++ I All (CurrentPage Iconic) PlaceAgain Icon
+#+ I All (CurrentPage, Iconic) WindowStyle Icon $[HOME]/.fvwm/icons/icon.tmp.$$$$[w.id].png
+
+# Scroll pages also through desktops
+DestroyFunc RightPage
+AddToFunc RightPage
++ I Piperead 'if [ $[page.nx] = $[FVWMmaxPageX] ]; then \
+                if [ $[desk.n] != $[FVWMMaxDeskNumber] ]; then \
+                  echo GotoDeskAndPage $$\[ $[desk.n] + 1 \] 0 $[page.ny]; \
+                fi; \
+              else \
+                  echo Scroll 100 0; \
+              fi'
+
+DestroyFunc LeftPage
+AddToFunc LeftPage
++ I Piperead 'if [ $[page.nx] = 0 ]; then \
+                if [ $[desk.n] != 0 ]; then \
+                  echo GotoDeskAndPage $$\[ $[desk.n] - 1 \] $[FVWMmaxPageX] $[page.ny]; \
+                fi; \
+              else \
+                  echo Scroll -100 0; \
+              fi'
+
+# The use of stick is probably not the bes solution here (it doesn't work when
+# the function is invoked with a sticky window having focus). But it allows to
+# use the LeftPage and RightPage functions
+DestroyFunc SwitchPageWithWindow
+AddToFunc SwitchPageWithWindow
++ I Stick
++ I $*
++ I Stick
+
+DestroyFunc WindowListFunc
+AddToFunc WindowListFunc
++ I All (CurrentPage, State 15) State 15 Off
++ I Current State 15 On
++ I WindowId $0 Iconify Off
++ I WindowId $0 (Shaded) ShadeWindowAndSort off
++ I WindowId $0 Raise
++ I WindowId $0 WarpToWindow 50 50
++ I WindowId $0 Focus
+
+SetEnv fvwm_icon_size 200
+SetEnv fvwm_icon_quality 2
+# Iconbox in the right border of the screen, top to bottom
+Style * IconBox 20 20 -20 -100, IconFill top right, IconGrid 15 1
+
+DestroyFunc IconifyWithThumbnail
+AddToFunc IconifyWithThumbnail
++ I Raise
++ I PipeRead "miniiconfile=`echo \"$HOME/.fvwm/miniicons/$[w.name].png\" | tr ' ' '_'`; \
+              if [ ! -e ${miniiconfile} ]; then \
+                 miniiconfile=`echo \"$HOME/.fvwm/miniicons/$[w.class].png\" | tr ' ' '_'`; \
+              fi; \
+              miniiconfile=$(echo $miniiconfile | tr -d \\'); \
+              if [ ! -e ${miniiconfile} ]; then \
+                 if [ $[w.miniiconfile] -ne ${FVWM_defaultMinicon} -e $[w.miniiconfile] ]; then \
+                    miniiconfile=$[w.miniiconfile]; \
+                 else \
+                    miniiconfile=/usr/share/icons/kids/32x32/apps/kxconfig.png; \
+                 fi; \
+              fi; \
+              $HOME/.fvwm/fvwmthumb2 $[w.id] $[fvwm_icon_size] $[HOME]/.fvwm/icons/icon.tmp.$[w.id].png ${miniiconfile} ${fvwm_icon_quality} 145; \
+              echo WindowStyle IconOverride, Icon $[HOME]/.fvwm/icons/icon.tmp.$[w.id].png \
+              || echo Nop"
++ I UpdateStyles
++ I Iconify
+
+DestroyFunc DeleteThumbnail
+AddToFunc DeleteThumbnail
++ I Exec exec rm -f $HOME/.fvwm/icons/icon.tmp.$[w.id].png
+
+DestroyFunc SetAquaDecor
+AddToFunc SetAquaDecor
++ I ThisWindow WindowStyle HilightColorset 0, Colorset 1, UseDecor aquaDecor, BorderWidth 3, HandleWidth 3, Font "xft:Bitstream Vera Sans:size=11"
+
+DestroyFunc MaximizeFullScreen
+AddToFunc MaximizeFullScreen
++ I Current (!State 11) WindowStyle NoTitle,!Borders
++ I Current (State 11) WindowStyle Title,Borders
++ I Current RefreshWindow
++ I Current (!State 11) Maximize true
++ I Current (State 11) Maximize false
++ I Current State 11 toggle
+
+DestroyFunc HideUnhidePager
+AddToFunc HideUnhidePager
++ I All (FvwmPager, Layer 10) Layer 0 1
++ I TestRc (NoMatch) All (FvwmPager) Layer 0 10
+
+DestroyFunc CreateRunDialog
+AddToFunc CreateRunDialog
++ I Exec exec  rxvt-xterm +sb -name fvwm-run-dialog -title "Run program..." \
+                    -geometry 80x1 --keysym.0xFF0D: " &\nexit\n" \
+                    -e bash --init-file $[HOME]/.fvwm/bashrc_noPS1
++ I Wait fvwm-run-dialog
++ I All (fvwm-run-dialog) WarpToWindow 50 75
+
+DestroyFunc AssignNumberToCurrentWindow
+AddToFunc AssignNumberToCurrentWindow
++ I All (CurrentPage) State $0 Off
++ I Current State $0 On
+
+# This is basically the same as WindowListFunc
+DestroyFunc GoToWindowNumber
+AddToFunc GoToWindowNumber
++ I All (CurrentPage, State 15) State 15 Off
++ I Current State 15 On
++ I All (CurrentPage, State $0) Iconify Off
++ I All (CurrentPage, State $0, Shaded) ShadeWindowAndSort off
++ I All (CurrentPage, State $0) Raise
++ I All (CurrentPage, State $0) WarpAltTab
+
+DestroyFunc FocusWindowNumber
+AddToFunc FocusWindowNumber
++ I All (CurrentPage, State $0) Iconify Off
++ I All (CurrentPage, State $0, Shaded) ShadeWindowAndSort off
++ I All (CurrentPage, State $0) Focus
+
+# Handle the "hidden windows"
+DestroyFunc ToggleMUTTWindow
+AddToFunc ToggleMUTTWindow
++ I All (MUTT*, State 12) Raise
++ I All (MUTT*, State 12) Move 0 0
++ I All (MUTT*, State 12) WindowShade Off
+#+ I All (MUTT*, State 12) WarpToWindow 1 1
++ I All (MUTT*, State 12) Focus
++ I All (MUTT*, State 12) WindowStyle WindowListHit
++ I All (MUTT*, State 12) WindowStyle CirculateHit
++ I All (MUTT*, !State 12) WindowShade On
++ I All (MUTT*, !State 12) Move -1000 -1000
++ I All (MUTT*, !State 12) WindowStyle WindowListSkip
++ I All (MUTT*, !State 12) WindowStyle CirculateSkip
++ I All (MUTT*) State 12
+
+DestroyFunc ToggleMailWindow
+AddToFunc ToggleMailWindow
++ I All (State 31, State 12) Raise
++ I All (State 31, State 12) Move 0 0
++ I All (State 31, State 12) WindowShade Off
+#+ I All (State 31, State 12) WarpToWindow 1 1
++ I All (State 31, State 12) Focus
++ I All (State 31, State 12) WindowStyle WindowListHit
++ I All (State 31, State 12) WindowStyle CirculateHit
++ I All (State 31, !State 12) WindowShade On
++ I All (State 31, !State 12) Move -1000 -1000
++ I All (State 31, !State 12) WindowStyle WindowListSkip
++ I All (State 31, !State 12) WindowStyle CirculateSkip
++ I All (State 31) State 12
+
+# Shade a window and arrange all the shaded windows
+DestroyFunc ShadeWindowAndSort
+AddToFunc ShadeWindowAndSort
++ I ShadeWindowWithStyle $0
++ I SortShadedWindows
+
+DestroyFunc ShadeWindowWithStyle
+AddToFunc ShadeWindowWithStyle
++ I WindowShade $0
++ I Maximize Off
++ I ThisWindow (!Shaded) SetAquaDecor
++ I ThisWindow (!Shaded) Layer 0 4
++ I ThisWindow (!Shaded) WindowStyle NoTitle
++ I ThisWindow (Shaded) WindowStyle HandleWidth 0
++ I ThisWindow (Shaded) WindowStyle UseDecor ShadedWindowDecor, HilightColorSet 15, Colorset 14, Font "xft:Bitstream Vera Sans:size=11"
++ I ThisWindow (Shaded) Layer 0 2
++ I ThisWindow (Shaded) WindowStyle Title
+
+DestroyFunc SortShadedWindows
+AddToFunc SortShadedWindows
++ I All (CurrentPage, Shaded, !Sticky) PipeRead 'echo $$$[w.width] $$$[w.id] >> $[HOME]/.fvwm/shadedWindows'
+# This should be more simpler with awk, but there seem to be problems with $1, $2, etc substitutions
++ I PipeRead "if [ -e $[HOME]/.fvwm/shadedWindows ]; then \
+                offset=0; \
+                for l in `sort -rnk 1 $[HOME]/.fvwm/shadedWindows | tr ' ' '_'`; do \
+                  echo `echo ${l} | sed 's/\\(.*\\)_\\(.*\\)/WindowId \\2 ResizeMoveMaximize \\1p 0 0p/'` ${offset}p; \
+                  offset=$[offset + 21]; \
+                done; \
+                rm $[HOME]/.fvwm/shadedWindows; \
+              fi"
+
+DestroyFunc ShadeAllWindows
+AddToFunc ShadeAllWindows
++ I All (CurrentPage, !Iconic, !Sticky) ShadeWindowWithStyle $0
++ I SortShadedWindows
+
+# Functions to handle page names
+DestroyFunc OSDShowPageName
+AddToFunc OSDShowPageName
++ I PipeRead "echo Exec exec /u/vilar/bin/osd_echo_pred $\\[desk.name$[desk.n]\\]: $$(echo $${FVWMPage$[desk.n]_$[page.nx]x$[page.ny]:-$[page.nx]x$[page.ny]} | sed 's/&//' | sed 's/&/\\\\&/g')"
+
+DestroyFunc ShowPageName
+AddToFunc ShowPageName
++ I PipeRead "echo SendToModule \*FvwmPageName SendString 1 1 $\\[desk.name$[desk.n]\\]: $$(echo $${FVWMPage$[desk.n]_$[page.nx]x$[page.ny]:-$[page.nx]x$[page.ny]} | sed 's/&//')"
+
+DestroyFunc MoveToDeskAndPage
+AddToFunc MoveToDeskAndPage
++ I MoveToDesk 0 $0
++ I MoveToPage $1 $2
+
+DestroyFunc SetThisPageName
+AddToFunc SetThisPageName
++ I SetEnv FVWMPage$[desk.n]_$[page.nx]x$[page.ny] "$*"
++ I Piperead "if [ \"$*\" = \"--\" ]; then echo UnsetEnv FVWMPage$[desk.n]_$[page.nx]x$[page.ny]; fi"
++ I CreateMenuGoToPage
++ I CreateMenuMoveWindowToPage
++ I CreateMenuMoveCurrentDeskTo
++ I ShowPageName
+
+DestroyFunc SetDeskName
+AddToFunc SetDeskName
++ I DesktopName $*
++ I CreateMenuGoToPage
++ I CreateMenuMoveWindowToPage
++ I CreateMenuMoveCurrentDeskTo
++ I ShowPageName
+
+DestroyFunc GotoDeskAndPageWithReturn
+AddToFunc GotoDeskAndPageWithReturn
++ I SetEnv FVWM_PrevDeskAndPage "$[desk.n] $[page.nx] $[page.ny]"
++ I GotoDeskAndPage $*
+
+DestroyFunc ReturnToLastDeskAndPage
+AddToFunc ReturnToLastDeskAndPage
++ I GotoDeskAndPageWithReturn $[FVWM_PrevDeskAndPage]
+
+DestroyFunc CreateMenuGoToPage
+AddToFunc CreateMenuGoToPage
++ I DestroyMenu recreate MenuGoToPage
++ I AddToMenu MenuGoToPage "Previous" ReturnToLastDeskAndPage
++ I Piperead 'for d in `seq 0 $FVWMMaxDeskNumber`; do \
+                echo AddToMenu MenuGoToPage \\"--- $$\\[desk.name${d}\\] ---\\" Title; \
+                for j in `seq 0 $FVWMmaxPageX`; do \
+                  for i in `seq 0 $FVWMmaxPageY`; do \
+                      check=FVWMPage${d}_${i}x${j}; \
+                      if [ "${!check}" != "" ]; then \
+                          if [ "${!check#*&}" = "${!check}" ]; then \
+                              echo AddToMenu MenuGoToPage \\""\&${!check}\\"" GotoDeskAndPageWithReturn ${d} ${i} ${j}; \
+                          else \
+                              echo AddToMenu MenuGoToPage \\""${!check}"\\" GotoDeskAndPageWithReturn ${d} ${i} ${j}; \
+                          fi; \
+                      else \
+                         echo AddToMenu MenuGoToPage \\"${i}x${j}\\" GotoDeskAndPageWithReturn ${d} ${i} ${j}; \
+                      fi; \
+                   done; \
+                 done; \
+              done'
+
+DestroyFunc CreateMenuMoveWindowToPage
+AddToFunc CreateMenuMoveWindowToPage
++ I DestroyMenu recreate MenuMoveWindowToPage
++ I Piperead 'for d in `seq 0 $FVWMMaxDeskNumber`; do \
+                echo AddToMenu MenuMoveWindowToPage  \\"--- $$\\[desk.name${d}\\] ---\\" Title; \
+                for j in `seq 0 $FVWMmaxPageX`; do \
+                  for i in `seq 0 $FVWMmaxPageY`; do \
+                      check=FVWMPage${d}_${i}x${j}; \
+                      if [ "${!check}" != "" ]; then \
+                          if [ "${!check#*&}" = "${!check}" ]; then \
+                              echo AddToMenu MenuMoveWindowToPage \\""\&${!check}\\"" MoveToDeskAndPage ${d} ${i} ${j}; \
+                          else \
+                              echo AddToMenu MenuMoveWindowToPage \\""${!check}"\\" MoveToDeskAndPage ${d} ${i} ${j}; \
+                          fi; \
+                      else \
+                          echo AddToMenu MenuMoveWindowToPage " ${i}x${j}" MoveToDeskAndPage ${d} ${i} ${j}; \
+                      fi; \
+                   done; \
+                 done; \
+              done'
+
+DestroyFunc PopupMenuMoveWindowToPageWithSidePic
+AddToFunc PopupMenuMoveWindowToPageWithSidePic
++ I ChangeMenuStyle StyleMenuMoveWindowToPageWithSidePic MenuMoveWindowToPage
++ I Menu MenuMoveWindowToPage $*
++ I ChangeMenuStyle * MenuMoveWindowToPage
+
+DestroyFunc MoveCurrentDeskTo
+AddToFunc MoveCurrentDeskTo
++ I MoveDeskFromTo $[desk.n] $0
+
+DestroyFunc MoveDeskFromTo
+AddToFunc MoveDeskFromTo
++ I GotoDesk 0 $0
++ I All (CurrentDesk, !Sticky) MoveToDesk 0 $1
++ I GotoDesk 0 $1
++ I Piperead 'for x in `seq 0 $FVWMmaxPageX`; do \
+                for y in `seq 0 $FVWMmaxPageY`; do \
+                   varName=FVWMPage$0_$$$${x}x$$$${y}; \
+                   if [ "$$$${!varName}" != "" ]; then \
+                       echo SetEnv FVWMPage$1_$$$${x}x$$$${y} $$$${!varName}; \
+                   else \
+                       echo UnsetEnv FVWMPage$1_$$$${x}x$$$${y}; \
+                   fi; \
+                   echo UnsetEnv $$$$varName; \
+                done; \
+              done; \
+              echo DesktopName $1 $\\[desk.name$0\\]'
++ I DesktopName $0
++ I CreateMenuGoToPage
++ I CreateMenuMoveWindowToPage
++ I CreateMenuMoveCurrentDeskTo
+
+DestroyFunc CreateMenuMoveCurrentDeskTo
+AddToFunc CreateMenuMoveCurrentDeskTo
++ I DestroyMenu recreate MenuMoveCurrentDeskTo
++ I AddToMenu MenuMoveCurrentDeskTo "Move Desk To..." Title
++ I Piperead 'for d in `seq 0 $FVWMMaxDeskNumber`; do \
+        echo AddToMenu MenuMoveCurrentDeskTo \\\"$$\\[desk.name${d}\\]\\\" MoveCurrentDeskTo ${d}; \
+      done'
++ I AddToMenu MenuMoveCurrentDeskTo "" Nop
++ I AddToMenu MenuMoveCurrentDeskTo "Cancel" Break
+
+DestroyFunc NewDesk
+AddToFunc NewDesk
++ I Piperead "echo SetEnv FVWMMaxDeskNumber $$[ $[FVWMMaxDeskNumber] + 1 ]"
++ I KillModule FvwmPager
++ I Module FvwmPager 0 $[FVWMMaxDeskNumber]
++ I GotoDeskAndPageWithReturn $[FVWMMaxDeskNumber] 0 0
++ I Module FvwmForm FormDeskName
+
+DestroyFunc DeleteDesk
+AddToFunc DeleteDesk
++ I PipeRead 'for i in `seq $[desk.n] $(( $[FVWMMaxDeskNumber] - 1 ))`; do \
+           echo MoveDeskFromTo $(( i + 1 )) $i; \
+        done'
++ I Piperead 'for j in `seq 0 $FVWMmaxPageX`; do \
+                  for i in `seq 0 $FVWMmaxPageY`; do \
+                        echo UnsetEnv FVWMPage${FVWMMaxDeskNumber}_${i}x${j}; \
+                  done; \
+              done'
++ I Piperead "echo SetEnv FVWMMaxDeskNumber $$[ $[FVWMMaxDeskNumber] - 1 ]"
++ I CreateMenuGoToPage
++ I CreateMenuMoveWindowToPage
++ I CreateMenuMoveCurrentDeskTo
++ I KillModule FvwmPager
++ I Module FvwmPager 0 $[FVWMMaxDeskNumber]
+
+DestroyFunc DeleteLastDesk
+AddToFunc DeleteLastDesk
++ I Piperead 'for j in `seq 0 $FVWMmaxPageX`; do \
+                  for i in `seq 0 $FVWMmaxPageY`; do \
+                        echo UnsetEnv FVWMPage${FVWMMaxDeskNumber}_${i}x${j}; \
+                  done; \
+              done'
++ I DesktopName $[FVWMMaxDeskNumber]
++ I Piperead "echo SetEnv FVWMMaxDeskNumber $$[ $[FVWMMaxDeskNumber] - 1 ]"
++ I CreateMenuGoToPage
++ I CreateMenuMoveWindowToPage
++ I CreateMenuMoveCurrentDeskTo
++ I KillModule FvwmPager
++ I Module FvwmPager 0 $[FVWMMaxDeskNumber]
+
+# Transients come out of the title bar (OS-X like, I've been said)
+DestroyFunc NiceTransients
+AddToFunc NiceTransients
+#+ I WindowStyle WindowShadeSteps 0
+#+ I UpdateStyles
+#+ I WindowShade On
++ I PipeRead "parentId=`xprop -id $[w.id] | grep \"WM_TRANSIENT_FOR(WINDOW)\" | awk '{print $NF}'`; \
+              xwininfo -id ${parentId} | awk -v windowWidth=$[w.width] \
+                                              '/Absolute upper-left X:/ {parentX = $NF} \
+                                              /Absolute upper-left Y:/ {parentY = $NF} \
+                                              /Width:/ {parentWidth = $NF} \
+                                              END {print \"Move \" parentX + (parentWidth - windowWidth)/2 \"p \" parentY\"p\"}'"
+                                              #/Height:/ {parentHeight = $NF} \
+                                              #END {print \"SendToModule FvwmAnimate animate \" parentX \" \" parentY \" \" parentWidth \" \" parentHeight \" $[w.x] $[w.y] $[w.width] $[w.height]\"}'"
+#+ I WindowStyle WindowShadeSteps 2p
+#+ I UpdateStyles
+#+ I WindowShade Off
+
+# Special actions when creating windows
+DestroyFunc SpecialActionsForWindows
+AddToFunc SpecialActionsForWindows
++ I ThisWindow (transient, !psi, !Kopete, !Cervisia) NiceTransients
+# psi stuff
+# + I ThisWindow (Psi, !"Event notifier") Move -0 +0
+# + I ThisWindow (psi, !"Event notifier") Move -0 +0
+# + I ThisWindow (Psi, "Event notifier") Move -0 +1082p
+# + I ThisWindow (Psi, "Event notifier") All (psi, main) Lower
+# # kopete stuff
+# + I ThisWindow (Kopete, !"Notification - Kopete") Move -0 +0
+# + I ThisWindow (Kopete, "Notification - Kopete") KopeteNotificationShow
+# Gaim stuff
+#+ I ThisWindow (gaim) Move -0 +0
++ I ThisWindow (pidgin) Move -0 +0
+
+Style "Event notifier" Layer 0
+Style "Notification - Kopete" Layer 1, NeverFocus, !FPGrabFocus
+
+#DestroyFunc KopeteNotificationShow
+#AddToFunc KopeteNotificationShow
+#+ I Move -0 -0
+#+ I Current ("Kopete") WindowId $[w.id] Close
+#+ I TestRc (NoMatch) Schedule 3000 WindowId $[w.id] Close
+#+ I Current ("Kopete") Close
+#+ I TestRc (NoMatch) Schedule 6000 WindowId $[w.id] Close
+
+# Change the title of a window given it's id
+DestroyFunc ChangeWindowTitle
+AddToFunc ChangeWindowTitle
++ I Exec exec xprop -id $0 -set WM_NAME "$1"
++ I Exec exec xprop -id $0 -set WM_ICON_NAME "$1"
+
+# A more "elaborate" AltTab. It allows to go to the last focused
+# window when hitting "AltTab" only once
+
+# This is important
+Key Super_L A A SetEnv FVWMFirstAltTab YES
+Style * FPSortWindowlistByFocus
+
+DestroyFunc AltTab
+AddToFunc AltTab
++ I PipeRead 'if [ "$$FVWMFirstAltTab" != "NO" ]; then \
+                 echo FirstAltTab $0 $1; \
+              else \
+                 echo NthAltTab $0 $1; \
+              fi'
++ I SetEnv FVWMFirstAltTab NO
+
+DestroyFunc WarpAltTab
+AddToFunc WarpAltTab
++ I WarpToWindow 50 50
++ I FlipFocus
+
+DestroyFunc FirstAltTabAction
+AddToFunc FirstAltTabAction
++ I $0
++ I State 15 Off
++ I WindowId $1 (!Sticky, !Sticky) State 15 On
+
+DestroyFunc FirstAltTab
+AddToFunc FirstAltTab
++ I Current (State 15) NthAltTab $0 $1
++ I TestRc (NoMatch) $0 (CurrentPage, State 15, !Iconic, !Shaded, AcceptsFocus, !Sticky) FirstAltTabAction $1 $[w.id]
++ I TestRc (NoMatch) $0 (CurrentPage, !Iconic, !Shaded, AcceptsFocus, !Sticky) FirstAltTabAction $1 $[w.id]
+
+DestroyFunc NthAltTab
+AddToFunc NthAltTab
++ I $0 (CurrentPage, !Iconic, !Shaded, AcceptsFocus, !Sticky) $1
+
+# Functions for dealing with IM windows.
+#
+# Actually I prefer psi, but I didn't find any reliable transport for icq, so I
+# keep changing IM clients.
+
+# Psi
+# DestroyFunc HideUnhideIM
+# AddToFunc HideUnhideIM
+# + I Any (psi, !shaded, !Overlapped) HideIM
+# + I TestRc (NoMatch) Any (psi, !shaded, Overlapped) UnhideIM
+# + I TestRc (NoMatch) Any (psi, !"main", !shaded) HideIM
+# + I TestRc (NoMatch) Any (psi, !shaded) HideIM
+# + I TestRc (NoMatch) UnHideIM
+
+# DestroyFunc UnhideIM
+# AddToFunc UnhideIM
+# + I All (psi, !"Event notifier", shaded) Move -0 +0
+# + I All (psi, !"Event notifier", !"main") Raise
+# + I All (psi, !"Event notifier", shaded) WindowShade Off
+# + I Any (psi, !"Event notifier", !"main") Next (psi, !"main") WarpToWindow 50 1
+# + I TestRc (NoMatch) Next (psi, !"Event notifier") WarpToWindow 50 1
+
+# DestroyFunc HideIM
+# AddToFunc HideIM
+# + I All (psi, !"Event notifier", !shaded) WindowShade E
+# + I All (psi, !"Event notifier") Move -1000 -1000
+# + I Prev (CurrentPage, !Iconic, !Shaded, AcceptsFocus) Focus
+
+# kopete
+#DestroyFunc HideUnhideIM
+#AddToFunc HideUnhideIM
+#+ I Any (Kopete, !shaded, !Overlapped) HideIM
+#+ I TestRc (NoMatch) Any (Kopete, !shaded, Overlapped) UnhideIM
+#+ I TestRc (NoMatch) UnHideIM
+
+#DestroyFunc UnhideIM
+#AddToFunc UnhideIM
+#+ I All (Kopete, !"Notification - Kopete", shaded) Move -0 +0
+#+ I All (Kopete, !"Notification - Kopete") Raise
+#+ I All (Kopete, !"Notification - Kopete", shaded) WindowShade Off
+#+ I Any (Kopete, !"Notification - Kopete") Next (Kopete, "*- Kopete", !"Notification - Kopete") WarpToWindow 50 1
+#+ I TestRc (NoMatch) Next (Kopete, !"Notification - Kopete") WarpToWindow 50 1
+
+#DestroyFunc HideIM
+#AddToFunc HideIM
+#+ I All (Kopete, !"Notification - Kopete", !shaded) WindowShade E
+#+ I All (Kopete, !"Notification - Kopete") Move -1000 -1000
+#+ I Prev (CurrentPage, !Iconic, !Shaded, AcceptsFocus) Focus
+
+# Pidgin
+DestroyFunc HideUnhideIM
+AddToFunc HideUnhideIM
++ I Any (pidgin, !shaded, !Overlapped) HideIM
++ I TestRc (NoMatch) Any (pidgin, !shaded, Overlapped) UnhideIM
++ I TestRc (NoMatch) Any (pidgin, !"Buddy List", !shaded) HideIM
++ I TestRc (NoMatch) Any (pidgin, !shaded) HideIM
++ I TestRc (NoMatch) UnHideIM
+
+DestroyFunc UnhideIM
+AddToFunc UnhideIM
++ I All (CurrentPAge, State 15) State 15 Off
++ I Current State 15 On
++ I All (pidgin, shaded) Move -0 +0
++ I All (pidgin, !"Buddy List") Raise
++ I All (pidgin, shaded) WindowShade Off
++ I Any (pidgin, !"Buddy List") Next (pidgin, !"Buddy List") Focus
++ I TestRc (NoMatch) Next (pidgin) Focus
+
+DestroyFunc HideIM
+AddToFunc HideIM
++ I All (pidgin) State 15 Off
++ I Current (pidgin) All (CurrentPage, !Iconic, !Shaded, AcceptsFocus, State 15) Focus
++ I All (pidgin, !shaded) WindowShade E
++ I All (pidgin) Move -1000 -1000
+
+# Additionaly Gaim/pidgin can set the urgency flag for a windows when a message is received
+DestroyFunc UrgencyFunc
+AddToFunc UrgencyFunc
++ I ThisWindow (pidgin) NewIMMessage
++ I TestRc (NoMatch) StandardUrgencyFunc
+
+DestroyFunc UrgencyDoneFunc
+AddToFunc UrgencyDoneFunc
++ I ThisWindow (pidgin) RemoveIMMessage
++ I TestRc (NoMatch) StandardUrgencyDoneFunc
+
+DestroyFunc NewIMMessage
+AddToFunc NewIMMessage
++ I Deschedule 12321
++ I SendToModule *FvwmIMNotification SendString 1 1
++ I All (xv*Gaim*) Move -0 -0
++ I Schedule 5000 12321 All (xv*Gaim*) Move -5000 -5000
+
+DestroyFunc RemoveIMMessage
+AddToFunc RemoveIMMessage
++ I Deschedule 12321
++ I SendToModule *FvwmIMNotification SendString 1 2
++ I All (xv*Gaim*) Move -5000 -5000
+
+DestroyFunc StandardUrgencyFunc
+AddToFunc StandardUrgencyFunc
+ + I Iconify off
+ + I FlipFocus
+ + I Raise
+ + I WarpToWindow 5p 5p
+DestroyFunc StandardUrgencyDoneFunc
+AddToFunc StandardUrgencyDoneFunc
+ + I Nop
+
+Style FvwmIMMessageNotification Sticky, NeverFocus
+
+# Focus when changing pages
+DestroyFunc OnNewPage
+AddToFunc OnNewPage
++ I Current (CurrentPage) Nop
++ I TestRc (NoMatch) Next (CurrentPage, !Overlapped, !Iconic, !Sticky, !Shaded) Focus
++ I TestRc (NoMatch) Next (CurrentPage, Visible, !Iconic, !Sticky, !Shaded) Focus
++ I TestRc (NoMatch) Next (CurrentPage, Iconic) Focus
++ I ShowPageName
+
+# Expose-like function (needs patched FvwmRearrange)
+DestroyFunc Expose
+AddToFunc Expose
++ I SetEnv FVWMCountWindows 0
++ I All (CurrentPage, !Iconic, CirculateHit, !Sticky) PipeRead 'echo SetEnv FVWMCountWindows $((FVWMCountWindows + 1))'
++ I All (CurrentPage, !Iconic, CirculateHit, !Sticky, Maximized, !State 13, !State 14) State 16 On
++ I PipeRead 'echo ModuleSynchronous $[HOME]/.fvwm/FvwmRearrangeSync -tile -maximize -u -m -mn `$HOME/.fvwm/fvwmSqrt $FVWMCountWindows`'
++ I NoWindow Pick DeExpose $$$$[w.id]
+
+DestroyFunc DeExpose
+AddToFunc DeExpose
++ I All (CurrentPage, !Iconic, CirculateHit, !Sticky) DeExposeWindow
++ I WindowId $0 WarpToWindow 50 50
+
+DestroyFunc DeExposeWindow
+AddToFunc DeExposeWindow
++ I ThisWindow (State 16) Maximize On 100 100
++ I TestRc (NoMatch) Maximize off
++ I ThisWindow (State 13) Maximize On 0 100
++ I ThisWindow (State 14) Maximize On 100 0
++ I ThisWindow State 16 Off
+
+DestroyFunc ShowCursorPosition
+AddToFunc ShowCursorPosition
++ I *FvwmAnimate: Effect Frame
++ I SendToModule FvwmAnimate animate 0 0 $[vp.width] $[vp.height] $$[pointer.x] $$[pointer.y] 0 0
++ I *FvwmAnimate: Effect Zoom3D
+
+DestroyFunc WMIArrange
+AddToFunc WMIArrange
++ I Current ResizeMove frame $0 100 0 0
++ I Current WindowStyle WindowListSkip
++ I Current WarpToWindow 50 50
++ I UpdateStyles
++ I PipeRead "echo ModuleSynchronous $[HOME]/.fvwm/FvwmRearrangeSync -tile -u -m -h $0 0 $$(($[vp.width] - 1))p 100"
++ I Current WindowStyle WindowListHit
++ I Current Raise
+
+DestroyFunc ToggleTitle
+AddToFunc ToggleTitle
++ I Current (State 17) WindowStyle NoTitle
++ I TestRc (NoMatch) WindowStyle Title
++ I State 17
+
+DestroyFunc ShowCalendar
+AddToFunc ShowCalendar
++ I Exec exec urxvt -fn "xft:Monospace:size=12:bold" -bg gray80 -fg black +sb -geometry 20x9+0-0 -e $[HOME]/.fvwm/scripts/fvwmCal.sh
+
+DestroyFunc GetSwapWindowInfo
+AddToFunc GetSwapWindowInfo
++ I WindowId $1 SetEnv FvwmSwapWindowCoord_$0 "ResizeMove $$$$[w.width]p $$$$[w.height]p $$$$[w.x]p $$$$[w.y]p"
+
+# Parameter: direction
+DestroyFunc SwapWindows
+AddToFunc SwapWindows
++ I Current SetEnv FvwmSwapWindowId_current $$$$[w.id]
++ I Current SetEnv FvwmSwapWindowCoord_current "$$$$[w.width]p $$$$[w.height]p $$$$[w.x]p $$$$[w.y]p"
++ I Direction $0 (CurrentPage, !Iconic) SetEnv FvwmSwapWindowId_dest $$$$[w.id]
++ I Direction $0 (CurrentPage, !Iconic) SetEnv FvwmSwapWindowCoord_dest "$$$$[w.width]p $$$$[w.height]p $$$$[w.x]p $$$$[w.y]p"
++ I WindowId $[FvwmSwapWindowId_current] ResizeMove frame $[FvwmSwapWindowCoord_dest]
++ I WindowId $[FvwmSwapWindowId_dest] ResizeMove frame $[FvwmSwapWindowCoord_current]
++ I WindowId $[FvwmSwapWindowId_current] WarpToWindow 50 50
++ I UnsetEnv FvwmSwapWindowId_current
++ I UnsetEnv FvwmSwapWindowCoord_current
++ I UnsetEnv FvwmSwapWindowId_dest
++ I UnsetEnv FvwmSwapWindowCoord_dest
+
+############################# Modules
+# A tiny FvwmForm for giving names to pages
+DestroyModuleConfig FormPageName: *
+*FormPageName: WarpPointer
+*FormPageName: Line left
+*FormPageName: Text "Page name:"
+*FormPageName: Line expand
+*FormPageName: Input nombre 50
+*FormPageName: Button quit "OK" ^M
+*FormPageName: Command SetThisPageName $(nombre)
+
+# The same for desk names
+DestroyModuleConfig FormDeskName: *
+*FormDeskName: WarpPointer
+*FormDeskName: Line left
+*FormDeskName: Text "Desk name:"
+*FormDeskName: Line expand
+*FormDeskName: Input nombre 50
+*FormDeskName: Button quit "OK" ^M
+*FormDeskName: Command SetDeskName $$[desk.n] $(nombre)
+
+# And for changing window titles
+DestroyModuleConfig FormWindowTitle: *
+*FormWindowTitle: WarpPointer
+*FormWindowTitle: Position $POSX $POSY
+*FormWindowTitle: PadVText 0
+*FormWindowTitle: Line expand
+*FormWindowTitle: Input nombre 30 "$OLDTITLE"
+*FormWindowTitle: Button quit "OK" ^M
+*FormWindowTitle: Command ChangeWindowTitle $WINDOWID "$(nombre)"
+Style FormWindowTitle HandleWidth 0
+
+DestroyModuleConfig FvwmPager: *
+*FvwmPager: Balloons
+*FvwmPager: Colorset * 5
+*FvwmPager: HilightColorset * 6
+*FvwmPager: WindowColorsets 7 8
+*FvwmPager: BalloonColorset * 9
+*FvwmPager: SmallFont 5x8
+*FvwmPager: Balloons All
+*FvwmPager: BalloonFont "xft:mintsstrong;-artwiz-mintsstrong-*-*-*-*-8-*-*-*-*-*-iso8859-1"
+*FvwmPager: BalloonYOffset +2
+*FvwmPager: BalloonBorderWidth 1
+*FvwmPager: UseSkipList
+*FvwmPager: MoveThreshold 0
+#*FvwmPager: SolidSeparators
+*FvwmPager: WindowLabelFormat ""
+*FvwmPager: WindowBorderWidth 1
+*FvwmPager: Geometry -0-0
+*FvwmPager: DeskTopScale 32
+*FvwmPager: MiniIcons
+Style "FvwmPager" Sticky, StaysOnTop, BorderWidth 0, HandleWidth 0, Layer 1
+
+AddToFunc StartFunction I Module FvwmPager 0 $[FVWMMaxDeskNumber]
+
+# FvwmEvent: If we deiconify we delete the thumbnail
+DestroyModuleConfig FvwmEvent: *
+*FvwmEvent: deiconify DeiconifyAndRearrange
+*FvwmEvent: add_window SpecialActionsForWindows
+*FvwmEvent: new_page OnNewPage
+*FvwmEvent: new_desk OnNewPage
+AddToFunc StartFunction I Module FvwmEvent
+
+AddToFunc StartFunction I Module FvwmCommandS
+
+*FvwmAnimate: Effect Zoom3D
+*FvwmAnimate: Delay 15
+AddToFunc StartFunction I Module FvwmAnimate
+
+# Some nice scripts
+DestroyFunc StartScriptAndMove
+AddToFunc StartScriptAndMove
++ I FvwmScript $0
++ I Wait $1
++ I All ($1) Move $2 $3
+
+Style FvwmClock Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, BorderWidth 0, HandleWidth 0, Layer 0
+Style FvwmQuota Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, BorderWidth 0, HandleWidth 0, Layer 0
+Style FvwmMemLoad Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, BorderWidth 0, HandleWidth 0, Layer 0
+Style FvwmMail Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, BorderWidth 0, HandleWidth 0, Layer 0
+Style FvwmPageName Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, BorderWidth 0, HandleWidth 0, Layer 0
+Style FvwmIMNotification Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, BorderWidth 0, HandleWidth 0, Layer 0
+
+AddToFunc StartFunction
++ I StartScriptAndMove $[HOME]/.fvwm/scripts/FvwmClock FvwmClock +0p -0p
++ I StartScriptAndMove $[HOME]/.fvwm/scripts/FvwmMemLoad FvwmMemLoad +10p -23p
+#+ I StartScriptAndMove $[HOME]/.fvwm/scripts/FvwmQuota FvwmQuota +230p -23p
++ I StartScriptAndMove $[HOME]/.fvwm/scripts/FvwmMail FvwmMail +320p -0p
++ I StartScriptAndMove $[HOME]/.fvwm/scripts/FvwmPageName FvwmPageName +10p -63p
+#+ I StartScriptAndMove $[HOME]/.fvwm/scripts/FvwmIMNotification FvwmIMNotification -0 -95p
+
+Style StdButtons Sticky, NoTitle, CirculateSkip, WindowListSkip, NeverFocus, BorderWidth 0, HandleWidth 0, Layer 0
+DestroyModuleConfig StdButtons: *
+*StdButtons: Font "xft:Freesans:Bold:pixelsize=16"
+*StdButtons: Colorset 18
+*StdButtons: Columns 1
+*StdButtons: Frame 0
+*StdButtons: Padding 2 2
+*StdButtons: Geometry +193-0
+*StdButtons: (Id state, Title "Logged Out", \
+              Action (Mouse 1) 'SendToModule *FvwmStd SendString 1 2', \
+              Action (Mouse 2) 'Exec exec std g', \
+              Action (Mouse 3) 'SendToModule *FvwmStd SendString 1 1')
+AddToFunc StartFunction I Module FvwmButtons StdButtons
+
+AddToFunc StartFunction
++ I StartScriptAndMove $[HOME]/.fvwm/scripts/FvwmStd FvwmStd -1000 -1000
+

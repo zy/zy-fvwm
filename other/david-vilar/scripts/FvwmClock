@@ -1,0 +1,32 @@
+# $Id: FvwmClock,v 1.5 2007-06-20 17:38:50 vilar Exp $
+
+WindowTitle {FvwmClock}
+WindowSize 195 22
+Colorset 18
+Font "xft:Freesans:Bold:pixelsize=16"
+
+Init
+  Begin
+    Set $getDate = {date +"%H:%M %a, %e %b %Y"}
+    ChangeTitle 1 (GetOutput $getDate 1 -1)
+  End
+
+PeriodicTasks
+  Begin
+    If (RemainderOfDiv (GetTime) 60)==0 Then
+      ChangeTitle 1 (GetOutput $getDate 1 -1)
+  End
+
+Widget 1
+  Property
+    Type ItemDraw
+    Position 5 0
+    Size 190 20
+    Flags NoReliefString
+  Main
+  Case message of
+  SingleClic:
+  Begin
+    Do {ShowCalendar}
+  End
+End

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Author: Piotr Zielinski
+# Licence: GPL2
+# Date: 03.12.2005
+
+# this requires Gnome >= 2.10, I think
+
+if test -f /etc/xdg/menus/gnome-applications.menu
+then
+    menulist=$(ls /etc/xdg/menus/gnome-*.menu)
+else
+    menulist=$(ls /etc/xdg/menus/*.menu)
+fi
+
+$(dirname $0)/fvwm-xdg-menu.py "$@" $menulist 

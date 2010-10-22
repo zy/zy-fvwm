@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "DISPLAY=$DISPLAY notify '$2' yellow '$3'" | at $1
+

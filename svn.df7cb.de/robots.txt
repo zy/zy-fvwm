@@ -1,0 +1,6 @@
+# /robots.txt for svn.df7cb.de
+# http://www.robotstxt.org/wc/norobots.html
+# cb 2005-08-14
+User-agent: *
+Disallow: /viewcvs.cgi
+Disallow: /viewcvsdoc

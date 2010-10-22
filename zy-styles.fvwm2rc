@@ -1,0 +1,169 @@
+# -*- fvwm -*-
+# Time-stamp: <zy-styles.fvwm2rc, 12-09-2009 08:24 Ziyu Zhang >
+
+# ==============
+# Focus Behavior
+# ==============
+ColormapFocus FollowsMouse
+
+# ==================================Font======================================
+
+# DefaultFont "-macromedia-domestic manners-medium-r-normal--10-*-*-*-*-*-iso10646-*"
+# X's font rendering without anti-aliasing looks least bad with the following:
+# WindowFont -adobe-times-bold-r-*-*-18-*-*-*-*-*-*-*
+# IconFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+
+#DefaultFont Font "-*-ar pl new sung-medium-r-normal-*-*-120-*-*-p-*-gb2312.1980-0"
+#DefaultFont "StringEncoding=gbk-0:Shadow=1 1 SE:xft:ar pl new sung:size=11:encoding=iso10646-1"
+# DefaultFont "xft:ar pl new sung:size=12:encoding=iso10646-1"
+DefaultFont	 "xft:wenquanyi bitmap song:size=10:encoding=iso10646-1"
+# wenquanyi
+# ==================================Style======================================
+
+Style *		 ClickToFocus, MouseFocusClickRaises
+Style *		Colorset 3, HilightColorset 4
+# Style *	 HilightColorset 3
+# Style *	HilightFore black, HilightBack palevioletred
+# Style *	HilightFore black, HilightBack gainsboro
+
+# Style *			Font -adobe-times-bold-r-*-*-14*-*-*-*-*-*-*
+# Style *	 Font "Shadow=1 1 SE:xft:sans:bold:pixelsize=14:minspace=True"
+# Style *	 Font "xft:wenquanyi bitmap song:size=10:encoding=iso10646-1"
+
+# Style *	 Font StringEncoding=utf-8:xft:WenQuanYi Bitmap Song:Bold:size=10:encoding=iso10646-1"
+# Style *	 Font -wenquanyi-wenquanyi bitmap song-medium-r-normal--12-*-*-*-*-*-iso10646-1
+Style *		Font "xft:wenquanyi bitmap song:size=10:encoding=iso10646-1"
+
+Style *		Title, NoIcon, NoIconTitle
+Style *		BorderWidth 1, HandleWidth 1, DepressableBorder
+Style *		UseDecor zy-decor
+
+Style *		DecorateTransient
+
+# Style *	 ManualPlacement, NoPPosition
+# Style *	 ManualPlacement, NoPPosition
+
+Style *Dialog_popup WindowListSkip
+
+# The default colors for window titles and frames might as well be documented:
+# Style * Color	 white/dimgrey
+# Style *		 WindowShadeShrinks, WindowShadeSteps 100
+# Style *		 RaiseTransient LowerTransient StackTransientParent
+#Style * NoActiveIconOverride
+
+# ==================================Styles Fvwm modules======================================
+
+Style Fvwm*		 NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 2, CirculateSkipIcon, CirculateSkip
+
+Style FvwmWinList NoTitle, NoHandles, WindowListSkip, CirculateSkip
+
+# Style FvwmConsole SloppyFocus
+
+Style FvwmPager StaysOnTop, BorderWidth 0, WindowSkipList
+
+# VariablePosition, VariableUSPosition	Icon acroread.png
+
+# ==================================Styles for programs======================================
+# stylename is	case-sensitive
+
+# Style NoResource	 !Title BorderWidth 0, HandleWidth 0
+
+Style emacs			!Title, !Borders, HandleWidth 0, BorderWidth 0,
+# FixedSize, FixedPosition, !Maximizable
+Style emacs-snapshot		!Title, !Borders, HandleWidth 0, BorderWidth 0
+# ,FixedSize, FixedPosition, !Maximizable
+
+Style *Conkeror*	!Title, !Borders, HandleWidth 0, BorderWidth 0
+Style *Firefox*		!Title, !Borders, HandleWidth 0, BorderWidth 0
+Style *chrome*		!Title, !Borders, HandleWidth 0, BorderWidth 0
+# NoButton 1, NoButton 2, NoButton 4, Layer 8
+
+# Style acroread	 !Title, !Borders, HandleWidth 0, BorderWidth 0, FixedSize, FixedPosition, !Maximizable
+Style xpdf			!Borders, HandleWidth 0, BorderWidth 0, FixedSize, FixedPosition
+Style xdvi			!Borders, HandleWidth 0, BorderWidth 0, FixedSize, FixedPosition
+
+# Style xmms		 !Title, , WindowListSkip
+# Style realplayer	 Layer 7 realplay16.png, WindowListSkip
+
+# Style rxvt		 ClickToFocus
+Style Rxvt			!Title, !Borders, HandleWidth 0, BorderWidth 0, FixedSize, FixedPosition, !Maximizable
+
+Style dclock		!Title, Sticky, WindowListSkip, NoHandles, Layer 6
+Style asclock		!Title, Sticky, WindowListSkip, NoHandles, Layer 6
+Style xclock	 	!Title, Sticky, WindowListSkip, NoHandles, Layer 6
+Style xload			!Title, Sticky, WindowListSkip, NeverFocus,	 StaysOnBottom
+Style conky			!Title, Sticky, WindowListSkip, NeverFocus,	 StaysOnBottom
+
+# Style mplayer		!Title,
+
+Style xbiff		 !Title, Sticky, WindowListSkip, ClickToFocus
+Style xcalc		 !Title, Sticky, WindowListSkip, ClickToFocus
+Style xman		 Icon xman.xpm, RandomPlacement, ClickToFocus
+Style xmag		 RandomPlacement, ClickToFocus
+
+# Style XOsview Icon xosview.xpm, ClickToFocus
+# Style Gimp Icon gimp.xpm, StaysOnTop
+# Style XEyes !Title, StaysOnTop, Sticky, WindowListSkip
+# Style Xmag Icon xmag.xpm
+# Style Metafont StaysOnTop
+
+# ==================================Colorsets======================================
+
+# ==============
+# Menu Colorset
+# ==============
+Colorset 0 fg #ffffff, fgsh #000000, bg #f6f6f6, sh #6e90b3, hi #91b6db, Translucent #061326 65
+#light_blue Colorset 0 fg #ffffff, fgsh #000000, bg #f6f6f6, sh #6e90b3, hi #91b6db, Translucent #283e5e 65
+Colorset 1 fg #000000, fgsh #b5b7b8, bg #ffffff, hi #ffffff, sh #9a9a9a, Translucent #dce0e7 50
+
+#### General Colorset
+Colorset 3 fg #f6f6f6, bg #000000, fgsh #000000, NoShape, RootTransparent, Tint #283e5e 70, IconAlpha 60
+Colorset 4 fg #ffffff, bg #000000, fgsh #000000, Noshape, RootTransparent, Tint #101f36 70, IconAlpha 100
+
+Colorset 5 fg #ffffff, bg #000000
+
+Colorset 6	fg #ffffff, bg #000000, RootTransparent
+
+Colorset 7 fg black, bg white, sh white, RootTransparent Buffer, Tint #f6f6f6 20
+
+# ==============
+# Dock Colorset
+# ==============
+#Colorset 30 fg #ffffff, bg #ffffff, hi #dde5ec, sh #a6bbce, RootTransparent , Tint #101F36 65
+Colorset 30 fg #ffffff, bg #ffffff, hi #dde5ec, sh #a6bbce, RootTransparent , Tint #061326 65
+
+# ==============
+# Pager Colorset
+# ==============
+
+Colorset 60 fg white, bg black, RootTransparent, Tint black 20
+Colorset 61 fg white, bg black, Noshape, RootTransparent, Tint #101f36 70
+Colorset 62 fg white, bg black, RootTransparent, Tint #466696 50
+Colorset 63 fg white, bg black, Noshape, RootTransparent, Tint #101f36 50
+
+# ==================================Mouse======================================
+
+# Specifies the maximum delay in milliseconds between a button press and a button release for the Function command to consider
+# the action a mouse click.
+
+# The default delay is 150 milliseconds.
+ClickTime 2750
+MoveThreshold 3
+# IgnoreModifiers L25
+
+# ==================================Cursor======================================
+# CursorStyle ROOT 58
+# CursorStyle TITLE left_ptr #b24d7a black
+## CursorStyle TITLE 62
+# CursorStyle STROKE 86
+
+#### Change style to left_ptr and fleur (missing cursors in my theme)
+CursorStyle root left_ptr
+CursorStyle default left_ptr
+CursorStyle position left_ptr
+CursorStyle sys left_ptr
+CursorStyle menu left_ptr
+CursorStyle title left_ptr
+CursorStyle resize fleur
+CursorStyle stroke cross
+CursorStyle select draped_box

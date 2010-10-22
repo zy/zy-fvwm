@@ -1,0 +1,13 @@
+# -*- fvwm -*-
+# Time-stamp: <test, 11-11-2008 05:43 Ziyu Zhang >
+
+#Key Keyname Context Modifiers Function
+
+Key	 Tab 	A	 M	 WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd
+
+# ==============
+# Print
+# ==============
+Key	 Tab 	A	 M	 WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd
+Key	 Tab 	A	 M	 WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd
+# x set-variable indent-tabs-mode		

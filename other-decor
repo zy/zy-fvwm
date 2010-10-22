@@ -1,0 +1,92 @@
+#  -*- fvwm -*-
+# Time-stamp: <other-decor, 10-30-2008 20:03 Ziyu Zhang >
+
+# ==================================Window Decor Decor_blue======================================
+DestroyDecor Decor_blue
+AddToDecor   Decor_blue
+
+# Font configuration
++ WindowFont      -adobe-helvetica-bold-r-*-*-14-*-*-*-*-*-*-*
++ IconFont        -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
++ 
+# HighlightColor
+# HilightColor  linen SteelBlue4
+# 
++ BorderStyle Active Solid SteelBlue4 -- NoInset HiddenHandles
+  BorderStyle Inactive Solid #11236b -- NoInset HiddenHandles
++ 
+# TitleStyle
++ TitleStyle ActiveUp Solid SteelBlue4 -- flat
++ TitleStyle ActiveDown Solid SteelBlue4 -- flat
++ TitleStyle Inactive Solid #11236b -- flat
+# 
+# # The Second Variation of TitleStyle:
+# TitleStyle LeftJustified height 18
+
++ ButtonStyle All -- UseTitleStyle flat
++ ButtonStyle 1 14 20x20@1 20x70@1 70x70@0 70x20@0 20x20@1 60x60@0 60x50@0 60x60@0 50x60@0 60x60@0 60x80@0 80x80@0 80x60@0 60x60@0
++ ButtonStyle 2 16 60x40@1 60x80@0 15x80@0 15x40@1 60x40@1 40x40@1 40x25@1 75x25@1 75x60@0 60x60@0 75x60@0 75x40@0 85x40@0 85x15@0 60x15@1 60x25@1 
++ ButtonStyle 4 12 50x10@1 25x35@1 40x35@1 40x60@1 25x60@1 50x85@1 75x60@0 60x60@0 60x35@0 75x35@0 50x10@0 50x10@1 
++ ButtonStyle 6 12 10x50@1 35x25@1 35x40@1 65x40@1 65x25@1 90x50@1 65x75@0 65x60@0 35x60@0 35x75@0 10x50@0 10x50@1
++ ButtonStyle 8 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x70@1 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+
++ MenuStyle * background #455561, ActiveFore #ccfcf0, ForeGround black
++ MenuStyle * popupoffset 0 100
++ MenuStyle * MenuFace HGradient 64 1 #758591 100 #102030, Animation
+
+
+#Style for shade windows (transparent titles)
+DestroyDecor ShadedWindowDecor
+AddToDecor ShadedWindowDecor
++ TitleStyle Colorset 14
++ TitleStyle Height 20 -- Flat
++ TitleStyle LeftJustified
++ ButtonStyle 3 7 70x15@0 30x55@1 50x55@0 40x85@1 80x45@0 60x45@1 70x15@0
++ ButtonStyle 2 Vector 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 \
+                           60x50@0 80x70@0 80x80@0 70x80@0 50x60@0 30x80@0 \
+                           20x80@0 20x70@1 40x50@1 20x30@0 20x20@1
++ ButtonStyle 4 Vector 5 25x75@0 75x75@0 75x25@0 25x25@1 25x75@1
++ ButtonStyle 6 Vector 4 50x75@1 25x25@1 75x25@1 50x75@0
++ ButtonStyle All -- Flat
++ ButtonStyle All -- UseTitleStyle
+
+
+# Set up some desktop options
+# DesktopSize     1x1
+
+# EdgeResistance scrolling moving
+# EdgeResistance  750 75
+
+# EdgeScroll horizontal vertical
+# EdgeScroll      100 100
+
+# OpaqueMoveSize percentage
+# OpaqueMoveSize 1
+
+
+# ==================================Window Decor Decor_grey======================================
+DestroyDecor Decor_grey
+AddToDecor   Decor_grey
++ TitleStyle  Height 20 Inactive (HGradient 128  2 grey85 50 grey70 50 grey50) -- Flat
++ TitleStyle ActiveUp    (HGradient 128 2 LightSkyBlue 20  grey70 LightSkyBlue3  10)-- Flat
++ TitleStyle ActiveDown  (HGradient 128 2 black 50 rgb:80/80/80 50 black -- Sunk)
+# + TitleStyle InActive ( Colorset 7 -- Flat ) Active ( Colorset 7 -- Flat )
+# + ButtonStyle All InActive ( Colorset 7 -- Flat )
+# + ButtonStyle All Active ( Colorset 7 -- Flat )
++ BorderStyle Active Solid black -- NoInset HiddenHandles
++ BorderStyle Inactive Solid black -- NoInset HiddenHandles
+  
++ BorderStyle Simple --  Flat
+
+
+# ============
+# MenuStyle
+# ============
++ MenuStyle * MWM
++ MenuStyle * PopupDelayed, PopupDelay 160, Animation, TitleWarp
++ MenuStyle * Foreground black, Background gray40
++ MenuStyle * ActiveFore blue
+# + MenuStyle * Font  -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
++ MenuStyle * Font -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
++ MenuStyle * MenuFace VGradient 45 gray90 gray80  
+#+ MenuStyle * MenuFace TiledPixmap weird10dark.xpm

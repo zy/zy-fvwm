@@ -1,0 +1,309 @@
+#  -*- fvwm -*-
+# Time-stamp: <zy-styles-bak.fvwm2rc, 09-16-2009 15:15 Ziyu Zhang >
+
+EdgeResistance 1000 0
+
+# ==================================Style======================================
+
+# Style *           UseDecor zy_Decor_grey
+# Style *           UseDecor zy_Decor_blue
+Style *           UseDecor aquaDecor
+# Style *           UseDecor ShadedWindowDecor
+# Style * UseDecor fvwm-decor
+
+Style * Colorset 3, HilightColorset 4
+# Style * HilightColorset 3 
+Style * Font "Shadow=1 1 SE:xft:sans:bold:pixelsize=14:minspace=True"
+# Style *           Font -adobe-times-bold-r-*-*-14*-*-*-*-*-*-*
+
+Style * NoIcon, NoIconTitle
+# Style *           HilightFore black, HilightBack palevioletred
+# Style *         HilightFore black, HilightBack gainsboro
+Style *           DecorateTransient, NoPPosition
+Style *           BorderWidth 1, HandleWidth 1, DepressableBorder
+# Style *           MWMFunctions, MWMDecor, HintOverride
+# Style *           SloppyFocus, FocusFollowsMouse 
+Style *           ClickToFocus, MouseFocusClickRaises 
+Style "*Dialog_popup" WindowListSkip
+
+
+
+# The default colors for window titles and frames might as well be documented:
+# Style * Color   white/dimgrey
+# Style *         WindowShadeShrinks, WindowShadeSteps 100
+# Style *         RaiseTransient LowerTransient StackTransientParent
+#Style * NoActiveIconOverride
+
+#================ Styles for various Fvwm modules=================
+
+Style "Fvwm*"        NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 2, CirculateSkipIcon, CirculateSkip
+
+Style "FvwmWinList"     NoTitle
+# Style "FvwmPager"       StaysOnTop, BorderWidth 0
+
+# Style "FvwmConsole" SloppyFocus
+
+# Style FvwmPager WindowSkipList
+
+# VariablePosition, VariableUSPosition  Icon acroread.png
+
+# ==================================Cursor======================================
+# CursorStyle ROOT 58
+# CursorStyle TITLE left_ptr #b24d7a black
+# # CursorStyle TITLE 62
+# CursorStyle STROKE 86
+
+#### Change style to left_ptr and fleur (missing cursors in my theme)
+CursorStyle root left_ptr
+CursorStyle default left_ptr 
+CursorStyle position left_ptr
+CursorStyle sys left_ptr 
+CursorStyle menu left_ptr
+CursorStyle title left_ptr
+CursorStyle resize fleur
+CursorStyle stroke cross
+CursorStyle select draped_box
+
+
+# ==================================Styles for  programs======================================
+
+# Style "firefox"      NoTitle, !Borders, HandleWidth 0, BorderWidth 0
+Style "firefox"      NoTitle, !Borders, HandleWidth 0, BorderWidth 0, FixedSize, FixedPosition, !Maximizable
+Style "*Firefox" 	NoTitle,EwmhUseStrutHints
+
+Style "emacs"        NoTitle, !Borders, HandleWidth 0, BorderWidth 0, FixedSize, FixedPosition, !Maximizable
+# Icon emacs.png 
+
+# Style "acroread"     NoTitle, !Borders, HandleWidth 0, BorderWidth 0, FixedSize, FixedPosition, !Maximizable 
+Style "acroread"     NoTitle, 
+
+# Style "xmms"          NoTitle, , WindowListSkip
+# Style "realplayer"   Layer 7 realplay16.png, WindowListSkip
+
+Style "rxvt"         ClickToFocus      
+
+Style "NoResource"   NoTitle BorderWidth 0, HandleWidth 0
+
+Style "asclock"      NoTitle, Sticky, WindowListSkip, NoHandles, Layer 6
+Style "xload"        NoTitle, Sticky, WindowListSkip, NeverFocus,  StaysOnBottom
+
+Style "MPlayer"      NoTitle, 
+
+Style "Xdvi help"    
+
+Style "xbiff"       NoTitle, Sticky, WindowListSkip, ClickToFocus
+Style "xcalc"       Icon xcalc.xpm, NoButton 2,RandomPlacement,ClickToFocus
+Style "xmh"         Icon mail1.xpm, NoIconTitle,StickyIcon
+Style "xmh"	    RandomPlacement, NoButton 2
+Style "xman"	    Icon xman.xpm, RandomPlacement, ClickToFocus
+Style "xmag"	    RandomPlacement, ClickToFocus
+
+
+# Style XOsview Icon xosview.xpm, ClickToFocus
+# Style Gimp Icon gimp.xpm, StaysOnTop
+# Style XEyes NoTitle, StaysOnTop, Sticky, WindowListSkip
+# Style Xmag Icon xmag.xpm
+# Style Metafont StaysOnTop
+
+
+
+# ==================================Colorsets======================================
+#### 
+# ==============
+# Menu Colorset
+# ==============
+Colorset 0 fg #ffffff, fgsh #000000, bg #f6f6f6, sh #6e90b3, hi #91b6db, Translucent #061326 65
+#light_blue Colorset 0 fg #ffffff, fgsh #000000, bg #f6f6f6, sh #6e90b3, hi #91b6db, Translucent #283e5e 65
+Colorset 1 fg #000000, fgsh #b5b7b8, bg #ffffff, hi #ffffff, sh #9a9a9a, Translucent #dce0e7 50
+
+#### General Colorset
+Colorset 3 fg #f6f6f6, bg #000000, fgsh #000000, NoShape, RootTransparent, Tint #283e5e 70, IconAlpha 60
+Colorset 4 fg #ffffff, bg #000000, fgsh #000000, Noshape, RootTransparent, Tint #101f36 70, IconAlpha 100
+
+Colorset 5 fg #ffffff, bg #000000
+
+Colorset 6  fg #ffffff, bg #000000, RootTransparent
+
+Colorset 7 fg black, bg white, sh white, RootTransparent Buffer, Tint #f6f6f6 20
+
+# ==============
+# Dock Colorset
+# ==============
+#Colorset 30 fg #ffffff, bg #ffffff, hi #dde5ec, sh #a6bbce, RootTransparent , Tint #101F36 65
+Colorset 30 fg #ffffff, bg #ffffff, hi #dde5ec, sh #a6bbce, RootTransparent , Tint #061326 65
+
+# ==============
+# Pager Colorset
+# ==============
+
+Colorset 60 fg white, bg black, RootTransparent, Tint black 20
+Colorset 61 fg white, bg black, Noshape, RootTransparent, Tint #101f36 70
+Colorset 62 fg white, bg black, RootTransparent, Tint #466696 50
+Colorset 63 fg white, bg black, Noshape, RootTransparent, Tint #101f36 50
+
+###################################################################
+
+
+
+
+
+
+# decor
+DestroyDecor fvwm-decor
+AddToDecor fvwm-decor
+
++ TitleStyle ActiveUp Colorset 3
++ TitleStyle ActiveDown Colorset 3
++ TitleStyle InActive Colorset 4
++ TitleStyle LeftJustified
++ TitleStyle -- flat
++ TitleStyle Height 20
+
++ BorderStyle -- HiddenHandles
++ BorderStyle -- Flat
+
+
+# ==================================Window Decor zy_Decor_blue======================================
+DestroyDecor zy_Decor_blue
+AddToDecor   zy_Decor_blue
+
+# Font configuration
++ WindowFont      -adobe-helvetica-bold-r-*-*-14-*-*-*-*-*-*-*
++ IconFont        -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
++ 
+# HighlightColor
+# HilightColor  linen SteelBlue4
+# 
++ BorderStyle Active Solid SteelBlue4 -- NoInset HiddenHandles
+  BorderStyle Inactive Solid #11236b -- NoInset HiddenHandles
++ 
+# TitleStyle
++ TitleStyle ActiveUp Solid SteelBlue4 -- flat
++ TitleStyle ActiveDown Solid SteelBlue4 -- flat
++ TitleStyle Inactive Solid #11236b -- flat
+# 
+# # The Second Variation of TitleStyle:
+# TitleStyle LeftJustified height 18
+
++ ButtonStyle All -- UseTitleStyle flat
++ ButtonStyle 1 14 20x20@1 20x70@1 70x70@0 70x20@0 20x20@1 60x60@0 60x50@0 60x60@0 50x60@0 60x60@0 60x80@0 80x80@0 80x60@0 60x60@0
++ ButtonStyle 2 16 60x40@1 60x80@0 15x80@0 15x40@1 60x40@1 40x40@1 40x25@1 75x25@1 75x60@0 60x60@0 75x60@0 75x40@0 85x40@0 85x15@0 60x15@1 60x25@1 
++ ButtonStyle 4 12 50x10@1 25x35@1 40x35@1 40x60@1 25x60@1 50x85@1 75x60@0 60x60@0 60x35@0 75x35@0 50x10@0 50x10@1 
++ ButtonStyle 6 12 10x50@1 35x25@1 35x40@1 65x40@1 65x25@1 90x50@1 65x75@0 65x60@0 35x60@0 35x75@0 10x50@0 10x50@1
++ ButtonStyle 8 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x70@1 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
+
++ MenuStyle * background #455561, ActiveFore #ccfcf0, ForeGround black
++ MenuStyle * popupoffset 0 100
++ MenuStyle * MenuFace HGradient 64 1 #758591 100 #102030, Animation
+
+
+# Aqua (visual) style for windows
+DestroyDecor aquaDecor
+AddToDecor aquaDecor
++ TitleStyle TiledPixmap aqua/title-active.xpm
++ TitleStyle Inactive TiledPixmap aqua/title-inactive.xpm
++ TitleStyle Height 21 -- Flat
++ ButtonStyle All Inactive Pixmap aqua/button-inactive.png
++ ButtonStyle 1 ActiveUp Pixmap aqua/one_window-active.png
++ ButtonStyle 1 ActiveDown Pixmap aqua/one_window-highlight.png
++ ButtonStyle 1 - MwmDecorMenu
++ ButtonStyle 3 ActiveUp Pixmap aqua/sticky-active.png
++ ButtonStyle 3 ActiveDown Pixmap aqua/sticky-highlight.png
++ ButtonStyle 3 - MwmDecorStick
++ ButtonStyle 2 ActiveUp Pixmap aqua/close-active.png
++ ButtonStyle 2 ActiveDown Pixmap aqua/close-highlight.png
++ ButtonStyle 2 - Clear
++ ButtonStyle 4 ActiveUp Pixmap aqua/maximize-active.png
++ ButtonStyle 4 Activedown Pixmap aqua/maximize-highlight.png
++ ButtonStyle 4 - MwmDecorMax
++ ButtonStyle 6 ActiveUp Pixmap aqua/iconify-active.png
++ ButtonStyle 6 ActiveDown Pixmap aqua/iconify-highlight.png
++ ButtonStyle 6 - MwmDecorMin
++ ButtonStyle All -- Flat
++ ButtonStyle All -- UseTitleStyle
++ BorderStyle -- HiddenHandles
++ BorderStyle Inactive -- HiddenHandles
+
+#Style for shade windows (transparent titles)
+DestroyDecor ShadedWindowDecor
+AddToDecor ShadedWindowDecor
++ TitleStyle Colorset 14
++ TitleStyle Height 20 -- Flat
++ TitleStyle LeftJustified
++ ButtonStyle 3 7 70x15@0 30x55@1 50x55@0 40x85@1 80x45@0 60x45@1 70x15@0
++ ButtonStyle 2 Vector 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 \
+                           60x50@0 80x70@0 80x80@0 70x80@0 50x60@0 30x80@0 \
+                           20x80@0 20x70@1 40x50@1 20x30@0 20x20@1
++ ButtonStyle 4 Vector 5 25x75@0 75x75@0 75x25@0 25x25@1 25x75@1
++ ButtonStyle 6 Vector 4 50x75@1 25x25@1 75x25@1 50x75@0
++ ButtonStyle All -- Flat
++ ButtonStyle All -- UseTitleStyle
+
+
+# Set up some desktop options
+DesktopSize 1x1
+DesktopName Main
+
+# EdgeResistance scrolling moving
+# EdgeResistance  750 75
+
+# EdgeScroll horizontal vertical
+# EdgeScroll      100 100
+
+# OpaqueMoveSize percentage
+# OpaqueMoveSize 1
+
+
+# ==================================Window Decor zy_Decor_grey======================================
+DestroyDecor zy_Decor_grey
+AddToDecor   zy_Decor_grey
++ TitleStyle  Height 20 Inactive (HGradient 128  2 grey85 50 grey70 50 grey50) -- Flat
++ TitleStyle ActiveUp    (HGradient 128 2 LightSkyBlue 20  grey70 LightSkyBlue3  10)-- Flat
++ TitleStyle ActiveDown  (HGradient 128 2 black 50 rgb:80/80/80 50 black -- Sunk)
+# + TitleStyle InActive ( Colorset 7 -- Flat ) Active ( Colorset 7 -- Flat )
+# + ButtonStyle All InActive ( Colorset 7 -- Flat )
+# + ButtonStyle All Active ( Colorset 7 -- Flat )
++ BorderStyle Active Solid black -- NoInset HiddenHandles
++ BorderStyle Inactive Solid black -- NoInset HiddenHandles
+  
++ BorderStyle Simple --  Flat
+
+# + ButtonStyle All ActiveDown VGradient 8 palevioletred black # All -- UseTitleStyle
+# # +--------------------------------------------------------------------------+
+# # | 1 3 5 7 9			   Title			 0 8 6 4 2 |
+# # |--------------------------------------------------------------------------|
+# boutton 1:  Maximize
++ ButtonStyle 1 19 56x54@0 50x54@0 50x60@0 59x60@0 59x54@0 56x54@0 83x30@0 68x30@1 83x15@0 59x15@1 50x36@1 62x36@0 56x54@1 64x46@0 78x46@0 78x77@0 25x77@0 25x46@0 50x46@0 -- Flat
+# boutton 3 : Iconify
++ ButtonStyle 3 Vector 7  65x15@0 25x55@1 45x55@0 35x85@1 75x45@0 55x45@1 65x15@0 -- Flat
+# boutton 5: Close
++ ButtonStyle 5 16 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1  -- Flat
+
+# 4 stacked rectangular panels like stills of a window being minimized
+# + ButtonStyle 7 19 95x20@0 95x60@0 75x60@0 75x40@0 75x70@0 55x70@0 55x60@0 55x85@0 15x85@0 15x60@1 55x60@1 30x60@1 30x40@1 75x40@1 45x40@1 45x20@1 95x20@1 -- Flat
+
+
+#+ AddButtonStyle  1 InActive MiniIcon -- Flat
+# + AddButtonStyle  2 Active Vector 4 40x40@2 60x60@2 60x40@4 40x60@2 -- Flat
+# + AddButtonStyle  2 Inactive Vector 4 40x40@3 60x60@3 60x40@4 40x60@3 -- Flat
+# + AddButtonStyle  2 AllUp Vector 4 40x45@1 60x65@1 60x45@4 40x65@1 -- Flat
+# + AddButtonStyle  4 Active Vector 7 40x40@2 40x60@2 60x60@2 60x40@2 40x40@2 40x45@2 60x45@2 -- Flat
+# + AddButtonStyle  4 Inactive Vector 7 40x40@3 40x60@3 60x60@3 60x40@3 40x40@3 40x45@3 60x45@3 -- Flat
+# + AddButtonStyle  4 AllUp Vector 4 40x65@1 60x65@1 45x50@4 55x50@1 -- Flat
+# + AddButtonStyle  6 Active Vector 5 40x60@2 60x60@2 60x55@2 40x55@2 40x60@2 -- Flat
+# + AddButtonStyle  6 Inactive Vector 5 40x60@3 60x60@3 60x55@3 40x55@3 40x60@3 -- Flat
+# + AddButtonStyle  6 AllUp Vector 2 40x65@1 60x65@1 -- Flat
+
+
+# ============
+# MenuStyle
+# ============
++ MenuStyle * MWM
++ MenuStyle * PopupDelayed, PopupDelay 160, Animation, TitleWarp
++ MenuStyle * Foreground black, Background gray40
++ MenuStyle * ActiveFore blue
+# + MenuStyle * Font  -*-simsun-medium-r-*-*-14-*-*-*-*-*-*-*
++ MenuStyle * Font -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
++ MenuStyle * MenuFace VGradient 45 gray90 gray80  
+#+ MenuStyle * MenuFace TiledPixmap weird10dark.xpm
+

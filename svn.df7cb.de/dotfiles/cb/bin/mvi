@@ -1,0 +1,101 @@
+#!/usr/bin/perl -w
+# mvi - rename files interactively (mv-vi)
+# $Id$
+# (c) 2001..2004, 2006 Christoph Berg <cb@df7cb.de>
+# This program is free software covered by the GNU GPL.
+#
+# 010711 cb v0.1
+# 030312 cb v0.2: better quoting
+# 040408 cb v0.3: support for editing symlinks, use strict
+# 040507 cb v0.4: does not use a sh script any more
+# 060719 cb v0.5: warn instead of overwriting files
+
+use strict;
+use File::Temp qw/tempfile/;
+use Getopt::Std;
+
+my %opts;
+getopts("0c:f:v", \%opts);
+
+my $argc = @ARGV;
+$opts{f} ||= "-" if $opts{0};
+die "$0: no arguments given" if $argc == 0 and not $opts{f};
+die "$0: arguments given with -f" if $argc > 0 and $opts{f};
+if($opts{f}) {
+	open F, $opts{f} or die "$0: $opts{f}: $!";
+	while(<F>) {
+		chomp;
+		push @ARGV, $_;
+	}
+	close F;
+	$argc = @ARGV;
+}
+
+my ($fh, $file) = tempfile();
+
+#print $fh "apply mv -iv %O %N\n";
+#print $fh "skip-unchanged 1\n";
+#print $fh "verbose 0\n";
+for my $i (0 .. $argc - 1) {
+	if ($opts{c}) {
+		print $fh "$opts{c} $ARGV[$i] $ARGV[$i]\n";
+	} else {
+		printf $fh "%6d\t%s\n", $i, $ARGV[$i];
+	}
+}
+close $fh;
+
+my $editor = $ENV{EDITOR} || "vi";
+system "$editor $file";
+
+if ($opts{c}) {
+	system "sh $file";
+	unlink $file, "$file~";
+	exit 0;
+}
+
+open FH, $file or die "$file: $!";
+
+my $apply = "echo apply undefined";
+my $skip = 1;
+my $exit = 0;
+while(<FH>) {
+	next if /^\s*#/;
+	next if /^\s*$/;
+	if(/^apply (.*)/) {
+		$apply = $1;
+		next;
+	}
+	if(/^skip-unchanged (1|0)$/) {
+		$skip = $1;
+		next;
+	}
+	if(/^verbose (1|0)$/) {
+		$opts{v} = $1;
+		next;
+	}
+	if(/^([ \d]{6})\t(.+)/) {
+		my $i = $1 + 0;
+		my $n = $2;
+		die "$file.$.: unknown number '$i'" if $i < 0 or $i >= $argc;
+		next if $skip and $n eq $ARGV[$i];
+		#my $cmd = $apply;
+		#$cmd =~ s/\%O/$ARGV[$i]/;
+		#$cmd =~ s/\%N/$n/;
+		#print "$i: $cmd\n" if $verbose;
+		#system $cmd;
+		print "mv $ARGV[$i] $n\n" if $opts{v};
+		if (-e $n) {
+			print STDERR "Warning: not renaming $ARGV[$i], $n exists\n";
+			$exit = 1;
+			next;
+		}
+		rename $ARGV[$i], $n or warn "rename $ARGV[$i], $n: $!";
+		next;
+	}
+	die "$file.$.: parse error: $_"; # $_ ends with \n
+}
+close FH;
+
+unlink $file, "$file~";
+exit $exit;

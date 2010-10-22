@@ -1,0 +1,114 @@
+# Time-stamp: <zy-keys-mouse-x60.fvwm2rc, 2010-03-18 19:51 Ziyu Zhang >
+
+# =====================Key-Binding=================================
+
+# Context #
+# R - the root window I - Icon F - frame corners S - frame sides,
+# T - title bar W - application window 0-9 - buttons
+
+# beginning-of-protection
+#  ___________________________________
+# |                                   |
+# |   R                       R       |
+# |                                   |
+# |     F___________________ F        |
+# |     |13579 T  T  T 08642|         |
+# |     |-------------------|         |
+# |    S|                   |S        |
+# |     |   W          W    |         |
+# |    S|                   |S        |
+# |     |                   |         |
+# | R   |                   |   R     |
+# |     |                   |         |
+# |    S|                   |S        |
+# |     |   W          W    |         |
+# |    S|                   |S        |
+# |     |                   |         |
+# |    F|___________________|F        |
+# |   R       S       S        R      |
+# |               R                   |
+# |___________________________________|
+# end-of-protection
+
+# Modifiers #
+# C - Ctrl M - Meta(Alt) S - Shift A - Any 3 Super 4 Hyper N - None
+
+# IgnoreModifiers
+
+#Key Keyname Context Modifiers Function
+
+# Key Tab A M WindowList Root c c CurrentDesk, NoGeometry, CurrentAtEnd, IconifiedAtEnd
+
+# To remove the window list binding, use this:
+Key Tab A M -
+
+# ==============
+# Print
+# ==============
+Key Print A N Function toggle-emacs-hot_program
+# Key Print A N Function toggle-emacs-fvwm_pdf_viewer
+# Key Print A N Function toggle-emacs-acroread
+# Key Print A M Function toggle-desk
+# Key Print A 3 Restart fvwm2
+Key Print A C ThisWindow (!FvwmTaskBar, !FvwmButtons !FvwmPager) Maximize 100 -28p
+
+# Style fvwm-run-dialog FPGrabFocus, FPReleaseFocus
+# Key Print A 4 Exec exec sh $zy/linux/x/fvwm/run-dialog.sh
+
+# + I Test (EnvMatch emacs_flag 1) Function switch-window "emacs-snapshot"
+
+# ==============
+# Scroll_Lock
+# ==============
+Key Scroll_Lock A N Function FuncFocusNextWindow
+Key Scroll_Lock A 3 Restart fvwm2
+Key Scroll_Lock A 4 Function toggle-FvwmConsole
+
+# ==============
+# Pause
+# ==============
+Key Pause A N ThisWindow (!Iconic,!FvwmTaskBar, !FvwmButtons, !FvwmPager) Close
+Key Pause A C ThisWindow (!Iconic,!FvwmTaskBar, !FvwmButtons, !FvwmPager) Destroy
+# , !emacs
+Key Pause 	A 3 Restart fvwm2
+# Key Pause A C PipeRead "pgrep -u $(whoami) firefox | xargs kill -9 "
+Key Pause A M Exec exec sudo /sbin/reboot
+# Key Pause A 4 Exec exec sudo /sbin/halt
+Key Pause A 4 Exec exec sudo shutdown -h 0
+
+# Key Print A 3 Test (!EnvIsSet fvwm_host) Exec exec firefox
+# I Exec exec echo "fvwm-root --retain-pixmap $[fvwm_img]/wallpaper/$0" > $[fvwm_home]/cfg/background.cfg
+
+# ==================================Mouse======================================
+
+# Button #
+# 1 --- click the left mouse button
+# 2 --- click the middle mouse button
+# 3 --- click the right mouse button
+# 4 --- scroll up
+# 5 --- scroll down
+
+# Button Context Modifier Function
+
+#Mouse on Root
+Mouse 1 R N StrokeFunc DrawMotion
+Mouse 3 R N WindowList
+
+#Mouse on Window
+# +--------------------------------------------------------------------------+
+# | 1 3 5 7 9 Title 0 8 6 4 2 |
+# |--------------------------------------------------------------------------|
+
+Mouse 1 1 A Maximize 100 -30p
+Mouse 1 3 A Lower
+Mouse 1 5 A Close
+
+# Mouse 1 T A Move-or-Raise
+# Mouse 3 T A Menu FvwmWindowOpsMenu
+Mouse 3 T A Menu TaskBar-Window-Ops
+
+Mouse 1 6 A Destroy
+Mouse 1 4 A Iconify
+Mouse 1 2 A Maximize 100 -30p
+
+# can not key binding 
